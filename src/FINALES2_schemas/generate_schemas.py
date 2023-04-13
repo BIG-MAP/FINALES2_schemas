@@ -1,7 +1,7 @@
 import json
 import pathlib
 
-from parameter_classes import DensityCommon, DensityOutput
+from parameter_classes import DensityInput, DensityOutput
 
 BASEPATH = pathlib.Path(__file__).parent.resolve()
 BASEPATH_SCHEMAS = BASEPATH / 'parameter_schemas'
@@ -25,11 +25,11 @@ def generate_quantity(quantity_name, method_name, input_schema, output_schema, f
         json.dump(dictobj, fileobj, indent=2)
 
 if __name__ == "__main__":
-    generate_schema(DensityCommon, BASEPATH_SCHEMAS / 'density_common.json')
+    generate_schema(DensityInput, BASEPATH_SCHEMAS / 'density_input.json')
     generate_schema(DensityOutput, BASEPATH_SCHEMAS / 'density_output.json')
 
     quantity_path = BASEPATH_QUANTITIES / 'density' / 'vibrating_tube_densimetry.json'
-    generate_quantity('density', 'vibratingTubeDensimetry', DensityCommon, DensityOutput, quantity_path)
+    generate_quantity('density', 'vibratingTubeDensimetry', DensityInput, DensityOutput, quantity_path)
 
     quantity_path = BASEPATH_QUANTITIES / 'density' / 'molecular_dynamics_simulation.json'
-    generate_quantity('density', 'molecularDynamicsSimulation', DensityCommon, DensityOutput, quantity_path)
+    generate_quantity('density', 'molecularDynamicsSimulation', DensityInput, DensityOutput, quantity_path)

@@ -1,5 +1,6 @@
 from .density import *
 
 __all__ = (
-    'DensityCommon',
+    'DensityInput',
+    'DensityOutput',
 )
