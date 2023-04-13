@@ -1,11 +1,11 @@
 {
-  "title": "DensityCommon",
+  "title": "DensityInput",
   "description": "Parameters to be used with the following quantities:\n`density` - `vibratingTubeDensimetry`\n`density` - `molecularDynamicsSimulation`",
   "type": "object",
   "properties": {
     "formulation": {
       "title": "Formulation",
-      "description": "This is a formulation defining the Chemicals contained in thesample and their fraction in the total mixture.",
+      "description": "This is a formulation defining the Chemicals contained in the sample and their fraction in the total mixture.",
       "allOf": [
         {
           "$ref": "#/definitions/Formulation"
@@ -15,7 +15,7 @@
     "temperature": {
       "title": "Temperature",
       "description": "This is the temperature of measuring cell.",
-      "unit": "SIunit.kelvin",
+      "unit": "kelvin",
       "type": "number"
     }
   },
@@ -40,7 +40,7 @@
         },
         "InChIKey": {
           "title": "Inchikey",
-          "description": "The hashed standard International Chemical Identifier ofthe chemical to ensure machine-readability.",
+          "description": "The hashed standard International Chemical Identifier of the chemical to ensure machine-readability.",
           "type": "string"
         }
       },
@@ -56,7 +56,8 @@
       "enum": [
         "molPerMol",
         "volumePerVolume"
-      ]
+      ],
+      "type": "string"
     },
     "Formulation": {
       "title": "Formulation",
@@ -65,12 +66,18 @@
       "properties": {
         "name": {
           "title": "Name",
-          "description": "A human readable name of the chemical.",
+          "description": "A human readable name of the formulation.",
           "type": "string"
+        },
+        "uuid": {
+          "title": "Uuid",
+          "description": "A unique identifier assigned to this formulation in this run.",
+          "type": "string",
+          "format": "uuid"
         },
         "chemicals": {
           "title": "Chemicals",
-          "description": "A dictionary of the chemicals included in the formulation.InChIKeys as keys and corresponding Chemical objects as values.",
+          "description": "A dictionary of the chemicals included in the formulation. InChIKeys as keys and corresponding Chemical objects as values.",
           "type": "object",
           "additionalProperties": {
             "$ref": "#/definitions/Chemical"
@@ -78,14 +85,14 @@
         },
         "chemicalComposition": {
           "title": "Chemicalcomposition",
-          "description": "A dictionary with the InChIKey as the key and the respectiveunitless fraction of the chemical in the total of the mixture as avalue.",
+          "description": "A dictionary with the InChIKey as the key and the respective unitless fraction of the chemical in the total of the mixture as a value.",
           "type": "object",
           "additionalProperties": {
             "type": "number"
           }
         },
         "fractionType": {
-          "description": "A value of an enumeration defining, what kind of a fraction isgiven in the formulation. This can be for example molar fractions,volume fractions, mass fractions,....",
+          "description": "A value of an enumeration defining, what kind of a fraction is given in the formulation. This can be for example molar fractions, volume fractions, mass fractions,....",
           "allOf": [
             {
               "$ref": "#/definitions/FractionType"
@@ -95,6 +102,7 @@
       },
       "required": [
         "name",
+        "uuid",
         "chemicals",
         "chemicalComposition",
         "fractionType"

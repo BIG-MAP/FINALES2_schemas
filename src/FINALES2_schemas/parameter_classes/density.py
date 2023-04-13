@@ -78,15 +78,17 @@ class FormulationInfo(BaseModel):
 class ChemicalInfo(BaseModel):
     """Additional information about a chemical, which is relevant for documentation
     purposes"""
-    molarMass:Optional[Tuple[float, float, str]] = Field(
-        description=("The molar mass of the chemical, the correcponding uncertainty "
-                     "and the unit. This may be a measured quantity or a literature "
+    molarMass:Optional[Tuple[float, float]] = Field(
+        unit=str(unitRegistry.g / unitRegistry.mole),
+        description=("The molar mass of the chemical and the correcponding uncertainty. "
+                     "This may be a measured quantity or a literature "
                      "value. It is needed to convert between volumetric and molar "
                      "ratios and this field serves to report the used value.")
     )
-    density:Optional[Tuple[float, float, str]] = Field(
-        description=("The density of the chemical, the correcponding uncertainty "
-                     "and the unit. This may be a measured quantity or a literature "
+    density:Optional[Tuple[float, float]] = Field(
+        unit=str(unitRegistry.g * unitRegistry.cm ** 3),
+        description=("The density of the chemical and the correcponding uncertainty. "
+                     "This may be a measured quantity or a literature "
                      "value. It is needed to convert between volumetric and molar "
                      "ratios and this field serves to report the used value.")
     )
@@ -129,7 +131,7 @@ class DensityOutput(BaseModel):
         description=("This is the metadata concerning the formulation relevant for "
                     "documentation.")
     )
-    chemicalsInfo:Optional[dict[ChemicalInfo]] = Field(
+    chemicalsInfo:Optional[dict[str, ChemicalInfo]] = Field(
         description=("This is a dictionary of metadata of the chemicals relevant for "
                     "documentation. The keys are InChIKeys of the chemicals contained "
                     "in the formulation and the values are ChemicalInfo objects.")
