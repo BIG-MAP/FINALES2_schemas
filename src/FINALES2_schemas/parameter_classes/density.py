@@ -36,3 +36,13 @@ class DensityCommon(BaseModel):
         units="kelvin",
         description="This is the temperature of measuring cell."
     )
+
+
+class DensityOutput(BaseModel):
+    """
+    Result for the density.
+    """
+    density_value: float = Field(
+        units="g/L",
+        description="The value of the density."
+    )

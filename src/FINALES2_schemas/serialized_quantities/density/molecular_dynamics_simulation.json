@@ -1,7 +1,7 @@
 {
   "quantity": "density",
   "method": "molecularDynamicsSimulation",
-  "specifications": {
+  "json_schema_specifications": {
     "title": "DensityCommon",
     "description": "Parameters to be used with the following quantities:\n`density` - `vibratingTubeDensimetry`\n`density` - `molecularDynamicsSimulation`",
     "type": "object",
@@ -73,6 +73,22 @@
         ]
       }
     }
+  },
+  "json_schema_result_output": {
+    "title": "DensityOutput",
+    "description": "Result for the density.",
+    "type": "object",
+    "properties": {
+      "density_value": {
+        "title": "Density Value",
+        "description": "The value of the density.",
+        "units": "g/L",
+        "type": "number"
+      }
+    },
+    "required": [
+      "density_value"
+    ]
   },
   "is_active": true
 }
