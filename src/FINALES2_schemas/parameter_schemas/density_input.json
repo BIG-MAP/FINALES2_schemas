@@ -54,8 +54,7 @@
       "title": "FractionType",
       "description": "Fraction types used to specify formulations",
       "enum": [
-        "molPerMol",
-        "volumePerVolume"
+        "molPerMol"
       ],
       "type": "string"
     },
@@ -92,7 +91,7 @@
           }
         },
         "fractionType": {
-          "description": "A value of an enumeration defining, what kind of a fraction is given in the formulation. This can be for example molar fractions, volume fractions, mass fractions,....",
+          "description": "A value of an enumeration defining, what kind of a fraction is given in the formulation. This can be for example molar fractions, volume fractions, mass fractions,.... At the moment only molar fractions are supported.",
           "allOf": [
             {
               "$ref": "#/definitions/FractionType"
