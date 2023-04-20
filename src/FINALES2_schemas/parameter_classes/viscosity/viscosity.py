@@ -1,7 +1,7 @@
 from typing import List, Optional, Union, Tuple, Any
 from pydantic import BaseModel, Field
 from datetime import date
-from .generalSchemas import FractionType, Chemical, Formulation, ChemicalInfo, FormulationInfo
+from ..generalSchemas import FractionType, Chemical, Formulation, ChemicalInfo, FormulationInfo
 from enum import Enum
 from uuid import UUID
 import pint
@@ -9,11 +9,51 @@ import pint
 # To get the units available
 unitRegistry = pint.UnitRegistry()
 
-class DensityInput(BaseModel):
+# class FractionType(str, Enum):
+#     """Fraction types used to specify formulations"""
+#     molPerMol = "molPerMol"
+#     volumePerVolume = "volumePerVolume"
+
+# class Chemical(BaseModel):
+#     """Subclass"""
+#     name:str = Field(
+#         description="A human readable name of the chemical."
+#     )
+#     smiles:str = Field(
+#         description="A SMILES string representing the chemical."
+#     )
+#     InChIKey:str = Field(
+#         description=("The hashed standard International Chemical Identifier of "
+#                     "the chemical to ensure machine-readability.")
+#     )
+
+# class Formulation(BaseModel):
+#     """Subclass"""
+#     name:str = Field(
+#         description="A human readable name of the formulation."
+#     )
+#     uuid:UUID = Field(
+#         description="A unique identifier assigned to this formulation in this run."
+#     )
+#     chemicals:dict[str, Chemical] = Field(
+#         description=("A dictionary of the chemicals included in the formulation. "
+#                     "InChIKeys as keys and corresponding Chemical objects as values.")
+#     )
+#     chemicalComposition:dict[str, float] = Field(
+#         description=("A dictionary with the InChIKey as the key and the respective "
+#                     "unitless fraction of the chemical in the total of the mixture as a "
+#                      "value.")
+#     )
+#     fractionType:FractionType = Field(
+#         description=("A value of an enumeration defining, what kind of a fraction is "
+#                     "given in the formulation. This can be for example molar fractions, "
+#                     "volume fractions, mass fractions,....")
+#     )
+
+class ViscosityInput(BaseModel):
     """
     Parameters to be used with the following quantities:
-    `density` - `vibratingTubeDensimetry`
-    `density` - `molecularDynamicsSimulation`
+    `viscosity` - `rollingBallViscosimetry`
     """
     formulation:Formulation = Field(
         description=("This is a formulation defining the Chemicals contained in the "
@@ -43,11 +83,10 @@ class RunInfo(BaseModel):
                     "in the formulation and the values are ChemicalInfo objects.")
     )
 
-class DensityOutput(BaseModel):
+class ViscosityOutput(BaseModel):
     """
     Results returned from the following quantities:
-    `density` - `vibratingTubeDensimetry`
-    `density` - `molecularDynamicsSimulation`
+    `viscosity` - `rollingBallViscosimetry`
     """
     values:list[float] = Field(
         unit=str(unitRegistry.g * unitRegistry.cm ** -3),

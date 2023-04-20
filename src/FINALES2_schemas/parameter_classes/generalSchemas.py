@@ -86,3 +86,58 @@ class ChemicalInfo(BaseModel):
     manufacturingDate:Optional[date] = Field(
         description="The date when the chemical was manufactured."
     )
+
+class RunInfo(BaseModel):
+    formulation:Formulation = Field(
+        description=("This is a formulation defining the Chemicals contained in the"
+                    "sample and their fraction in the total mixture.")
+    )
+    internalReference:str = Field(
+        description=("This field is an internal ID identifying this run of the method."
+                    " In experimental setups, this may reference to an ID of the sample.")
+    )
+    formulationInfo:Optional[FormulationInfo] = Field(
+        description=("This is the metadata concerning the formulation relevant for "
+                    "documentation.")
+    )
+    chemicalsInfo:Optional[dict[str, ChemicalInfo]] = Field(
+        description=("This is a dictionary of metadata of the chemicals relevant for "
+                    "documentation. The keys are InChIKeys of the chemicals contained "
+                    "in the formulation and the values are ChemicalInfo objects.")
+    )
+
+class MethodMeta(BaseModel):
+    success:bool = Field(
+        description=("This reports, if the method finished successfully.")
+    )
+    rating:int = Field(
+        description=("This field serves to rate the quality of the result from the "
+                     "tenant side. It shall serve as a support for the recieving party "
+                     "upon evaluating the trustworthiness of the result. It shall range "
+                     "from 0 (lowest) to 5 (highest).")
+    )
+
+class Electrode(BaseModel):
+    material:Formulation = Field(
+        description=("The description of the composition of the electrode.")
+    )
+    massLoading:float = Field(
+        unit=unitRegistry.mAh * unitRegistry.cm **-2,
+        description=("The capacity per unit area of the electrode.")
+    )
+    currentCollector:str = Field(
+        description=("A designation of the current collector material. E.g. 'copper' or 'aluminium'.")
+    )
+
+
+class BatteryChemistry(BaseModel):
+    electrolyte:Formulation = Field(
+        description = ("The definition of the composition of the electrolyte used in the "
+                     "cells, for which the prediction shall be made")
+    )
+    anode:Electrode = Field(
+        description=("The definition of the anode.")
+    )
+    cathode:Electrode = Field(
+        description=("The definition of the cathode.")
+    )
