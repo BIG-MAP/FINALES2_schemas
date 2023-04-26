@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
-from ..common_subclasses.battery_chemistry import BatteryChemistry
-from ..common_subclasses.unit_registry import unit_registry
+from parameter_classes.common_subclasses.battery_chemistry import BatteryChemistry
+from parameter_classes.common_subclasses.unit_registry import unit_registry
 
 class DegradationEOLInput(BaseModel):
     """The parameters used by the following method
@@ -16,17 +16,17 @@ class DegradationEOLInput(BaseModel):
         description=("The number of cycles provided as an input to the model.")
     )
     averageChargingRate:float = Field(
-        unit=unit_registry.h **-1,
+        unit=str(unit_registry.h **-1),
         description=("The average C-rate used for charging of the cell in the cycles "
                      "provided as an input.")
     )
     maximumChargingRate:float = Field(
-        unit=unit_registry.h **-1,
+        unit=str(unit_registry.h **-1),
         description=("The maximum C-rate used for charging of the cell in the cycles "
                      "provided as an input.")
     )
     minimumChargingRate:float = Field(
-        unit=unit_registry.h **-1,
+        unit=str(unit_registry.h **-1),
         description=("The minimum C-rate used for charging of the cell in the cycles "
                      "provided as an input.")
     )
@@ -34,7 +34,7 @@ class DegradationEOLInput(BaseModel):
         description=("The difference in coulombic efficiency between cycle x and 10.")
     )
     voltageGapChargeDischarge:float = Field(
-        unit=unit_registry.v,
+        unit=str(unit_registry.V),
         description=("The difference of the voltage gap between charge and discharge "
                      "between cycle x and 10.")
     )
@@ -57,11 +57,11 @@ class DegradationEOLOutput(BaseModel):
         description=("The uncertainty of the predicted end of life for the cell.")
     )
     capacityTrajectory:list[float] = Field(
-        unit=unit_registry.mAh,
+        unit=str(unit_registry.mAh),
         description=("The predicted capacity evolution for future cycles.")
     )
     capacityTrajectoryUncertainty:list[float] = Field(
-        unit=unit_registry.mAh,
+        unit=str(unit_registry.mAh),
         description=("The uncertainty associated with each datapoint in the predicted "
                      "capacity evolution.")
     )

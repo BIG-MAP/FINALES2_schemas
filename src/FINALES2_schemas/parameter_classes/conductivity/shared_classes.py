@@ -1,9 +1,9 @@
 from pydantic import BaseModel, Field
 from typing import Optional
 
-from ..common_subclasses.formulation import Formulation
-from ..common_subclasses.mathod_meta import MethodMeta
-from ..common_subclasses.unit_registry import unit_registry
+from parameter_classes.common_subclasses.formulation import Formulation
+from parameter_classes.common_subclasses.mathod_meta import MethodMeta
+from parameter_classes.common_subclasses.unit_registry import unit_registry
 
 class ConductivityInput(BaseModel):
     """Parameters used by the quantities

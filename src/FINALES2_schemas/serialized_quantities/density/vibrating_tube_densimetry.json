@@ -1,6 +1,6 @@
 {
   "quantity": "density",
-  "method": "vibratingTubeDensimetry",
+  "method": "vibrating_tube_densimetry",
   "json_schema_specifications": {
     "title": "DensityInput",
     "description": "Parameters to be used with the following quantities:\n`density` - `vibratingTubeDensimetry`\n`density` - `molecularDynamicsSimulation`",
@@ -338,6 +338,26 @@
           "internalReference"
         ]
       },
+      "MethodMeta": {
+        "title": "MethodMeta",
+        "type": "object",
+        "properties": {
+          "success": {
+            "title": "Success",
+            "description": "This reports, if the method finished successfully.",
+            "type": "boolean"
+          },
+          "rating": {
+            "title": "Rating",
+            "description": "This field serves to rate the quality of the result from the tenant side. It shall serve as a support for the recieving party upon evaluating the trustworthiness of the result. It shall range from 0 (lowest) to 5 (highest).",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "success",
+          "rating"
+        ]
+      },
       "DensityOutput": {
         "title": "DensityOutput",
         "description": "Results returned from the following quantities:\n`density` - `vibratingTubeDensimetry`\n`density` - `molecularDynamicsSimulation`",
@@ -352,27 +372,25 @@
               "type": "number"
             }
           },
-          "success": {
-            "title": "Success",
-            "description": "This reports, if the method finished successfully.",
-            "type": "boolean"
-          },
-          "rating": {
-            "title": "Rating",
-            "description": "This field serves to rate the quality of the result from the tenant side. It shall range from 0 (lowest) to 5 (highest).",
-            "type": "integer"
-          },
           "temperature": {
             "title": "Temperature",
-            "description": "This is the temperature of measuring cell.",
+            "description": "This is the actual temperature of measuring cell.",
             "unit": "kelvin",
             "type": "number"
+          },
+          "meta": {
+            "title": "Meta",
+            "description": "This field provides information regarding the reliability of the reported data. E.g. the success of the method for this quantity and the rating of the data. This is for this specific quantity, because a single method could fail individually for different quantities.",
+            "allOf": [
+              {
+                "$ref": "#/definitions/MethodMeta"
+              }
+            ]
           }
         },
         "required": [
           "values",
-          "success",
-          "rating"
+          "meta"
         ]
       }
     }

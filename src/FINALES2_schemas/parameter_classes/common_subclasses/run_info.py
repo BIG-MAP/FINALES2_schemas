@@ -1,8 +1,8 @@
 from pydantic import BaseModel, Field
 from typing import Optional
-from formulation import Formulation
-from chemical_info import ChemicalInfo
-from formulation_info import FormulationInfo
+from parameter_classes.common_subclasses.formulation import Formulation
+from parameter_classes.common_subclasses.chemical_info import ChemicalInfo
+from parameter_classes.common_subclasses.formulation_info import FormulationInfo
 
 class RunInfo(BaseModel):
     formulation:Formulation = Field(

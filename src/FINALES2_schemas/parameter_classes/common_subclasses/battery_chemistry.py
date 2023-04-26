@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
-from formulation import Formulation
-from electrode import Electrode
+from parameter_classes.common_subclasses.formulation import Formulation
+from parameter_classes.common_subclasses.electrode import Electrode
 
 class BatteryChemistry(BaseModel):
     electrolyte:Formulation = Field(

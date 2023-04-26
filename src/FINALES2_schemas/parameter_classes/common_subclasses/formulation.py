@@ -1,7 +1,7 @@
 from pydantic import BaseModel, Field
 from uuid import UUID
-from chemical import Chemical
-from fraction_type import FractionType
+from parameter_classes.common_subclasses.chemical import Chemical
+from parameter_classes.common_subclasses.fraction_type import FractionType
 
 class Formulation(BaseModel):
     """Subclass"""

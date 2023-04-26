@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
-from ..common_subclasses.run_info import RunInfo
-from .shared_classes import ConductivityOutput
+from parameter_classes.common_subclasses.run_info import RunInfo
+from parameter_classes.conductivity.shared_classes import ConductivityOutput
 
 class ConductivityTwoElectrodeOutput(BaseModel):
     runInfo:RunInfo = Field(

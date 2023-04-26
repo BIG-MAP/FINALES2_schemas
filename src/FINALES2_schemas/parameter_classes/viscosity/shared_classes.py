@@ -1,12 +1,13 @@
 from typing import List, Optional, Union, Tuple, Any
 from pydantic import BaseModel, Field
 from datetime import date
-from ..common_subclasses.fraction_type import FractionType
-from ..common_subclasses.chemical import Chemical
-from ..common_subclasses.formulation import Formulation
-from ..common_subclasses.chemical_info import ChemicalInfo
-from ..common_subclasses.formulation_info import FormulationInfo
-from ..common_subclasses.unit_registry import unit_registry
+from parameter_classes.common_subclasses.fraction_type import FractionType
+from parameter_classes.common_subclasses.chemical import Chemical
+from parameter_classes.common_subclasses.formulation import Formulation
+from parameter_classes.common_subclasses.chemical_info import ChemicalInfo
+from parameter_classes.common_subclasses.formulation_info import FormulationInfo
+from parameter_classes.common_subclasses.run_info import RunInfo
+from parameter_classes.common_subclasses.unit_registry import unit_registry
 
 class ViscosityInput(BaseModel):
     """
@@ -20,25 +21,6 @@ class ViscosityInput(BaseModel):
     temperature: Optional[float] = Field(
         unit=str(unit_registry.kelvin),
         description="This is the temperature of measuring cell."
-    )
-
-class RunInfo(BaseModel):
-    formulation:Formulation = Field(
-        description=("This is a formulation defining the Chemicals contained in the"
-                    "sample and their fraction in the total mixture.")
-    )
-    internalReference:str = Field(
-        description=("This field is an internal ID identifying this run of the method."
-                    " In experimental setups, this may reference to an ID of the sample.")
-    )
-    formulationInfo:Optional[FormulationInfo] = Field(
-        description=("This is the metadata concerning the formulation relevant for "
-                    "documentation.")
-    )
-    chemicalsInfo:Optional[dict[str, ChemicalInfo]] = Field(
-        description=("This is a dictionary of metadata of the chemicals relevant for "
-                    "documentation. The keys are InChIKeys of the chemicals contained "
-                    "in the formulation and the values are ChemicalInfo objects.")
     )
 
 class ViscosityOutput(BaseModel):

@@ -1,5 +1,5 @@
 {
-  "title": "DensityVibratingTubeDensimetryOutput",
+  "title": "DegradationEOLDegradationModelOutput",
   "type": "object",
   "properties": {
     "runInfo": {
@@ -11,19 +11,19 @@
         }
       ]
     },
-    "density": {
-      "title": "Density",
-      "description": "The output generated for the density data.",
+    "degradationEOL": {
+      "title": "Degradationeol",
+      "description": "The data corresponding to the end of life for the cell and the degradation trajectory, each with the respective uncertainty.",
       "allOf": [
         {
-          "$ref": "#/definitions/DensityOutput"
+          "$ref": "#/definitions/DegradationEOLOutput"
         }
       ]
     }
   },
   "required": [
     "runInfo",
-    "density"
+    "degradationEOL"
   ],
   "definitions": {
     "Chemical": {
@@ -224,41 +224,45 @@
         "internalReference"
       ]
     },
-    "DensityOutput": {
-      "title": "DensityOutput",
-      "description": "Results returned from the following quantities:\n`density` - `vibratingTubeDensimetry`\n`density` - `molecularDynamicsSimulation`",
+    "DegradationEOLOutput": {
+      "title": "DegradationEOLOutput",
+      "description": "Results returned from the following quantities:\n'degradationEOL' - degradationModel\n\n:param BaseModel: _description_\n:type BaseModel: _type_",
       "type": "object",
       "properties": {
-        "values": {
-          "title": "Values",
-          "description": "The values determined for the density.",
-          "unit": "gram / centimeter ** 3",
+        "endOfLife": {
+          "title": "Endoflife",
+          "description": "The predicted end of life for the cell.",
+          "type": "integer"
+        },
+        "endOfLifeUncertainty": {
+          "title": "Endoflifeuncertainty",
+          "description": "The uncertainty of the predicted end of life for the cell.",
+          "type": "number"
+        },
+        "capacityTrajectory": {
+          "title": "Capacitytrajectory",
+          "description": "The predicted capacity evolution for future cycles.",
+          "unit": "milliampere_hour",
           "type": "array",
           "items": {
             "type": "number"
           }
         },
-        "success": {
-          "title": "Success",
-          "description": "This reports, if the method finished successfully.",
-          "type": "boolean"
-        },
-        "rating": {
-          "title": "Rating",
-          "description": "This field serves to rate the quality of the result from the tenant side. It shall range from 0 (lowest) to 5 (highest).",
-          "type": "integer"
-        },
-        "temperature": {
-          "title": "Temperature",
-          "description": "This is the temperature of measuring cell.",
-          "unit": "kelvin",
-          "type": "number"
+        "capacityTrajectoryUncertainty": {
+          "title": "Capacitytrajectoryuncertainty",
+          "description": "The uncertainty associated with each datapoint in the predicted capacity evolution.",
+          "unit": "milliampere_hour",
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
         }
       },
       "required": [
-        "values",
-        "success",
-        "rating"
+        "endOfLife",
+        "endOfLifeUncertainty",
+        "capacityTrajectory",
+        "capacityTrajectoryUncertainty"
       ]
     }
   }

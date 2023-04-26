@@ -1,7 +1,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional, Tuple
 from datetime import date
-from unit_registry import unit_registry
+from parameter_classes.common_subclasses.unit_registry import unit_registry
 
 class ChemicalInfo(BaseModel):
     """Additional information about a chemical, which is relevant for documentation
