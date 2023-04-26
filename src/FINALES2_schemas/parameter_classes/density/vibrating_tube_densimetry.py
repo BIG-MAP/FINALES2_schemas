@@ -1,7 +1,7 @@
 from pydantic import BaseModel, Field
 from typing import Optional
-from .density import DensityOutput
-from ..generalSchemas import RunInfo
+from .shared_classes import DensityOutput
+from ..common_subclasses.run_info import RunInfo
 
 class  DensityVibratingTubeDensimetryOutput(BaseModel):
     runInfo:RunInfo = Field(

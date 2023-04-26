@@ -1,7 +1,9 @@
 from typing import Optional
 from pydantic import BaseModel, Field
 from datetime import date
-from ..generalSchemas import Formulation, MethodMeta, unitRegistry
+from ..common_subclasses.formulation import Formulation
+from ..common_subclasses.mathod_meta import MethodMeta
+from ..common_subclasses.unit_registry import unit_registry
 
 class DensityInput(BaseModel):
     """
@@ -14,7 +16,7 @@ class DensityInput(BaseModel):
                     "sample and their fraction in the total mixture.")
     )
     temperature: Optional[float] = Field(
-        unit=str(unitRegistry.kelvin),
+        unit=str(unit_registry.kelvin),
         description="This is the temperature of measuring cell."
     )
 
@@ -25,11 +27,11 @@ class DensityOutput(BaseModel):
     `density` - `molecularDynamicsSimulation`
     """
     values:list[float] = Field(
-        unit=str(unitRegistry.g * unitRegistry.cm ** -3),
+        unit=str(unit_registry.g * unit_registry.cm ** -3),
         description=("The values determined for the density.")
     )
     temperature: Optional[float] = Field(
-        unit=str(unitRegistry.kelvin),
+        unit=str(unit_registry.kelvin),
         description="This is the actual temperature of measuring cell."
     )
     meta:MethodMeta = Field(

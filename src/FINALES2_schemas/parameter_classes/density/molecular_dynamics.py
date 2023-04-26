@@ -1,8 +1,8 @@
 from pydantic import BaseModel, Field
 from typing import Optional
-from ..generalSchemas import RunInfo
-from .density import DensityOutput
-from ..conductivity.conductivity import ConductivityOutput
+from ..common_subclasses.run_info import RunInfo
+from .shared_classes import DensityOutput
+from ..conductivity.shared_classes import ConductivityOutput
 
 class  DensityMolecularDynamicsSimulationOutput(BaseModel):
     runInfo:RunInfo = Field(

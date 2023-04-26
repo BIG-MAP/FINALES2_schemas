@@ -1,8 +1,8 @@
 from pydantic import BaseModel, Field
-from typing import Optional
-from ..generalSchemas import BatteryChemistry, unitRegistry
+from ..common_subclasses.battery_chemistry import BatteryChemistry
+from ..common_subclasses.unit_registry import unit_registry
 
-class degradationEOLInput(BaseModel):
+class DegradationEOLInput(BaseModel):
     """The parameters used by the following method
     'degradationEOL' - degradationModel
 
@@ -16,17 +16,17 @@ class degradationEOLInput(BaseModel):
         description=("The number of cycles provided as an input to the model.")
     )
     averageChargingRate:float = Field(
-        unit=unitRegistry.h **-1,
+        unit=unit_registry.h **-1,
         description=("The average C-rate used for charging of the cell in the cycles "
                      "provided as an input.")
     )
     maximumChargingRate:float = Field(
-        unit=unitRegistry.h **-1,
+        unit=unit_registry.h **-1,
         description=("The maximum C-rate used for charging of the cell in the cycles "
                      "provided as an input.")
     )
     minimumChargingRate:float = Field(
-        unit=unitRegistry.h **-1,
+        unit=unit_registry.h **-1,
         description=("The minimum C-rate used for charging of the cell in the cycles "
                      "provided as an input.")
     )
@@ -34,7 +34,7 @@ class degradationEOLInput(BaseModel):
         description=("The difference in coulombic efficiency between cycle x and 10.")
     )
     voltageGapChargeDischarge:float = Field(
-        unit=unitRegistry.v,
+        unit=unit_registry.v,
         description=("The difference of the voltage gap between charge and discharge "
                      "between cycle x and 10.")
     )
@@ -43,7 +43,7 @@ class degradationEOLInput(BaseModel):
                      "cycle x and 10.")
     )
 
-class degradationEOLOutput(BaseModel):
+class DegradationEOLOutput(BaseModel):
     """Results returned from the following quantities:
     'degradationEOL' - degradationModel
 
@@ -57,11 +57,11 @@ class degradationEOLOutput(BaseModel):
         description=("The uncertainty of the predicted end of life for the cell.")
     )
     capacityTrajectory:list[float] = Field(
-        unit=unitRegistry.mAh,
+        unit=unit_registry.mAh,
         description=("The predicted capacity evolution for future cycles.")
     )
     capacityTrajectoryUncertainty:list[float] = Field(
-        unit=unitRegistry.mAh,
+        unit=unit_registry.mAh,
         description=("The uncertainty associated with each datapoint in the predicted "
                      "capacity evolution.")
     )

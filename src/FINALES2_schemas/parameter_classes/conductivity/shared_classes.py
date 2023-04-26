@@ -1,7 +1,9 @@
 from pydantic import BaseModel, Field
 from typing import Optional
 
-from ..generalSchemas import Formulation, MethodMeta, unitRegistry
+from ..common_subclasses.formulation import Formulation
+from ..common_subclasses.mathod_meta import MethodMeta
+from ..common_subclasses.unit_registry import unit_registry
 
 class ConductivityInput(BaseModel):
     """Parameters used by the quantities
@@ -16,7 +18,7 @@ class ConductivityInput(BaseModel):
                     "sample and their fraction in the total mixture.")
     )
     temperature: Optional[float] = Field(
-        unit=str(unitRegistry.kelvin),
+        unit=str(unit_registry.kelvin),
         description=("This is the temperature of the measuring cell or used in a "
                     "simulation. It shall be given in the unit kelvin.")
     )
@@ -28,11 +30,11 @@ class ConductivityOutput(BaseModel):
     'conductivity' - 'molecularDynamicsSimulation'
     """
     values:list[float] = Field(
-        unit=str(unitRegistry.siemens * unitRegistry.m ** -1),
+        unit=str(unit_registry.siemens * unit_registry.m ** -1),
         description=("The values determined for the conductivity given in S/m.")
     )
     temperature: Optional[float] = Field(
-        unit=str(unitRegistry.kelvin),
+        unit=str(unit_registry.kelvin),
         description=("This is the actual temperature of the measuring cell or used in a "
                     "simulation. It shall be given in the unit kelvin.")
     )

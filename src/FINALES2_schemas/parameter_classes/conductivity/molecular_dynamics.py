@@ -1,10 +1,10 @@
 from pydantic import BaseModel, Field
 from typing import Optional
-from ..generalSchemas import RunInfo
-from conductivity.conductivity import ConductivityOutput
-from density.density import DensityOutput
+from ..common_subclasses.run_info import RunInfo
+from .shared_classes import ConductivityOutput
+from density.shared_classes import DensityOutput
 
-class ConductivityTwoElectrodeMeasurementCellOutput(BaseModel):
+class ConductivityMolecularDynamicsOutput(BaseModel):
     runInfo:RunInfo = Field(
         description=("The information regarding the formulation and the internal "
                      "reference, which is common for all data generated in this run of "
