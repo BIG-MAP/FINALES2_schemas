@@ -2,7 +2,7 @@
   "quantity": "degradationEOL",
   "method": "degradation_model",
   "json_schema_specifications": {
-    "title": "DegradationEOLInput",
+    "title": "DegradationModelInput",
     "description": "The parameters used by the following method\n'degradationEOL' - degradationModel\n\n:param BaseModel: _description_\n:type BaseModel: _type_",
     "type": "object",
     "properties": {
@@ -15,55 +15,61 @@
           }
         ]
       },
-      "inputCycles": {
-        "title": "Inputcycles",
+      "input_cycles": {
+        "title": "Input Cycles",
         "description": "The number of cycles provided as an input to the model.",
         "type": "integer"
       },
-      "averageChargingRate": {
-        "title": "Averagechargingrate",
+      "average_charging_rate": {
+        "title": "Average Charging Rate",
         "description": "The average C-rate used for charging of the cell in the cycles provided as an input.",
         "unit": "1 / hour",
         "type": "number"
       },
-      "maximumChargingRate": {
-        "title": "Maximumchargingrate",
+      "maximum_charging_rate": {
+        "title": "Maximum Charging Rate",
         "description": "The maximum C-rate used for charging of the cell in the cycles provided as an input.",
         "unit": "1 / hour",
         "type": "number"
       },
-      "minimumChargingRate": {
-        "title": "Minimumchargingrate",
+      "minimum_charging_rate": {
+        "title": "Minimum Charging Rate",
         "description": "The minimum C-rate used for charging of the cell in the cycles provided as an input.",
         "unit": "1 / hour",
         "type": "number"
       },
-      "deltaCoulombicEfficiency": {
-        "title": "Deltacoulombicefficiency",
+      "delta_coulombic_efficiency": {
+        "title": "Delta Coulombic Efficiency",
         "description": "The difference in coulombic efficiency between cycle x and 10.",
         "type": "number"
       },
-      "voltageGapChargeDischarge": {
-        "title": "Voltagegapchargedischarge",
+      "voltage_gap_charge_discharge": {
+        "title": "Voltage Gap Charge Discharge",
         "description": "The difference of the voltage gap between charge and discharge between cycle x and 10.",
         "unit": "volt",
         "type": "number"
       },
-      "capacityVectorVariance": {
-        "title": "Capacityvectorvariance",
+      "capacity_vector_variance": {
+        "title": "Capacity Vector Variance",
         "description": "The variance of the difference between the Q(V) curves between cycle x and 10.",
         "type": "number"
+      },
+      "data_path": {
+        "title": "Data Path",
+        "description": "The path, where the data wo work on can be accessed. This is relevant as the data files are large and cannot easily be sent via FINALES.",
+        "type": "string"
       }
     },
     "required": [
       "chemistry",
-      "inputCycles",
-      "averageChargingRate",
-      "maximumChargingRate",
-      "minimumChargingRate",
-      "deltaCoulombicEfficiency",
-      "voltageGapChargeDischarge",
-      "capacityVectorVariance"
+      "input_cycles",
+      "average_charging_rate",
+      "maximum_charging_rate",
+      "minimum_charging_rate",
+      "delta_coulombic_efficiency",
+      "voltage_gap_charge_discharge",
+      "capacity_vector_variance",
+      "data_path"
     ],
     "definitions": {
       "Chemical": {
@@ -71,12 +77,7 @@
         "description": "Subclass",
         "type": "object",
         "properties": {
-          "name": {
-            "title": "Name",
-            "description": "A human readable name of the chemical.",
-            "type": "string"
-          },
-          "smiles": {
+          "SMILES": {
             "title": "Smiles",
             "description": "A SMILES string representing the chemical.",
             "type": "string"
@@ -88,8 +89,7 @@
           }
         },
         "required": [
-          "name",
-          "smiles",
+          "SMILES",
           "InChIKey"
         ]
       },
@@ -106,17 +106,6 @@
         "description": "Subclass",
         "type": "object",
         "properties": {
-          "name": {
-            "title": "Name",
-            "description": "A human readable name of the formulation.",
-            "type": "string"
-          },
-          "uuid": {
-            "title": "Uuid",
-            "description": "A unique identifier assigned to this formulation in this run.",
-            "type": "string",
-            "format": "uuid"
-          },
           "chemicals": {
             "title": "Chemicals",
             "description": "A dictionary of the chemicals included in the formulation. InChIKeys as keys and corresponding Chemical objects as values.",
@@ -125,15 +114,15 @@
               "$ref": "#/definitions/Chemical"
             }
           },
-          "chemicalComposition": {
-            "title": "Chemicalcomposition",
+          "chemical_composition": {
+            "title": "Chemical Composition",
             "description": "A dictionary with the InChIKey as the key and the respective unitless fraction of the chemical in the total of the mixture as a value.",
             "type": "object",
             "additionalProperties": {
               "type": "number"
             }
           },
-          "fractionType": {
+          "fractiontype": {
             "description": "A value of an enumeration defining, what kind of a fraction is given in the formulation. This can be for example molar fractions, volume fractions, mass fractions,.... At the moment only molar fractions are supported.",
             "allOf": [
               {
@@ -143,11 +132,9 @@
           }
         },
         "required": [
-          "name",
-          "uuid",
           "chemicals",
-          "chemicalComposition",
-          "fractionType"
+          "chemical_composition",
+          "fractiontype"
         ]
       },
       "Electrode": {
@@ -163,22 +150,22 @@
               }
             ]
           },
-          "massLoading": {
-            "title": "Massloading",
+          "mass_loading": {
+            "title": "Mass Loading",
             "description": "The capacity per unit area of the electrode.",
             "unit": "milliampere_hour / centimeter ** 2",
             "type": "number"
           },
-          "currentCollector": {
-            "title": "Currentcollector",
+          "current_collector": {
+            "title": "Current Collector",
             "description": "A designation of the current collector material. E.g. 'copper' or 'aluminium'.",
             "type": "string"
           }
         },
         "required": [
           "material",
-          "massLoading",
-          "currentCollector"
+          "mass_loading",
+          "current_collector"
         ]
       },
       "BatteryChemistry": {
@@ -222,11 +209,11 @@
     }
   },
   "json_schema_result_output": {
-    "title": "DegradationEOLDegradationModelOutput",
+    "title": "DegradationModelOutput",
     "type": "object",
     "properties": {
-      "runInfo": {
-        "title": "Runinfo",
+      "run_info": {
+        "title": "Run Info",
         "description": "The information regarding the formulation and the internal reference, which is common for all data generated in this run of the method.",
         "allOf": [
           {
@@ -245,7 +232,7 @@
       }
     },
     "required": [
-      "runInfo",
+      "run_info",
       "degradationEOL"
     ],
     "definitions": {
@@ -254,12 +241,7 @@
         "description": "Subclass",
         "type": "object",
         "properties": {
-          "name": {
-            "title": "Name",
-            "description": "A human readable name of the chemical.",
-            "type": "string"
-          },
-          "smiles": {
+          "SMILES": {
             "title": "Smiles",
             "description": "A SMILES string representing the chemical.",
             "type": "string"
@@ -271,8 +253,7 @@
           }
         },
         "required": [
-          "name",
-          "smiles",
+          "SMILES",
           "InChIKey"
         ]
       },
@@ -289,6 +270,42 @@
         "description": "Subclass",
         "type": "object",
         "properties": {
+          "chemicals": {
+            "title": "Chemicals",
+            "description": "A dictionary of the chemicals included in the formulation. InChIKeys as keys and corresponding Chemical objects as values.",
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/definitions/Chemical"
+            }
+          },
+          "chemical_composition": {
+            "title": "Chemical Composition",
+            "description": "A dictionary with the InChIKey as the key and the respective unitless fraction of the chemical in the total of the mixture as a value.",
+            "type": "object",
+            "additionalProperties": {
+              "type": "number"
+            }
+          },
+          "fractiontype": {
+            "description": "A value of an enumeration defining, what kind of a fraction is given in the formulation. This can be for example molar fractions, volume fractions, mass fractions,.... At the moment only molar fractions are supported.",
+            "allOf": [
+              {
+                "$ref": "#/definitions/FractionType"
+              }
+            ]
+          }
+        },
+        "required": [
+          "chemicals",
+          "chemical_composition",
+          "fractiontype"
+        ]
+      },
+      "FormulationInfo": {
+        "title": "FormulationInfo",
+        "description": "Additional information about a formulation, which is relevant for documentation\npurposes",
+        "type": "object",
+        "properties": {
           "name": {
             "title": "Name",
             "description": "A human readable name of the formulation.",
@@ -300,46 +317,8 @@
             "type": "string",
             "format": "uuid"
           },
-          "chemicals": {
-            "title": "Chemicals",
-            "description": "A dictionary of the chemicals included in the formulation. InChIKeys as keys and corresponding Chemical objects as values.",
-            "type": "object",
-            "additionalProperties": {
-              "$ref": "#/definitions/Chemical"
-            }
-          },
-          "chemicalComposition": {
-            "title": "Chemicalcomposition",
-            "description": "A dictionary with the InChIKey as the key and the respective unitless fraction of the chemical in the total of the mixture as a value.",
-            "type": "object",
-            "additionalProperties": {
-              "type": "number"
-            }
-          },
-          "fractionType": {
-            "description": "A value of an enumeration defining, what kind of a fraction is given in the formulation. This can be for example molar fractions, volume fractions, mass fractions,.... At the moment only molar fractions are supported.",
-            "allOf": [
-              {
-                "$ref": "#/definitions/FractionType"
-              }
-            ]
-          }
-        },
-        "required": [
-          "name",
-          "uuid",
-          "chemicals",
-          "chemicalComposition",
-          "fractionType"
-        ]
-      },
-      "FormulationInfo": {
-        "title": "FormulationInfo",
-        "description": "Additional information about a formulation, which is relevant for documentation\npurposes",
-        "type": "object",
-        "properties": {
-          "preparationDate": {
-            "title": "Preparationdate",
+          "preparation_date": {
+            "title": "Preparation Date",
             "description": "The date when the formulation was prepared. For commercial formulations, the manufacturing date may be used.",
             "type": "string",
             "format": "date"
@@ -356,8 +335,13 @@
         "description": "Additional information about a chemical, which is relevant for documentation\npurposes",
         "type": "object",
         "properties": {
-          "molarMass": {
-            "title": "Molarmass",
+          "name": {
+            "title": "Name",
+            "description": "A human readable name of the chemical, to which this information is referring.",
+            "type": "string"
+          },
+          "molar_mass": {
+            "title": "Molar Mass",
             "description": "The molar mass of the chemical and the correcponding uncertainty. This may be a measured quantity or a literature value. It is needed to convert between volumetric and molar ratios and this field serves to report the used value.",
             "unit": "gram / mole",
             "type": "array",
@@ -398,8 +382,8 @@
             "description": "The manufacturer of the chemical, if it is available.",
             "type": "string"
           },
-          "manufacturingDate": {
-            "title": "Manufacturingdate",
+          "manufacturing_date": {
+            "title": "Manufacturing Date",
             "description": "The date when the chemical was manufactured.",
             "type": "string",
             "format": "date"
@@ -419,13 +403,14 @@
               }
             ]
           },
-          "internalReference": {
-            "title": "Internalreference",
+          "internal_reference": {
+            "title": "Internal Reference",
             "description": "This field is an internal ID identifying this run of the method. In experimental setups, this may reference to an ID of the sample.",
-            "type": "string"
+            "type": "string",
+            "format": "uuid"
           },
-          "formulationInfo": {
-            "title": "Formulationinfo",
+          "formulation_info": {
+            "title": "Formulation Info",
             "description": "This is the metadata concerning the formulation relevant for documentation.",
             "allOf": [
               {
@@ -433,8 +418,8 @@
               }
             ]
           },
-          "chemicalsInfo": {
-            "title": "Chemicalsinfo",
+          "chemicals_info": {
+            "title": "Chemicals Info",
             "description": "This is a dictionary of metadata of the chemicals relevant for documentation. The keys are InChIKeys of the chemicals contained in the formulation and the values are ChemicalInfo objects.",
             "type": "object",
             "additionalProperties": {
@@ -444,7 +429,27 @@
         },
         "required": [
           "formulation",
-          "internalReference"
+          "internal_reference"
+        ]
+      },
+      "MethodMeta": {
+        "title": "MethodMeta",
+        "type": "object",
+        "properties": {
+          "success": {
+            "title": "Success",
+            "description": "This reports, if the method finished successfully.",
+            "type": "boolean"
+          },
+          "rating": {
+            "title": "Rating",
+            "description": "This field serves to rate the quality of the result from the tenant side. It shall serve as a support for the recieving party upon evaluating the trustworthiness of the result. It shall range from 0 (lowest) to 5 (highest).",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "success",
+          "rating"
         ]
       },
       "DegradationEOLOutput": {
@@ -452,18 +457,18 @@
         "description": "Results returned from the following quantities:\n'degradationEOL' - degradationModel\n\n:param BaseModel: _description_\n:type BaseModel: _type_",
         "type": "object",
         "properties": {
-          "endOfLife": {
-            "title": "Endoflife",
+          "end_of_life": {
+            "title": "End Of Life",
             "description": "The predicted end of life for the cell.",
             "type": "integer"
           },
-          "endOfLifeUncertainty": {
-            "title": "Endoflifeuncertainty",
+          "end_of_life_uncertainty": {
+            "title": "End Of Life Uncertainty",
             "description": "The uncertainty of the predicted end of life for the cell.",
             "type": "number"
           },
-          "capacityTrajectory": {
-            "title": "Capacitytrajectory",
+          "capacity_trajectory": {
+            "title": "Capacity Trajectory",
             "description": "The predicted capacity evolution for future cycles.",
             "unit": "milliampere_hour",
             "type": "array",
@@ -471,21 +476,31 @@
               "type": "number"
             }
           },
-          "capacityTrajectoryUncertainty": {
-            "title": "Capacitytrajectoryuncertainty",
+          "capacity_trajectory_uncertainty": {
+            "title": "Capacity Trajectory Uncertainty",
             "description": "The uncertainty associated with each datapoint in the predicted capacity evolution.",
             "unit": "milliampere_hour",
             "type": "array",
             "items": {
               "type": "number"
             }
+          },
+          "meta": {
+            "title": "Meta",
+            "description": "This field provides information regarding the reliability of the reported data. E.g. the success of the method for this quantity and the rating of the data. This is for this specific quantity, because a single method could fail individually for different quantities. It is not included in the RunInfo as one run may generate data for different quantities, for which the methods may fail individually.",
+            "allOf": [
+              {
+                "$ref": "#/definitions/MethodMeta"
+              }
+            ]
           }
         },
         "required": [
-          "endOfLife",
-          "endOfLifeUncertainty",
-          "capacityTrajectory",
-          "capacityTrajectoryUncertainty"
+          "end_of_life",
+          "end_of_life_uncertainty",
+          "capacity_trajectory",
+          "capacity_trajectory_uncertainty",
+          "meta"
         ]
       }
     }

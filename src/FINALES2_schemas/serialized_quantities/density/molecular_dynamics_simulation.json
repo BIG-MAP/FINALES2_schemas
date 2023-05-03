@@ -31,12 +31,7 @@
         "description": "Subclass",
         "type": "object",
         "properties": {
-          "name": {
-            "title": "Name",
-            "description": "A human readable name of the chemical.",
-            "type": "string"
-          },
-          "smiles": {
+          "SMILES": {
             "title": "Smiles",
             "description": "A SMILES string representing the chemical.",
             "type": "string"
@@ -48,8 +43,7 @@
           }
         },
         "required": [
-          "name",
-          "smiles",
+          "SMILES",
           "InChIKey"
         ]
       },
@@ -66,17 +60,6 @@
         "description": "Subclass",
         "type": "object",
         "properties": {
-          "name": {
-            "title": "Name",
-            "description": "A human readable name of the formulation.",
-            "type": "string"
-          },
-          "uuid": {
-            "title": "Uuid",
-            "description": "A unique identifier assigned to this formulation in this run.",
-            "type": "string",
-            "format": "uuid"
-          },
           "chemicals": {
             "title": "Chemicals",
             "description": "A dictionary of the chemicals included in the formulation. InChIKeys as keys and corresponding Chemical objects as values.",
@@ -85,15 +68,15 @@
               "$ref": "#/definitions/Chemical"
             }
           },
-          "chemicalComposition": {
-            "title": "Chemicalcomposition",
+          "chemical_composition": {
+            "title": "Chemical Composition",
             "description": "A dictionary with the InChIKey as the key and the respective unitless fraction of the chemical in the total of the mixture as a value.",
             "type": "object",
             "additionalProperties": {
               "type": "number"
             }
           },
-          "fractionType": {
+          "fractiontype": {
             "description": "A value of an enumeration defining, what kind of a fraction is given in the formulation. This can be for example molar fractions, volume fractions, mass fractions,.... At the moment only molar fractions are supported.",
             "allOf": [
               {
@@ -103,21 +86,19 @@
           }
         },
         "required": [
-          "name",
-          "uuid",
           "chemicals",
-          "chemicalComposition",
-          "fractionType"
+          "chemical_composition",
+          "fractiontype"
         ]
       }
     }
   },
   "json_schema_result_output": {
-    "title": "DensityMolecularDynamicsOutput",
+    "title": "MolecularDynamicsOutput",
     "type": "object",
     "properties": {
-      "runInfo": {
-        "title": "Runinfo",
+      "run_info": {
+        "title": "Run Info",
         "description": "The information regarding the formulation and the internal reference, which is common for all data generated in this run of the method.",
         "allOf": [
           {
@@ -145,7 +126,7 @@
       }
     },
     "required": [
-      "runInfo",
+      "run_info",
       "density"
     ],
     "definitions": {
@@ -154,12 +135,7 @@
         "description": "Subclass",
         "type": "object",
         "properties": {
-          "name": {
-            "title": "Name",
-            "description": "A human readable name of the chemical.",
-            "type": "string"
-          },
-          "smiles": {
+          "SMILES": {
             "title": "Smiles",
             "description": "A SMILES string representing the chemical.",
             "type": "string"
@@ -171,8 +147,7 @@
           }
         },
         "required": [
-          "name",
-          "smiles",
+          "SMILES",
           "InChIKey"
         ]
       },
@@ -189,6 +164,42 @@
         "description": "Subclass",
         "type": "object",
         "properties": {
+          "chemicals": {
+            "title": "Chemicals",
+            "description": "A dictionary of the chemicals included in the formulation. InChIKeys as keys and corresponding Chemical objects as values.",
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/definitions/Chemical"
+            }
+          },
+          "chemical_composition": {
+            "title": "Chemical Composition",
+            "description": "A dictionary with the InChIKey as the key and the respective unitless fraction of the chemical in the total of the mixture as a value.",
+            "type": "object",
+            "additionalProperties": {
+              "type": "number"
+            }
+          },
+          "fractiontype": {
+            "description": "A value of an enumeration defining, what kind of a fraction is given in the formulation. This can be for example molar fractions, volume fractions, mass fractions,.... At the moment only molar fractions are supported.",
+            "allOf": [
+              {
+                "$ref": "#/definitions/FractionType"
+              }
+            ]
+          }
+        },
+        "required": [
+          "chemicals",
+          "chemical_composition",
+          "fractiontype"
+        ]
+      },
+      "FormulationInfo": {
+        "title": "FormulationInfo",
+        "description": "Additional information about a formulation, which is relevant for documentation\npurposes",
+        "type": "object",
+        "properties": {
           "name": {
             "title": "Name",
             "description": "A human readable name of the formulation.",
@@ -200,46 +211,8 @@
             "type": "string",
             "format": "uuid"
           },
-          "chemicals": {
-            "title": "Chemicals",
-            "description": "A dictionary of the chemicals included in the formulation. InChIKeys as keys and corresponding Chemical objects as values.",
-            "type": "object",
-            "additionalProperties": {
-              "$ref": "#/definitions/Chemical"
-            }
-          },
-          "chemicalComposition": {
-            "title": "Chemicalcomposition",
-            "description": "A dictionary with the InChIKey as the key and the respective unitless fraction of the chemical in the total of the mixture as a value.",
-            "type": "object",
-            "additionalProperties": {
-              "type": "number"
-            }
-          },
-          "fractionType": {
-            "description": "A value of an enumeration defining, what kind of a fraction is given in the formulation. This can be for example molar fractions, volume fractions, mass fractions,.... At the moment only molar fractions are supported.",
-            "allOf": [
-              {
-                "$ref": "#/definitions/FractionType"
-              }
-            ]
-          }
-        },
-        "required": [
-          "name",
-          "uuid",
-          "chemicals",
-          "chemicalComposition",
-          "fractionType"
-        ]
-      },
-      "FormulationInfo": {
-        "title": "FormulationInfo",
-        "description": "Additional information about a formulation, which is relevant for documentation\npurposes",
-        "type": "object",
-        "properties": {
-          "preparationDate": {
-            "title": "Preparationdate",
+          "preparation_date": {
+            "title": "Preparation Date",
             "description": "The date when the formulation was prepared. For commercial formulations, the manufacturing date may be used.",
             "type": "string",
             "format": "date"
@@ -256,8 +229,13 @@
         "description": "Additional information about a chemical, which is relevant for documentation\npurposes",
         "type": "object",
         "properties": {
-          "molarMass": {
-            "title": "Molarmass",
+          "name": {
+            "title": "Name",
+            "description": "A human readable name of the chemical, to which this information is referring.",
+            "type": "string"
+          },
+          "molar_mass": {
+            "title": "Molar Mass",
             "description": "The molar mass of the chemical and the correcponding uncertainty. This may be a measured quantity or a literature value. It is needed to convert between volumetric and molar ratios and this field serves to report the used value.",
             "unit": "gram / mole",
             "type": "array",
@@ -298,8 +276,8 @@
             "description": "The manufacturer of the chemical, if it is available.",
             "type": "string"
           },
-          "manufacturingDate": {
-            "title": "Manufacturingdate",
+          "manufacturing_date": {
+            "title": "Manufacturing Date",
             "description": "The date when the chemical was manufactured.",
             "type": "string",
             "format": "date"
@@ -319,13 +297,14 @@
               }
             ]
           },
-          "internalReference": {
-            "title": "Internalreference",
+          "internal_reference": {
+            "title": "Internal Reference",
             "description": "This field is an internal ID identifying this run of the method. In experimental setups, this may reference to an ID of the sample.",
-            "type": "string"
+            "type": "string",
+            "format": "uuid"
           },
-          "formulationInfo": {
-            "title": "Formulationinfo",
+          "formulation_info": {
+            "title": "Formulation Info",
             "description": "This is the metadata concerning the formulation relevant for documentation.",
             "allOf": [
               {
@@ -333,8 +312,8 @@
               }
             ]
           },
-          "chemicalsInfo": {
-            "title": "Chemicalsinfo",
+          "chemicals_info": {
+            "title": "Chemicals Info",
             "description": "This is a dictionary of metadata of the chemicals relevant for documentation. The keys are InChIKeys of the chemicals contained in the formulation and the values are ChemicalInfo objects.",
             "type": "object",
             "additionalProperties": {
@@ -344,7 +323,7 @@
         },
         "required": [
           "formulation",
-          "internalReference"
+          "internal_reference"
         ]
       },
       "MethodMeta": {
@@ -389,7 +368,7 @@
           },
           "meta": {
             "title": "Meta",
-            "description": "This field provides information regarding the reliability of the reported data. E.g. the success of the method for this quantity and the rating of the data. This is for this specific quantity, because a single method could fail individually for different quantities.",
+            "description": "This field provides information regarding the reliability of the reported data. E.g. the success of the method for this quantity and the rating of the data. This is for this specific quantity, because a single method could fail individually for different quantities. It is not included in the RunInfo as one run may generate data for different quantities, for which the methods may fail individually.",
             "allOf": [
               {
                 "$ref": "#/definitions/MethodMeta"
@@ -424,7 +403,7 @@
           },
           "meta": {
             "title": "Meta",
-            "description": "This field provides information regarding the reliability of the reported data. E.g. the success of the method for this quantity and the rating of the data. This is for this specific quantity, because a single method could fail individually for different quantities.",
+            "description": "This field provides information regarding the reliability of the reported data. E.g. the success of the method for this quantity and the rating of the data. This is for this specific quantity, because a single method could fail individually for different quantities. It is not included in the RunInfo as one run may generate data for different quantities, for which the methods may fail individually.",
             "allOf": [
               {
                 "$ref": "#/definitions/MethodMeta"
