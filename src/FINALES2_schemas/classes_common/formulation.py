@@ -13,7 +13,7 @@ class Formulation(BaseModel):
                     "unitless fraction of the chemical in the total of the mixture as a "
                      "value.")
     )
-    fractiontype:FractionType = Field(
+    fraction_type:FractionType = Field(
         description=("A value of an enumeration defining, what kind of a fraction is "
                     "given in the formulation. This can be for example molar fractions, "
                     "volume fractions, mass fractions,.... At the moment only molar f"

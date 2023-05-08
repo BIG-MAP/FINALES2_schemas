@@ -122,7 +122,7 @@
               "type": "number"
             }
           },
-          "fractiontype": {
+          "fraction_type": {
             "description": "A value of an enumeration defining, what kind of a fraction is given in the formulation. This can be for example molar fractions, volume fractions, mass fractions,.... At the moment only molar fractions are supported.",
             "allOf": [
               {
@@ -134,7 +134,7 @@
         "required": [
           "chemicals",
           "chemical_composition",
-          "fractiontype"
+          "fraction_type"
         ]
       },
       "Electrode": {
@@ -286,7 +286,7 @@
               "type": "number"
             }
           },
-          "fractiontype": {
+          "fraction_type": {
             "description": "A value of an enumeration defining, what kind of a fraction is given in the formulation. This can be for example molar fractions, volume fractions, mass fractions,.... At the moment only molar fractions are supported.",
             "allOf": [
               {
@@ -298,7 +298,7 @@
         "required": [
           "chemicals",
           "chemical_composition",
-          "fractiontype"
+          "fraction_type"
         ]
       },
       "FormulationInfo": {
