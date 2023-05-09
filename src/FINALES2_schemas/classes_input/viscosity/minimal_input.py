@@ -13,5 +13,6 @@ class ViscosityInput(BaseModel):
     )
     temperature:Optional[float] = Field(
         unit=str(unit_registry.kelvin),
-        description="This is the temperature of measuring cell."
+        description=("This is the temperature of measuring cell. "
+                     f"Unit: {str(unit_registry.kelvin)}")
     )

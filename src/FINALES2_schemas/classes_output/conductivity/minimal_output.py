@@ -11,12 +11,13 @@ class ConductivityOutput(BaseModel):
     """
     values:list[float] = Field(
         unit=str(unit_registry.siemens * unit_registry.m ** -1),
-        description=("The values determined for the conductivity given in S/m.")
+        description=("The values determined for the conductivity. "
+                     f"Unit: {str(unit_registry.siemens * unit_registry.m ** -1)}")
     )
     temperature: Optional[float] = Field(
         unit=str(unit_registry.kelvin),
         description=("This is the actual temperature of the measuring cell or used in a "
-                    "simulation. It shall be given in the unit kelvin.")
+                    f"simulation. Unit: {str(unit_registry.kelvin)}")
     )
     meta:MethodMeta = Field(
         description=("This field provides information regarding the reliability of the "

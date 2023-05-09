@@ -18,5 +18,6 @@ class ConductivityInput(BaseModel):
     temperature: Optional[float] = Field(
         unit=str(unit_registry.kelvin),
         description=("This is the temperature of the measuring cell or used in a "
-                    "simulation. It shall be given in the unit kelvin.")
+                    "simulation. It shall be given in the unit kelvin. "
+                    f"Unit: {str(unit_registry.kelvin)}")
     )

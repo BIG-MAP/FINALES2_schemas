@@ -17,7 +17,7 @@
       },
       "temperature": {
         "title": "Temperature",
-        "description": "This is the temperature of measuring cell.",
+        "description": "This is the temperature of measuring cell. Unit: kelvin",
         "unit": "kelvin",
         "type": "number"
       }
@@ -47,14 +47,6 @@
           "InChIKey"
         ]
       },
-      "FractionType": {
-        "title": "FractionType",
-        "description": "Fraction types used to specify formulations",
-        "enum": [
-          "molPerMol"
-        ],
-        "type": "string"
-      },
       "Formulation": {
         "title": "Formulation",
         "description": "Subclass",
@@ -77,12 +69,9 @@
             }
           },
           "fraction_type": {
-            "description": "A value of an enumeration defining, what kind of a fraction is given in the formulation. This can be for example molar fractions, volume fractions, mass fractions,.... At the moment only molar fractions are supported.",
-            "allOf": [
-              {
-                "$ref": "#/definitions/FractionType"
-              }
-            ]
+            "title": "Fraction Type",
+            "description": "A string defining, what kind of a fraction is given in the formulation. This can be for example molar fractions, volume fractions, mass fractions,.... At the moment only molar fractions are supported.",
+            "type": "string"
           }
         },
         "required": [
@@ -151,14 +140,6 @@
           "InChIKey"
         ]
       },
-      "FractionType": {
-        "title": "FractionType",
-        "description": "Fraction types used to specify formulations",
-        "enum": [
-          "molPerMol"
-        ],
-        "type": "string"
-      },
       "Formulation": {
         "title": "Formulation",
         "description": "Subclass",
@@ -181,12 +162,9 @@
             }
           },
           "fraction_type": {
-            "description": "A value of an enumeration defining, what kind of a fraction is given in the formulation. This can be for example molar fractions, volume fractions, mass fractions,.... At the moment only molar fractions are supported.",
-            "allOf": [
-              {
-                "$ref": "#/definitions/FractionType"
-              }
-            ]
+            "title": "Fraction Type",
+            "description": "A string defining, what kind of a fraction is given in the formulation. This can be for example molar fractions, volume fractions, mass fractions,.... At the moment only molar fractions are supported.",
+            "type": "string"
           }
         },
         "required": [
@@ -236,7 +214,7 @@
           },
           "molar_mass": {
             "title": "Molar Mass",
-            "description": "The molar mass of the chemical and the correcponding uncertainty. This may be a measured quantity or a literature value. It is needed to convert between volumetric and molar ratios and this field serves to report the used value.",
+            "description": "The molar mass of the chemical and the correcponding uncertainty. This may be a measured quantity or a literature value. It is needed to convert between volumetric and molar ratios and this field serves to report the used value. Unit: gram / mole",
             "unit": "gram / mole",
             "type": "array",
             "minItems": 2,
@@ -252,7 +230,7 @@
           },
           "density": {
             "title": "Density",
-            "description": "The density of the chemical and the correcponding uncertainty. This may be a measured quantity or a literature value. It is needed to convert between volumetric and molar ratios and this field serves to report the used value.",
+            "description": "The density of the chemical and the correcponding uncertainty. This may be a measured quantity or a literature value. It is needed to convert between volumetric and molar ratios and this field serves to report the used value. Unit: centimeter ** 3 * gram",
             "unit": "centimeter ** 3 * gram",
             "type": "array",
             "minItems": 2,
@@ -353,7 +331,7 @@
         "properties": {
           "values": {
             "title": "Values",
-            "description": "The values determined for the density.",
+            "description": "The values determined for the density. Unit: gram / centimeter ** 3",
             "unit": "gram / centimeter ** 3",
             "type": "array",
             "items": {
@@ -362,7 +340,7 @@
           },
           "temperature": {
             "title": "Temperature",
-            "description": "This is the actual temperature of measuring cell.",
+            "description": "This is the actual temperature of measuring cell. Unit: kelvin",
             "unit": "kelvin",
             "type": "number"
           },
@@ -388,7 +366,7 @@
         "properties": {
           "values": {
             "title": "Values",
-            "description": "The values determined for the density.",
+            "description": "The values determined for the density. Unit: gram / centimeter ** 3",
             "unit": "gram / centimeter ** 3",
             "type": "array",
             "items": {
@@ -397,7 +375,7 @@
           },
           "temperature": {
             "title": "Temperature",
-            "description": "This is the temperature of measuring cell.",
+            "description": "This is the temperature of measuring cell. Unit: kelvin",
             "unit": "kelvin",
             "type": "number"
           },

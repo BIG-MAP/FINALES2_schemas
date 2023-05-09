@@ -15,14 +15,16 @@ class ChemicalInfo(BaseModel):
         description=("The molar mass of the chemical and the correcponding uncertainty. "
                      "This may be a measured quantity or a literature "
                      "value. It is needed to convert between volumetric and molar "
-                     "ratios and this field serves to report the used value.")
+                     "ratios and this field serves to report the used value. "
+                     f"Unit: {str(unit_registry.g / unit_registry.mole)}")
     )
     density:Optional[Tuple[float, float]] = Field(
         unit=str(unit_registry.g * unit_registry.cm ** 3),
         description=("The density of the chemical and the correcponding uncertainty. "
                      "This may be a measured quantity or a literature "
                      "value. It is needed to convert between volumetric and molar "
-                     "ratios and this field serves to report the used value.")
+                     "ratios and this field serves to report the used value. "
+                     f"Unit: {str(unit_registry.g * unit_registry.cm ** 3)}")
     )
     batch:Optional[str] = Field(
         description="A batch number for the chemical used, if it is available."

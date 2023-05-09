@@ -10,11 +10,13 @@ class DensityOutput(BaseModel):
     """
     values:list[float] = Field(
         unit=str(unit_registry.g * unit_registry.cm ** -3),
-        description=("The values determined for the density.")
+        description=("The values determined for the density. "
+                     f"Unit: {str(unit_registry.g * unit_registry.cm ** -3)}")
     )
     temperature: Optional[float] = Field(
         unit=str(unit_registry.kelvin),
-        description="This is the actual temperature of measuring cell."
+        description=("This is the actual temperature of measuring cell. "
+                     f"Unit: {str(unit_registry.kelvin)}")
     )
     meta:MethodMeta = Field(
         description=("This field provides information regarding the reliability of the "

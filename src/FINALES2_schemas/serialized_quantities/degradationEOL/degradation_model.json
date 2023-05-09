@@ -22,19 +22,19 @@
       },
       "average_charging_rate": {
         "title": "Average Charging Rate",
-        "description": "The average C-rate used for charging of the cell in the cycles provided as an input.",
+        "description": "The average C-rate used for charging of the cell in the cycles provided as an input. Unit: 1 / hour",
         "unit": "1 / hour",
         "type": "number"
       },
       "maximum_charging_rate": {
         "title": "Maximum Charging Rate",
-        "description": "The maximum C-rate used for charging of the cell in the cycles provided as an input.",
+        "description": "The maximum C-rate used for charging of the cell in the cycles provided as an input. Unit: 1 / hour",
         "unit": "1 / hour",
         "type": "number"
       },
       "minimum_charging_rate": {
         "title": "Minimum Charging Rate",
-        "description": "The minimum C-rate used for charging of the cell in the cycles provided as an input.",
+        "description": "The minimum C-rate used for charging of the cell in the cycles provided as an input. Unit: 1 / hour",
         "unit": "1 / hour",
         "type": "number"
       },
@@ -45,7 +45,7 @@
       },
       "voltage_gap_charge_discharge": {
         "title": "Voltage Gap Charge Discharge",
-        "description": "The difference of the voltage gap between charge and discharge between cycle x and 10.",
+        "description": "The difference of the voltage gap between charge and discharge between cycle x and 10. Unit: volt",
         "unit": "volt",
         "type": "number"
       },
@@ -93,14 +93,6 @@
           "InChIKey"
         ]
       },
-      "FractionType": {
-        "title": "FractionType",
-        "description": "Fraction types used to specify formulations",
-        "enum": [
-          "molPerMol"
-        ],
-        "type": "string"
-      },
       "Formulation": {
         "title": "Formulation",
         "description": "Subclass",
@@ -123,12 +115,9 @@
             }
           },
           "fraction_type": {
-            "description": "A value of an enumeration defining, what kind of a fraction is given in the formulation. This can be for example molar fractions, volume fractions, mass fractions,.... At the moment only molar fractions are supported.",
-            "allOf": [
-              {
-                "$ref": "#/definitions/FractionType"
-              }
-            ]
+            "title": "Fraction Type",
+            "description": "A string defining, what kind of a fraction is given in the formulation. This can be for example molar fractions, volume fractions, mass fractions,.... At the moment only molar fractions are supported.",
+            "type": "string"
           }
         },
         "required": [
@@ -152,7 +141,7 @@
           },
           "mass_loading": {
             "title": "Mass Loading",
-            "description": "The capacity per unit area of the electrode.",
+            "description": "The capacity per unit area of the electrode. Unit: milliampere_hour / centimeter ** 2",
             "unit": "milliampere_hour / centimeter ** 2",
             "type": "number"
           },
@@ -257,14 +246,6 @@
           "InChIKey"
         ]
       },
-      "FractionType": {
-        "title": "FractionType",
-        "description": "Fraction types used to specify formulations",
-        "enum": [
-          "molPerMol"
-        ],
-        "type": "string"
-      },
       "Formulation": {
         "title": "Formulation",
         "description": "Subclass",
@@ -287,12 +268,9 @@
             }
           },
           "fraction_type": {
-            "description": "A value of an enumeration defining, what kind of a fraction is given in the formulation. This can be for example molar fractions, volume fractions, mass fractions,.... At the moment only molar fractions are supported.",
-            "allOf": [
-              {
-                "$ref": "#/definitions/FractionType"
-              }
-            ]
+            "title": "Fraction Type",
+            "description": "A string defining, what kind of a fraction is given in the formulation. This can be for example molar fractions, volume fractions, mass fractions,.... At the moment only molar fractions are supported.",
+            "type": "string"
           }
         },
         "required": [
@@ -342,7 +320,7 @@
           },
           "molar_mass": {
             "title": "Molar Mass",
-            "description": "The molar mass of the chemical and the correcponding uncertainty. This may be a measured quantity or a literature value. It is needed to convert between volumetric and molar ratios and this field serves to report the used value.",
+            "description": "The molar mass of the chemical and the correcponding uncertainty. This may be a measured quantity or a literature value. It is needed to convert between volumetric and molar ratios and this field serves to report the used value. Unit: gram / mole",
             "unit": "gram / mole",
             "type": "array",
             "minItems": 2,
@@ -358,7 +336,7 @@
           },
           "density": {
             "title": "Density",
-            "description": "The density of the chemical and the correcponding uncertainty. This may be a measured quantity or a literature value. It is needed to convert between volumetric and molar ratios and this field serves to report the used value.",
+            "description": "The density of the chemical and the correcponding uncertainty. This may be a measured quantity or a literature value. It is needed to convert between volumetric and molar ratios and this field serves to report the used value. Unit: centimeter ** 3 * gram",
             "unit": "centimeter ** 3 * gram",
             "type": "array",
             "minItems": 2,
@@ -469,7 +447,7 @@
           },
           "capacity_trajectory": {
             "title": "Capacity Trajectory",
-            "description": "The predicted capacity evolution for future cycles.",
+            "description": "The predicted capacity evolution for future cycles. Unit: milliampere_hour",
             "unit": "milliampere_hour",
             "type": "array",
             "items": {
@@ -478,7 +456,7 @@
           },
           "capacity_trajectory_uncertainty": {
             "title": "Capacity Trajectory Uncertainty",
-            "description": "The uncertainty associated with each datapoint in the predicted capacity evolution.",
+            "description": "The uncertainty associated with each datapoint in the predicted capacity evolution. Unit: milliampere_hour",
             "unit": "milliampere_hour",
             "type": "array",
             "items": {

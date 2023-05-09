@@ -16,12 +16,14 @@ class DegradationEOLOutput(BaseModel):
     )
     capacity_trajectory:list[float] = Field(
         unit=str(unit_registry.mAh),
-        description=("The predicted capacity evolution for future cycles.")
+        description=("The predicted capacity evolution for future cycles. "
+                     f"Unit: {str(unit_registry.mAh)}")
     )
     capacity_trajectory_uncertainty:list[float] = Field(
         unit=str(unit_registry.mAh),
         description=("The uncertainty associated with each datapoint in the predicted "
-                     "capacity evolution.")
+                     "capacity evolution. "
+                     f"Unit: {str(unit_registry.mAh)}")
     )
     meta:MethodMeta = Field(
         description=("This field provides information regarding the reliability of the "
