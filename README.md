@@ -43,3 +43,20 @@ This section describes in a step-by-step manner the procedure how to generate a 
 1. Push your changes to a sidebranch of this repository.
 1. Create a pull request to the main branch of this repository.
 1. Follow the usual code review process to get your pull request merged.
+
+### Usage of the classes and schemas
+This section descrbes how the classes and schemas contained in this repository can be used.
+
+## Use of the classes
+The classes defined in this repository may be used by importing them from the ``classes_common``, ``classes_input`` and ``classes_output``, respectively.
+
+## Use of the schemas
+The schemas can be used for understanding the data structures as a human or for validating the data structures sent to and received from FINALES. Both options will briefly be explained in the following.
+The schemas for the inputs can be found in the JSON files in the key ``json_schema_specifications``. The schemas for the output can be found in the key ``json_schema_result_output```.
+
+### Validation
+For programmatically validating a data structure, the schemas may be used as follows:
+If you would like to validate, that an input ``specific_params = {...}`` for a certain method matches the required input schema for this method, get the capability from FINALES using the command ``capability_object = request_finales_capability(quantity_name, method_name)``. From these capabilities, the schema for the input can be obtained from ``schema_specs = capability_object['json_schema_specifications']``. The data structure can be validated using the ``validate`` method from the ``jsonschema`` package by executing ``validate(instance=specific_params, schema=schema_specs)``.
+
+### Understanding the data structures
+To understand the data structures as a human, you can request a capability from FINALES using ``capability_object = request_finales_capability(quantity_name, method_name)`` and check the schema in the ``json_schema_specifications`` key for the input and ``json_schema_result_output`` key for the output, respectively. Alternatively, the schemas can also be obtained from this repository as they are loaded to FINALES dynamically. These schemas may be inspected as they are or using a visualization tool like e.g. [this](https://json-schema-visualizer.netlify.app/).
