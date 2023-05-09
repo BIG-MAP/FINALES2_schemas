@@ -1,5 +1,7 @@
 # FINALES2 schemas
 
+The FINALES server is able to dynamically incorporate new measurements as they become available. They are stored in a database in which each entry corresponds to a given quantity, method for obtaining the quantity, and a json specifying the expected schema of the parameters for obtaining this quantity. Since generating and handling these schemas is non-trivial, this package allows users to write them first as Pydantic classes (that they can then use in their tenants) and export them in the format that the finales server understands and uses to validate their submissions.
+
 ## The structure of this repository
 The structure of this repository reflects different levels of generality. This comprises classes and schemas, which can be use in the whole MAP, such, which can be shared among different methods providing the same quantity and classes and schemas, which are specific to one method. It should be taken care, that the classes and schemas are re-used, wherever this is reasonably possible to avoid many different schemas emerging conveying the same information.
 
