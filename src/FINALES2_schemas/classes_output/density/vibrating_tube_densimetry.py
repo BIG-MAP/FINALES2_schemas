@@ -1,7 +1,7 @@
 from pydantic import BaseModel, Field
 from typing import Optional
 from .minimal_output import DensityOutput
-from ..viscosity import ViscosityOutput
+from FINALES2_schemas.classes_output.viscosity import ViscosityOutput
 from FINALES2_schemas.classes_common import RunInfo
 
 class VibratingTubeDensimetryOutput(BaseModel):
