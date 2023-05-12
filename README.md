@@ -32,6 +32,7 @@ This section describes in a step-by-step manner the procedure how to generate a 
 ### A new method
 1. Create a file named ``<method_name>.py`` in the ``classes_input`` and ``classes_output`` directories in the subdirectory of your respective quantity.
 1. In these files, define the input and output class of your method, respectively. Make sure to re-use already existing class definitions rather than creating new ones describing the same things.
+1. Import your new module in the ``classes_input/__init__.py`` and the ``classes_output/__init__.py``, respectively.
 
 ### Generating the JSON-schemas
 1. If you did not create a new quantity, you can skip this step. Otherwise add your quantity to the import statement for the inputs and outputs in the ``generate_schemas.py`` starting in line 4 and 8, respectively.
