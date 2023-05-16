@@ -1,23 +1,16 @@
 from pydantic import BaseModel, Field
 from .chemical import Chemical
+from .chemical_in_solution import ChemicalInSolution
 
 class Formulation(BaseModel):
     """Subclass"""
-    # The chemicals and the chemical_composition are separated in this class to allow
-    # for further information being included in the chemical objects. Currently, they
-    # have a SMILES string additional to the InChIKey. The SMILES string is used as an
-    # input to some computational tenants and is therefore needed. Hence, the list of
-    # chemicals cannot simply be extracted from the keys of the chemical_composition
-    # dictionary and the chemicals are kept as separate objects.
-    chemicals:dict[str, Chemical] = Field(
-        description=("A dictionary of the chemicals included in the formulation. "
-                    "InChIKeys as keys and corresponding Chemical objects as values.")
+    chemicals:list[ChemicalInSolution] = Field(
+        description=("A list of the chemicals included in the formulation. The fraction "
+                    "of the respective chemical in the solution is contained in each"
+                    "of the elements in the list.")
     )
-    chemical_composition:dict[str, float] = Field(
-        description=("A dictionary with the InChIKey as the key and the respective "
-                    "unitless fraction of the chemical in the total of the mixture as a "
-                     "value.")
-    )
+    # This defines the type of the fraction, which is given for each chemical in the
+    # formulation. All the fractions in the chemicals must correspond to this type. 
     fraction_type:str = Field(
         description=("A string defining, what kind of a fraction is "
                     "given in the formulation. This can be for example molar fractions, "

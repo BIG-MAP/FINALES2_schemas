@@ -93,6 +93,30 @@
           "InChIKey"
         ]
       },
+      "ChemicalInSolution": {
+        "title": "ChemicalInSolution",
+        "type": "object",
+        "properties": {
+          "chemical": {
+            "title": "Chemical",
+            "description": "The chemical, which shall be described as a component in a solution .",
+            "allOf": [
+              {
+                "$ref": "#/definitions/Chemical"
+              }
+            ]
+          },
+          "fraction": {
+            "title": "Fraction",
+            "description": "The unitless fraction of the chemical in the total of the mixture.",
+            "type": "number"
+          }
+        },
+        "required": [
+          "chemical",
+          "fraction"
+        ]
+      },
       "Formulation": {
         "title": "Formulation",
         "description": "Subclass",
@@ -100,18 +124,10 @@
         "properties": {
           "chemicals": {
             "title": "Chemicals",
-            "description": "A dictionary of the chemicals included in the formulation. InChIKeys as keys and corresponding Chemical objects as values.",
-            "type": "object",
-            "additionalProperties": {
-              "$ref": "#/definitions/Chemical"
-            }
-          },
-          "chemical_composition": {
-            "title": "Chemical Composition",
-            "description": "A dictionary with the InChIKey as the key and the respective unitless fraction of the chemical in the total of the mixture as a value.",
-            "type": "object",
-            "additionalProperties": {
-              "type": "number"
+            "description": "A list of the chemicals included in the formulation. The fraction of the respective chemical in the solution is contained in eachof the elements in the list.",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ChemicalInSolution"
             }
           },
           "fraction_type": {
@@ -122,7 +138,6 @@
         },
         "required": [
           "chemicals",
-          "chemical_composition",
           "fraction_type"
         ]
       },
@@ -246,6 +261,30 @@
           "InChIKey"
         ]
       },
+      "ChemicalInSolution": {
+        "title": "ChemicalInSolution",
+        "type": "object",
+        "properties": {
+          "chemical": {
+            "title": "Chemical",
+            "description": "The chemical, which shall be described as a component in a solution .",
+            "allOf": [
+              {
+                "$ref": "#/definitions/Chemical"
+              }
+            ]
+          },
+          "fraction": {
+            "title": "Fraction",
+            "description": "The unitless fraction of the chemical in the total of the mixture.",
+            "type": "number"
+          }
+        },
+        "required": [
+          "chemical",
+          "fraction"
+        ]
+      },
       "Formulation": {
         "title": "Formulation",
         "description": "Subclass",
@@ -253,18 +292,10 @@
         "properties": {
           "chemicals": {
             "title": "Chemicals",
-            "description": "A dictionary of the chemicals included in the formulation. InChIKeys as keys and corresponding Chemical objects as values.",
-            "type": "object",
-            "additionalProperties": {
-              "$ref": "#/definitions/Chemical"
-            }
-          },
-          "chemical_composition": {
-            "title": "Chemical Composition",
-            "description": "A dictionary with the InChIKey as the key and the respective unitless fraction of the chemical in the total of the mixture as a value.",
-            "type": "object",
-            "additionalProperties": {
-              "type": "number"
+            "description": "A list of the chemicals included in the formulation. The fraction of the respective chemical in the solution is contained in eachof the elements in the list.",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ChemicalInSolution"
             }
           },
           "fraction_type": {
@@ -275,7 +306,6 @@
         },
         "required": [
           "chemicals",
-          "chemical_composition",
           "fraction_type"
         ]
       },
