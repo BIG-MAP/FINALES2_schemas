@@ -16,7 +16,8 @@ class MolecularDynamicsOutput(BaseModel):
     conductivity:Optional[ConductivityOutput] = Field(
         description=("The ouptut of conductivity measurements, which were run in parallel "
                      "to the density measurement.")
-    )  
+    )
+    # TODO: Add this side result once the respective schema for RDFOutput is defined
     # RDF:Optional[RDFOutput] = Field(
     #     description=("The ouptut of RDF calculations, which were generated "
     #                  "as a side result.")
