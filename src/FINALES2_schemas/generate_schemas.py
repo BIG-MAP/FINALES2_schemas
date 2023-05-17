@@ -1,12 +1,19 @@
 import json
 import pathlib
 
-from parameter_classes import DensityCommon, DensityOutput
+from classes_input import (conductivity as conductivity_input,
+                           degradationEOL as degradationEOL_input,
+                           density as density_input,
+                           viscosity as viscostiy_input)
+from classes_output import (conductivity as conductivity_output,
+                           degradationEOL as degradationEOL_output,
+                           density as density_output,
+                           viscosity as viscostiy_output)
 
 BASEPATH = pathlib.Path(__file__).parent.resolve()
-BASEPATH_SCHEMAS = BASEPATH / 'parameter_schemas'
 BASEPATH_QUANTITIES = BASEPATH / 'serialized_quantities'
 
+# This function is not used at the moment, but it is kept here for easy reactivation in the future
 def generate_schema(pydantic_class, filepath):
     """Generates the schema from a pydantic class and stores it in a file."""
     with open(filepath, 'w') as fileobj:
@@ -25,11 +32,17 @@ def generate_quantity(quantity_name, method_name, input_schema, output_schema, f
         json.dump(dictobj, fileobj, indent=2)
 
 if __name__ == "__main__":
-    generate_schema(DensityCommon, BASEPATH_SCHEMAS / 'density_common.json')
-    generate_schema(DensityOutput, BASEPATH_SCHEMAS / 'density_output.json')
+    quantity_path = BASEPATH_QUANTITIES / 'conductivity' / 'two_electrode.json'
+    generate_quantity('conductivity', 'two_electrode', conductivity_input.ConductivityInput, conductivity_output.TwoElectrodeOutput, quantity_path)
+
+    quantity_path = BASEPATH_QUANTITIES / 'conductivity' / 'molecular_dynamics.json'
+    generate_quantity('conductivity', 'molecular_dynamics', conductivity_input.ConductivityInput, conductivity_output.MolecularDynamicsOutput, quantity_path)
 
     quantity_path = BASEPATH_QUANTITIES / 'density' / 'vibrating_tube_densimetry.json'
-    generate_quantity('density', 'vibratingTubeDensimetry', DensityCommon, DensityOutput, quantity_path)
+    generate_quantity('density', 'vibrating_tube_densimetry', density_input.DensityInput, density_output.VibratingTubeDensimetryOutput, quantity_path)
 
     quantity_path = BASEPATH_QUANTITIES / 'density' / 'molecular_dynamics_simulation.json'
-    generate_quantity('density', 'molecularDynamicsSimulation', DensityCommon, DensityOutput, quantity_path)
+    generate_quantity('density', 'molecular_dynamics', density_input.DensityInput, density_output.MolecularDynamicsOutput, quantity_path)
+
+    quantity_path = BASEPATH_QUANTITIES / 'degradationEOL' / 'degradation_model.json'
+    generate_quantity('degradationEOL', 'degradation_model', degradationEOL_input.DegradationModelInput, degradationEOL_output.DegradationModelOutput, quantity_path)

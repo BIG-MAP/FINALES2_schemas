@@ -1,29 +1,75 @@
 {
-  "quantity": "density",
-  "method": "molecular_dynamics",
+  "quantity": "degradationEOL",
+  "method": "degradation_model",
   "json_schema_specifications": {
-    "title": "DensityInput",
-    "description": "Parameters to be used with the following quantities:\n`density` - `vibratingTubeDensimetry`\n`density` - `molecularDynamicsSimulation`",
+    "title": "DegradationModelInput",
+    "description": "The parameters used by the following method\n'degradationEOL' - degradationModel\n\n:param BaseModel: _description_\n:type BaseModel: _type_",
     "type": "object",
     "properties": {
-      "formulation": {
-        "title": "Formulation",
-        "description": "This is a formulation defining the Chemicals contained in the sample and their fraction in the total mixture.",
+      "chemistry": {
+        "title": "Chemistry",
+        "description": "The description of the chemicals involved in all the battery cell.",
         "allOf": [
           {
-            "$ref": "#/definitions/FormulationComponent"
+            "$ref": "#/definitions/BatteryChemistry"
           }
         ]
       },
-      "temperature": {
-        "title": "Temperature",
-        "description": "This is the temperature of measuring cell. Unit: kelvin",
-        "unit": "kelvin",
+      "input_cycles": {
+        "title": "Input Cycles",
+        "description": "The number of cycles provided as an input to the model.",
+        "type": "integer"
+      },
+      "average_charging_rate": {
+        "title": "Average Charging Rate",
+        "description": "The average C-rate used for charging of the cell in the cycles provided as an input. Unit: 1 / hour",
+        "unit": "1 / hour",
         "type": "number"
+      },
+      "maximum_charging_rate": {
+        "title": "Maximum Charging Rate",
+        "description": "The maximum C-rate used for charging of the cell in the cycles provided as an input. Unit: 1 / hour",
+        "unit": "1 / hour",
+        "type": "number"
+      },
+      "minimum_charging_rate": {
+        "title": "Minimum Charging Rate",
+        "description": "The minimum C-rate used for charging of the cell in the cycles provided as an input. Unit: 1 / hour",
+        "unit": "1 / hour",
+        "type": "number"
+      },
+      "delta_coulombic_efficiency": {
+        "title": "Delta Coulombic Efficiency",
+        "description": "The difference in coulombic efficiency between cycle x and 10.",
+        "type": "number"
+      },
+      "voltage_gap_charge_discharge": {
+        "title": "Voltage Gap Charge Discharge",
+        "description": "The difference of the voltage gap between charge and discharge between cycle x and 10. Unit: volt",
+        "unit": "volt",
+        "type": "number"
+      },
+      "capacity_vector_variance": {
+        "title": "Capacity Vector Variance",
+        "description": "The variance of the difference between the Q(V) curves between cycle x and 10.",
+        "type": "number"
+      },
+      "data_path": {
+        "title": "Data Path",
+        "description": "The path, where the data wo work on can be accessed. This is relevant as the data files are large and cannot easily be sent via FINALES.",
+        "type": "string"
       }
     },
     "required": [
-      "formulation"
+      "chemistry",
+      "input_cycles",
+      "average_charging_rate",
+      "maximum_charging_rate",
+      "minimum_charging_rate",
+      "delta_coulombic_efficiency",
+      "voltage_gap_charge_discharge",
+      "capacity_vector_variance",
+      "data_path"
     ],
     "definitions": {
       "Chemical": {
@@ -77,11 +123,80 @@
           "fraction",
           "fraction_type"
         ]
+      },
+      "Electrode": {
+        "title": "Electrode",
+        "description": "The definition of an electrode.\n\n:param BaseModel: _description_\n:type BaseModel: _type_",
+        "type": "object",
+        "properties": {
+          "material": {
+            "title": "Material",
+            "description": "The description of the composition of the electrode.",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/FormulationComponent"
+            }
+          },
+          "mass_loading": {
+            "title": "Mass Loading",
+            "description": "The capacity per unit area of the electrode. Unit: milliampere_hour / centimeter ** 2",
+            "unit": "milliampere_hour / centimeter ** 2",
+            "type": "number"
+          },
+          "current_collector": {
+            "title": "Current Collector",
+            "description": "A designation of the current collector material. E.g. 'copper' or 'aluminium'.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "material",
+          "mass_loading",
+          "current_collector"
+        ]
+      },
+      "BatteryChemistry": {
+        "title": "BatteryChemistry",
+        "description": "A description of the chemistry of a cell.\n    ",
+        "type": "object",
+        "properties": {
+          "electrolyte": {
+            "title": "Electrolyte",
+            "description": "The definition of the composition of the electrolyte used in the cells, for which the prediction shall be made",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/FormulationComponent"
+            }
+          },
+          "anode": {
+            "title": "Anode",
+            "description": "The definition of the anode.",
+            "allOf": [
+              {
+                "$ref": "#/definitions/Electrode"
+              }
+            ]
+          },
+          "cathode": {
+            "title": "Cathode",
+            "description": "The definition of the cathode.",
+            "allOf": [
+              {
+                "$ref": "#/definitions/Electrode"
+              }
+            ]
+          }
+        },
+        "required": [
+          "electrolyte",
+          "anode",
+          "cathode"
+        ]
       }
     }
   },
   "json_schema_result_output": {
-    "title": "MolecularDynamicsOutput",
+    "title": "DegradationModelOutput",
     "type": "object",
     "properties": {
       "run_info": {
@@ -93,28 +208,19 @@
           }
         ]
       },
-      "density": {
-        "title": "Density",
-        "description": "The output generated for the density data.",
+      "degradationEOL": {
+        "title": "Degradationeol",
+        "description": "The data corresponding to the end of life for the cell and the degradation trajectory, each with the respective uncertainty.",
         "allOf": [
           {
-            "$ref": "#/definitions/DensityOutput"
-          }
-        ]
-      },
-      "conductivity": {
-        "title": "Conductivity",
-        "description": "The ouptut of conductivity measurements, which were run in parallel to the density measurement.",
-        "allOf": [
-          {
-            "$ref": "#/definitions/ConductivityOutput"
+            "$ref": "#/definitions/DegradationEOLOutput"
           }
         ]
       }
     },
     "required": [
       "run_info",
-      "density"
+      "degradationEOL"
     ],
     "definitions": {
       "Chemical": {
@@ -321,25 +427,38 @@
           "rating"
         ]
       },
-      "DensityOutput": {
-        "title": "DensityOutput",
-        "description": "Results returned from the following quantities:\n`density` - `vibratingTubeDensimetry`\n`density` - `molecularDynamicsSimulation`",
+      "DegradationEOLOutput": {
+        "title": "DegradationEOLOutput",
+        "description": "Results returned from the following quantities:\n'degradationEOL' - degradationModel\n\n:param BaseModel: _description_\n:type BaseModel: _type_",
         "type": "object",
         "properties": {
-          "values": {
-            "title": "Values",
-            "description": "The values determined for the density. Unit: gram / centimeter ** 3",
-            "unit": "gram / centimeter ** 3",
+          "end_of_life": {
+            "title": "End Of Life",
+            "description": "The predicted end of life for the cell.",
+            "type": "integer"
+          },
+          "end_of_life_uncertainty": {
+            "title": "End Of Life Uncertainty",
+            "description": "The uncertainty of the predicted end of life for the cell.",
+            "type": "number"
+          },
+          "capacity_trajectory": {
+            "title": "Capacity Trajectory",
+            "description": "The predicted capacity evolution for future cycles. Unit: milliampere_hour",
+            "unit": "milliampere_hour",
             "type": "array",
             "items": {
               "type": "number"
             }
           },
-          "temperature": {
-            "title": "Temperature",
-            "description": "This is the actual temperature of measuring cell. Unit: kelvin",
-            "unit": "kelvin",
-            "type": "number"
+          "capacity_trajectory_uncertainty": {
+            "title": "Capacity Trajectory Uncertainty",
+            "description": "The uncertainty associated with each datapoint in the predicted capacity evolution. Unit: milliampere_hour",
+            "unit": "milliampere_hour",
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
           },
           "meta": {
             "title": "Meta",
@@ -352,42 +471,10 @@
           }
         },
         "required": [
-          "values",
-          "meta"
-        ]
-      },
-      "ConductivityOutput": {
-        "title": "ConductivityOutput",
-        "description": "Results returned from the following quantities:\n'conductivity' - 'twoElectrodeMeasuringCell'\n'conductivity' - 'molecularDynamicsSimulation'",
-        "type": "object",
-        "properties": {
-          "values": {
-            "title": "Values",
-            "description": "The values determined for the conductivity. Unit: siemens / meter",
-            "unit": "siemens / meter",
-            "type": "array",
-            "items": {
-              "type": "number"
-            }
-          },
-          "temperature": {
-            "title": "Temperature",
-            "description": "This is the actual temperature of the measuring cell or used in a simulation. Unit: kelvin",
-            "unit": "kelvin",
-            "type": "number"
-          },
-          "meta": {
-            "title": "Meta",
-            "description": "This field provides information regarding the reliability of the reported data. E.g. the success of the method for this quantity and the rating of the data. This is for this specific quantity, because a single method could fail individually for different quantities. It is not included in the RunInfo as one run may generate data for different quantities, for which the methods may fail individually.",
-            "allOf": [
-              {
-                "$ref": "#/definitions/MethodMeta"
-              }
-            ]
-          }
-        },
-        "required": [
-          "values",
+          "end_of_life",
+          "end_of_life_uncertainty",
+          "capacity_trajectory",
+          "capacity_trajectory_uncertainty",
           "meta"
         ]
       }
