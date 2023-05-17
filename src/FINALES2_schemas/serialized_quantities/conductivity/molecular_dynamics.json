@@ -9,18 +9,10 @@
       "formulation": {
         "title": "Formulation",
         "description": "This is a formulation defining the Chemicals contained in the sample and their fraction in the total mixture.",
-<<<<<<< HEAD
-        "allOf": [
-          {
-            "$ref": "#/definitions/Formulation"
-          }
-        ]
-=======
         "type": "array",
         "items": {
           "$ref": "#/definitions/FormulationComponent"
         }
->>>>>>> main
       },
       "temperature": {
         "title": "Temperature",
@@ -171,7 +163,6 @@
           }
         },
         "required": [
-
           "chemical",
           "fraction",
           "fraction_type"
