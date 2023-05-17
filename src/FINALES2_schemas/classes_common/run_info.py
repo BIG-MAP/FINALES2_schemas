@@ -1,12 +1,15 @@
 from pydantic import BaseModel, Field
 from typing import Optional
 from uuid import UUID
-from .formulation import Formulation
 from .chemical_info import ChemicalInfo
 from .formulation_info import FormulationInfo
+from .formulation_component import FormulationComponent
 
 class RunInfo(BaseModel):
-    formulation:Formulation = Field(
+    """Metadata for a run of a method. This information may apply to all samples
+    processed in the respective run.
+    """
+    formulation:list[FormulationComponent] = Field(
         description=("This is a formulation defining the Chemicals contained in the"
                     "sample and their fraction in the total mixture.")
     )

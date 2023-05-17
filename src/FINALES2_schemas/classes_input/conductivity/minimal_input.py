@@ -1,7 +1,7 @@
 from pydantic import BaseModel, Field
 from typing import Optional
 
-from FINALES2_schemas.classes_common import Formulation, unit_registry
+from FINALES2_schemas.classes_common import FormulationComponent, unit_registry
 
 class ConductivityInput(BaseModel):
     """Parameters used by the quantities
@@ -11,7 +11,7 @@ class ConductivityInput(BaseModel):
     :param BaseModel: used to ensure, that the class can be checked for the types
     :type BaseModel: pydantic.BaseModel
     """
-    formulation:Formulation = Field(
+    formulation:list[FormulationComponent] = Field(
         description=("This is a formulation defining the Chemicals contained in the "
                     "sample and their fraction in the total mixture.")
     )

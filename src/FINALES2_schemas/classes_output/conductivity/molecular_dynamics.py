@@ -17,6 +17,8 @@ class MolecularDynamicsOutput(BaseModel):
         description=("The ouptut of density calculations, which were generated "
                       "as a side result.")
     )
+
+    # TODO: Add this side result once the respective schema for RDFOutput is defined
     # RDF:Optional[RDFOutput] = Field(
     #     description=("The ouptut of RDF calculations, which were generated "
     #                  "as a side result.")
