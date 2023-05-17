@@ -9,11 +9,10 @@
       "formulation": {
         "title": "Formulation",
         "description": "This is a formulation defining the Chemicals contained in the sample and their fraction in the total mixture.",
-        "allOf": [
-          {
-            "$ref": "#/definitions/Formulation"
-          }
-        ]
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/FormulationComponent"
+        }
       },
       "temperature": {
         "title": "Temperature",
@@ -47,8 +46,9 @@
           "InChIKey"
         ]
       },
-      "ChemicalInSolution": {
-        "title": "ChemicalInSolution",
+      "FormulationComponent": {
+        "title": "FormulationComponent",
+        "description": "This class shall be used when referring to chemicals as a component in a formulation.\nWhen assembling a formulation based on FormulationComponents, consider, that it\nmight be required to use the same fraction type for all the chemicals.",
         "type": "object",
         "properties": {
           "chemical": {
@@ -64,25 +64,6 @@
             "title": "Fraction",
             "description": "The unitless fraction of the chemical in the total of the mixture.",
             "type": "number"
-          }
-        },
-        "required": [
-          "chemical",
-          "fraction"
-        ]
-      },
-      "Formulation": {
-        "title": "Formulation",
-        "description": "Subclass",
-        "type": "object",
-        "properties": {
-          "chemicals": {
-            "title": "Chemicals",
-            "description": "A list of the chemicals included in the formulation. The fraction of the respective chemical in the solution is contained in eachof the elements in the list.",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/ChemicalInSolution"
-            }
           },
           "fraction_type": {
             "title": "Fraction Type",
@@ -91,7 +72,8 @@
           }
         },
         "required": [
-          "chemicals",
+          "chemical",
+          "fraction",
           "fraction_type"
         ]
       }
@@ -146,8 +128,9 @@
           "InChIKey"
         ]
       },
-      "ChemicalInSolution": {
-        "title": "ChemicalInSolution",
+      "FormulationComponent": {
+        "title": "FormulationComponent",
+        "description": "This class shall be used when referring to chemicals as a component in a formulation.\nWhen assembling a formulation based on FormulationComponents, consider, that it\nmight be required to use the same fraction type for all the chemicals.",
         "type": "object",
         "properties": {
           "chemical": {
@@ -163,25 +146,6 @@
             "title": "Fraction",
             "description": "The unitless fraction of the chemical in the total of the mixture.",
             "type": "number"
-          }
-        },
-        "required": [
-          "chemical",
-          "fraction"
-        ]
-      },
-      "Formulation": {
-        "title": "Formulation",
-        "description": "Subclass",
-        "type": "object",
-        "properties": {
-          "chemicals": {
-            "title": "Chemicals",
-            "description": "A list of the chemicals included in the formulation. The fraction of the respective chemical in the solution is contained in eachof the elements in the list.",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/ChemicalInSolution"
-            }
           },
           "fraction_type": {
             "title": "Fraction Type",
@@ -190,7 +154,8 @@
           }
         },
         "required": [
-          "chemicals",
+          "chemical",
+          "fraction",
           "fraction_type"
         ]
       },
@@ -285,16 +250,16 @@
       },
       "RunInfo": {
         "title": "RunInfo",
+        "description": "Metadata for a run of a method. This information may apply to all samples\nprocessed in the respective run.",
         "type": "object",
         "properties": {
           "formulation": {
             "title": "Formulation",
             "description": "This is a formulation defining the Chemicals contained in thesample and their fraction in the total mixture.",
-            "allOf": [
-              {
-                "$ref": "#/definitions/Formulation"
-              }
-            ]
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/FormulationComponent"
+            }
           },
           "internal_reference": {
             "title": "Internal Reference",
@@ -327,6 +292,7 @@
       },
       "MethodMeta": {
         "title": "MethodMeta",
+        "description": "Additional information obtained from a method summarizing information, whether \nthe method was successfully run and what the rating for the returned data is.",
         "type": "object",
         "properties": {
           "success": {

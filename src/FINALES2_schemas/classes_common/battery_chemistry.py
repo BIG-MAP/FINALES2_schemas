@@ -1,9 +1,11 @@
 from pydantic import BaseModel, Field
-from .formulation import Formulation
+from .formulation_component import FormulationComponent
 from .electrode import Electrode
 
 class BatteryChemistry(BaseModel):
-    electrolyte:Formulation = Field(
+    """A description of the chemistry of a cell.
+    """
+    electrolyte:list[FormulationComponent] = Field(
         description = ("The definition of the composition of the electrolyte used in the "
                      "cells, for which the prediction shall be made")
     )

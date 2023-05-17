@@ -1,6 +1,9 @@
 from pydantic import BaseModel, Field
 
 class MethodMeta(BaseModel):
+    """Additional information obtained from a method summarizing information, whether 
+    the method was successfully run and what the rating for the returned data is.
+    """
     success:bool = Field(
         description=("This reports, if the method finished successfully.")
     )

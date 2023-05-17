@@ -1,9 +1,14 @@
 from pydantic import BaseModel, Field
-from .formulation import Formulation
+from .formulation_component import FormulationComponent
 from .unit_registry import unit_registry
 
 class Electrode(BaseModel):
-    material:Formulation = Field(
+    """The definition of an electrode.
+
+    :param BaseModel: _description_
+    :type BaseModel: _type_
+    """
+    material:list[FormulationComponent] = Field(
         description=("The description of the composition of the electrode.")
     )
     mass_loading:float = Field(
