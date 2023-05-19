@@ -1,6 +1,7 @@
 from pydantic import BaseModel, Field
 from .formulation_component import FormulationComponent
 from .electrode import Electrode
+from .separator import Separator
 
 class BatteryChemistry(BaseModel):
     """A description of the chemistry of a cell.
@@ -14,4 +15,7 @@ class BatteryChemistry(BaseModel):
     )
     cathode:Electrode = Field(
         description=("The definition of the cathode.")
+    ),
+    separator:Separator = Field(
+        description=("The definition of the separator.")
     )
