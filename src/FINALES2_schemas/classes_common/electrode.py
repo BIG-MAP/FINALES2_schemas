@@ -1,4 +1,5 @@
 from pydantic import BaseModel, Field
+from typing import Optional
 from .formulation_component import FormulationComponent
 from .unit_registry import unit_registry
 
@@ -18,4 +19,8 @@ class Electrode(BaseModel):
     )
     current_collector:str = Field(
         description=("A designation of the current collector material. E.g. 'copper' or 'aluminium'.")
+    )
+    Size:Optional[float] = Field(
+        unit=str(unit_registry.cm**2),
+        description=("The area of the electrode, of which the shape is cut in cirular.")
     )
