@@ -2,7 +2,7 @@ from pydantic import BaseModel, Field
 from typing import Optional
 from datetime import date
 from uuid import UUID
-from formulation_component import FormulationComponent
+from .formulation_component import FormulationComponent
 
 
 class FormulationInfo(BaseModel):

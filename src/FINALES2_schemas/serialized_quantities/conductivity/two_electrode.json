@@ -8,11 +8,12 @@
     "properties": {
       "formulation": {
         "title": "Formulation",
-        "description": "This is a formulation defining the Chemicals contained in the sample and their fraction in the total mixture.",
-        "type": "array",
-        "items": {
-          "$ref": "#/definitions/FormulationComponent"
-        }
+        "description": "This is a formulation defining the Chemicals contained in the sample and their fraction in the total mixture, this also includes the metadata.",
+        "allOf": [
+          {
+            "$ref": "#/definitions/FormulationInfo"
+          }
+        ]
       },
       "temperature": {
         "title": "Temperature",
@@ -75,6 +76,46 @@
           "chemical",
           "fraction",
           "fraction_type"
+        ]
+      },
+      "FormulationInfo": {
+        "title": "FormulationInfo",
+        "description": "Additional information about a formulation, which is relevant for documentation\npurposes",
+        "type": "object",
+        "properties": {
+          "formulation": {
+            "title": "Formulation",
+            "description": "This is a formulation defining the Chemicals contained in the sample and their fraction in the total mixture.",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/FormulationComponent"
+            }
+          },
+          "name": {
+            "title": "Name",
+            "description": "A human readable name of the formulation.",
+            "type": "string"
+          },
+          "uuid": {
+            "title": "Uuid",
+            "description": "A unique identifier assigned to this formulation in this run.",
+            "type": "string",
+            "format": "uuid"
+          },
+          "preparation_date": {
+            "title": "Preparation Date",
+            "description": "The date when the formulation was prepared. For commercial formulations, the manufacturing date may be used.",
+            "type": "string",
+            "format": "date"
+          },
+          "batch": {
+            "title": "Batch",
+            "description": "A batch number for the formulation, if it is available.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "formulation"
         ]
       }
     }
@@ -164,6 +205,14 @@
         "description": "Additional information about a formulation, which is relevant for documentation\npurposes",
         "type": "object",
         "properties": {
+          "formulation": {
+            "title": "Formulation",
+            "description": "This is a formulation defining the Chemicals contained in the sample and their fraction in the total mixture.",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/FormulationComponent"
+            }
+          },
           "name": {
             "title": "Name",
             "description": "A human readable name of the formulation.",
@@ -186,13 +235,25 @@
             "description": "A batch number for the formulation, if it is available.",
             "type": "string"
           }
-        }
+        },
+        "required": [
+          "formulation"
+        ]
       },
       "ChemicalInfo": {
         "title": "ChemicalInfo",
         "description": "Additional information about a chemical, which is relevant for documentation\npurposes",
         "type": "object",
         "properties": {
+          "chemical": {
+            "title": "Chemical",
+            "description": "The chemical, to which the metadata refers.",
+            "allOf": [
+              {
+                "$ref": "#/definitions/Chemical"
+              }
+            ]
+          },
           "name": {
             "title": "Name",
             "description": "A human readable name of the chemical, to which this information is referring.",
@@ -246,21 +307,16 @@
             "type": "string",
             "format": "date"
           }
-        }
+        },
+        "required": [
+          "chemical"
+        ]
       },
       "RunInfo": {
         "title": "RunInfo",
         "description": "Metadata for a run of a method. This information may apply to all samples\nprocessed in the respective run.",
         "type": "object",
         "properties": {
-          "formulation": {
-            "title": "Formulation",
-            "description": "This is a formulation defining the Chemicals contained in thesample and their fraction in the total mixture.",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/FormulationComponent"
-            }
-          },
           "internal_reference": {
             "title": "Internal Reference",
             "description": "This field is an internal ID identifying this run of the method. In experimental setups, this may reference to an ID of the sample.",
@@ -269,7 +325,7 @@
           },
           "formulation_info": {
             "title": "Formulation Info",
-            "description": "This is the metadata concerning the formulation relevant for documentation.",
+            "description": "This is the definition of a formulation reporting the Chemicals contained in thesample and their fraction in the total mixture. This includes the metadata relevant for documentation.",
             "allOf": [
               {
                 "$ref": "#/definitions/FormulationInfo"
@@ -286,8 +342,8 @@
           }
         },
         "required": [
-          "formulation",
-          "internal_reference"
+          "internal_reference",
+          "formulation_info"
         ]
       },
       "MethodMeta": {
