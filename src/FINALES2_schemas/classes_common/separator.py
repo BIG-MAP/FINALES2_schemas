@@ -9,10 +9,11 @@ class Separator(BaseModel):
     :param BaseModel: _description_
     :type BaseModel: _type_
     """
-    material:list[FormulationComponent] = Field(
-        description=("The description of the composition of the separator.")
+    material:str = Field(
+        description=("The product name of the separator reported by the manufacturer, "
+                     "E.g. Celgard 2325.")
     )
-    Size:Optional[float] = Field(
+    size:Optional[float] = Field(
         unit=str(unit_registry.cm**2),
         description=("The area of the separator, of which the shape is cut in cirular.")
     )

@@ -1,21 +1,16 @@
+from datetime import datetime
 from typing import Optional
 from pydantic import BaseModel, Field
-from typing import List
-from FINALES2_schemas.classes_common import RunInfo, MethodMeta, unit_registry
+from FINALES2_schemas.classes_common import MethodMeta, unit_registry
 
 class AssemblyOutput(BaseModel):
     """
-    Results returned from the cell assembly:
+    Results returned from the single cell assembly:
     """
-    run_info:RunInfo = Field(
-        description=("The information regarding the formulation and the internal "
-                     "reference, which is common for all data generated in this run of "
-                     "the method.")
+    sealing_time:Optional[datetime] = Field(
+        description="The datetime when the cell was sealed."
     )
-    sealingTime:List[str] = Field(
-        description=("Time recorded upon sealing of the cells")
-    )
-    manufacturingImg:List[str]= Field(
+    manufacturing_img:str= Field(
         description=("The path, where the cells' manufacturing images can be accessed. This is "
                      "relevant as the data files are large and cannot easily be sent "
                      "via FINALES.")
