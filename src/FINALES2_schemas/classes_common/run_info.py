@@ -9,16 +9,13 @@ class RunInfo(BaseModel):
     """Metadata for a run of a method. This information may apply to all samples
     processed in the respective run.
     """
-    formulation:list[FormulationComponent] = Field(
-        description=("This is a formulation defining the Chemicals contained in the"
-                    "sample and their fraction in the total mixture.")
-    )
     internal_reference:UUID = Field(
         description=("This field is an internal ID identifying this run of the method."
                     " In experimental setups, this may reference to an ID of the sample.")
     )
-    formulation_info:Optional[FormulationInfo] = Field(
-        description=("This is the metadata concerning the formulation relevant for "
+    formulation_info:FormulationInfo = Field(
+        description=("This is the definition of a formulation reporting the Chemicals contained in the"
+                    "sample and their fraction in the total mixture. This includes the metadata relevant for "
                     "documentation.")
     )
     chemicals_info:Optional[dict[str, ChemicalInfo]] = Field(

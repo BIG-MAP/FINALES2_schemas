@@ -2,10 +2,14 @@ from pydantic import BaseModel, Field
 from typing import Optional, Tuple
 from datetime import date
 from .unit_registry import unit_registry
+from .chemical import Chemical
 
 class ChemicalInfo(BaseModel):
     """Additional information about a chemical, which is relevant for documentation
     purposes"""
+    chemical:Chemical = Field(
+        description="The chemical, to which the metadata refers."
+    )
     name:Optional[str] = Field(
         description=("A human readable name of the chemical, to which this information "
                     "is referring.")
