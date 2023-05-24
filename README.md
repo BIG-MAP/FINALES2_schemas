@@ -1,9 +1,63 @@
 # FINALES2 schemas
 
-The FINALES server is able to dynamically incorporate new measurements as they become available.
-They are stored in a database in which each entry corresponds to a given quantity, method for obtaining the quantity, and a json specifying the expected schema of the parameters for obtaining this quantity.
-Since generating and handling these schemas is non-trivial, this package allows users to write them first as Pydantic classes (that they can then use in their tenants) and export them in the format that the finales server understands and uses to validate their submissions.
+The FINALES server is able to dynamically incorporate new measurements as they become available. They are stored in a database in which each entry corresponds to a given quantity, method for obtaining the quantity, and a json specifying the expected schema of the parameters for obtaining this quantity. Since generating and handling these schemas is non-trivial, this package allows users to write them first as Pydantic classes (that they can then use in their tenants) and export them in the format that the finales server understands and uses to validate their submissions.
 
-If you want to add a new quantity, you should define the parameters that are expected as a Pydantic class in the `/parameter_classes` and expose it in the `__init__.py` there (import it and add it to `__all__`).
-Then you should go to the `/generate_schemas.py` script, import it there and use it to generate the corresponding parameter schema and serialized quantities.
-Finally, run the script to generate the files: you can then commit your changes to this repository, but most importantly you must send the serialized quantities to the admin of the finales server so that they can add it to the quantity table.
+## The structure of this repository
+The structure of this repository reflects different levels of generality. This comprises classes and schemas, which can be use in the whole MAP, such, which can be shared among different methods providing the same quantity and classes and schemas, which are specific to one method. It should be taken care, that the classes and schemas are re-used, wherever this is reasonably possible to avoid many different schemas emerging conveying the same information.
+
+### classes_common
+Classes, which can be shared among a large fraction of the tenants, are collected in the ``classes_common`` directory. These classes shall be used, wherever the respective input, e.g. a formulation of an electrolyte is needed. The following will elucidate in more detail using the example of a formulation. The description of the formulation itself is contained in the ``formulation.py/Formulation`` class. The fields required in this class are necessary to get a technical description of a formulation and are independent of tenant-related information. Additional information, which is more relevant for documentation and traceability, are included in the ``formulation_info.py/FormulationInfo`` class. Such additional information is all optional an may contain e.g. batch numbers, sample names, date and time of the formulation, etc. Analogously to this structure, additional info may also be related to other classes as it is done for the chemicals, for example. Furthermore, this directory contains a unit_registry, which uses the [pint](https://pypi.org/project/Pint/) package to provide a common way of communicating units. The ``__init__.py`` in this directory collects all the objects defined in this repository in order to facilitate imports  and make the imports more independent of the internal structure of the directory.
+
+### classes_input
+This directory collects all the classes used as inputs for methods related to quantities. Each quantity has its own subdirectory. The ``__init__.py`` files in each subdirectory collect all the classes defined in the respective directory for this quantity to facilitate imports and make the imports more independent of the internal structure of the directory. If a folder for a quantity contains a file called ``minimal_input.py``, this file defines an input, which should be shared among different methods providing this quantity to the furthest extend possible. If a method needs additional inputs, it can create its own input file using the class defined in ``minimal_input.py`` and add further information. Creating a completely independent input class should be the last resort when defining input classes. Method-specific input classes are collected in files labelled as ``<method_name>.py`` in the directory of the respective quantity.
+
+### classes_output
+The structure of the ``classes_output`` directory is analogous to the ``classes_input`` directory. For the generation of method-specific output classes the same rules as for the input classes apply.
+
+### serialized_quantities
+This directory contains a subdirectory for every quantity. These subdirectories contain files with labels according to ``<method_name>.JSON``. These files provide a JSON-schema describing the input and output of the method they are belonging to. These files are auto-generated by the ``generate_schemas.py`` script, which will be described further below. The schemas contained in this directory are saved in the ``Quantities`` table in the FINALES database and serve as a means to check the correct format of inputs and outputs for the communication with FINALES.
+
+### generate_schemas.py
+This file generates the JSON-schemas in the ``serialized_quantities`` directory. In line 4 to line 11, the way of importing the classes can be seen. From line 35 on, one set of two lines generates the file for one quantity and method pair. The input parameters for the ``generate_quantity`` method are the name of the quantity, the name of the method, the input schema and the output schema to use and the path to save the file.
+
+## How to add new schemas for my quantity and method
+This section describes in a step-by-step manner the procedure how to generate a new schema for a quantity-method pair. The example assumes that a new quantity and a new method providing this quantity is added. If only a new method is needed, the steps referring to creating a quantity can be skipped. Please add your changes in a separate branch.
+
+### A new quantity
+1. Add a new folder for your quantity in the ``classes_input``, ``classes_output`` and ``serialized_schemas`` directories
+1. Add an ``__init__.py`` file to the ``classes_input`` and ``classes_output`` directories
+1. Check, which common classes exist and can be re-used and if any new common classes need to added. If new common classes are created, add them in the ``classes_common`` directory and import them in the ``__init__.py`` file of this directory. If changes in a common class are needed, change the classes, where needed. Take care, that no tenant specific information is included in the common classes. If tenant-specific information is needed, add a ``<class>Info.py`` file.
+1. If possible, define a minimal input and a minimal output in the ``classes_input`` and ``classes_output`` directories, respectively.
+
+### A new method
+1. Create a file named ``<method_name>.py`` in the ``classes_input`` and ``classes_output`` directories in the subdirectory of your respective quantity.
+1. In these files, define the input and output class of your method, respectively. Make sure to re-use already existing class definitions rather than creating new ones describing the same things.
+1. Import your new module in the ``classes_input/__init__.py`` and the ``classes_output/__init__.py``, respectively.
+
+### Generating the JSON-schemas
+1. If you did not create a new quantity, you can skip this step. Otherwise add your quantity to the import statement for the inputs and outputs in the ``generate_schemas.py`` starting in line 4 and 8, respectively.
+1. Add the two lines of code generating your JSON-schema after the ``if __name__ == "__main__":`` statement in ``generate_schemas.py``.
+1. Run ``generate_schemas.py``.
+1. Check, that you JSON-schema is created in the ``serialized_quantities`` directory.
+
+### Getting your changes included
+1. Push your changes to a sidebranch of this repository.
+1. Create a pull request to the main branch of this repository.
+1. Follow the usual code review process to get your pull request merged.
+
+### Usage of the classes and schemas
+This section descrbes how the classes and schemas contained in this repository can be used.
+
+## Use of the classes
+The classes defined in this repository may be used by importing them from the ``classes_common``, ``classes_input`` and ``classes_output``, respectively.
+
+## Use of the schemas
+The schemas can be used for understanding the data structures as a human or for validating the data structures sent to and received from FINALES. Both options will briefly be explained in the following.
+The schemas for the inputs can be found in the JSON files in the key ``json_schema_specifications``. The schemas for the output can be found in the key ``json_schema_result_output```.
+
+### Validation
+For programmatically validating a data structure, the schemas may be used as follows:
+If you would like to validate, that an input ``specific_params = {...}`` for a certain method matches the required input schema for this method, get the capability from FINALES using the command ``capability_object = request_finales_capability(quantity_name, method_name)``. From these capabilities, the schema for the input can be obtained from ``schema_specs = capability_object['json_schema_specifications']``. The data structure can be validated using the ``validate`` method from the ``jsonschema`` package by executing ``validate(instance=specific_params, schema=schema_specs)``.
+
+### Understanding the data structures
+To understand the data structures as a human, you can request a capability from FINALES using ``capability_object = request_finales_capability(quantity_name, method_name)`` and check the schema in the ``json_schema_specifications`` key for the input and ``json_schema_result_output`` key for the output, respectively. Alternatively, the schemas can also be obtained from this repository as they are loaded to FINALES dynamically. These schemas may be inspected as they are or using a visualization tool like e.g. [this](https://json-schema-visualizer.netlify.app/).
