@@ -8,7 +8,7 @@ class DensityInput(BaseModel):
     `density` - `vibratingTubeDensimetry`
     `density` - `molecularDynamicsSimulation`
     """
-    formulation:FormulationComponent = Field(
+    formulation:list[FormulationComponent] = Field(
         description=("This is a formulation defining the Chemicals contained in the "
                     "sample and their fraction in the total mixture.")
     )
