@@ -13,7 +13,7 @@ class RunInfo(BaseModel):
         description=("This is a formulation defining the Chemicals contained in the"
                     "sample and their fraction in the total mixture.")
     )
-    internal_reference:UUID = Field(
+    internal_reference:str = Field(
         description=("This field is an internal ID identifying this run of the method."
                     " In experimental setups, this may reference to an ID of the sample.")
     )
