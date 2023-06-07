@@ -186,7 +186,7 @@
       },
       "Separator": {
         "title": "Separator",
-        "description": "The definition of an electrode.\n\n:param BaseModel: _description_\n:type BaseModel: _type_",
+        "description": "The definition of a separator used in battery cells.",
         "type": "object",
         "properties": {
           "material": {

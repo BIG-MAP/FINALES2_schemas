@@ -3,11 +3,7 @@ from typing import Optional
 from .unit_registry import unit_registry
 
 class Separator(BaseModel):
-    """The definition of an electrode.
-
-    :param BaseModel: _description_
-    :type BaseModel: _type_
-    """
+    """The definition of a separator used in battery cells."""
     material:str = Field(
         description=("The product name of the separator reported by the manufacturer, "
                      "E.g. Celgard 2325.")
