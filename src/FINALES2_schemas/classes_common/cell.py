@@ -13,6 +13,6 @@ class Cell(BaseModel):
         description=("The definition of the separator.")
     )
     electrolyte_volume:float = Field(
-        unit=str(unit_registry.µL),
+        unit=str(unit_registry.uL),
         description=("A designation of the volume of electrolyte.")
     )

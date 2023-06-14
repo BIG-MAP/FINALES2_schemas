@@ -8,9 +8,6 @@ from FINALES2_schemas.classes_common.cell import Cell
 class CellInfo(BaseModel):
     """Additional information about a cell, which is relevant for documentation
     purposes"""
-    cell:Cell = Field(
-        description=("This is a Cell class defining the information needed")
-    )
     cell_name:Optional[str] = Field(
         description="A human readable name of the cell."
     )

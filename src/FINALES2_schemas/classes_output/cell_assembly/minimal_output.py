@@ -1,12 +1,16 @@
 from datetime import datetime
 from typing import Optional
+from uuid import UUID
 from pydantic import BaseModel, Field
-from FINALES2_schemas.classes_common import MethodMeta, unit_registry
+from FINALES2_schemas.classes_common import MethodMeta, unit_registry, CellInfo
 
 class AssemblyOutput(BaseModel):
     """
     Results returned from the single cell assembly:
     """
+    cell_info:CellInfo = Field(
+        description=("The metadata associated with the assembled cell.")
+    )
     manufacturing_img:str= Field(
         description=("The path, where the cells' manufacturing images can be accessed. This is "
                      "relevant as the data files are large and cannot easily be sent "

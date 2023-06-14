@@ -7,16 +7,16 @@
     "properties": {
       "cell_info": {
         "title": "Cell Info",
-        "description": "This is a CellInfo class defining the information neededto fabricate a single cell with the same battery chemistry, which includes the metadata.",
+        "description": "This is a Cell class defining the information needed to fabricate a single cell with the respective battery chemistry.",
         "allOf": [
           {
-            "$ref": "#/definitions/CellInfo"
+            "$ref": "#/definitions/Cell"
           }
         ]
       },
       "batch_volume": {
         "title": "Batch Volume",
-        "description": "This is the numbers of the cells to be fabricated in one batchwith the same chemistry, It shall be given in the unit pieces. And range from 1 (lowest) to 64 (highest). Unit: parsec",
+        "description": "This is the numbers of the cells to be fabricated in one batch with the same chemistry, It shall be given in the unit pieces. And range from 1 (lowest) to 64 (highest). Unit: parsec",
         "type": "integer"
       }
     },
@@ -239,21 +239,39 @@
           "separator",
           "electrolyte_volume"
         ]
+      }
+    }
+  },
+  "json_schema_result_output": {
+    "title": "AutoBASSOutput",
+    "description": "Result returned from the cell assembly, which merges all the cells in on batch:",
+    "type": "object",
+    "properties": {
+      "batch_output": {
+        "title": "Batch Output",
+        "description": "The list includes the AssemblyOutput class from each single cell.",
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/AssemblyOutput"
+        }
       },
+      "batch_id": {
+        "title": "Batch Id",
+        "description": "A unique identifier assigned to this batch of cells in this run.",
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    "required": [
+      "batch_output",
+      "batch_id"
+    ],
+    "definitions": {
       "CellInfo": {
         "title": "CellInfo",
         "description": "Additional information about a cell, which is relevant for documentation\npurposes",
         "type": "object",
         "properties": {
-          "cell": {
-            "title": "Cell",
-            "description": "This is a Cell class defining the information needed",
-            "allOf": [
-              {
-                "$ref": "#/definitions/Cell"
-              }
-            ]
-          },
           "cell_name": {
             "title": "Cell Name",
             "description": "A human readable name of the cell.",
@@ -276,38 +294,8 @@
             "description": "A batch number for the cells, if it is available.",
             "type": "string"
           }
-        },
-        "required": [
-          "cell"
-        ]
-      }
-    }
-  },
-  "json_schema_result_output": {
-    "title": "AutoBASSOutput",
-    "description": "Result returned from the cell assembly, which merges all the cells in on batch:",
-    "type": "object",
-    "properties": {
-      "batch_output": {
-        "title": "Batch Output",
-        "description": "The list includes the AssemblyOutput class from each single cell.",
-        "type": "array",
-        "items": {
-          "$ref": "#/definitions/AssemblyOutput"
         }
       },
-      "batch_id": {
-        "title": "Batch Id",
-        "description": "A unique identifier assigned to this cell in this run.",
-        "type": "string",
-        "format": "uuid"
-      }
-    },
-    "required": [
-      "batch_output",
-      "batch_id"
-    ],
-    "definitions": {
       "MethodMeta": {
         "title": "MethodMeta",
         "description": "Additional information obtained from a method summarizing information, whether \nthe method was successfully run and what the rating for the returned data is.",
@@ -334,6 +322,15 @@
         "description": "Results returned from the single cell assembly:",
         "type": "object",
         "properties": {
+          "cell_info": {
+            "title": "Cell Info",
+            "description": "The metadata associated with the assembled cell.",
+            "allOf": [
+              {
+                "$ref": "#/definitions/CellInfo"
+              }
+            ]
+          },
           "manufacturing_img": {
             "title": "Manufacturing Img",
             "description": "The path, where the cells' manufacturing images can be accessed. This is relevant as the data files are large and cannot easily be sent via FINALES.",
@@ -362,6 +359,7 @@
           }
         },
         "required": [
+          "cell_info",
           "manufacturing_img",
           "meta"
         ]

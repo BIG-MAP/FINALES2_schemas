@@ -10,5 +10,5 @@ class AutoBASSOutput(BaseModel):
         description="The list includes the AssemblyOutput class from each single cell."
     )
     batch_id: UUID = Field(
-        description="A unique identifier assigned to this cell in this run."
+        description="A unique identifier assigned to this batch of cells in this run."
     )
