@@ -22,7 +22,3 @@ class Electrode(BaseModel):
         unit=str(unit_registry.cm**2),
         description=("The area of the electrode, which is cut to a circular shape.")
     )
-    material_info:Optional[FormulationInfo] = Field(
-        description=("The metadata related to the material used for manufacturing the "
-                     "electrode.")
-    )

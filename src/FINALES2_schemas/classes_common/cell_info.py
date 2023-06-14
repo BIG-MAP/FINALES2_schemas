@@ -3,6 +3,7 @@ from typing import Optional
 from datetime import date
 from uuid import UUID
 from FINALES2_schemas.classes_common.cell import Cell
+from FINALES2_schemas.classes_common.formulation_info import FormulationInfo
 
 
 class CellInfo(BaseModel):
@@ -19,4 +20,10 @@ class CellInfo(BaseModel):
     )
     batch:Optional[str] = Field(
         description="A batch number for the cells, if it is available."
+    )
+    anode_info:Optional[FormulationInfo] = Field(
+        description=("The metadata related to the anode used in the cell.")
+    )
+    cathode_info:Optional[FormulationInfo] = Field(
+        description=("The metadata related to the cathode used in the cell.")
     )
