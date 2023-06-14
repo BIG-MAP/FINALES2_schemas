@@ -124,6 +124,35 @@
           "fraction_type"
         ]
       },
+      "FormulationInfo": {
+        "title": "FormulationInfo",
+        "description": "Additional information about a formulation, which is relevant for documentation\npurposes",
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "description": "A human readable name of the formulation.",
+            "type": "string"
+          },
+          "uuid": {
+            "title": "Uuid",
+            "description": "A unique identifier assigned to this formulation in this run.",
+            "type": "string",
+            "format": "uuid"
+          },
+          "preparation_date": {
+            "title": "Preparation Date",
+            "description": "The date when the formulation was prepared. For commercial formulations, the manufacturing date may be used.",
+            "type": "string",
+            "format": "date"
+          },
+          "batch": {
+            "title": "Batch",
+            "description": "A batch number for the formulation, if it is available.",
+            "type": "string"
+          }
+        }
+      },
       "Electrode": {
         "title": "Electrode",
         "description": "The definition of an electrode.\n\n:param BaseModel: _description_\n:type BaseModel: _type_",
@@ -143,16 +172,25 @@
             "unit": "milliampere_hour / centimeter ** 2",
             "type": "number"
           },
-          "current_collector": {
-            "title": "Current Collector",
-            "description": "A designation of the current collector material. E.g. 'copper' or 'aluminium'.",
-            "type": "string"
+          "size": {
+            "title": "Size",
+            "description": "The area of the electrode, which is cut to a circular shape.",
+            "unit": "centimeter ** 2",
+            "type": "number"
+          },
+          "material_info": {
+            "title": "Material Info",
+            "description": "The metadata related to the material used for manufacturing the electrode.",
+            "allOf": [
+              {
+                "$ref": "#/definitions/FormulationInfo"
+              }
+            ]
           }
         },
         "required": [
           "material",
-          "mass_loading",
-          "current_collector"
+          "mass_loading"
         ]
       },
       "BatteryChemistry": {
