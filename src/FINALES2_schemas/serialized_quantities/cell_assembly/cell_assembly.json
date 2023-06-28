@@ -21,8 +21,7 @@
       }
     },
     "required": [
-      "cell_info",
-      "batch_volume"
+      "cell_info"
     ],
     "definitions": {
       "Chemical": {
@@ -77,35 +76,6 @@
           "fraction_type"
         ]
       },
-      "FormulationInfo": {
-        "title": "FormulationInfo",
-        "description": "Additional information about a formulation, which is relevant for documentation\npurposes",
-        "type": "object",
-        "properties": {
-          "name": {
-            "title": "Name",
-            "description": "A human readable name of the formulation.",
-            "type": "string"
-          },
-          "uuid": {
-            "title": "Uuid",
-            "description": "A unique identifier assigned to this formulation in this run.",
-            "type": "string",
-            "format": "uuid"
-          },
-          "preparation_date": {
-            "title": "Preparation Date",
-            "description": "The date when the formulation was prepared. For commercial formulations, the manufacturing date may be used.",
-            "type": "string",
-            "format": "date"
-          },
-          "batch": {
-            "title": "Batch",
-            "description": "A batch number for the formulation, if it is available.",
-            "type": "string"
-          }
-        }
-      },
       "Electrode": {
         "title": "Electrode",
         "description": "The definition of an electrode.\n\n:param BaseModel: _description_\n:type BaseModel: _type_",
@@ -130,20 +100,10 @@
             "description": "The area of the electrode, which is cut to a circular shape.",
             "unit": "centimeter ** 2",
             "type": "number"
-          },
-          "material_info": {
-            "title": "Material Info",
-            "description": "The metadata related to the material used for manufacturing the electrode.",
-            "allOf": [
-              {
-                "$ref": "#/definitions/FormulationInfo"
-              }
-            ]
           }
         },
         "required": [
-          "material",
-          "mass_loading"
+          "material"
         ]
       },
       "BatteryChemistry": {
@@ -235,9 +195,7 @@
           }
         },
         "required": [
-          "batteryChemistry",
-          "separator",
-          "electrolyte_volume"
+          "batteryChemistry"
         ]
       }
     }
@@ -267,6 +225,35 @@
       "batch_id"
     ],
     "definitions": {
+      "FormulationInfo": {
+        "title": "FormulationInfo",
+        "description": "Additional information about a formulation, which is relevant for documentation\npurposes",
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "description": "A human readable name of the formulation.",
+            "type": "string"
+          },
+          "uuid": {
+            "title": "Uuid",
+            "description": "A unique identifier assigned to this formulation in this run.",
+            "type": "string",
+            "format": "uuid"
+          },
+          "preparation_date": {
+            "title": "Preparation Date",
+            "description": "The date when the formulation was prepared. For commercial formulations, the manufacturing date may be used.",
+            "type": "string",
+            "format": "date"
+          },
+          "batch": {
+            "title": "Batch",
+            "description": "A batch number for the formulation, if it is available.",
+            "type": "string"
+          }
+        }
+      },
       "CellInfo": {
         "title": "CellInfo",
         "description": "Additional information about a cell, which is relevant for documentation\npurposes",
@@ -293,6 +280,24 @@
             "title": "Batch",
             "description": "A batch number for the cells, if it is available.",
             "type": "string"
+          },
+          "anode_info": {
+            "title": "Anode Info",
+            "description": "The metadata related to the anode used in the cell.",
+            "allOf": [
+              {
+                "$ref": "#/definitions/FormulationInfo"
+              }
+            ]
+          },
+          "cathode_info": {
+            "title": "Cathode Info",
+            "description": "The metadata related to the cathode used in the cell.",
+            "allOf": [
+              {
+                "$ref": "#/definitions/FormulationInfo"
+              }
+            ]
           }
         }
       },

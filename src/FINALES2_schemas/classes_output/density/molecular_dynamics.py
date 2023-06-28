@@ -1,7 +1,7 @@
 from pydantic import BaseModel, Field
 from typing import Optional
 from FINALES2_schemas.classes_common import RunInfo
-from FINALES2_schemas.classes_output.density.minimal_output import DensityOutput
+from .minimal_output import DensityOutput
 from FINALES2_schemas.classes_output.conductivity import ConductivityOutput
 
 class MolecularDynamicsOutput(BaseModel):

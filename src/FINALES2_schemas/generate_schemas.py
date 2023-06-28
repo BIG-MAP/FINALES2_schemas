@@ -5,12 +5,14 @@ from classes_input import (conductivity as conductivity_input,
                            degradationEOL as degradationEOL_input,
                            density as density_input,
                            viscosity as viscostiy_input,
-                           cell_assembly as assembly_input)
+                           cell_assembly as assembly_input,
+                           electrolyte as electrolyte_input)
 from classes_output import (conductivity as conductivity_output,
                            degradationEOL as degradationEOL_output,
                            density as density_output,
                            viscosity as viscostiy_output,
-                           cell_assembly as assembly_output)
+                           cell_assembly as assembly_output,
+                           electrolyte as electrolyte_output)
 
 BASEPATH = pathlib.Path(__file__).parent.resolve()
 BASEPATH_QUANTITIES = BASEPATH / 'serialized_quantities'
@@ -51,3 +53,6 @@ if __name__ == "__main__":
 
     quantity_path = BASEPATH_QUANTITIES / 'cell_assembly' / 'cell_assembly.json'
     generate_quantity('cell_assembly', 'autobass_assembly', assembly_input.AssemblyInput, assembly_output.AutoBASSOutput, quantity_path)
+
+    quantity_path = BASEPATH_QUANTITIES / 'electrolyte' / 'flow.json'
+    generate_quantity('electrolyte', 'flow', electrolyte_input.FlowInput, electrolyte_output.FlowOutput, quantity_path)
