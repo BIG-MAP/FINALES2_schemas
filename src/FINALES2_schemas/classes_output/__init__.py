@@ -4,4 +4,5 @@ from . import (conductivity,
                radial_density_function,
                viscosity,
                cell_assembly,
-               electrolyte)
+               electrolyte,
+               capacity)
