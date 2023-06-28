@@ -186,15 +186,7 @@
       }
     },
     "required": [
-      "chemistry",
-      "input_cycles",
-      "average_charging_rate",
-      "maximum_charging_rate",
-      "minimum_charging_rate",
-      "delta_coulombic_efficiency",
-      "voltage_gap_charge_discharge",
-      "capacity_vector_variance",
-      "data_path"
+      "chemistry"
     ],
     "title": "DegradationModelInput",
     "type": "object"
