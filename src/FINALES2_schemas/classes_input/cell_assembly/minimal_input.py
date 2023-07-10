@@ -13,3 +13,4 @@ class AssemblyInput(BaseModel):
                     "And range from 1 (lowest) to 64 (highest). "
                     f"Unit: {str(unit_registry.pcs)}")
     )
+    # TODO: add a FormulationInput object for the electrolyte as an optional key here, because AutoBASS needs this for its operation!
