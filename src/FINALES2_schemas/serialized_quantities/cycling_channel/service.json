@@ -1,0 +1,72 @@
+{
+  "quantity": "cycling_channel",
+  "method": "service",
+  "json_schema_specifications": {
+    "properties": {
+      "number_required_channels": {
+        "description": "The number of cycling channels required for the cycling experiment.",
+        "title": "Number Required Channels",
+        "type": "integer"
+      },
+      "cycling_protocoll": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "The designation of the protocoll to use for the cycling experiment.",
+        "title": "Cycling Protocoll"
+      },
+      "number_cycles": {
+        "anyOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "The number of cycles, which are planned for the cycling experiment.",
+        "title": "Number Cycles"
+      }
+    },
+    "required": [
+      "number_required_channels",
+      "cycling_protocoll",
+      "number_cycles"
+    ],
+    "title": "CyclingChannelInput",
+    "type": "object"
+  },
+  "json_schema_result_output": {
+    "properties": {
+      "success": {
+        "description": "Indicator for the success of the reservation. This is False, if the number of available channels is not sufficient to satisfy the request.",
+        "title": "Success",
+        "type": "boolean"
+      },
+      "reservation_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "An ID associated with the reservation to identify the request once the request for the cycling experiment is received. This ID needs to be provided by the requester in the input for the cycling experiment (associated with the quantity 'capacity').This ID is only provided, if the requested number of channels was reserved.",
+        "title": "Reservation Id"
+      }
+    },
+    "required": [
+      "success",
+      "reservation_id"
+    ],
+    "title": "CyclingChannelOutput",
+    "type": "object"
+  },
+  "is_active": true
+}

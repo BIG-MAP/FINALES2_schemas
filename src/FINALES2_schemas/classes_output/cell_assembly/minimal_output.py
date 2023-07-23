@@ -33,3 +33,4 @@ class AssemblyOutput(BaseModel):
     sealing_time:Optional[datetime] = Field(
         description="The datetime when the cell was sealed."
     )
+    

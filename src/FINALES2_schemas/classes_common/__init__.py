@@ -8,4 +8,5 @@ from .method_meta import MethodMeta
 from .run_info import RunInfo
 from .cell_info import CellInfo
 from .cell import Cell
+from .location import Location
 from .unit_registry import unit_registry
