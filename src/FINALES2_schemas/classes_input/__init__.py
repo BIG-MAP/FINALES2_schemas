@@ -6,4 +6,5 @@ from . import (conductivity,
                cell_assembly,
                electrolyte,
                capacity,
-               cycling_channel)
+               cycling_channel,
+               transport)
