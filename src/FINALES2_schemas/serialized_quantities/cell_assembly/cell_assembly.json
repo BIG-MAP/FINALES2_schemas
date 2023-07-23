@@ -82,6 +82,117 @@
         "title": "Cell",
         "type": "object"
       },
+      "CellInfo": {
+        "description": "Additional information about a cell, which is relevant for documentation\n    purposes",
+        "properties": {
+          "cell_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "A human readable name of the cell.",
+            "title": "Cell Name"
+          },
+          "uuid": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "A unique identifier assigned to this cell in this run.",
+            "title": "Uuid"
+          },
+          "assembly_date": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The date when the cell was made.",
+            "title": "Assembly Date"
+          },
+          "batch": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "A batch number for the cells, if it is available.",
+            "title": "Batch"
+          },
+          "anode_info": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/FormulationInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The metadata related to the anode used in the cell."
+          },
+          "cathode_info": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/FormulationInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The metadata related to the cathode used in the cell."
+          },
+          "electrolyte_info": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/FormulationInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The metadata related to the electrolyte used in the cell."
+          },
+          "location": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/Location"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The location, where the physical cell can be found, which corresponds to this specification."
+          }
+        },
+        "required": [
+          "cell_name",
+          "uuid",
+          "assembly_date",
+          "batch",
+          "anode_info",
+          "cathode_info",
+          "electrolyte_info",
+          "location"
+        ],
+        "title": "CellInfo",
+        "type": "object"
+      },
       "Chemical": {
         "description": "Subclass",
         "properties": {
@@ -179,6 +290,108 @@
         "title": "FormulationComponent",
         "type": "object"
       },
+      "FormulationInfo": {
+        "description": "Additional information about a formulation, which is relevant for documentation\n    purposes",
+        "properties": {
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "A human readable name of the formulation.",
+            "title": "Name"
+          },
+          "uuid": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "A unique identifier assigned to this formulation in this run.",
+            "title": "Uuid"
+          },
+          "preparation_date": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The date when the formulation was prepared. For commercial formulations, the manufacturing date may be used.",
+            "title": "Preparation Date"
+          },
+          "batch": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "A batch number for the formulation, if it is available.",
+            "title": "Batch"
+          },
+          "location": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/Location"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The location, where the physical formulation can be found, which corresponds to this specification."
+          }
+        },
+        "required": [
+          "name",
+          "uuid",
+          "preparation_date",
+          "batch",
+          "location"
+        ],
+        "title": "FormulationInfo",
+        "type": "object"
+      },
+      "Location": {
+        "description": " The location providing information on where to find physical samples or\n    equipment.",
+        "properties": {
+          "address": {
+            "description": "The physical address, where the objec can be found. Depending on the usecase, this may be an official address or a name of an instute or similar. The default should be an address.",
+            "title": "Address",
+            "type": "string"
+          },
+          "detail_1": {
+            "description": "A more detailed description of a location. This may be e.g. a specific laboratory in a building, a desk in an office or a device or a cabinet.",
+            "title": "Detail 1",
+            "type": "string"
+          },
+          "detail_2": {
+            "description": "Another level of detail for a location. This may be e.g. a bench in the laboratory, a shelf in a cabinet  or a specific port in a machine.",
+            "title": "Detail 2",
+            "type": "string"
+          }
+        },
+        "required": [
+          "address",
+          "detail_1",
+          "detail_2"
+        ],
+        "title": "Location",
+        "type": "object"
+      },
       "Separator": {
         "description": "The definition of a separator used in battery cells.",
         "properties": {
@@ -210,7 +423,7 @@
       }
     },
     "properties": {
-      "cell_info": {
+      "cell": {
         "allOf": [
           {
             "$ref": "#/$defs/Cell"
@@ -229,11 +442,20 @@
         ],
         "description": "This is the numbers of the cells to be fabricated in one batch with the same chemistry, It shall be given in the unit pieces. And range from 1 (lowest) to 64 (highest). Unit: parsec",
         "title": "Batch Volume"
+      },
+      "cell_info": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/CellInfo"
+          }
+        ],
+        "description": "The metadata related to the cell. This is mainly needed to know about the ID of the electrolyte used."
       }
     },
     "required": [
-      "cell_info",
-      "batch_volume"
+      "cell",
+      "batch_volume",
+      "cell_info"
     ],
     "title": "AssemblyInput",
     "type": "object"
@@ -376,6 +598,17 @@
             ],
             "description": "The metadata related to the cathode used in the cell."
           },
+          "electrolyte_info": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/FormulationInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The metadata related to the electrolyte used in the cell."
+          },
           "location": {
             "anyOf": [
               {
@@ -395,6 +628,7 @@
           "batch",
           "anode_info",
           "cathode_info",
+          "electrolyte_info",
           "location"
         ],
         "title": "CellInfo",

@@ -2,7 +2,8 @@ from pydantic import BaseModel, Field
 from typing import Optional
 from datetime import date
 from uuid import UUID
-from FINALES2_schemas.classes_common import FormulationInfo, Location
+from FINALES2_schemas.classes_common.formulation_info import FormulationInfo
+from FINALES2_schemas.classes_common.location import Location
 
 class CellInfo(BaseModel):
     """Additional information about a cell, which is relevant for documentation

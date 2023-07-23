@@ -7,4 +7,5 @@ from . import (conductivity,
                electrolyte,
                capacity,
                cycling_channel,
-               transport)
+               transport,
+               radial_density_function)

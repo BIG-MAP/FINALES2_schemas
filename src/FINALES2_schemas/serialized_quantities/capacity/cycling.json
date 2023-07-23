@@ -78,6 +78,17 @@
             ],
             "description": "The metadata related to the cathode used in the cell."
           },
+          "electrolyte_info": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/FormulationInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The metadata related to the electrolyte used in the cell."
+          },
           "location": {
             "anyOf": [
               {
@@ -97,6 +108,7 @@
           "batch",
           "anode_info",
           "cathode_info",
+          "electrolyte_info",
           "location"
         ],
         "title": "CellInfo",
@@ -226,11 +238,19 @@
         "description": "Information about the cell provided by AutoBass."
       },
       "location": {
-        "description": "Physical location where the cycler is.",
-        "title": "Location",
+        "allOf": [
+          {
+            "$ref": "#/$defs/Location"
+          }
+        ],
+        "description": "Physical location where the cycler is."
+      },
+      "reservation_number": {
+        "description": "The ID assigned to the reservation when requesting free channels.",
+        "title": "Reservation Number",
         "type": "string"
       },
-      "Imax": {
+      "I_max": {
         "anyOf": [
           {
             "type": "number"
@@ -240,9 +260,9 @@
           }
         ],
         "description": "Maximum current value in ampere.",
-        "title": "Imax"
+        "title": "I Max"
       },
-      "Vmax": {
+      "V_max": {
         "anyOf": [
           {
             "type": "number"
@@ -252,9 +272,9 @@
           }
         ],
         "description": "Maximum Voltage value in Volt.",
-        "title": "Vmax"
+        "title": "V Max"
       },
-      "Vmin": {
+      "V_min": {
         "anyOf": [
           {
             "type": "number"
@@ -264,9 +284,9 @@
           }
         ],
         "description": "Minimum Voltage value in Volt.",
-        "title": "Vmin"
+        "title": "V Min"
       },
-      "Capacity": {
+      "capacity": {
         "anyOf": [
           {
             "type": "number"
@@ -278,7 +298,7 @@
         "description": "theoretical/experimental capacity in Ah.",
         "title": "Capacity"
       },
-      "crate_charge_formation": {
+      "c_rate_charge_formation": {
         "anyOf": [
           {
             "type": "number"
@@ -288,9 +308,9 @@
           }
         ],
         "description": "C-rate of charging in formation process",
-        "title": "Crate Charge Formation"
+        "title": "C Rate Charge Formation"
       },
-      "crate_discharge_formation": {
+      "c_rate_discharge_formation": {
         "anyOf": [
           {
             "type": "number"
@@ -300,9 +320,9 @@
           }
         ],
         "description": "C-rate of discharging in formation process",
-        "title": "Crate Discharge Formation"
+        "title": "C Rate Discharge Formation"
       },
-      "CV_Icutoff_formation": {
+      "CV_I_cutoff_formation": {
         "anyOf": [
           {
             "type": "number"
@@ -312,9 +332,9 @@
           }
         ],
         "description": "current cutoff value in A for the constant voltage step in formation process",
-        "title": "Cv Icutoff Formation"
+        "title": "Cv I Cutoff Formation"
       },
-      "repetions_formationcycle": {
+      "repetions_formation_cycle": {
         "anyOf": [
           {
             "type": "integer"
@@ -324,9 +344,9 @@
           }
         ],
         "description": "Number of formation cycles",
-        "title": "Repetions Formationcycle"
+        "title": "Repetions Formation Cycle"
       },
-      "cycling_Vmax": {
+      "cycling_V_max": {
         "anyOf": [
           {
             "type": "number"
@@ -336,9 +356,9 @@
           }
         ],
         "description": "max. Voltage of battery during cycling in V",
-        "title": "Cycling Vmax"
+        "title": "Cycling V Max"
       },
-      "cycling_Vmin": {
+      "cycling_V_min": {
         "anyOf": [
           {
             "type": "number"
@@ -348,9 +368,9 @@
           }
         ],
         "description": "min. Voltage of battery during cycling in V",
-        "title": "Cycling Vmin"
+        "title": "Cycling V Min"
       },
-      "crate_charge": {
+      "c_rate_charge": {
         "anyOf": [
           {
             "type": "number"
@@ -360,9 +380,9 @@
           }
         ],
         "description": "C-rate of charging",
-        "title": "Crate Charge"
+        "title": "C Rate Charge"
       },
-      "crate_discharge": {
+      "c_rate_discharge": {
         "anyOf": [
           {
             "type": "number"
@@ -372,9 +392,9 @@
           }
         ],
         "description": "C-rate of discharging",
-        "title": "Crate Discharge"
+        "title": "C Rate Discharge"
       },
-      "CV_Icutoff": {
+      "CV_I_cutoff": {
         "anyOf": [
           {
             "type": "number"
@@ -384,7 +404,7 @@
           }
         ],
         "description": "current cutoff value in A for the constant voltage step",
-        "title": "Cv Icutoff"
+        "title": "Cv I Cutoff"
       }
     },
     "required": [
@@ -392,19 +412,20 @@
       "number_cycles",
       "cell_info",
       "location",
-      "Imax",
-      "Vmax",
-      "Vmin",
-      "Capacity",
-      "crate_charge_formation",
-      "crate_discharge_formation",
-      "CV_Icutoff_formation",
-      "repetions_formationcycle",
-      "cycling_Vmax",
-      "cycling_Vmin",
-      "crate_charge",
-      "crate_discharge",
-      "CV_Icutoff"
+      "reservation_number",
+      "I_max",
+      "V_max",
+      "V_min",
+      "capacity",
+      "c_rate_charge_formation",
+      "c_rate_discharge_formation",
+      "CV_I_cutoff_formation",
+      "repetions_formation_cycle",
+      "cycling_V_max",
+      "cycling_V_min",
+      "c_rate_charge",
+      "c_rate_discharge",
+      "CV_I_cutoff"
     ],
     "title": "CapacityCyclingInput",
     "type": "object"

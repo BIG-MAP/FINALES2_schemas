@@ -3,6 +3,7 @@ from typing import Optional
 from FINALES2_schemas.classes_common import RunInfo
 from .minimal_output import ConductivityOutput
 from FINALES2_schemas.classes_output.density import DensityOutput
+from FINALES2_schemas.classes_output.radial_density_function import RDFOutput
 
 class MolecularDynamicsOutput(BaseModel):
     run_info:RunInfo = Field(
@@ -17,9 +18,7 @@ class MolecularDynamicsOutput(BaseModel):
         description=("The ouptut of density calculations, which were generated "
                       "as a side result.")
     )
-
-    # TODO: Add this side result once the respective schema for RDFOutput is defined
-    # RDF:Optional[RDFOutput] = Field(
-    #     description=("The ouptut of RDF calculations, which were generated "
-    #                  "as a side result.")
-    # )
+    RDF:Optional[RDFOutput] = Field(
+        description=("The ouptut of RDF calculations, which were generated "
+                     "as a side result.")
+    )
