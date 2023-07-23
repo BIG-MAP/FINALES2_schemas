@@ -72,9 +72,16 @@
             "type": "array"
           },
           "mass_loading": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "description": "The capacity per unit area of the electrode. Unit: milliampere_hour / centimeter ** 2",
             "title": "Mass Loading",
-            "type": "number",
             "unit": "milliampere_hour / centimeter ** 2"
           },
           "size": {
@@ -141,52 +148,103 @@
         "description": "The description of the chemicals involved in all the battery cell."
       },
       "input_cycles": {
+        "anyOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "null"
+          }
+        ],
         "description": "The number of cycles provided as an input to the model.",
-        "title": "Input Cycles",
-        "type": "integer"
+        "title": "Input Cycles"
       },
       "average_charging_rate": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
         "description": "The average C-rate used for charging of the cell in the cycles provided as an input. Unit: 1 / hour",
         "title": "Average Charging Rate",
-        "type": "number",
         "unit": "1 / hour"
       },
       "maximum_charging_rate": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
         "description": "The maximum C-rate used for charging of the cell in the cycles provided as an input. Unit: 1 / hour",
         "title": "Maximum Charging Rate",
-        "type": "number",
         "unit": "1 / hour"
       },
       "minimum_charging_rate": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
         "description": "The minimum C-rate used for charging of the cell in the cycles provided as an input. Unit: 1 / hour",
         "title": "Minimum Charging Rate",
-        "type": "number",
         "unit": "1 / hour"
       },
       "delta_coulombic_efficiency": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
         "description": "The difference in coulombic efficiency between cycle x and 10.",
-        "title": "Delta Coulombic Efficiency",
-        "type": "number"
+        "title": "Delta Coulombic Efficiency"
       },
       "voltage_gap_charge_discharge": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
         "description": "The difference of the voltage gap between charge and discharge between cycle x and 10. Unit: volt",
         "title": "Voltage Gap Charge Discharge",
-        "type": "number",
         "unit": "volt"
       },
       "capacity_vector_variance": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
         "description": "The variance of the difference between the Q(V) curves between cycle x and 10.",
-        "title": "Capacity Vector Variance",
-        "type": "number"
-      },
-      "data_path": {
-        "description": "The path, where the data wo work on can be accessed. This is relevant as the data files are large and cannot easily be sent via FINALES.",
-        "title": "Data Path",
-        "type": "string"
+        "title": "Capacity Vector Variance"
       }
     },
     "required": [
-      "chemistry"
+      "chemistry",
+      "input_cycles",
+      "average_charging_rate",
+      "maximum_charging_rate",
+      "minimum_charging_rate",
+      "delta_coulombic_efficiency",
+      "voltage_gap_charge_discharge",
+      "capacity_vector_variance"
     ],
     "title": "DegradationModelInput",
     "type": "object"
