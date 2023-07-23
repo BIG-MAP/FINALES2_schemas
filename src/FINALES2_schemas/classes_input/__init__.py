@@ -3,4 +3,6 @@ from . import (conductivity,
                density,
                radial_density_function,
                viscosity,
-               cell_assembly)
+               cell_assembly,
+               electrolyte,
+               capacity)

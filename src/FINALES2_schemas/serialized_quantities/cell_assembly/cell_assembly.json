@@ -50,17 +50,27 @@
             "description": "The definition of the chemistry used in the cells, which includes the electrodes and electrolyte"
           },
           "separator": {
-            "allOf": [
+            "anyOf": [
               {
                 "$ref": "#/$defs/Separator"
+              },
+              {
+                "type": "null"
               }
             ],
             "description": "The definition of the separator."
           },
           "electrolyte_volume": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "description": "A designation of the volume of electrolyte.",
             "title": "Electrolyte Volume",
-            "type": "number",
             "unit": "microliter"
           }
         },
@@ -105,9 +115,16 @@
             "type": "array"
           },
           "mass_loading": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "description": "The capacity per unit area of the electrode. Unit: milliampere_hour / centimeter ** 2",
             "title": "Mass Loading",
-            "type": "number",
             "unit": "milliampere_hour / centimeter ** 2"
           },
           "size": {
@@ -202,9 +219,16 @@
         "description": "This is a Cell class defining the information needed to fabricate a single cell with the respective battery chemistry."
       },
       "batch_volume": {
+        "anyOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "null"
+          }
+        ],
         "description": "This is the numbers of the cells to be fabricated in one batch with the same chemistry, It shall be given in the unit pieces. And range from 1 (lowest) to 64 (highest). Unit: parsec",
-        "title": "Batch Volume",
-        "type": "integer"
+        "title": "Batch Volume"
       }
     },
     "required": [

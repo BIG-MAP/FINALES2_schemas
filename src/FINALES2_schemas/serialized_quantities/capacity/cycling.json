@@ -1,0 +1,386 @@
+{
+  "quantity": "capacity",
+  "method": "cycling",
+  "json_schema_specifications": {
+    "$defs": {
+      "CellInfo": {
+        "description": "Additional information about a cell, which is relevant for documentation\n    purposes",
+        "properties": {
+          "cell_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "A human readable name of the cell.",
+            "title": "Cell Name"
+          },
+          "uuid": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "A unique identifier assigned to this cell in this run.",
+            "title": "Uuid"
+          },
+          "assembly_date": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The date when the cell was made.",
+            "title": "Assembly Date"
+          },
+          "batch": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "A batch number for the cells, if it is available.",
+            "title": "Batch"
+          },
+          "anode_info": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/FormulationInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The metadata related to the anode used in the cell."
+          },
+          "cathode_info": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/FormulationInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The metadata related to the cathode used in the cell."
+          }
+        },
+        "required": [
+          "cell_name",
+          "uuid",
+          "assembly_date",
+          "batch",
+          "anode_info",
+          "cathode_info"
+        ],
+        "title": "CellInfo",
+        "type": "object"
+      },
+      "FormulationInfo": {
+        "description": "Additional information about a formulation, which is relevant for documentation\n    purposes",
+        "properties": {
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "A human readable name of the formulation.",
+            "title": "Name"
+          },
+          "uuid": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "A unique identifier assigned to this formulation in this run.",
+            "title": "Uuid"
+          },
+          "preparation_date": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The date when the formulation was prepared. For commercial formulations, the manufacturing date may be used.",
+            "title": "Preparation Date"
+          },
+          "batch": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "A batch number for the formulation, if it is available.",
+            "title": "Batch"
+          }
+        },
+        "required": [
+          "name",
+          "uuid",
+          "preparation_date",
+          "batch"
+        ],
+        "title": "FormulationInfo",
+        "type": "object"
+      }
+    },
+    "description": "\n    Parameters to be used with the following quantities:\n    `Capacities` \n    ",
+    "properties": {
+      "cycling_protocoll": {
+        "description": "Name of a standardized testprotocoll(i.e BIG-MAP-Cycling).",
+        "title": "Cycling Protocoll",
+        "type": "string"
+      },
+      "number_cycles": {
+        "description": "The number of cycles the test shoudl run through after formation.",
+        "title": "Number Cycles",
+        "type": "integer"
+      },
+      "cell_info": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/CellInfo"
+          }
+        ],
+        "description": "Information about the cell provided by AutoBass."
+      },
+      "location": {
+        "description": "Physical location where the cycler is.",
+        "title": "Location",
+        "type": "string"
+      },
+      "Imax": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Maximum current value in ampere.",
+        "title": "Imax"
+      },
+      "Vmax": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Maximum Voltage value in Volt.",
+        "title": "Vmax"
+      },
+      "Vmin": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Minimum Voltage value in Volt.",
+        "title": "Vmin"
+      },
+      "Capacity": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "theoretical/experimental capacity in Ah.",
+        "title": "Capacity"
+      },
+      "crate_charge_formation": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "C-rate of charging in formation process",
+        "title": "Crate Charge Formation"
+      },
+      "crate_discharge_formation": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "C-rate of discharging in formation process",
+        "title": "Crate Discharge Formation"
+      },
+      "CV_Icutoff_formation": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "current cutoff value in A for the constant voltage step in formation process",
+        "title": "Cv Icutoff Formation"
+      },
+      "repetions_formationcycle": {
+        "anyOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "Number of formation cycles",
+        "title": "Repetions Formationcycle"
+      },
+      "cycling_Vmax": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "max. Voltage of battery during cycling in V",
+        "title": "Cycling Vmax"
+      },
+      "cycling_Vmin": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "min. Voltage of battery during cycling in V",
+        "title": "Cycling Vmin"
+      },
+      "crate_charge": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "C-rate of charging",
+        "title": "Crate Charge"
+      },
+      "crate_discharge": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "C-rate of discharging",
+        "title": "Crate Discharge"
+      },
+      "CV_Icutoff": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "current cutoff value in A for the constant voltage step",
+        "title": "Cv Icutoff"
+      }
+    },
+    "required": [
+      "cycling_protocoll",
+      "number_cycles",
+      "cell_info",
+      "location",
+      "Imax",
+      "Vmax",
+      "Vmin",
+      "Capacity",
+      "crate_charge_formation",
+      "crate_discharge_formation",
+      "CV_Icutoff_formation",
+      "repetions_formationcycle",
+      "cycling_Vmax",
+      "cycling_Vmin",
+      "crate_charge",
+      "crate_discharge",
+      "CV_Icutoff"
+    ],
+    "title": "CapacityCyclingInput",
+    "type": "object"
+  },
+  "json_schema_result_output": {
+    "description": "\n    Result for the Capacities of each cycle.\n    ",
+    "properties": {
+      "capacity_list": {
+        "description": "A list with calculated capacities in Ah for charge and discharge alternately.",
+        "items": {},
+        "title": "Capacity List",
+        "type": "array",
+        "units": "Ah"
+      },
+      "channel_list": {
+        "description": "A list with the channels used for cycling.",
+        "items": {},
+        "title": "Channel List",
+        "type": "array"
+      }
+    },
+    "required": [
+      "capacity_list",
+      "channel_list"
+    ],
+    "title": "CapacityCyclingOutput",
+    "type": "object"
+  },
+  "is_active": true
+}

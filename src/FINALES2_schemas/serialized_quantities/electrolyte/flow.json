@@ -1,44 +1,8 @@
 {
-  "quantity": "degradationEOL",
-  "method": "degradation_model",
+  "quantity": "electrolyte",
+  "method": "flow",
   "json_schema_specifications": {
     "$defs": {
-      "BatteryChemistry": {
-        "description": "A description of the chemistry of a cell.\n    ",
-        "properties": {
-          "electrolyte": {
-            "description": "The definition of the composition of the electrolyte used in the cells, for which the prediction shall be made",
-            "items": {
-              "$ref": "#/$defs/FormulationComponent"
-            },
-            "title": "Electrolyte",
-            "type": "array"
-          },
-          "anode": {
-            "allOf": [
-              {
-                "$ref": "#/$defs/Electrode"
-              }
-            ],
-            "description": "The definition of the anode."
-          },
-          "cathode": {
-            "allOf": [
-              {
-                "$ref": "#/$defs/Electrode"
-              }
-            ],
-            "description": "The definition of the cathode."
-          }
-        },
-        "required": [
-          "electrolyte",
-          "anode",
-          "cathode"
-        ],
-        "title": "BatteryChemistry",
-        "type": "object"
-      },
       "Chemical": {
         "description": "Subclass",
         "properties": {
@@ -60,50 +24,22 @@
         "title": "Chemical",
         "type": "object"
       },
-      "Electrode": {
-        "description": "The definition of an electrode.\n\n    :param BaseModel: _description_\n    :type BaseModel: _type_\n    ",
+      "ElectrolyteInput": {
+        "description": "Parameters used by the quantities\n    'electrolyte' - 'flow'\n\n    :param BaseModel: used to ensure, that the class can be checked for the types\n    :type BaseModel: pydantic.BaseModel\n    ",
         "properties": {
-          "material": {
-            "description": "The description of the composition of the electrode.",
+          "formulation": {
+            "description": "This is a formulation defining the Chemicals contained in the sample and their fraction in the total mixture.",
             "items": {
               "$ref": "#/$defs/FormulationComponent"
             },
-            "title": "Material",
+            "title": "Formulation",
             "type": "array"
-          },
-          "mass_loading": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "The capacity per unit area of the electrode. Unit: milliampere_hour / centimeter ** 2",
-            "title": "Mass Loading",
-            "unit": "milliampere_hour / centimeter ** 2"
-          },
-          "size": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "The area of the electrode, which is cut to a circular shape.",
-            "title": "Size",
-            "unit": "centimeter ** 2"
           }
         },
         "required": [
-          "material",
-          "mass_loading",
-          "size"
+          "formulation"
         ],
-        "title": "Electrode",
+        "title": "ElectrolyteInput",
         "type": "object"
       },
       "FormulationComponent": {
@@ -137,116 +73,28 @@
         "type": "object"
       }
     },
-    "description": "The parameters used by the following method\n    'degradationEOL' - degradationModel\n\n    :param BaseModel: _description_\n    :type BaseModel: _type_\n    ",
+    "description": "Input taken by the quantity and method\n    'electrolyte' - 'flow'\n\n    :param BaseModel: used to ensure, that the class can be checked for the types\n    :type BaseModel: pydantic.BaseModel\n    ",
     "properties": {
-      "chemistry": {
+      "electrolyte": {
         "allOf": [
           {
-            "$ref": "#/$defs/BatteryChemistry"
+            "$ref": "#/$defs/ElectrolyteInput"
           }
         ],
-        "description": "The description of the chemicals involved in all the battery cell."
+        "description": "The definition of the electrolyte formulation to be prepared."
       },
-      "input_cycles": {
-        "anyOf": [
-          {
-            "type": "integer"
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "The number of cycles provided as an input to the model.",
-        "title": "Input Cycles"
-      },
-      "average_charging_rate": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "The average C-rate used for charging of the cell in the cycles provided as an input. Unit: 1 / hour",
-        "title": "Average Charging Rate",
-        "unit": "1 / hour"
-      },
-      "maximum_charging_rate": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "The maximum C-rate used for charging of the cell in the cycles provided as an input. Unit: 1 / hour",
-        "title": "Maximum Charging Rate",
-        "unit": "1 / hour"
-      },
-      "minimum_charging_rate": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "The minimum C-rate used for charging of the cell in the cycles provided as an input. Unit: 1 / hour",
-        "title": "Minimum Charging Rate",
-        "unit": "1 / hour"
-      },
-      "delta_coulombic_efficiency": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "The difference in coulombic efficiency between cycle x and 10.",
-        "title": "Delta Coulombic Efficiency"
-      },
-      "voltage_gap_charge_discharge": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "The difference of the voltage gap between charge and discharge between cycle x and 10. Unit: volt",
-        "title": "Voltage Gap Charge Discharge",
-        "unit": "volt"
-      },
-      "capacity_vector_variance": {
-        "anyOf": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "null"
-          }
-        ],
-        "description": "The variance of the difference between the Q(V) curves between cycle x and 10.",
-        "title": "Capacity Vector Variance"
+      "volume": {
+        "description": "The volume of electrolyte, which needs to be formulated. Unit: milliliter.",
+        "title": "Volume",
+        "type": "number",
+        "unit": "milliliter"
       }
     },
     "required": [
-      "chemistry",
-      "input_cycles",
-      "average_charging_rate",
-      "maximum_charging_rate",
-      "minimum_charging_rate",
-      "delta_coulombic_efficiency",
-      "voltage_gap_charge_discharge",
-      "capacity_vector_variance"
+      "electrolyte",
+      "volume"
     ],
-    "title": "DegradationModelInput",
+    "title": "FlowInput",
     "type": "object"
   },
   "json_schema_result_output": {
@@ -382,36 +230,27 @@
         "title": "ChemicalInfo",
         "type": "object"
       },
-      "DegradationEOLOutput": {
-        "description": "Results returned from the following quantities:\n    'degradationEOL' - degradationModel\n\n    :param BaseModel: _description_\n    :type BaseModel: _type_\n    ",
+      "ElectrolyteOutput": {
+        "description": "\n    Results returned from the following quantities:\n    `electrolyte` - `flow`\n    ",
         "properties": {
-          "end_of_life": {
-            "description": "The predicted end of life for the cell.",
-            "title": "End Of Life",
-            "type": "integer"
-          },
-          "end_of_life_uncertainty": {
-            "description": "The uncertainty of the predicted end of life for the cell.",
-            "title": "End Of Life Uncertainty",
-            "type": "number"
-          },
-          "capacity_trajectory": {
-            "description": "The predicted capacity evolution for future cycles. Unit: milliampere_hour",
+          "formulation": {
+            "description": "This is a formulation defining the Chemicals contained in the sample and their fraction in the total mixture.",
             "items": {
-              "type": "number"
+              "$ref": "#/$defs/FormulationComponent"
             },
-            "title": "Capacity Trajectory",
-            "type": "array",
-            "unit": "milliampere_hour"
+            "title": "Formulation",
+            "type": "array"
           },
-          "capacity_trajectory_uncertainty": {
-            "description": "The uncertainty associated with each datapoint in the predicted capacity evolution. Unit: milliampere_hour",
-            "items": {
-              "type": "number"
-            },
-            "title": "Capacity Trajectory Uncertainty",
-            "type": "array",
-            "unit": "milliampere_hour"
+          "volume": {
+            "description": "The volume of electrolyte, which needs to be formulated. Unit: milliliter.",
+            "title": "Volume",
+            "type": "number",
+            "unit": "milliliter"
+          },
+          "location": {
+            "description": "The physical location, from where the prepared electrolyte formulation may be picked up.",
+            "title": "Location",
+            "type": "string"
           },
           "meta": {
             "allOf": [
@@ -423,13 +262,12 @@
           }
         },
         "required": [
-          "end_of_life",
-          "end_of_life_uncertainty",
-          "capacity_trajectory",
-          "capacity_trajectory_uncertainty",
+          "formulation",
+          "volume",
+          "location",
           "meta"
         ],
-        "title": "DegradationEOLOutput",
+        "title": "ElectrolyteOutput",
         "type": "object"
       },
       "FormulationComponent": {
@@ -609,20 +447,20 @@
         ],
         "description": "The information regarding the formulation and the internal reference, which is common for all data generated in this run of the method."
       },
-      "degradationEOL": {
+      "electrolyte": {
         "allOf": [
           {
-            "$ref": "#/$defs/DegradationEOLOutput"
+            "$ref": "#/$defs/ElectrolyteOutput"
           }
         ],
-        "description": "The data corresponding to the end of life for the cell and the degradation trajectory, each with the respective uncertainty."
+        "description": "The output generated for the formulation of the electrolyte."
       }
     },
     "required": [
       "run_info",
-      "degradationEOL"
+      "electrolyte"
     ],
-    "title": "DegradationModelOutput",
+    "title": "FlowOutput",
     "type": "object"
   },
   "is_active": true

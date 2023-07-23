@@ -1,7 +1,6 @@
 from pydantic import BaseModel, Field
 from typing import Optional
 from .formulation_component import FormulationComponent
-from .formulation_info import FormulationInfo
 from .unit_registry import unit_registry
 
 class Electrode(BaseModel):
@@ -13,7 +12,7 @@ class Electrode(BaseModel):
     material:list[FormulationComponent] = Field(
         description=("The description of the composition of the electrode.")
     )
-    mass_loading:float = Field(
+    mass_loading:Optional[float] = Field(
         unit=str(unit_registry.mAh * unit_registry.cm **-2),
         description=("The capacity per unit area of the electrode. "
                      f"Unit: {str(unit_registry.mAh * unit_registry.cm **-2)}")
