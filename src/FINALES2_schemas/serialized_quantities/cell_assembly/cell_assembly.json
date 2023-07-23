@@ -2,72 +2,155 @@
   "quantity": "cell_assembly",
   "method": "autobass_assembly",
   "json_schema_specifications": {
-    "title": "AssemblyInput",
-    "type": "object",
-    "properties": {
-      "cell_info": {
-        "title": "Cell Info",
-        "description": "This is a Cell class defining the information needed to fabricate a single cell with the respective battery chemistry.",
-        "allOf": [
-          {
-            "$ref": "#/definitions/Cell"
+    "$defs": {
+      "BatteryChemistry": {
+        "description": "A description of the chemistry of a cell.\n    ",
+        "properties": {
+          "electrolyte": {
+            "description": "The definition of the composition of the electrolyte used in the cells, for which the prediction shall be made",
+            "items": {
+              "$ref": "#/$defs/FormulationComponent"
+            },
+            "title": "Electrolyte",
+            "type": "array"
+          },
+          "anode": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/Electrode"
+              }
+            ],
+            "description": "The definition of the anode."
+          },
+          "cathode": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/Electrode"
+              }
+            ],
+            "description": "The definition of the cathode."
           }
-        ]
+        },
+        "required": [
+          "electrolyte",
+          "anode",
+          "cathode"
+        ],
+        "title": "BatteryChemistry",
+        "type": "object"
       },
-      "batch_volume": {
-        "title": "Batch Volume",
-        "description": "This is the numbers of the cells to be fabricated in one batch with the same chemistry, It shall be given in the unit pieces. And range from 1 (lowest) to 64 (highest). Unit: parsec",
-        "type": "integer"
-      }
-    },
-    "required": [
-      "cell_info",
-      "batch_volume"
-    ],
-    "definitions": {
+      "Cell": {
+        "properties": {
+          "batteryChemistry": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/BatteryChemistry"
+              }
+            ],
+            "description": "The definition of the chemistry used in the cells, which includes the electrodes and electrolyte"
+          },
+          "separator": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/Separator"
+              }
+            ],
+            "description": "The definition of the separator."
+          },
+          "electrolyte_volume": {
+            "description": "A designation of the volume of electrolyte.",
+            "title": "Electrolyte Volume",
+            "type": "number",
+            "unit": "microliter"
+          }
+        },
+        "required": [
+          "batteryChemistry",
+          "separator",
+          "electrolyte_volume"
+        ],
+        "title": "Cell",
+        "type": "object"
+      },
       "Chemical": {
-        "title": "Chemical",
         "description": "Subclass",
-        "type": "object",
         "properties": {
           "SMILES": {
-            "title": "Smiles",
             "description": "A SMILES string representing the chemical.",
+            "title": "Smiles",
             "type": "string"
           },
           "InChIKey": {
-            "title": "Inchikey",
             "description": "The hashed standard International Chemical Identifier of the chemical to ensure machine-readability.",
+            "title": "Inchikey",
             "type": "string"
           }
         },
         "required": [
           "SMILES",
           "InChIKey"
-        ]
+        ],
+        "title": "Chemical",
+        "type": "object"
+      },
+      "Electrode": {
+        "description": "The definition of an electrode.\n\n    :param BaseModel: _description_\n    :type BaseModel: _type_\n    ",
+        "properties": {
+          "material": {
+            "description": "The description of the composition of the electrode.",
+            "items": {
+              "$ref": "#/$defs/FormulationComponent"
+            },
+            "title": "Material",
+            "type": "array"
+          },
+          "mass_loading": {
+            "description": "The capacity per unit area of the electrode. Unit: milliampere_hour / centimeter ** 2",
+            "title": "Mass Loading",
+            "type": "number",
+            "unit": "milliampere_hour / centimeter ** 2"
+          },
+          "size": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The area of the electrode, which is cut to a circular shape.",
+            "title": "Size",
+            "unit": "centimeter ** 2"
+          }
+        },
+        "required": [
+          "material",
+          "mass_loading",
+          "size"
+        ],
+        "title": "Electrode",
+        "type": "object"
       },
       "FormulationComponent": {
-        "title": "FormulationComponent",
-        "description": "This class shall be used when referring to chemicals as a component in a formulation.\nWhen assembling a formulation based on FormulationComponents, consider, that it\nmight be required to use the same fraction type for all the chemicals.",
-        "type": "object",
+        "description": "This class shall be used when referring to chemicals as a component in a formulation.\n    When assembling a formulation based on FormulationComponents, consider, that it\n    might be required to use the same fraction type for all the chemicals.\n    ",
         "properties": {
           "chemical": {
-            "title": "Chemical",
-            "description": "The chemical, which shall be described as a component in a solution .",
             "allOf": [
               {
-                "$ref": "#/definitions/Chemical"
+                "$ref": "#/$defs/Chemical"
               }
-            ]
+            ],
+            "description": "The chemical, which shall be described as a component in a solution ."
           },
           "fraction": {
-            "title": "Fraction",
             "description": "The unitless fraction of the chemical in the total of the mixture.",
+            "title": "Fraction",
             "type": "number"
           },
           "fraction_type": {
-            "title": "Fraction Type",
             "description": "A string defining, what kind of a fraction is given in the formulation. This can be for example molar fractions, volume fractions, mass fractions,.... At the moment only molar fractions are supported.",
+            "title": "Fraction Type",
             "type": "string"
           }
         },
@@ -75,296 +158,320 @@
           "chemical",
           "fraction",
           "fraction_type"
-        ]
+        ],
+        "title": "FormulationComponent",
+        "type": "object"
       },
-      "FormulationInfo": {
-        "title": "FormulationInfo",
-        "description": "Additional information about a formulation, which is relevant for documentation\npurposes",
-        "type": "object",
-        "properties": {
-          "name": {
-            "title": "Name",
-            "description": "A human readable name of the formulation.",
-            "type": "string"
-          },
-          "uuid": {
-            "title": "Uuid",
-            "description": "A unique identifier assigned to this formulation in this run.",
-            "type": "string",
-            "format": "uuid"
-          },
-          "preparation_date": {
-            "title": "Preparation Date",
-            "description": "The date when the formulation was prepared. For commercial formulations, the manufacturing date may be used.",
-            "type": "string",
-            "format": "date"
-          },
-          "batch": {
-            "title": "Batch",
-            "description": "A batch number for the formulation, if it is available.",
-            "type": "string"
-          }
-        }
-      },
-      "Electrode": {
-        "title": "Electrode",
-        "description": "The definition of an electrode.\n\n:param BaseModel: _description_\n:type BaseModel: _type_",
-        "type": "object",
+      "Separator": {
+        "description": "The definition of a separator used in battery cells.",
         "properties": {
           "material": {
+            "description": "The product name of the separator reported by the manufacturer, E.g. Celgard 2325.",
             "title": "Material",
-            "description": "The description of the composition of the electrode.",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/FormulationComponent"
-            }
-          },
-          "mass_loading": {
-            "title": "Mass Loading",
-            "description": "The capacity per unit area of the electrode. Unit: milliampere_hour / centimeter ** 2",
-            "unit": "milliampere_hour / centimeter ** 2",
-            "type": "number"
+            "type": "string"
           },
           "size": {
-            "title": "Size",
-            "description": "The area of the electrode, which is cut to a circular shape.",
-            "unit": "centimeter ** 2",
-            "type": "number"
-          },
-          "material_info": {
-            "title": "Material Info",
-            "description": "The metadata related to the material used for manufacturing the electrode.",
-            "allOf": [
+            "anyOf": [
               {
-                "$ref": "#/definitions/FormulationInfo"
+                "type": "number"
+              },
+              {
+                "type": "null"
               }
-            ]
+            ],
+            "description": "The area of the separator, of which the shape is cut in cirular.",
+            "title": "Size",
+            "unit": "centimeter ** 2"
           }
         },
         "required": [
           "material",
-          "mass_loading"
-        ]
-      },
-      "BatteryChemistry": {
-        "title": "BatteryChemistry",
-        "description": "A description of the chemistry of a cell.\n    ",
-        "type": "object",
-        "properties": {
-          "electrolyte": {
-            "title": "Electrolyte",
-            "description": "The definition of the composition of the electrolyte used in the cells, for which the prediction shall be made",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/FormulationComponent"
-            }
-          },
-          "anode": {
-            "title": "Anode",
-            "description": "The definition of the anode.",
-            "allOf": [
-              {
-                "$ref": "#/definitions/Electrode"
-              }
-            ]
-          },
-          "cathode": {
-            "title": "Cathode",
-            "description": "The definition of the cathode.",
-            "allOf": [
-              {
-                "$ref": "#/definitions/Electrode"
-              }
-            ]
-          }
-        },
-        "required": [
-          "electrolyte",
-          "anode",
-          "cathode"
-        ]
-      },
-      "Separator": {
+          "size"
+        ],
         "title": "Separator",
-        "description": "The definition of a separator used in battery cells.",
-        "type": "object",
-        "properties": {
-          "material": {
-            "title": "Material",
-            "description": "The product name of the separator reported by the manufacturer, E.g. Celgard 2325.",
-            "type": "string"
-          },
-          "size": {
-            "title": "Size",
-            "description": "The area of the separator, of which the shape is cut in cirular.",
-            "unit": "centimeter ** 2",
-            "type": "number"
-          }
-        },
-        "required": [
-          "material"
-        ]
-      },
-      "Cell": {
-        "title": "Cell",
-        "type": "object",
-        "properties": {
-          "batteryChemistry": {
-            "title": "Batterychemistry",
-            "description": "The definition of the chemistry used in the cells, which includes the electrodes and electrolyte",
-            "allOf": [
-              {
-                "$ref": "#/definitions/BatteryChemistry"
-              }
-            ]
-          },
-          "separator": {
-            "title": "Separator",
-            "description": "The definition of the separator.",
-            "allOf": [
-              {
-                "$ref": "#/definitions/Separator"
-              }
-            ]
-          },
-          "electrolyte_volume": {
-            "title": "Electrolyte Volume",
-            "description": "A designation of the volume of electrolyte.",
-            "unit": "microliter",
-            "type": "number"
-          }
-        },
-        "required": [
-          "batteryChemistry",
-          "separator",
-          "electrolyte_volume"
-        ]
+        "type": "object"
       }
-    }
-  },
-  "json_schema_result_output": {
-    "title": "AutoBASSOutput",
-    "description": "Result returned from the cell assembly, which merges all the cells in on batch:",
-    "type": "object",
+    },
     "properties": {
-      "batch_output": {
-        "title": "Batch Output",
-        "description": "The list includes the AssemblyOutput class from each single cell.",
-        "type": "array",
-        "items": {
-          "$ref": "#/definitions/AssemblyOutput"
-        }
+      "cell_info": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/Cell"
+          }
+        ],
+        "description": "This is a Cell class defining the information needed to fabricate a single cell with the respective battery chemistry."
       },
-      "batch_id": {
-        "title": "Batch Id",
-        "description": "A unique identifier assigned to this batch of cells in this run.",
-        "type": "string",
-        "format": "uuid"
+      "batch_volume": {
+        "description": "This is the numbers of the cells to be fabricated in one batch with the same chemistry, It shall be given in the unit pieces. And range from 1 (lowest) to 64 (highest). Unit: parsec",
+        "title": "Batch Volume",
+        "type": "integer"
       }
     },
     "required": [
-      "batch_output",
-      "batch_id"
+      "cell_info",
+      "batch_volume"
     ],
-    "definitions": {
+    "title": "AssemblyInput",
+    "type": "object"
+  },
+  "json_schema_result_output": {
+    "$defs": {
+      "AssemblyOutput": {
+        "description": "\n    Results returned from the single cell assembly:\n    ",
+        "properties": {
+          "cell_info": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/CellInfo"
+              }
+            ],
+            "description": "The metadata associated with the assembled cell."
+          },
+          "manufacturing_img": {
+            "description": "The path, where the cells' manufacturing images can be accessed. This is relevant as the data files are large and cannot easily be sent via FINALES.",
+            "title": "Manufacturing Img",
+            "type": "string"
+          },
+          "meta": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/MethodMeta"
+              }
+            ],
+            "description": "This field provides information regarding the reliability of the reported data. E.g. the success of the method for this quantity and the rating of the data. This is for this specific quantity, because a single method could fail individually for different quantities. It is not included in the RunInfo as one run may generate data for different quantities, for which the methods may fail individually."
+          },
+          "temperature": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "This is the temperature of cell assembly. Unit: kelvin",
+            "title": "Temperature",
+            "unit": "kelvin"
+          },
+          "sealing_time": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The datetime when the cell was sealed.",
+            "title": "Sealing Time"
+          }
+        },
+        "required": [
+          "cell_info",
+          "manufacturing_img",
+          "meta",
+          "temperature",
+          "sealing_time"
+        ],
+        "title": "AssemblyOutput",
+        "type": "object"
+      },
       "CellInfo": {
-        "title": "CellInfo",
-        "description": "Additional information about a cell, which is relevant for documentation\npurposes",
-        "type": "object",
+        "description": "Additional information about a cell, which is relevant for documentation\n    purposes",
         "properties": {
           "cell_name": {
-            "title": "Cell Name",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "description": "A human readable name of the cell.",
-            "type": "string"
+            "title": "Cell Name"
           },
           "uuid": {
-            "title": "Uuid",
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "description": "A unique identifier assigned to this cell in this run.",
-            "type": "string",
-            "format": "uuid"
+            "title": "Uuid"
           },
           "assembly_date": {
-            "title": "Assembly Date",
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "description": "The date when the cell was made.",
-            "type": "string",
-            "format": "date"
+            "title": "Assembly Date"
           },
           "batch": {
-            "title": "Batch",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "description": "A batch number for the cells, if it is available.",
-            "type": "string"
+            "title": "Batch"
+          },
+          "anode_info": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/FormulationInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The metadata related to the anode used in the cell."
+          },
+          "cathode_info": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/FormulationInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The metadata related to the cathode used in the cell."
           }
-        }
+        },
+        "required": [
+          "cell_name",
+          "uuid",
+          "assembly_date",
+          "batch",
+          "anode_info",
+          "cathode_info"
+        ],
+        "title": "CellInfo",
+        "type": "object"
+      },
+      "FormulationInfo": {
+        "description": "Additional information about a formulation, which is relevant for documentation\n    purposes",
+        "properties": {
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "A human readable name of the formulation.",
+            "title": "Name"
+          },
+          "uuid": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "A unique identifier assigned to this formulation in this run.",
+            "title": "Uuid"
+          },
+          "preparation_date": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The date when the formulation was prepared. For commercial formulations, the manufacturing date may be used.",
+            "title": "Preparation Date"
+          },
+          "batch": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "A batch number for the formulation, if it is available.",
+            "title": "Batch"
+          }
+        },
+        "required": [
+          "name",
+          "uuid",
+          "preparation_date",
+          "batch"
+        ],
+        "title": "FormulationInfo",
+        "type": "object"
       },
       "MethodMeta": {
-        "title": "MethodMeta",
-        "description": "Additional information obtained from a method summarizing information, whether \nthe method was successfully run and what the rating for the returned data is.",
-        "type": "object",
+        "description": "Additional information obtained from a method summarizing information, whether \n    the method was successfully run and what the rating for the returned data is.\n    ",
         "properties": {
           "success": {
-            "title": "Success",
             "description": "This reports, if the method finished successfully.",
+            "title": "Success",
             "type": "boolean"
           },
           "rating": {
-            "title": "Rating",
             "description": "This field serves to rate the quality of the result from the tenant side. It shall serve as a support for the recieving party upon evaluating the trustworthiness of the result. It shall range from 0 (lowest) to 5 (highest).",
+            "title": "Rating",
             "type": "integer"
           }
         },
         "required": [
           "success",
           "rating"
-        ]
-      },
-      "AssemblyOutput": {
-        "title": "AssemblyOutput",
-        "description": "Results returned from the single cell assembly:",
-        "type": "object",
-        "properties": {
-          "cell_info": {
-            "title": "Cell Info",
-            "description": "The metadata associated with the assembled cell.",
-            "allOf": [
-              {
-                "$ref": "#/definitions/CellInfo"
-              }
-            ]
-          },
-          "manufacturing_img": {
-            "title": "Manufacturing Img",
-            "description": "The path, where the cells' manufacturing images can be accessed. This is relevant as the data files are large and cannot easily be sent via FINALES.",
-            "type": "string"
-          },
-          "meta": {
-            "title": "Meta",
-            "description": "This field provides information regarding the reliability of the reported data. E.g. the success of the method for this quantity and the rating of the data. This is for this specific quantity, because a single method could fail individually for different quantities. It is not included in the RunInfo as one run may generate data for different quantities, for which the methods may fail individually.",
-            "allOf": [
-              {
-                "$ref": "#/definitions/MethodMeta"
-              }
-            ]
-          },
-          "temperature": {
-            "title": "Temperature",
-            "description": "This is the temperature of cell assembly. Unit: kelvin",
-            "unit": "kelvin",
-            "type": "number"
-          },
-          "sealing_time": {
-            "title": "Sealing Time",
-            "description": "The datetime when the cell was sealed.",
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "required": [
-          "cell_info",
-          "manufacturing_img",
-          "meta"
-        ]
+        ],
+        "title": "MethodMeta",
+        "type": "object"
       }
-    }
+    },
+    "description": "\n    Result returned from the cell assembly, which merges all the cells in on batch:\n    ",
+    "properties": {
+      "batch_output": {
+        "description": "The list includes the AssemblyOutput class from each single cell.",
+        "items": {
+          "$ref": "#/$defs/AssemblyOutput"
+        },
+        "title": "Batch Output",
+        "type": "array"
+      },
+      "batch_id": {
+        "description": "A unique identifier assigned to this batch of cells in this run.",
+        "format": "uuid",
+        "title": "Batch Id",
+        "type": "string"
+      }
+    },
+    "required": [
+      "batch_output",
+      "batch_id"
+    ],
+    "title": "AutoBASSOutput",
+    "type": "object"
   },
   "is_active": true
 }

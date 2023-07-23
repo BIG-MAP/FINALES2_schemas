@@ -2,163 +2,284 @@
   "quantity": "density",
   "method": "vibrating_tube_densimetry",
   "json_schema_specifications": {
-    "title": "DensityInput",
-    "description": "Parameters to be used with the following quantities:\n`density` - `vibratingTubeDensimetry`\n`density` - `molecularDynamicsSimulation`",
-    "type": "object",
+    "$defs": {
+      "Chemical": {
+        "description": "Subclass",
+        "properties": {
+          "SMILES": {
+            "description": "A SMILES string representing the chemical.",
+            "title": "Smiles",
+            "type": "string"
+          },
+          "InChIKey": {
+            "description": "The hashed standard International Chemical Identifier of the chemical to ensure machine-readability.",
+            "title": "Inchikey",
+            "type": "string"
+          }
+        },
+        "required": [
+          "SMILES",
+          "InChIKey"
+        ],
+        "title": "Chemical",
+        "type": "object"
+      },
+      "FormulationComponent": {
+        "description": "This class shall be used when referring to chemicals as a component in a formulation.\n    When assembling a formulation based on FormulationComponents, consider, that it\n    might be required to use the same fraction type for all the chemicals.\n    ",
+        "properties": {
+          "chemical": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/Chemical"
+              }
+            ],
+            "description": "The chemical, which shall be described as a component in a solution ."
+          },
+          "fraction": {
+            "description": "The unitless fraction of the chemical in the total of the mixture.",
+            "title": "Fraction",
+            "type": "number"
+          },
+          "fraction_type": {
+            "description": "A string defining, what kind of a fraction is given in the formulation. This can be for example molar fractions, volume fractions, mass fractions,.... At the moment only molar fractions are supported.",
+            "title": "Fraction Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "chemical",
+          "fraction",
+          "fraction_type"
+        ],
+        "title": "FormulationComponent",
+        "type": "object"
+      }
+    },
+    "description": "\n    Parameters to be used with the following quantities:\n    `density` - `vibratingTubeDensimetry`\n    `density` - `molecularDynamicsSimulation`\n    ",
     "properties": {
       "formulation": {
-        "title": "Formulation",
         "description": "This is a formulation defining the Chemicals contained in the sample and their fraction in the total mixture.",
-        "type": "array",
         "items": {
-          "$ref": "#/definitions/FormulationComponent"
-        }
+          "$ref": "#/$defs/FormulationComponent"
+        },
+        "title": "Formulation",
+        "type": "array"
       },
       "temperature": {
-        "title": "Temperature",
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
         "description": "This is the temperature of measuring cell. Unit: kelvin",
-        "unit": "kelvin",
-        "type": "number"
+        "title": "Temperature",
+        "unit": "kelvin"
       }
     },
     "required": [
-      "formulation"
+      "formulation",
+      "temperature"
     ],
-    "definitions": {
-      "Chemical": {
-        "title": "Chemical",
-        "description": "Subclass",
-        "type": "object",
-        "properties": {
-          "SMILES": {
-            "title": "Smiles",
-            "description": "A SMILES string representing the chemical.",
-            "type": "string"
-          },
-          "InChIKey": {
-            "title": "Inchikey",
-            "description": "The hashed standard International Chemical Identifier of the chemical to ensure machine-readability.",
-            "type": "string"
-          }
-        },
-        "required": [
-          "SMILES",
-          "InChIKey"
-        ]
-      },
-      "FormulationComponent": {
-        "title": "FormulationComponent",
-        "description": "This class shall be used when referring to chemicals as a component in a formulation.\nWhen assembling a formulation based on FormulationComponents, consider, that it\nmight be required to use the same fraction type for all the chemicals.",
-        "type": "object",
-        "properties": {
-          "chemical": {
-            "title": "Chemical",
-            "description": "The chemical, which shall be described as a component in a solution .",
-            "allOf": [
-              {
-                "$ref": "#/definitions/Chemical"
-              }
-            ]
-          },
-          "fraction": {
-            "title": "Fraction",
-            "description": "The unitless fraction of the chemical in the total of the mixture.",
-            "type": "number"
-          },
-          "fraction_type": {
-            "title": "Fraction Type",
-            "description": "A string defining, what kind of a fraction is given in the formulation. This can be for example molar fractions, volume fractions, mass fractions,.... At the moment only molar fractions are supported.",
-            "type": "string"
-          }
-        },
-        "required": [
-          "chemical",
-          "fraction",
-          "fraction_type"
-        ]
-      }
-    }
+    "title": "DensityInput",
+    "type": "object"
   },
   "json_schema_result_output": {
-    "title": "VibratingTubeDensimetryOutput",
-    "type": "object",
-    "properties": {
-      "run_info": {
-        "title": "Run Info",
-        "description": "The information regarding the formulation and the internal reference, which is common for all data generated in this run of the method.",
-        "allOf": [
-          {
-            "$ref": "#/definitions/RunInfo"
-          }
-        ]
-      },
-      "density": {
-        "title": "Density",
-        "description": "The output generated for the density data.",
-        "allOf": [
-          {
-            "$ref": "#/definitions/DensityOutput"
-          }
-        ]
-      },
-      "viscosity": {
-        "title": "Viscosity",
-        "description": "The ouptut of viscosity measurements, which were run in parallel to the density measurement.",
-        "allOf": [
-          {
-            "$ref": "#/definitions/ViscosityOutput"
-          }
-        ]
-      }
-    },
-    "required": [
-      "run_info",
-      "density"
-    ],
-    "definitions": {
+    "$defs": {
       "Chemical": {
-        "title": "Chemical",
         "description": "Subclass",
-        "type": "object",
         "properties": {
           "SMILES": {
-            "title": "Smiles",
             "description": "A SMILES string representing the chemical.",
+            "title": "Smiles",
             "type": "string"
           },
           "InChIKey": {
-            "title": "Inchikey",
             "description": "The hashed standard International Chemical Identifier of the chemical to ensure machine-readability.",
+            "title": "Inchikey",
             "type": "string"
           }
         },
         "required": [
           "SMILES",
           "InChIKey"
-        ]
+        ],
+        "title": "Chemical",
+        "type": "object"
       },
-      "FormulationComponent": {
-        "title": "FormulationComponent",
-        "description": "This class shall be used when referring to chemicals as a component in a formulation.\nWhen assembling a formulation based on FormulationComponents, consider, that it\nmight be required to use the same fraction type for all the chemicals.",
-        "type": "object",
+      "ChemicalInfo": {
+        "description": "Additional information about a chemical, which is relevant for documentation\n    purposes",
         "properties": {
-          "chemical": {
-            "title": "Chemical",
-            "description": "The chemical, which shall be described as a component in a solution .",
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "A human readable name of the chemical, to which this information is referring.",
+            "title": "Name"
+          },
+          "molar_mass": {
+            "anyOf": [
+              {
+                "maxItems": 2,
+                "minItems": 2,
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The molar mass of the chemical and the correcponding uncertainty. This may be a measured quantity or a literature value. It is needed to convert between volumetric and molar ratios and this field serves to report the used value. Unit: gram / mole",
+            "title": "Molar Mass",
+            "unit": "gram / mole"
+          },
+          "density": {
+            "anyOf": [
+              {
+                "maxItems": 2,
+                "minItems": 2,
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The density of the chemical and the correcponding uncertainty. This may be a measured quantity or a literature value. It is needed to convert between volumetric and molar ratios and this field serves to report the used value. Unit: centimeter ** 3 * gram",
+            "title": "Density",
+            "unit": "centimeter ** 3 * gram"
+          },
+          "batch": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "A batch number for the chemical used, if it is available.",
+            "title": "Batch"
+          },
+          "manufacturer": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The manufacturer of the chemical, if it is available.",
+            "title": "Manufacturer"
+          },
+          "manufacturing_date": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The date when the chemical was manufactured.",
+            "title": "Manufacturing Date"
+          }
+        },
+        "required": [
+          "name",
+          "molar_mass",
+          "density",
+          "batch",
+          "manufacturer",
+          "manufacturing_date"
+        ],
+        "title": "ChemicalInfo",
+        "type": "object"
+      },
+      "DensityOutput": {
+        "description": "\n    Results returned from the following quantities:\n    `density` - `vibratingTubeDensimetry`\n    `density` - `molecularDynamicsSimulation`\n    ",
+        "properties": {
+          "values": {
+            "description": "The values determined for the density. Unit: gram / centimeter ** 3",
+            "items": {
+              "type": "number"
+            },
+            "title": "Values",
+            "type": "array",
+            "unit": "gram / centimeter ** 3"
+          },
+          "temperature": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "This is the actual temperature of measuring cell. Unit: kelvin",
+            "title": "Temperature",
+            "unit": "kelvin"
+          },
+          "meta": {
             "allOf": [
               {
-                "$ref": "#/definitions/Chemical"
+                "$ref": "#/$defs/MethodMeta"
               }
-            ]
+            ],
+            "description": "This field provides information regarding the reliability of the reported data. E.g. the success of the method for this quantity and the rating of the data. This is for this specific quantity, because a single method could fail individually for different quantities. It is not included in the RunInfo as one run may generate data for different quantities, for which the methods may fail individually."
+          }
+        },
+        "required": [
+          "values",
+          "temperature",
+          "meta"
+        ],
+        "title": "DensityOutput",
+        "type": "object"
+      },
+      "FormulationComponent": {
+        "description": "This class shall be used when referring to chemicals as a component in a formulation.\n    When assembling a formulation based on FormulationComponents, consider, that it\n    might be required to use the same fraction type for all the chemicals.\n    ",
+        "properties": {
+          "chemical": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/Chemical"
+              }
+            ],
+            "description": "The chemical, which shall be described as a component in a solution ."
           },
           "fraction": {
-            "title": "Fraction",
             "description": "The unitless fraction of the chemical in the total of the mixture.",
+            "title": "Fraction",
             "type": "number"
           },
           "fraction_type": {
-            "title": "Fraction Type",
             "description": "A string defining, what kind of a fraction is given in the formulation. This can be for example molar fractions, volume fractions, mass fractions,.... At the moment only molar fractions are supported.",
+            "title": "Fraction Type",
             "type": "string"
           }
         },
@@ -166,231 +287,226 @@
           "chemical",
           "fraction",
           "fraction_type"
-        ]
+        ],
+        "title": "FormulationComponent",
+        "type": "object"
       },
       "FormulationInfo": {
-        "title": "FormulationInfo",
-        "description": "Additional information about a formulation, which is relevant for documentation\npurposes",
-        "type": "object",
+        "description": "Additional information about a formulation, which is relevant for documentation\n    purposes",
         "properties": {
           "name": {
-            "title": "Name",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "description": "A human readable name of the formulation.",
-            "type": "string"
+            "title": "Name"
           },
           "uuid": {
-            "title": "Uuid",
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "description": "A unique identifier assigned to this formulation in this run.",
-            "type": "string",
-            "format": "uuid"
+            "title": "Uuid"
           },
           "preparation_date": {
-            "title": "Preparation Date",
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "description": "The date when the formulation was prepared. For commercial formulations, the manufacturing date may be used.",
-            "type": "string",
-            "format": "date"
+            "title": "Preparation Date"
           },
           "batch": {
-            "title": "Batch",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "description": "A batch number for the formulation, if it is available.",
-            "type": "string"
-          }
-        }
-      },
-      "ChemicalInfo": {
-        "title": "ChemicalInfo",
-        "description": "Additional information about a chemical, which is relevant for documentation\npurposes",
-        "type": "object",
-        "properties": {
-          "name": {
-            "title": "Name",
-            "description": "A human readable name of the chemical, to which this information is referring.",
-            "type": "string"
-          },
-          "molar_mass": {
-            "title": "Molar Mass",
-            "description": "The molar mass of the chemical and the correcponding uncertainty. This may be a measured quantity or a literature value. It is needed to convert between volumetric and molar ratios and this field serves to report the used value. Unit: gram / mole",
-            "unit": "gram / mole",
-            "type": "array",
-            "minItems": 2,
-            "maxItems": 2,
-            "items": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "number"
-              }
-            ]
-          },
-          "density": {
-            "title": "Density",
-            "description": "The density of the chemical and the correcponding uncertainty. This may be a measured quantity or a literature value. It is needed to convert between volumetric and molar ratios and this field serves to report the used value. Unit: centimeter ** 3 * gram",
-            "unit": "centimeter ** 3 * gram",
-            "type": "array",
-            "minItems": 2,
-            "maxItems": 2,
-            "items": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "number"
-              }
-            ]
-          },
-          "batch": {
-            "title": "Batch",
-            "description": "A batch number for the chemical used, if it is available.",
-            "type": "string"
-          },
-          "manufacturer": {
-            "title": "Manufacturer",
-            "description": "The manufacturer of the chemical, if it is available.",
-            "type": "string"
-          },
-          "manufacturing_date": {
-            "title": "Manufacturing Date",
-            "description": "The date when the chemical was manufactured.",
-            "type": "string",
-            "format": "date"
-          }
-        }
-      },
-      "RunInfo": {
-        "title": "RunInfo",
-        "description": "Metadata for a run of a method. This information may apply to all samples\nprocessed in the respective run.",
-        "type": "object",
-        "properties": {
-          "formulation": {
-            "title": "Formulation",
-            "description": "This is a formulation defining the Chemicals contained in thesample and their fraction in the total mixture.",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/FormulationComponent"
-            }
-          },
-          "internal_reference": {
-            "title": "Internal Reference",
-            "description": "This field is an internal ID identifying this run of the method. In experimental setups, this may reference to an ID of the sample.",
-            "type": "string",
-            "format": "uuid"
-          },
-          "formulation_info": {
-            "title": "Formulation Info",
-            "description": "This is the metadata concerning the formulation relevant for documentation.",
-            "allOf": [
-              {
-                "$ref": "#/definitions/FormulationInfo"
-              }
-            ]
-          },
-          "chemicals_info": {
-            "title": "Chemicals Info",
-            "description": "This is a dictionary of metadata of the chemicals relevant for documentation. The keys are InChIKeys of the chemicals contained in the formulation and the values are ChemicalInfo objects.",
-            "type": "object",
-            "additionalProperties": {
-              "$ref": "#/definitions/ChemicalInfo"
-            }
+            "title": "Batch"
           }
         },
         "required": [
-          "formulation",
-          "internal_reference"
-        ]
+          "name",
+          "uuid",
+          "preparation_date",
+          "batch"
+        ],
+        "title": "FormulationInfo",
+        "type": "object"
       },
       "MethodMeta": {
-        "title": "MethodMeta",
-        "description": "Additional information obtained from a method summarizing information, whether \nthe method was successfully run and what the rating for the returned data is.",
-        "type": "object",
+        "description": "Additional information obtained from a method summarizing information, whether \n    the method was successfully run and what the rating for the returned data is.\n    ",
         "properties": {
           "success": {
-            "title": "Success",
             "description": "This reports, if the method finished successfully.",
+            "title": "Success",
             "type": "boolean"
           },
           "rating": {
-            "title": "Rating",
             "description": "This field serves to rate the quality of the result from the tenant side. It shall serve as a support for the recieving party upon evaluating the trustworthiness of the result. It shall range from 0 (lowest) to 5 (highest).",
+            "title": "Rating",
             "type": "integer"
           }
         },
         "required": [
           "success",
           "rating"
-        ]
+        ],
+        "title": "MethodMeta",
+        "type": "object"
       },
-      "DensityOutput": {
-        "title": "DensityOutput",
-        "description": "Results returned from the following quantities:\n`density` - `vibratingTubeDensimetry`\n`density` - `molecularDynamicsSimulation`",
-        "type": "object",
+      "RunInfo": {
+        "description": "Metadata for a run of a method. This information may apply to all samples\n    processed in the respective run.\n    ",
         "properties": {
-          "values": {
-            "title": "Values",
-            "description": "The values determined for the density. Unit: gram / centimeter ** 3",
-            "unit": "gram / centimeter ** 3",
-            "type": "array",
+          "formulation": {
+            "description": "This is a formulation defining the Chemicals contained in thesample and their fraction in the total mixture.",
             "items": {
-              "type": "number"
-            }
+              "$ref": "#/$defs/FormulationComponent"
+            },
+            "title": "Formulation",
+            "type": "array"
           },
-          "temperature": {
-            "title": "Temperature",
-            "description": "This is the actual temperature of measuring cell. Unit: kelvin",
-            "unit": "kelvin",
-            "type": "number"
+          "internal_reference": {
+            "description": "This field is an internal ID identifying this run of the method. In experimental setups, this may reference to an ID of the sample.",
+            "format": "uuid",
+            "title": "Internal Reference",
+            "type": "string"
           },
-          "meta": {
-            "title": "Meta",
-            "description": "This field provides information regarding the reliability of the reported data. E.g. the success of the method for this quantity and the rating of the data. This is for this specific quantity, because a single method could fail individually for different quantities. It is not included in the RunInfo as one run may generate data for different quantities, for which the methods may fail individually.",
-            "allOf": [
+          "formulation_info": {
+            "anyOf": [
               {
-                "$ref": "#/definitions/MethodMeta"
+                "$ref": "#/$defs/FormulationInfo"
+              },
+              {
+                "type": "null"
               }
-            ]
+            ],
+            "description": "This is the metadata concerning the formulation relevant for documentation."
+          },
+          "chemicals_info": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "$ref": "#/$defs/ChemicalInfo"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "This is a dictionary of metadata of the chemicals relevant for documentation. The keys are InChIKeys of the chemicals contained in the formulation and the values are ChemicalInfo objects.",
+            "title": "Chemicals Info"
           }
         },
         "required": [
-          "values",
-          "meta"
-        ]
+          "formulation",
+          "internal_reference",
+          "formulation_info",
+          "chemicals_info"
+        ],
+        "title": "RunInfo",
+        "type": "object"
       },
       "ViscosityOutput": {
-        "title": "ViscosityOutput",
-        "description": "Results returned from the following quantities:\n`viscosity` - `rollingBallViscosimetry`",
-        "type": "object",
+        "description": "\n    Results returned from the following quantities:\n    `viscosity` - `rollingBallViscosimetry`\n    ",
         "properties": {
           "values": {
-            "title": "Values",
             "description": "The values determined for the density. Unit: gram / centimeter ** 3",
-            "unit": "gram / centimeter ** 3",
-            "type": "array",
             "items": {
               "type": "number"
-            }
+            },
+            "title": "Values",
+            "type": "array",
+            "unit": "gram / centimeter ** 3"
           },
           "temperature": {
-            "title": "Temperature",
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "description": "This is the temperature of measuring cell. Unit: kelvin",
-            "unit": "kelvin",
-            "type": "number"
+            "title": "Temperature",
+            "unit": "kelvin"
           },
           "meta": {
-            "title": "Meta",
-            "description": "This field provides information regarding the reliability of the reported data. E.g. the success of the method for this quantity and the rating of the data. This is for this specific quantity, because a single method could fail individually for different quantities. It is not included in the RunInfo as one run may generate data for different quantities, for which the methods may fail individually.",
             "allOf": [
               {
-                "$ref": "#/definitions/MethodMeta"
+                "$ref": "#/$defs/MethodMeta"
               }
-            ]
+            ],
+            "description": "This field provides information regarding the reliability of the reported data. E.g. the success of the method for this quantity and the rating of the data. This is for this specific quantity, because a single method could fail individually for different quantities. It is not included in the RunInfo as one run may generate data for different quantities, for which the methods may fail individually."
           }
         },
         "required": [
           "values",
+          "temperature",
           "meta"
-        ]
+        ],
+        "title": "ViscosityOutput",
+        "type": "object"
       }
-    }
+    },
+    "properties": {
+      "run_info": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/RunInfo"
+          }
+        ],
+        "description": "The information regarding the formulation and the internal reference, which is common for all data generated in this run of the method."
+      },
+      "density": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/DensityOutput"
+          }
+        ],
+        "description": "The output generated for the density data."
+      },
+      "viscosity": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/ViscosityOutput"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "The ouptut of viscosity measurements, which were run in parallel to the density measurement."
+      }
+    },
+    "required": [
+      "run_info",
+      "density",
+      "viscosity"
+    ],
+    "title": "VibratingTubeDensimetryOutput",
+    "type": "object"
   },
   "is_active": true
 }

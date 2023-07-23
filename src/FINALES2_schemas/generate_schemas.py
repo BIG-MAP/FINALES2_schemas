@@ -26,8 +26,8 @@ def generate_quantity(quantity_name, method_name, input_schema, output_schema, f
     dictobj = {
         'quantity': quantity_name,
         'method': method_name,
-        'json_schema_specifications': input_schema.schema(),
-        'json_schema_result_output': output_schema.schema(),        
+        'json_schema_specifications': input_schema.model_json_schema(),
+        'json_schema_result_output': output_schema.model_json_schema(),        
         'is_active': True,
     }
     with open(filepath, 'w') as fileobj:
