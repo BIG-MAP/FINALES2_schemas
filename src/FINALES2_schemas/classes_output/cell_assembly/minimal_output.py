@@ -6,7 +6,8 @@ from FINALES2_schemas.classes_common import MethodMeta, unit_registry, CellInfo,
 
 class AssemblyOutput(BaseModel):
     """
-    Results returned from the single cell assembly:
+    Results returned from the following quantities:
+    `cell_assembly` - `autobass_assembly`
     """
     cell_info:CellInfo = Field(
         description=("The metadata associated with the assembled cell.")

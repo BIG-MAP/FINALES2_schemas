@@ -1,3 +1,3 @@
 from .minimal_output import ConductivityOutput
-from .molecular_dynamics import MolecularDynamicsOutput
+from .molecular_dynamics_conductivity import MolecularDynamicsOutput
 from .two_electrode import TwoElectrodeOutput

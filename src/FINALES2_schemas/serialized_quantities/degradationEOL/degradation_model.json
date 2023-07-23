@@ -360,7 +360,6 @@
           "manufacturing_date": {
             "anyOf": [
               {
-                "format": "date",
                 "type": "string"
               },
               {
@@ -383,7 +382,7 @@
         "type": "object"
       },
       "DegradationEOLOutput": {
-        "description": "Results returned from the following quantities:\n    'degradationEOL' - degradationModel\n\n    :param BaseModel: _description_\n    :type BaseModel: _type_\n    ",
+        "description": "Results returned from the following quantities:\n    'degradationEOL' - 'degradationModel'\n    ",
         "properties": {
           "end_of_life": {
             "description": "The predicted end of life for the cell.",
@@ -480,7 +479,6 @@
           "uuid": {
             "anyOf": [
               {
-                "format": "uuid",
                 "type": "string"
               },
               {
@@ -493,7 +491,6 @@
           "preparation_date": {
             "anyOf": [
               {
-                "format": "date",
                 "type": "string"
               },
               {
@@ -598,7 +595,6 @@
           },
           "internal_reference": {
             "description": "This field is an internal ID identifying this run of the method. In experimental setups, this may reference to an ID of the sample.",
-            "format": "uuid",
             "title": "Internal Reference",
             "type": "string"
           },
@@ -639,6 +635,7 @@
         "type": "object"
       }
     },
+    "description": "Results returned from the following quantities:\n    'degradationEOL' - 'degradationModel'\n    ",
     "properties": {
       "run_info": {
         "allOf": [

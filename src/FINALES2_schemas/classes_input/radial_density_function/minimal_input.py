@@ -4,6 +4,10 @@ from typing import Optional
 from FINALES2_schemas.classes_common import FormulationComponent, unit_registry
 
 class RDFInput(BaseModel):
+    """
+    Parameters to be used with the following quantities:
+    `radial_density_function` - `molecular_dynamics_RDF`
+    """
     formulation:list[FormulationComponent] = Field(
         unit=f"{unit_registry.mol/unit_registry.mol}",
         description=("The formulation to be simulated. This is required to be provided "

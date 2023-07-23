@@ -6,8 +6,8 @@ from FINALES2_schemas.classes_common import MethodMeta, unit_registry
 class ConductivityOutput(BaseModel):
     """
     Results returned from the following quantities:
-    'conductivity' - 'twoElectrodeMeasuringCell'
-    'conductivity' - 'molecularDynamicsSimulation'
+    'conductivity' - 'two_electrode'
+    'conductivity' - 'molecular_dynamics_conductivity'
     """
     values:list[float] = Field(
         unit=str(unit_registry.siemens * unit_registry.m ** -1),

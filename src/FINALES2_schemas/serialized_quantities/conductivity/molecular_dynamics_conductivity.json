@@ -197,7 +197,6 @@
           "manufacturing_date": {
             "anyOf": [
               {
-                "format": "date",
                 "type": "string"
               },
               {
@@ -220,7 +219,7 @@
         "type": "object"
       },
       "ConductivityOutput": {
-        "description": "\n    Results returned from the following quantities:\n    'conductivity' - 'twoElectrodeMeasuringCell'\n    'conductivity' - 'molecularDynamicsSimulation'\n    ",
+        "description": "\n    Results returned from the following quantities:\n    'conductivity' - 'two_electrode'\n    'conductivity' - 'molecular_dynamics_conductivity'\n    ",
         "properties": {
           "values": {
             "description": "The values determined for the conductivity. Unit: siemens / meter",
@@ -262,7 +261,7 @@
         "type": "object"
       },
       "DensityOutput": {
-        "description": "\n    Results returned from the following quantities:\n    `density` - `vibratingTubeDensimetry`\n    `density` - `molecularDynamicsSimulation`\n    ",
+        "description": "\n    Results returned from the following quantities:\n    `density` - `vibrating_tube_densimetry`\n    `density` - `molecular_dynamics_density`\n    ",
         "properties": {
           "values": {
             "description": "The values determined for the density. Unit: gram / centimeter ** 3",
@@ -351,7 +350,6 @@
           "uuid": {
             "anyOf": [
               {
-                "format": "uuid",
                 "type": "string"
               },
               {
@@ -364,7 +362,6 @@
           "preparation_date": {
             "anyOf": [
               {
-                "format": "date",
                 "type": "string"
               },
               {
@@ -457,6 +454,7 @@
         "type": "object"
       },
       "RDFOutput": {
+        "description": "\n    Results returned from the following quantities:\n    'radial_density_function' - 'molecular_dynamics_RDF'\n    ",
         "properties": {
           "radius": {
             "description": "The radius at which atoms of the respecive species appear.",
@@ -521,7 +519,6 @@
           },
           "internal_reference": {
             "description": "This field is an internal ID identifying this run of the method. In experimental setups, this may reference to an ID of the sample.",
-            "format": "uuid",
             "title": "Internal Reference",
             "type": "string"
           },
@@ -562,6 +559,7 @@
         "type": "object"
       }
     },
+    "description": "\n    Results returned from the following quantities:\n    'conductivity' - 'molecular_dynamics_conductivity'\n    ",
     "properties": {
       "run_info": {
         "allOf": [

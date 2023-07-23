@@ -6,6 +6,10 @@ from FINALES2_schemas.classes_output.conductivity import ConductivityOutput
 from FINALES2_schemas.classes_output.radial_density_function import RDFOutput
 
 class MolecularDynamicsOutput(BaseModel):
+    """
+    Results returned from the following quantities:
+    `density` - `molecular_dynamics_density`
+    """
     run_info:RunInfo = Field(
         description=("The information regarding the formulation and the internal "
                      "reference, which is common for all data generated in this run of "

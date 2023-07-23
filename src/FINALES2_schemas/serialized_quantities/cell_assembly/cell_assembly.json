@@ -41,7 +41,7 @@
       },
       "Cell": {
         "properties": {
-          "batteryChemistry": {
+          "battery_chemistry": {
             "allOf": [
               {
                 "$ref": "#/$defs/BatteryChemistry"
@@ -75,7 +75,7 @@
           }
         },
         "required": [
-          "batteryChemistry",
+          "battery_chemistry",
           "separator",
           "electrolyte_volume"
         ],
@@ -100,7 +100,6 @@
           "uuid": {
             "anyOf": [
               {
-                "format": "uuid",
                 "type": "string"
               },
               {
@@ -113,7 +112,6 @@
           "assembly_date": {
             "anyOf": [
               {
-                "format": "date",
                 "type": "string"
               },
               {
@@ -308,7 +306,6 @@
           "uuid": {
             "anyOf": [
               {
-                "format": "uuid",
                 "type": "string"
               },
               {
@@ -321,7 +318,6 @@
           "preparation_date": {
             "anyOf": [
               {
-                "format": "date",
                 "type": "string"
               },
               {
@@ -422,6 +418,7 @@
         "type": "object"
       }
     },
+    "description": "\n    Parameters to be used with the following quantities:\n    `cell_assembly` - `autobass_assembly`\n    ",
     "properties": {
       "cell": {
         "allOf": [
@@ -463,7 +460,7 @@
   "json_schema_result_output": {
     "$defs": {
       "AssemblyOutput": {
-        "description": "\n    Results returned from the single cell assembly:\n    ",
+        "description": "\n    Results returned from the following quantities:\n    `cell_assembly` - `autobass_assembly`\n    ",
         "properties": {
           "cell_info": {
             "allOf": [
@@ -541,7 +538,6 @@
           "uuid": {
             "anyOf": [
               {
-                "format": "uuid",
                 "type": "string"
               },
               {
@@ -554,7 +550,6 @@
           "assembly_date": {
             "anyOf": [
               {
-                "format": "date",
                 "type": "string"
               },
               {
@@ -652,7 +647,6 @@
           "uuid": {
             "anyOf": [
               {
-                "format": "uuid",
                 "type": "string"
               },
               {
@@ -665,7 +659,6 @@
           "preparation_date": {
             "anyOf": [
               {
-                "format": "date",
                 "type": "string"
               },
               {
@@ -758,7 +751,7 @@
         "type": "object"
       }
     },
-    "description": "\n    Result returned from the cell assembly, which merges all the cells in on batch:\n    ",
+    "description": "\n    Results returned from the following quantities:\n    `cell_assembly` - `autobass_assembly`\n    ",
     "properties": {
       "batch_output": {
         "description": "The list includes the AssemblyOutput class from each single cell.",

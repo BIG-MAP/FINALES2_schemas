@@ -5,8 +5,9 @@ from FINALES2_schemas.classes_common import CellInfo, Location
 class CapacityCyclingInput(BaseModel):
     """
     Parameters to be used with the following quantities:
-    `Capacities` 
+    `capacity` - `cycling`
     """
+
     cycling_protocoll:str = Field(
         description="Name of a standardized testprotocoll(i.e BIG-MAP-Cycling)."
         )

@@ -2,6 +2,11 @@ from typing import Optional
 from pydantic import BaseModel, Field
 
 class CyclingChannelOutput(BaseModel):
+    """
+    Results returned from the following quantities:
+    'capacity' - 'cycling'
+    """
+
     success:bool = Field(
         description=("Indicator for the success of the reservation. This is False, if "
                      "the number of available channels is not sufficient to satisfy "

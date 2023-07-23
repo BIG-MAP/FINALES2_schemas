@@ -32,6 +32,6 @@ class ChemicalInfo(BaseModel):
     manufacturer:Optional[str] = Field(
         description="The manufacturer of the chemical, if it is available."
     )
-    manufacturing_date:Optional[date] = Field(
+    manufacturing_date:Optional[str] = Field(
         description="The date when the chemical was manufactured."
     )

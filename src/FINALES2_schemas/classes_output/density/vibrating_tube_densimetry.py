@@ -5,6 +5,11 @@ from .minimal_output import DensityOutput
 from FINALES2_schemas.classes_output.viscosity import ViscosityOutput
 
 class VibratingTubeDensimetryOutput(BaseModel):
+    """
+    Results returned from the following quantities:
+    'density' - 'vibrating_tube_densimetry'
+    """
+
     run_info:RunInfo = Field(
         description=("The information regarding the formulation and the internal "
                      "reference, which is common for all data generated in this run of "

@@ -55,6 +55,7 @@
         "type": "object"
       }
     },
+    "description": "\n    Parameters to be used with the following quantities:\n    `radial_density_function` - `molecular_dynamics_RDF`\n    ",
     "properties": {
       "formulation": {
         "description": "The formulation to be simulated. This is required to be provided in units of mol per mol.",
@@ -94,6 +95,7 @@
     "type": "object"
   },
   "json_schema_result_output": {
+    "description": "\n    Results returned from the following quantities:\n    'radial_density_function' - 'molecular_dynamics_RDF'\n    ",
     "properties": {
       "radius": {
         "description": "The radius at which atoms of the respecive species appear.",

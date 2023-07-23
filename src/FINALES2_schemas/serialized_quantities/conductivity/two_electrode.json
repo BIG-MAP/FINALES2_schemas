@@ -197,7 +197,6 @@
           "manufacturing_date": {
             "anyOf": [
               {
-                "format": "date",
                 "type": "string"
               },
               {
@@ -220,7 +219,7 @@
         "type": "object"
       },
       "ConductivityOutput": {
-        "description": "\n    Results returned from the following quantities:\n    'conductivity' - 'twoElectrodeMeasuringCell'\n    'conductivity' - 'molecularDynamicsSimulation'\n    ",
+        "description": "\n    Results returned from the following quantities:\n    'conductivity' - 'two_electrode'\n    'conductivity' - 'molecular_dynamics_conductivity'\n    ",
         "properties": {
           "values": {
             "description": "The values determined for the conductivity. Unit: siemens / meter",
@@ -309,7 +308,6 @@
           "uuid": {
             "anyOf": [
               {
-                "format": "uuid",
                 "type": "string"
               },
               {
@@ -322,7 +320,6 @@
           "preparation_date": {
             "anyOf": [
               {
-                "format": "date",
                 "type": "string"
               },
               {
@@ -427,7 +424,6 @@
           },
           "internal_reference": {
             "description": "This field is an internal ID identifying this run of the method. In experimental setups, this may reference to an ID of the sample.",
-            "format": "uuid",
             "title": "Internal Reference",
             "type": "string"
           },
@@ -468,6 +464,7 @@
         "type": "object"
       }
     },
+    "description": "\n    Results returned from the following quantities:\n    'conductivity' - 'two_electrode'\n    ",
     "properties": {
       "run_info": {
         "allOf": [

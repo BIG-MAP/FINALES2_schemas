@@ -3,7 +3,8 @@ from pydantic import BaseModel, Field
 
 class CapacityCyclingOutput(BaseModel):
     """
-    Result for the Capacities of each cycle.
+    Results returned from the following quantities:
+    `capacity` - `cycling`
     """
     capacity_list: List = Field(
         units="Ah",

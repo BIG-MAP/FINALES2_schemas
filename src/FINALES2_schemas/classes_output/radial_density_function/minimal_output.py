@@ -4,6 +4,11 @@ from typing import Optional
 from FINALES2_schemas.classes_common import unit_registry
 
 class RDFOutput(BaseModel):
+    """
+    Results returned from the following quantities:
+    'radial_density_function' - 'molecular_dynamics_RDF'
+    """
+
     radius:list[float] = Field(
         unit=f"{unit_registry.m}",
         description=("The radius at which atoms of the respecive species appear.")

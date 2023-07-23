@@ -5,7 +5,7 @@ from FINALES2_schemas.classes_common import MethodMeta, unit_registry
 class ViscosityOutput(BaseModel):
     """
     Results returned from the following quantities:
-    `viscosity` - `rollingBallViscosimetry`
+    `viscosity` - `rolling_ball_viscometry`
     """
     values:list[float] = Field(
         unit=str(unit_registry.g * unit_registry.cm ** -3),

@@ -4,7 +4,8 @@ from .minimal_output import AssemblyOutput
 
 class AutoBASSOutput(BaseModel):
     """
-    Result returned from the cell assembly, which merges all the cells in on batch:
+    Results returned from the following quantities:
+    `cell_assembly` - `autobass_assembly`
     """
     batch_output:list[AssemblyOutput] = Field(
         description="The list includes the AssemblyOutput class from each single cell."

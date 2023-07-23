@@ -11,10 +11,10 @@ class CellInfo(BaseModel):
     cell_name:Optional[str] = Field(
         description="A human readable name of the cell."
     )
-    uuid:Optional[UUID] = Field(
+    uuid:Optional[str] = Field(
         description="A unique identifier assigned to this cell in this run."
     )
-    assembly_date:Optional[date] = Field(
+    assembly_date:Optional[str] = Field(
         description=("The date when the cell was made.")
     )
     batch:Optional[str] = Field(

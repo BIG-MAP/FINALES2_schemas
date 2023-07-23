@@ -3,6 +3,10 @@ from typing import Optional
 from FINALES2_schemas.classes_common import unit_registry, Cell, CellInfo
 
 class AssemblyInput(BaseModel):
+    """
+    Parameters to be used with the following quantities:
+    `cell_assembly` - `autobass_assembly`
+    """
     cell:Cell = Field(
         description=("This is a Cell class defining the information needed "
                     "to fabricate a single cell with the respective battery chemistry.")

@@ -21,7 +21,6 @@
           "uuid": {
             "anyOf": [
               {
-                "format": "uuid",
                 "type": "string"
               },
               {
@@ -34,7 +33,6 @@
           "assembly_date": {
             "anyOf": [
               {
-                "format": "date",
                 "type": "string"
               },
               {
@@ -132,7 +130,6 @@
           "uuid": {
             "anyOf": [
               {
-                "format": "uuid",
                 "type": "string"
               },
               {
@@ -145,7 +142,6 @@
           "preparation_date": {
             "anyOf": [
               {
-                "format": "date",
                 "type": "string"
               },
               {
@@ -217,7 +213,7 @@
         "type": "object"
       }
     },
-    "description": "\n    Parameters to be used with the following quantities:\n    `Capacities` \n    ",
+    "description": "\n    Parameters to be used with the following quantities:\n    `capacity` - `cycling`\n    ",
     "properties": {
       "cycling_protocoll": {
         "description": "Name of a standardized testprotocoll(i.e BIG-MAP-Cycling).",
@@ -431,7 +427,7 @@
     "type": "object"
   },
   "json_schema_result_output": {
-    "description": "\n    Result for the Capacities of each cycle.\n    ",
+    "description": "\n    Results returned from the following quantities:\n    `capacity` - `cycling`\n    ",
     "properties": {
       "capacity_list": {
         "description": "A list with calculated capacities in Ah for charge and discharge alternately.",

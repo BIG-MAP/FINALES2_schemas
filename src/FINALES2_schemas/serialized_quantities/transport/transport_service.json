@@ -31,7 +31,7 @@
         "type": "object"
       }
     },
-    "description": " The input requrired for a request to transport physical objects from A to B.",
+    "description": "\n    Parameters to be used with the following quantities:\n    `transport` - `transport_service`\n    ",
     "properties": {
       "origin": {
         "allOf": [
@@ -87,6 +87,7 @@
         "type": "object"
       }
     },
+    "description": "\n    Results returned from the following quantities:\n    'transport' - 'service'\n    ",
     "properties": {
       "success": {
         "description": "An information, whether the transport was successful.",

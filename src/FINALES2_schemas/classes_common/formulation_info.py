@@ -11,10 +11,10 @@ class FormulationInfo(BaseModel):
     name:Optional[str] = Field(
         description="A human readable name of the formulation."
     )
-    uuid:Optional[UUID] = Field(
+    uuid:Optional[str] = Field(
         description="A unique identifier assigned to this formulation in this run."
     )
-    preparation_date:Optional[date] = Field(
+    preparation_date:Optional[str] = Field(
         description=("The date when the formulation was prepared. For commercial "
                     "formulations, the manufacturing date may be used.")
     )

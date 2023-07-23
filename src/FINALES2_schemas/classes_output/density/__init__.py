@@ -1,3 +1,3 @@
 from .minimal_output import DensityOutput
-from .molecular_dynamics import MolecularDynamicsOutput
+from .molecular_dynamics_density import MolecularDynamicsOutput
 from .vibrating_tube_densimetry import VibratingTubeDensimetryOutput
