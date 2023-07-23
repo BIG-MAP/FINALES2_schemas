@@ -2,7 +2,7 @@ from pydantic import BaseModel, Field
 from typing import Optional
 from datetime import date
 from uuid import UUID
-from FINALES2_schemas.classes_common.location import Location
+from FINALES2_schemas.classes_common import Location
 
 
 class FormulationInfo(BaseModel):

@@ -2,7 +2,7 @@ from datetime import datetime
 from typing import Optional
 from uuid import UUID
 from pydantic import BaseModel, Field
-from FINALES2_schemas.classes_common import MethodMeta, unit_registry, CellInfo
+from FINALES2_schemas.classes_common import MethodMeta, unit_registry, CellInfo, Location
 
 class AssemblyOutput(BaseModel):
     """

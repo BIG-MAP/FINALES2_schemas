@@ -1,7 +1,6 @@
 from typing import Optional
 from pydantic import BaseModel, Field
-from FINALES2_schemas.classes_common import MethodMeta, unit_registry, FormulationComponent
-from FINALES2_schemas.classes_common import Location
+from FINALES2_schemas.classes_common import MethodMeta, unit_registry, FormulationComponent, Location
 
 class ElectrolyteOutput(BaseModel):
     """

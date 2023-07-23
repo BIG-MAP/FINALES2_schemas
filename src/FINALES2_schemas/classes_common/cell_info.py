@@ -2,9 +2,7 @@ from pydantic import BaseModel, Field
 from typing import Optional
 from datetime import date
 from uuid import UUID
-from FINALES2_schemas.classes_common.formulation_info import FormulationInfo
-from FINALES2_schemas.classes_common.location import Location
-
+from FINALES2_schemas.classes_common import FormulationInfo, Location
 
 class CellInfo(BaseModel):
     """Additional information about a cell, which is relevant for documentation
@@ -26,6 +24,9 @@ class CellInfo(BaseModel):
     )
     cathode_info:Optional[FormulationInfo] = Field(
         description=("The metadata related to the cathode used in the cell.")
+    )
+    electrolyte_info:Optional[FormulationInfo] = Field(
+        description=("The metadata related to the electrolyte used in the cell.")
     )
     location:Optional[Location] = Field(
         description=("The location, where the physical cell can be found,"
