@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from FINALES2_schemas.classes_common import RunInfo, FormulationInfo
+from FINALES2_schemas.classes_common import RunInfo
 from .minimal_output import ConductivityOutput
 
 class TwoElectrodeOutput(BaseModel):

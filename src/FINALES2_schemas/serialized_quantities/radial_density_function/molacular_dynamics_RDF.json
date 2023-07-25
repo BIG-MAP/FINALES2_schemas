@@ -83,7 +83,7 @@
         ],
         "description": "An inital guess for the density of the formulation, if available.",
         "title": "Estimated Density",
-        "unit": "gram / centimeter ** 2"
+        "unit": "gram / centimeter ** 3"
       }
     },
     "required": [

@@ -538,19 +538,33 @@
         "description": " The location providing information on where to find physical samples or\n    equipment.",
         "properties": {
           "address": {
-            "description": "The physical address, where the objec can be found. Depending on the usecase, this may be an official address or a name of an instute or similar. The default should be an address.",
+            "description": "The physical address, where the object can be found. Depending on the usecase, this may be an official address or a name of an instute or similar. The default should be an address.",
             "title": "Address",
             "type": "string"
           },
           "detail_1": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "description": "A more detailed description of a location. This may be e.g. a specific laboratory in a building, a desk in an office or a device or a cabinet.",
-            "title": "Detail 1",
-            "type": "string"
+            "title": "Detail 1"
           },
           "detail_2": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "description": "Another level of detail for a location. This may be e.g. a bench in the laboratory, a shelf in a cabinet  or a specific port in a machine.",
-            "title": "Detail 2",
-            "type": "string"
+            "title": "Detail 2"
           }
         },
         "required": [

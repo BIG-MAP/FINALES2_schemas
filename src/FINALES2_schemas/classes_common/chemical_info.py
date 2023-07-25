@@ -1,6 +1,5 @@
 from pydantic import BaseModel, Field
 from typing import Optional, Tuple
-from datetime import date
 from .unit_registry import unit_registry
 
 class ChemicalInfo(BaseModel):

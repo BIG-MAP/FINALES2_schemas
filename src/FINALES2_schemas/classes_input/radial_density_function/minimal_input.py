@@ -18,6 +18,6 @@ class RDFInput(BaseModel):
         description=("The temperature, at which the simulation shall be performed.")
     )
     estimated_density:Optional[float] = Field(
-        unit=f"{unit_registry.gram/unit_registry.cm**2}",
+        unit=f"{unit_registry.g * unit_registry.cm ** -3}",
         description=("An inital guess for the density of the formulation, if available.")
     )

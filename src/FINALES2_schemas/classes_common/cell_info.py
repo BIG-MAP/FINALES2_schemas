@@ -29,7 +29,7 @@ class CellInfo(BaseModel):
     electrolyte_info:Optional[FormulationInfo] = Field(
         description=("The metadata related to the electrolyte used in the cell.")
     )
-    location:Optional[Location] = Field(
+    cell_location:Optional[Location] = Field(
         description=("The location, where the physical cell can be found,"
                      " which corresponds to this specification.")
     )

@@ -1,6 +1,5 @@
 from pydantic import BaseModel, Field
 from typing import Optional
-from uuid import UUID
 from .chemical_info import ChemicalInfo
 from .formulation_info import FormulationInfo
 from .formulation_component import FormulationComponent

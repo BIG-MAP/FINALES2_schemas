@@ -1,5 +1,4 @@
 from pydantic import BaseModel, Field
-from uuid import UUID
 from .minimal_output import AssemblyOutput
 
 class AutoBASSOutput(BaseModel):
@@ -10,6 +9,6 @@ class AutoBASSOutput(BaseModel):
     batch_output:list[AssemblyOutput] = Field(
         description="The list includes the AssemblyOutput class from each single cell."
     )
-    batch_id: UUID = Field(
+    batch_id:str = Field(
         description="A unique identifier assigned to this batch of cells in this run."
     )

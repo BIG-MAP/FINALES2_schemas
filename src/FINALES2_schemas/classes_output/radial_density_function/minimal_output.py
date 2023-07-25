@@ -1,5 +1,4 @@
 from pydantic import BaseModel, Field
-from typing import Optional
 
 from FINALES2_schemas.classes_common import unit_registry
 

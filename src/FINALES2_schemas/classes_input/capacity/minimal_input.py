@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import Optional
 from pydantic import BaseModel, Field
 from FINALES2_schemas.classes_common import CellInfo, Location
 
@@ -8,8 +8,8 @@ class CapacityCyclingInput(BaseModel):
     `capacity` - `cycling`
     """
 
-    cycling_protocoll:str = Field(
-        description="Name of a standardized testprotocoll(i.e BIG-MAP-Cycling)."
+    cycling_protocol:str = Field(
+        description="Name of a standardized test protocol (i.e. BIG-MAP-Cycling)."
         )
     number_cycles:int = Field(
         description="The number of cycles the test shoudl run through after formation."

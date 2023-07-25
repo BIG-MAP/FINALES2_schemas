@@ -9,7 +9,7 @@
         "title": "Number Required Channels",
         "type": "integer"
       },
-      "cycling_protocoll": {
+      "cycling_protocol": {
         "anyOf": [
           {
             "type": "string"
@@ -18,8 +18,8 @@
             "type": "null"
           }
         ],
-        "description": "The designation of the protocoll to use for the cycling experiment.",
-        "title": "Cycling Protocoll"
+        "description": "The designation of the protocol to use for the cycling experiment.",
+        "title": "Cycling Protocol"
       },
       "number_cycles": {
         "anyOf": [
@@ -36,7 +36,7 @@
     },
     "required": [
       "number_required_channels",
-      "cycling_protocoll",
+      "cycling_protocol",
       "number_cycles"
     ],
     "title": "CyclingChannelInput",
