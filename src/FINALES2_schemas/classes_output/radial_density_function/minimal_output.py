@@ -19,7 +19,7 @@ class RDFOutput(BaseModel):
         description=("A collection of the RDF for each pair of atoms.")
     )
     cell_volume:float = Field(
-        unit=f"{unit_registry.nm}",
+        unit=f"{unit_registry.nm**3}",
         description=(f"The volume of the cell under concideration. Unit: {unit_registry.nm}")
     )
     cell_formula:str = Field(
