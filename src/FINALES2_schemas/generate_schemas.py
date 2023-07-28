@@ -47,13 +47,13 @@ if __name__ == "__main__":
     quantity_path = BASEPATH_QUANTITIES / 'conductivity' / 'two_electrode.json'
     generate_quantity('conductivity', 'two_electrode', conductivity_input.ConductivityInput, conductivity_output.TwoElectrodeOutput, quantity_path)
 
-    quantity_path = BASEPATH_QUANTITIES / 'conductivity' / 'molecular_dynamics_conductivity.json'
+    quantity_path = BASEPATH_QUANTITIES / 'conductivity' / 'molecular_dynamics.json'
     generate_quantity('conductivity', 'molecular_dynamics', conductivity_input.ConductivityInput, conductivity_output.MolecularDynamicsOutput, quantity_path)
 
     quantity_path = BASEPATH_QUANTITIES / 'density' / 'vibrating_tube_densimetry.json'
     generate_quantity('density', 'vibrating_tube_densimetry', density_input.DensityInput, density_output.VibratingTubeDensimetryOutput, quantity_path)
 
-    quantity_path = BASEPATH_QUANTITIES / 'density' / 'molecular_dynamics_density.json'
+    quantity_path = BASEPATH_QUANTITIES / 'density' / 'molecular_dynamics.json'
     generate_quantity('density', 'molecular_dynamics', density_input.DensityInput, density_output.MolecularDynamicsOutput, quantity_path)
 
     quantity_path = BASEPATH_QUANTITIES / 'degradationEOL' / 'degradation_model.json'
@@ -74,5 +74,5 @@ if __name__ == "__main__":
     quantity_path = BASEPATH_QUANTITIES / 'transport' / 'transport_service.json'
     generate_quantity('transport', 'transport_service', transport_input.TransportInput, transport_output.TransportOutput, quantity_path)
 
-    quantity_path = BASEPATH_QUANTITIES / 'radial_density_function' / 'molacular_dynamics_RDF.json'
+    quantity_path = BASEPATH_QUANTITIES / 'radial_density_function' / 'molacular_dynamics.json'
     generate_quantity('radial_density_function', 'molacular_dynamics_RDF', RDF_input.RDFInput, RDF_output.RDFOutput, quantity_path)

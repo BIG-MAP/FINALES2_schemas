@@ -1,5 +1,5 @@
 {
-  "quantity": "conductivity",
+  "quantity": "density",
   "method": "molecular_dynamics",
   "json_schema_specifications": {
     "$defs": {
@@ -55,7 +55,7 @@
         "type": "object"
       }
     },
-    "description": "Parameters used by the quantities\n    'conductivity' - 'twoElectrodeMeasuringCell'\n    'conductivity' - 'molecularDynamicsSimulation'\n\n    :param BaseModel: used to ensure, that the class can be checked for the types\n    :type BaseModel: pydantic.BaseModel\n    ",
+    "description": "\n    Parameters to be used with the following quantities:\n    `density` - `vibratingTubeDensimetry`\n    `density` - `molecularDynamicsSimulation`\n    ",
     "properties": {
       "formulation": {
         "description": "This is a formulation defining the Chemicals contained in the sample and their fraction in the total mixture.",
@@ -74,7 +74,7 @@
             "type": "null"
           }
         ],
-        "description": "This is the temperature of the measuring cell or used in a simulation. It shall be given in the unit kelvin. Unit: kelvin",
+        "description": "This is the temperature of measuring cell. Unit: kelvin",
         "title": "Temperature",
         "unit": "kelvin"
       }
@@ -83,7 +83,7 @@
       "formulation",
       "temperature"
     ],
-    "title": "ConductivityInput",
+    "title": "DensityInput",
     "type": "object"
   },
   "json_schema_result_output": {
@@ -502,7 +502,7 @@
             "description": "The volume of the cell under concideration. Unit: nanometer",
             "title": "Cell Volume",
             "type": "number",
-            "unit": "nanometer"
+            "unit": "nanometer ** 3"
           },
           "cell_formula": {
             "description": "The composition of the considered cell reporting the number of atoms per type contained in the cell, e.g. Li16 O600 P16 F96 C600 H600",
@@ -573,7 +573,7 @@
         "type": "object"
       }
     },
-    "description": "\n    Results returned from the following quantities:\n    'conductivity' - 'molecular_dynamics_conductivity'\n    ",
+    "description": "\n    Results returned from the following quantities:\n    `density` - `molecular_dynamics_density`\n    ",
     "properties": {
       "run_info": {
         "allOf": [
@@ -583,24 +583,24 @@
         ],
         "description": "The information regarding the formulation and the internal reference, which is common for all data generated in this run of the method."
       },
-      "conductivity": {
+      "density": {
         "allOf": [
           {
-            "$ref": "#/$defs/ConductivityOutput"
+            "$ref": "#/$defs/DensityOutput"
           }
         ],
-        "description": "The output generated for the conductivity data."
+        "description": "The output generated for the density data."
       },
-      "density": {
+      "conductivity": {
         "anyOf": [
           {
-            "$ref": "#/$defs/DensityOutput"
+            "$ref": "#/$defs/ConductivityOutput"
           },
           {
             "type": "null"
           }
         ],
-        "description": "The ouptut of density calculations, which were generated as a side result."
+        "description": "The ouptut of conductivity measurements, which were run in parallel to the density measurement."
       },
       "RDF": {
         "anyOf": [
@@ -616,8 +616,8 @@
     },
     "required": [
       "run_info",
-      "conductivity",
       "density",
+      "conductivity",
       "RDF"
     ],
     "title": "MolecularDynamicsOutput",

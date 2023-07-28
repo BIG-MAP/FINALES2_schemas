@@ -150,7 +150,10 @@
       "input_cycles": {
         "anyOf": [
           {
-            "type": "integer"
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
           },
           {
             "type": "null"

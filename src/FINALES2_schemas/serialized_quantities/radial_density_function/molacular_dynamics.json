@@ -129,7 +129,7 @@
         "description": "The volume of the cell under concideration. Unit: nanometer",
         "title": "Cell Volume",
         "type": "number",
-        "unit": "nanometer"
+        "unit": "nanometer ** 3"
       },
       "cell_formula": {
         "description": "The composition of the considered cell reporting the number of atoms per type contained in the cell, e.g. Li16 O600 P16 F96 C600 H600",
