@@ -1,0 +1,165 @@
+{
+    "uuid": "65842d02-d134-4b37-94c9-246748c5e442",
+    "ctime": "2023-07-27T11:56:56",
+    "status": "original",
+    "result": {
+      "data": {
+        "run_info": {
+          "formulation": [
+            {
+              "chemical": {
+                "SMILES": "[Li+].F[P-](F)(F)(F)(F)F",
+                "InChIKey": "AXPLOJNSKRXQPA-UHFFFAOYSA-N"
+              },
+              "fraction": 0.0128,
+              "fraction_type": "molPerMol"
+            },
+            {
+              "chemical": {
+                "SMILES": "COC(=O)OC",
+                "InChIKey": "IEJIGPNLZYLLBP-UHFFFAOYSA-N"
+              },
+              "fraction": 0.8526,
+              "fraction_type": "molPerMol"
+            },
+            {
+              "chemical": {
+                "SMILES": "CCOC(=O)OC",
+                "InChIKey": "JBTWLSYIZRCDFO-UHFFFAOYSA-N"
+              },
+              "fraction": 0.0895,
+              "fraction_type": "molPerMol"
+            },
+            {
+              "chemical": {
+                "SMILES": "C1COC(=O)O1",
+                "InChIKey": "KMTRUDSVKNLOMY-UHFFFAOYSA-N"
+              },
+              "fraction": 0.0451,
+              "fraction_type": "molPerMol"
+            }
+          ],
+          "internal_reference": "7f38c012-124c-47f2-9bfe-5327e2769e74_0b154912-4729-4354-abc8-7de45a28ab16",
+          "formulation_info": {
+            "name": "formulation_1",
+            "uuid": "bf3a4d28-13c6-421a-a679-f7c63c6207ae",
+            "preparation_date": "27.07.2023",
+            "batch": "07-2023-01"
+          },
+          "chemicals_info": {
+            "AXPLOJNSKRXQPA-UHFFFAOYSA-N": {
+              "name": "LiPF_6",
+              "molar_mass": [
+                151.9,
+                0.01
+              ],
+              "density": [
+                2.2,
+                0.01
+              ],
+              "batch": "Lot-2023-156415",
+              "manufacturer": "manufacturer_A",
+              "manufacturing_date": "27.07.2023"
+            },
+            "IEJIGPNLZYLLBP-UHFFFAOYSA-N": {
+              "name": "DMC",
+              "molar_mass": [
+                90.08,
+                0.01
+              ],
+              "density": [
+                1.068,
+                0.01
+              ],
+              "batch": "Lot-2023-678515_d",
+              "manufacturer": "manufacturer_B",
+              "manufacturing_date": "27.07.2023"
+            },
+            "JBTWLSYIZRCDFO-UHFFFAOYSA-N": {
+              "name": "EMC",
+              "molar_mass": [
+                104.1,
+                0.01
+              ],
+              "density": [
+                1.068,
+                0.01
+              ],
+              "batch": "564651-2023-46465312",
+              "manufacturer": "manufacturer_C",
+              "manufacturing_date": "27.07.2023"
+            },
+            "KMTRUDSVKNLOMY-UHFFFAOYSA-N": {
+              "name": "EC",
+              "molar_mass": [
+                88.06,
+                0.01
+              ],
+              "density": [
+                1.3214,
+                0.01
+              ],
+              "batch": "DG_dgsg_2467865",
+              "manufacturer": "manufacturer_D",
+              "manufacturing_date": "27.07.2023"
+            }
+          }
+        },
+        "conductivity": {
+          "values": [
+            0.6
+          ],
+          "temperature": 298,
+          "meta": {
+            "success": "True",
+            "rating": 5
+          }
+        }
+      },
+      "quantity": "conductivity",
+      "method": [
+        "two_electrode"
+      ],
+      "parameters": {
+        "two_electrode": {
+          "formulation": [
+            {
+              "chemical": {
+                "SMILES": "[Li+].F[P-](F)(F)(F)(F)F",
+                "InChIKey": "AXPLOJNSKRXQPA-UHFFFAOYSA-N"
+              },
+              "fraction": 0.0128,
+              "fraction_type": "molPerMol"
+            },
+            {
+              "chemical": {
+                "SMILES": "COC(=O)OC",
+                "InChIKey": "IEJIGPNLZYLLBP-UHFFFAOYSA-N"
+              },
+              "fraction": 0.8526,
+              "fraction_type": "molPerMol"
+            },
+            {
+              "chemical": {
+                "SMILES": "CCOC(=O)OC",
+                "InChIKey": "JBTWLSYIZRCDFO-UHFFFAOYSA-N"
+              },
+              "fraction": 0.0895,
+              "fraction_type": "molPerMol"
+            },
+            {
+              "chemical": {
+                "SMILES": "C1COC(=O)O1",
+                "InChIKey": "KMTRUDSVKNLOMY-UHFFFAOYSA-N"
+              },
+              "fraction": 0.0451,
+              "fraction_type": "molPerMol"
+            }
+          ],
+          "temperature": 298
+        }
+      },
+      "tenant_uuid": "3d592bc2-b807-4bc8-823a-aa0a1cad53cc",
+      "request_uuid": "1c1b2a60-936d-407c-b438-71e4012f0e10"
+    }
+  }

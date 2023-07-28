@@ -1,0 +1,51 @@
+{
+    "name": "aiida-finales",
+    "limitations": [
+      {
+        "quantity": "conductivity",
+        "method": "molecular_dynamics",
+        "limitations": [{
+            "formulation": [[
+                {
+                    "chemical": {
+                      "SMILES": "[Li+].F[P-](F)(F)(F)(F)F",
+                      "InChIKey": "AXPLOJNSKRXQPA-UHFFFAOYSA-N"
+                    },
+                    "fraction": [{
+                      "min": 0.0,
+                      "max": 1.0
+                    }],
+                    "fraction_type": "molPerMol"
+                },
+                {
+                    "chemical": {
+                      "SMILES": "C1COC(=O)O1",
+                      "InChIKey": "KMTRUDSVKNLOMY-UHFFFAOYSA-N"
+                    },
+                    "fraction": [{
+                      "min": 0.0,
+                      "max": 1.0
+                    }],
+                    "fraction_type": "molPerMol"
+                },
+                {
+                    "chemical": {
+                      "SMILES": "CC1COC(=O)O1",
+                      "InChIKey": "RUOJZAUFBMNUDX-UHFFFAOYSA-N"
+                    },
+                    "fraction": [{
+                      "min": 0.0,
+                      "max": 1.0
+                    }],
+                    "fraction_type": "molPerMol"
+                }    
+            ]],
+            "temperature": [{
+                "min": 243.0,
+                "max": 333.0
+            }]
+          }]
+      }
+    ],
+    "contact_person": "Francisco Ramirez"
+}

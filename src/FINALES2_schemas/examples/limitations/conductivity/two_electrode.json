@@ -1,0 +1,146 @@
+[
+    {
+      "quantity": "conductivity",
+      "method": "two_electrode",
+      "limitations": {
+        "anyOf": [
+          {
+            "formulation": [
+              [
+                {
+                  "chemical": {
+                    "SMILES": "COC(=O)OC",
+                    "InChIKey": "IEJIGPNLZYLLBP-UHFFFAOYSA-N"
+                  },
+                  "fraction": [
+                    {
+                      "min": 1.0000000000000002e-14,
+                      "max": 1
+                    }
+                  ],
+                  "fraction_type": [
+                    "molPerMol"
+                  ]
+                }
+              ],
+              [
+                {
+                  "chemical": {
+                    "SMILES": "[Li+].F[P-](F)(F)(F)(F)F",
+                    "InChIKey": "AXPLOJNSKRXQPA-UHFFFAOYSA-N"
+                  },
+                  "fraction": [
+                    {
+                      "min": 0,
+                      "max": 0.016072577707104043
+                    }
+                  ],
+                  "fraction_type": [
+                    "molPerMol"
+                  ]
+                },
+                {
+                  "chemical": {
+                    "SMILES": "C1COC(=O)O1",
+                    "InChIKey": "KMTRUDSVKNLOMY-UHFFFAOYSA-N"
+                  },
+                  "fraction": [
+                    {
+                      "min": 1.995481241616177e-15,
+                      "max": 0.19954812416161768
+                    }
+                  ],
+                  "fraction_type": [
+                    "molPerMol"
+                  ]
+                },
+                {
+                  "chemical": {
+                    "SMILES": "CCOC(=O)OC",
+                    "InChIKey": "JBTWLSYIZRCDFO-UHFFFAOYSA-N"
+                  },
+                  "fraction": [
+                    {
+                      "min": 7.84379298131278e-15,
+                      "max": 0.7843792981312779
+                    }
+                  ],
+                  "fraction_type": [
+                    "molPerMol"
+                  ]
+                }
+              ],
+              [
+                {
+                  "chemical": {
+                    "SMILES": "COC(=O)OC",
+                    "InChIKey": "IEJIGPNLZYLLBP-UHFFFAOYSA-N"
+                  },
+                  "fraction": [
+                    {
+                      "min": 1.0000000000000002e-14,
+                      "max": 1
+                    }
+                  ],
+                  "fraction_type": [
+                    "molPerMol"
+                  ]
+                },
+                {
+                  "chemical": {
+                    "SMILES": "[Li+].F[P-](F)(F)(F)(F)F",
+                    "InChIKey": "AXPLOJNSKRXQPA-UHFFFAOYSA-N"
+                  },
+                  "fraction": [
+                    {
+                      "min": 0,
+                      "max": 0.016072577707104043
+                    }
+                  ],
+                  "fraction_type": [
+                    "molPerMol"
+                  ]
+                },
+                {
+                  "chemical": {
+                    "SMILES": "C1COC(=O)O1",
+                    "InChIKey": "KMTRUDSVKNLOMY-UHFFFAOYSA-N"
+                  },
+                  "fraction": [
+                    {
+                      "min": 1.995481241616177e-15,
+                      "max": 0.19954812416161768
+                    }
+                  ],
+                  "fraction_type": [
+                    "molPerMol"
+                  ]
+                },
+                {
+                  "chemical": {
+                    "SMILES": "CCOC(=O)OC",
+                    "InChIKey": "JBTWLSYIZRCDFO-UHFFFAOYSA-N"
+                  },
+                  "fraction": [
+                    {
+                      "min": 7.84379298131278e-15,
+                      "max": 0.7843792981312779
+                    }
+                  ],
+                  "fraction_type": [
+                    "molPerMol"
+                  ]
+                }
+              ]
+            ],
+            "temperature": [
+              {
+                "min": 298.15,
+                "max": 298.15
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
