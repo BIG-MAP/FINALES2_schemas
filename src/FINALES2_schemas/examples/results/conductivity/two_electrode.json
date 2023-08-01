@@ -111,7 +111,7 @@
           ],
           "temperature": 298,
           "meta": {
-            "success": "True",
+            "success": true,
             "rating": 5
           }
         }
