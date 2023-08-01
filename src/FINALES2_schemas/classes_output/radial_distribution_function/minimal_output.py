@@ -1,4 +1,5 @@
 from pydantic import BaseModel, Field
+from typing import Optional
 
 from FINALES2_schemas.classes_common import unit_registry
 
@@ -9,18 +10,18 @@ class RDFOutput(BaseModel):
     """
 
     radius:list[float] = Field(
-        unit=f"{unit_registry.m}",
+        unit=f"{unit_registry.angstrom}",
         description=("The radius at which atoms of the respecive species appear.")
     )
     pair_title:list[str] = Field(
         description=("The names of the pairs of atoms considered.")
     )
     RDF:list[list[float]] = Field(
-        description=("A collection of the RDF for each pair of atoms.")
+        description=("Quotient between the local particle density at radius r and the average density of the system.")
     )
     cell_volume:float = Field(
-        unit=f"{unit_registry.nm**3}",
-        description=(f"The volume of the cell under concideration. Unit: {unit_registry.nm}")
+        unit=f"{unit_registry.angstrom**3}",
+        description=(f"The volume of the cell under concideration. Unit: {unit_registry.angstrom**3}")
     )
     cell_formula:str = Field(
         description=("The composition of the considered cell reporting the "

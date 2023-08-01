@@ -477,7 +477,7 @@
             },
             "title": "Radius",
             "type": "array",
-            "unit": "meter"
+            "unit": "angstrom"
           },
           "pair_title": {
             "description": "The names of the pairs of atoms considered.",
@@ -488,7 +488,7 @@
             "type": "array"
           },
           "RDF": {
-            "description": "A collection of the RDF for each pair of atoms.",
+            "description": "Quotient between the local particle density at radius r and the average density of the system.",
             "items": {
               "items": {
                 "type": "number"
@@ -499,10 +499,10 @@
             "type": "array"
           },
           "cell_volume": {
-            "description": "The volume of the cell under concideration. Unit: nanometer",
+            "description": "The volume of the cell under concideration. Unit: angstrom ** 3",
             "title": "Cell Volume",
             "type": "number",
-            "unit": "nanometer ** 3"
+            "unit": "angstrom ** 3"
           },
           "cell_formula": {
             "description": "The composition of the considered cell reporting the number of atoms per type contained in the cell, e.g. Li16 O600 P16 F96 C600 H600",
@@ -612,13 +612,29 @@
           }
         ],
         "description": "The ouptut of RDF calculations, which were generated as a side result."
+      },
+      "number_molecules_per_component": {
+        "anyOf": [
+          {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "The absolute number of molecules for each chemical contained in the formulation.",
+        "title": "Number Molecules Per Component"
       }
     },
     "required": [
       "run_info",
       "conductivity",
       "density",
-      "RDF"
+      "RDF",
+      "number_molecules_per_component"
     ],
     "title": "MolecularDynamicsOutput",
     "type": "object"

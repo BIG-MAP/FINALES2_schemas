@@ -10,7 +10,7 @@ from classes_input import (conductivity as conductivity_input,
                            capacity as capacity_input,
                            cycling_channel as cycling_channel_input,
                            transport as transport_input,
-                           radial_density_function as RDF_input)
+                           radial_distribution_function as RDF_input)
 from classes_output import (conductivity as conductivity_output,
                            degradationEOL as degradationEOL_output,
                            density as density_output,
@@ -20,7 +20,7 @@ from classes_output import (conductivity as conductivity_output,
                            capacity as capacity_output,
                            cycling_channel as cycling_channel_output,
                            transport as transport_output,
-                           radial_density_function as RDF_output)
+                           radial_distribution_function as RDF_output)
 
 BASEPATH = pathlib.Path(__file__).parent.resolve()
 BASEPATH_QUANTITIES = BASEPATH / 'serialized_quantities'

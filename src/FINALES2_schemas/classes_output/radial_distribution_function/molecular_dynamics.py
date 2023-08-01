@@ -28,3 +28,6 @@ class MolecularDynamicsOutput(BaseModel):
         description=("The ouptut of density calculations, which were generated "
                       "as a side result.")
     )
+    number_molecules_per_component:Optional[dict[str, int]] = Field(
+        description=("The absolute number of molecules for each chemical contained in the formulation.")
+    )

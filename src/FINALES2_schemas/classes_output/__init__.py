@@ -1,11 +1,11 @@
 from . import (conductivity,
                degradationEOL,
                density,
-               radial_density_function,
+               radial_distribution_function,
                viscosity,
                cell_assembly,
                electrolyte,
                capacity,
                cycling_channel,
                transport,
-               radial_density_function)
+               radial_distribution_function)
