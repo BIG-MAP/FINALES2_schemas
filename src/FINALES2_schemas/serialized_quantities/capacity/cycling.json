@@ -445,14 +445,18 @@
     "properties": {
       "capacity_list": {
         "description": "A list with calculated capacities in Ah for charge and discharge alternately.",
-        "items": {},
+        "items": {
+          "type": "number"
+        },
         "title": "Capacity List",
         "type": "array",
         "units": "Ah"
       },
       "channel_list": {
         "description": "A list with the channels used for cycling.",
-        "items": {},
+        "items": {
+          "type": "integer"
+        },
         "title": "Channel List",
         "type": "array"
       }

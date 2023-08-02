@@ -1,9 +1,5 @@
 {
-    "uuid": "5362797a-e5d9-45ec-90a2-4f79be84d683",
-    "ctime": "2023-07-26T11:22:20",
-    "status": "original",
-    "result": {
-      "data": {
+        "data": {
         "run_info": {
           "formulation": [
             {
@@ -82,4 +78,3 @@
       "tenant_uuid": "e61462cc-d297-4ece-a5ce-222e72aaf0b0",
       "request_uuid": "f2195e96-1494-4ce7-94a0-ce52d1331cf3"
     }
-  }

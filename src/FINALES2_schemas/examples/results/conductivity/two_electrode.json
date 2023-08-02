@@ -1,8 +1,4 @@
 {
-    "uuid": "65842d02-d134-4b37-94c9-246748c5e442",
-    "ctime": "2023-07-27T11:56:56",
-    "status": "original",
-    "result": {
       "data": {
         "run_info": {
           "formulation": [
@@ -44,7 +40,12 @@
             "name": "formulation_1",
             "uuid": "bf3a4d28-13c6-421a-a679-f7c63c6207ae",
             "preparation_date": "27.07.2023",
-            "batch": "07-2023-01"
+            "batch": "07-2023-01",
+            "location": {
+              "address": "Street A, City B",
+              "detail_1": "Demo_lab_1",
+              "detail_2": "Bench_3, machine_x, slot_y" 
+            }
           },
           "chemicals_info": {
             "AXPLOJNSKRXQPA-UHFFFAOYSA-N": {
@@ -160,6 +161,5 @@
         }
       },
       "tenant_uuid": "3d592bc2-b807-4bc8-823a-aa0a1cad53cc",
-      "request_uuid": "1c1b2a60-936d-407c-b438-71e4012f0e10"
+      "request_uuid": "4d87df3b-e547-439b-b852-0ce8ec9dd37a"
     }
-  }
