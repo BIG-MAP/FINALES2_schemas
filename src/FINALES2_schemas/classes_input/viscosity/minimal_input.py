@@ -5,7 +5,7 @@ from FINALES2_schemas.classes_common import FormulationComponent, unit_registry
 class ViscosityInput(BaseModel):
     """
     Parameters to be used with the following quantities:
-    `viscosity` - `rollingBallViscosimetry`
+    `viscosity` - `rolling_ball_viscometry`
     """
     formulation:list[FormulationComponent] = Field(
         description=("This is a formulation defining the Chemicals contained in the "

@@ -5,7 +5,7 @@ from .battery_chemistry import BatteryChemistry
 from .separator import Separator
 
 class Cell(BaseModel):
-    batteryChemistry:BatteryChemistry = Field(
+    battery_chemistry:BatteryChemistry = Field(
         description = ("The definition of the chemistry used in the "
                      "cells, which includes the electrodes and electrolyte")
     )

@@ -5,8 +5,8 @@ from FINALES2_schemas.classes_common import MethodMeta, unit_registry
 class DensityOutput(BaseModel):
     """
     Results returned from the following quantities:
-    `density` - `vibratingTubeDensimetry`
-    `density` - `molecularDynamicsSimulation`
+    `density` - `vibrating_tube_densimetry`
+    `density` - `molecular_dynamics_density`
     """
     values:list[float] = Field(
         unit=str(unit_registry.g * unit_registry.cm ** -3),

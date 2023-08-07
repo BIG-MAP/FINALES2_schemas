@@ -3,10 +3,7 @@ from FINALES2_schemas.classes_common import MethodMeta, unit_registry
 
 class DegradationEOLOutput(BaseModel):
     """Results returned from the following quantities:
-    'degradationEOL' - degradationModel
-
-    :param BaseModel: _description_
-    :type BaseModel: _type_
+    'degradationEOL' - 'degradationModel'
     """
     end_of_life:int = Field(
         description=("The predicted end of life for the cell.")

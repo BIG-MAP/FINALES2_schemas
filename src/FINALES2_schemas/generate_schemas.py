@@ -7,14 +7,20 @@ from classes_input import (conductivity as conductivity_input,
                            viscosity as viscostiy_input,
                            cell_assembly as assembly_input,
                            electrolyte as electrolyte_input,
-                           capacity as capacity_input)
+                           capacity as capacity_input,
+                           cycling_channel as cycling_channel_input,
+                           transport as transport_input,
+                           radial_distribution_function as RDF_input)
 from classes_output import (conductivity as conductivity_output,
                            degradationEOL as degradationEOL_output,
                            density as density_output,
                            viscosity as viscostiy_output,
                            cell_assembly as assembly_output,
                            electrolyte as electrolyte_output,
-                           capacity as capacity_output)
+                           capacity as capacity_output,
+                           cycling_channel as cycling_channel_output,
+                           transport as transport_output,
+                           radial_distribution_function as RDF_output)
 
 BASEPATH = pathlib.Path(__file__).parent.resolve()
 BASEPATH_QUANTITIES = BASEPATH / 'serialized_quantities'
@@ -47,7 +53,7 @@ if __name__ == "__main__":
     quantity_path = BASEPATH_QUANTITIES / 'density' / 'vibrating_tube_densimetry.json'
     generate_quantity('density', 'vibrating_tube_densimetry', density_input.DensityInput, density_output.VibratingTubeDensimetryOutput, quantity_path)
 
-    quantity_path = BASEPATH_QUANTITIES / 'density' / 'molecular_dynamics_simulation.json'
+    quantity_path = BASEPATH_QUANTITIES / 'density' / 'molecular_dynamics.json'
     generate_quantity('density', 'molecular_dynamics', density_input.DensityInput, density_output.MolecularDynamicsOutput, quantity_path)
 
     quantity_path = BASEPATH_QUANTITIES / 'degradationEOL' / 'degradation_model.json'
@@ -61,3 +67,12 @@ if __name__ == "__main__":
 
     quantity_path = BASEPATH_QUANTITIES / 'capacity' / 'cycling.json'
     generate_quantity('capacity', 'cycling', capacity_input.CapacityCyclingInput, capacity_output.CapacityCyclingOutput, quantity_path)
+
+    quantity_path = BASEPATH_QUANTITIES / 'cycling_channel' / 'service.json'
+    generate_quantity('cycling_channel', 'service', cycling_channel_input.CyclingChannelInput, cycling_channel_output.CyclingChannelOutput, quantity_path)
+
+    quantity_path = BASEPATH_QUANTITIES / 'transport' / 'transport_service.json'
+    generate_quantity('transport', 'transport_service', transport_input.TransportInput, transport_output.TransportOutput, quantity_path)
+
+    quantity_path = BASEPATH_QUANTITIES / 'radial_density_function' / 'molacular_dynamics.json'
+    generate_quantity('radial_density_function', 'molacular_dynamics_RDF', RDF_input.RDFInput, RDF_output.RDFOutput, quantity_path)

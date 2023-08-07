@@ -1,6 +1,5 @@
 from pydantic import BaseModel, Field
 from typing import Optional, Tuple
-from datetime import date
 from .unit_registry import unit_registry
 
 class ChemicalInfo(BaseModel):
@@ -32,6 +31,6 @@ class ChemicalInfo(BaseModel):
     manufacturer:Optional[str] = Field(
         description="The manufacturer of the chemical, if it is available."
     )
-    manufacturing_date:Optional[date] = Field(
+    manufacturing_date:Optional[str] = Field(
         description="The date when the chemical was manufactured."
     )

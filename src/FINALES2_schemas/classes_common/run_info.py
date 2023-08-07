@@ -1,6 +1,5 @@
 from pydantic import BaseModel, Field
 from typing import Optional
-from uuid import UUID
 from .chemical_info import ChemicalInfo
 from .formulation_info import FormulationInfo
 from .formulation_component import FormulationComponent
@@ -13,7 +12,7 @@ class RunInfo(BaseModel):
         description=("This is a formulation defining the Chemicals contained in the"
                     "sample and their fraction in the total mixture.")
     )
-    internal_reference:UUID = Field(
+    internal_reference:str = Field(
         description=("This field is an internal ID identifying this run of the method."
                     " In experimental setups, this may reference to an ID of the sample.")
     )

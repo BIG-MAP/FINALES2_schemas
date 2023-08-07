@@ -12,7 +12,7 @@ class DegradationModelInput(BaseModel):
     chemistry:BatteryChemistry = Field(
         description=("The description of the chemicals involved in all the battery cell.")
     )
-    input_cycles:Optional[int] = Field(
+    input_cycles:Optional[list[float]] = Field(
         description=("The number of cycles provided as an input to the model.")
     )
     average_charging_rate:Optional[float] = Field(

@@ -1,6 +1,5 @@
-from typing import Optional
 from pydantic import BaseModel, Field
-from FINALES2_schemas.classes_common import MethodMeta, unit_registry, FormulationComponent
+from FINALES2_schemas.classes_common import MethodMeta, unit_registry, FormulationComponent, Location
 
 class ElectrolyteOutput(BaseModel):
     """
@@ -16,7 +15,7 @@ class ElectrolyteOutput(BaseModel):
         description=("The volume of electrolyte, which needs to be formulated. "
             f"Unit: {str(unit_registry.mL)}.")
     )
-    location:str = Field(
+    location:Location = Field(
         description=("The physical location, from where the prepared electrolyte "
                      "formulation may be picked up.")
     )
