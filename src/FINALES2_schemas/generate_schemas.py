@@ -49,6 +49,9 @@ if __name__ == "__main__":
 
     quantity_path = BASEPATH_QUANTITIES / 'conductivity' / 'molecular_dynamics.json'
     generate_quantity('conductivity', 'molecular_dynamics', conductivity_input.ConductivityInput, conductivity_output.MolecularDynamicsOutput, quantity_path)
+    
+    quantity_path = BASEPATH_QUANTITIES / 'conductivity' / 'polynomial_interpolation.json'
+    generate_quantity('conductivity', 'polynomial_interpolation', conductivity_input.ConductivityInput, conductivity_output.PolynomialInterpolationOutput, quantity_path)
 
     quantity_path = BASEPATH_QUANTITIES / 'density' / 'vibrating_tube_densimetry.json'
     generate_quantity('density', 'vibrating_tube_densimetry', density_input.DensityInput, density_output.VibratingTubeDensimetryOutput, quantity_path)

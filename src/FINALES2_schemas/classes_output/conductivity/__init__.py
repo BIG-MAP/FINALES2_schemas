@@ -1,3 +1,4 @@
 from .minimal_output import ConductivityOutput
 from .molecular_dynamics import MolecularDynamicsOutput
 from .two_electrode import TwoElectrodeOutput
+from .polynomial_interpolation import PolynomialInterpolationOutput
