@@ -17,10 +17,7 @@
         "CAS": "http://emmo.info/emmo#EMMO_8d841526_ba33_4436_9344_51b5d6928d82",
         "AmbientThermodynamicTemperature":"http://emmo.info/electrochemistry#electrochemistry_39a44af0_0e1a_4859_b550_bdabad64386e",
 
-        "created": {
-            "@id": "http://purl.org/dc/terms/created",
-            "@type": "@id"
-        },
+
         "hasConstituent": {
             "@id": "http://emmo.info/emmo#EMMO_dba27ca1_33c9_4443_a912_1519ce4c39ec",
             "@type": "@id"
@@ -29,10 +26,7 @@
             "@id": "http://emmo.info/emmo#EMMO_5d73661e_e710_4844_ab9b_a85b7e68576a",
             "@type": "@id"
         },
-        "hasSymbolData": {
-            "@id": "http://emmo.info/emmo#EMMO_23b579e1_8088_45b5_9975_064014026c42",
-            "@type": "@id"
-        },
+   
         "hasMeasurementUncertainty": {
             "@id": "http://emmo.info/emmo#EMMO_662c64e7_fc72_49b3_a161_f50fd42deafa",
             "@type": "@id"

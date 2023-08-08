@@ -1,0 +1,172 @@
+[
+  {
+    "uuid": "5362797a-e5d9-45ec-90a2-4f79be84d683",
+    "ctime": "2023-07-26T11:22:20",
+    "status": "original",
+    "result": {
+      "data": {
+        "run_info": {
+          "formulation": [
+            {
+              "chemical": {
+                "SMILES": "[Li+].F[P-](F)(F)(F)(F)F",
+                "InChIKey": "AXPLOJNSKRXQPA-UHFFFAOYSA-N"
+              },
+              "fraction": 0.05,
+              "fraction_type": "molar fraction"
+            },
+            {
+              "chemical": {
+                "SMILES": "C1COC(=O)O1",
+                "InChIKey": "KMTRUDSVKNLOMY-UHFFFAOYSA-N"
+              },
+              "fraction": 0.45,
+              "fraction_type": "molar fraction"
+            },
+            {
+              "chemical": {
+                "SMILES": "CC1COC(=O)O1",
+                "InChIKey": "RUOJZAUFBMNUDX-UHFFFAOYSA-N"
+              },
+              "fraction": 0.5,
+              "fraction_type": "molar fraction"
+            }
+          ],
+          "internal_reference": "a11c15de-6d14-424e-8dc6-32f8398bfd51"
+        },
+        "conductivity": {
+          "values": [
+            0.008328539145648056
+          ],
+          "temperature": 298,
+          "meta": {
+            "success": true,
+            "rating": 2
+          }
+        }
+      },
+      "quantity": "conductivity",
+      "method": [
+        "molecular_dynamics"
+      ],
+      "parameters": {
+        "molecular_dynamics": {
+          "formulation": [
+            {
+              "chemical": {
+                "SMILES": "[Li+].F[P-](F)(F)(F)(F)F",
+                "InChIKey": "AXPLOJNSKRXQPA-UHFFFAOYSA-N"
+              },
+              "fraction": 0.05,
+              "fraction_type": "molar fraction"
+            },
+            {
+              "chemical": {
+                "SMILES": "C1COC(=O)O1",
+                "InChIKey": "KMTRUDSVKNLOMY-UHFFFAOYSA-N"
+              },
+              "fraction": 0.45,
+              "fraction_type": "molar fraction"
+            },
+            {
+              "chemical": {
+                "SMILES": "CC1COC(=O)O1",
+                "InChIKey": "RUOJZAUFBMNUDX-UHFFFAOYSA-N"
+              },
+              "fraction": 0.5,
+              "fraction_type": "molar fraction"
+            }
+          ],
+          "temperature": 298
+        }
+      },
+      "tenant_uuid": "e61462cc-d297-4ece-a5ce-222e72aaf0b0",
+      "request_uuid": "f2195e96-1494-4ce7-94a0-ce52d1331cf3"
+    }
+  },
+  {
+    "uuid": "0010e43c-1bee-4439-b4ef-09c6427a67f7",
+    "ctime": "2023-07-26T11:27:12",
+    "status": "original",
+    "result": {
+      "data": {
+        "run_info": {
+          "formulation": [
+            {
+              "chemical": {
+                "SMILES": "[Li+].F[P-](F)(F)(F)(F)F",
+                "InChIKey": "AXPLOJNSKRXQPA-UHFFFAOYSA-N"
+              },
+              "fraction": 0.1,
+              "fraction_type": "molar fraction"
+            },
+            {
+              "chemical": {
+                "SMILES": "C1COC(=O)O1",
+                "InChIKey": "KMTRUDSVKNLOMY-UHFFFAOYSA-N"
+              },
+              "fraction": 0.25,
+              "fraction_type": "molar fraction"
+            },
+            {
+              "chemical": {
+                "SMILES": "CC1COC(=O)O1",
+                "InChIKey": "RUOJZAUFBMNUDX-UHFFFAOYSA-N"
+              },
+              "fraction": 0.65,
+              "fraction_type": "molar fraction"
+            }
+          ],
+          "internal_reference": "887102c1-3aca-40b1-b478-84d8280d5b6c"
+        },
+        "conductivity": {
+          "values": [
+            0.001966383744855967
+          ],
+          "temperature": 250,
+          "meta": {
+            "success": true,
+            "rating": 2
+          }
+        }
+      },
+      "quantity": "conductivity",
+      "method": [
+        "molecular_dynamics"
+      ],
+      "parameters": {
+        "molecular_dynamics": {
+          "formulation": [
+            {
+              "chemical": {
+                "SMILES": "[Li+].F[P-](F)(F)(F)(F)F",
+                "InChIKey": "AXPLOJNSKRXQPA-UHFFFAOYSA-N"
+              },
+              "fraction": 0.1,
+              "fraction_type": "molar fraction"
+            },
+            {
+              "chemical": {
+                "SMILES": "C1COC(=O)O1",
+                "InChIKey": "KMTRUDSVKNLOMY-UHFFFAOYSA-N"
+              },
+              "fraction": 0.25,
+              "fraction_type": "molar fraction"
+            },
+            {
+              "chemical": {
+                "SMILES": "CC1COC(=O)O1",
+                "InChIKey": "RUOJZAUFBMNUDX-UHFFFAOYSA-N"
+              },
+              "fraction": 0.65,
+              "fraction_type": "molar fraction"
+            }
+          ],
+          "temperature": 250
+        }
+      },
+      "tenant_uuid": "3937d07d-6f43-47db-b1ad-4d654a79e992",
+      "request_uuid": "6290d7e4-fcd3-4d73-8d79-ec41d26f8e3d"
+    }
+  }
+]

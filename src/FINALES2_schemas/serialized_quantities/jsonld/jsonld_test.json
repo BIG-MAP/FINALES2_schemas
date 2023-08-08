@@ -1,0 +1,282 @@
+[
+    {
+        "@id": "Nd6c4779e4cd54899b3e1fdbcdba8b8d8",
+        "properties": {
+            "hasReferenceUnit": [
+                "Kelvin"
+            ],
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": [
+                "AmbientThermodynamicTemperature"
+            ],
+            "hasQuantityValue": []
+        }
+    },
+    {
+        "@id": "Ne599575143b247de92616115ad376528",
+        "properties": {
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": [
+                "AmountFraction"
+            ],
+            "hasReferenceUnit": [
+                "AmountFractionUnit"
+            ],
+            "hasQuantityValue": []
+        }
+    },
+    {
+        "@id": "Nc868767aa3ee49ab978489175d8e0231",
+        "properties": {
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": [
+                "LiquidSolution"
+            ],
+            "hasQuantitativeProperty": [
+                "N5a799e8732da4123b82a11d6fbb8fa11"
+            ],
+            "hasConstituent": [
+                "Nd7ff2f523b044964b176603e40790dde"
+            ]
+        }
+    },
+    {
+        "@id": "Nd651231cb46247a8a061786198069a3d",
+        "properties": {
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": [
+                "ChemicalCompound"
+            ],
+            "InChI": [
+                "RUOJZAUFBMNUDX-UHFFFAOYSA-N"
+            ],
+            "SMILES": [
+                "CC1COC(=O)O1"
+            ]
+        }
+    },
+    {
+        "@id": "N5a799e8732da4123b82a11d6fbb8fa11",
+        "properties": {
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": [
+                "AmountFraction"
+            ],
+            "hasQuantityValue": [],
+            "hasReferenceUnit": [
+                "AmountFractionUnit"
+            ]
+        }
+    },
+    {
+        "@id": "N90c72e2376f34a01875fc2f7ab9a16bc",
+        "properties": {
+            "InChI": [
+                "RUOJZAUFBMNUDX-UHFFFAOYSA-N"
+            ],
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": [
+                "ChemicalCompound"
+            ],
+            "SMILES": [
+                "CC1COC(=O)O1"
+            ]
+        }
+    },
+    {
+        "@id": "N6c196798ddd949e2aac616e131f15193",
+        "properties": {
+            "hasConstituent": [
+                "N5bb28ba7be16407a8c2ab1d23c3e4d61"
+            ],
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": [
+                "LiquidSolution"
+            ],
+            "hasQuantitativeProperty": [
+                "Ne6bb75be9f1246be9bdbd14e53b51ffa"
+            ]
+        }
+    },
+    {
+        "@id": "Ne2848c67d8f0423193ab3bba0e21a835",
+        "properties": {
+            "hasQuantitativeProperty": [
+                "Ne599575143b247de92616115ad376528"
+            ],
+            "hasConstituent": [
+                "N118b23ca643e46d392a81a506590139f"
+            ],
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": [
+                "LiquidSolution"
+            ]
+        }
+    },
+    {
+        "@id": "Nd7ff2f523b044964b176603e40790dde",
+        "properties": {
+            "InChI": [
+                "KMTRUDSVKNLOMY-UHFFFAOYSA-N"
+            ],
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": [
+                "ChemicalCompound"
+            ],
+            "SMILES": [
+                "C1COC(=O)O1"
+            ]
+        }
+    },
+    {
+        "@id": "Ne6bb75be9f1246be9bdbd14e53b51ffa",
+        "properties": {
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": [
+                "AmountFraction"
+            ],
+            "hasReferenceUnit": [
+                "AmountFractionUnit"
+            ],
+            "hasQuantityValue": []
+        }
+    },
+    {
+        "@id": "N2e57a8ed61b2405c859751123809cb2e",
+        "properties": {
+            "hasQuantitativeProperty": [
+                "Nb4e20d2221d14d02be4b2117135458ce"
+            ],
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": [
+                "LiquidSolution"
+            ],
+            "hasConstituent": [
+                "Nd651231cb46247a8a061786198069a3d"
+            ]
+        }
+    },
+    {
+        "@id": "N2fc3bf8d81f74288809958df3c8be3c7",
+        "properties": {
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": [
+                "LiquidSolution"
+            ],
+            "hasQuantitativeProperty": [
+                "Na88a27fab4aa4aea966486c1c71bf9ea"
+            ],
+            "hasConstituent": [
+                "N90c72e2376f34a01875fc2f7ab9a16bc"
+            ]
+        }
+    },
+    {
+        "@id": "N118b23ca643e46d392a81a506590139f",
+        "properties": {
+            "InChI": [
+                "KMTRUDSVKNLOMY-UHFFFAOYSA-N"
+            ],
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": [
+                "ChemicalCompound"
+            ],
+            "SMILES": [
+                "C1COC(=O)O1"
+            ]
+        }
+    },
+    {
+        "@id": "N430ac689622e4833b63efeb4c6d84883",
+        "properties": {
+            "hasConstituent": [
+                "N362a69d7803942cbadc24717a9c83f22"
+            ],
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": [
+                "LiquidSolution"
+            ],
+            "hasQuantitativeProperty": [
+                "Ne60591b35e1b4467b0d252792322e248"
+            ]
+        }
+    },
+    {
+        "@id": "N362a69d7803942cbadc24717a9c83f22",
+        "properties": {
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": [
+                "ChemicalCompound"
+            ],
+            "InChI": [
+                "AXPLOJNSKRXQPA-UHFFFAOYSA-N"
+            ],
+            "SMILES": [
+                "[Li+].F[P-](F)(F)(F)(F)F"
+            ]
+        }
+    },
+    {
+        "@id": "Ne60591b35e1b4467b0d252792322e248",
+        "properties": {
+            "hasQuantityValue": [],
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": [
+                "AmountFraction"
+            ],
+            "hasReferenceUnit": [
+                "AmountFractionUnit"
+            ]
+        }
+    },
+    {
+        "@id": "Nb4e20d2221d14d02be4b2117135458ce",
+        "properties": {
+            "hasReferenceUnit": [
+                "AmountFractionUnit"
+            ],
+            "hasQuantityValue": [],
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": [
+                "AmountFraction"
+            ]
+        }
+    },
+    {
+        "@id": "N5bb28ba7be16407a8c2ab1d23c3e4d61",
+        "properties": {
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": [
+                "ChemicalCompound"
+            ],
+            "InChI": [
+                "AXPLOJNSKRXQPA-UHFFFAOYSA-N"
+            ],
+            "SMILES": [
+                "[Li+].F[P-](F)(F)(F)(F)F"
+            ]
+        }
+    },
+    {
+        "@id": "Na88a27fab4aa4aea966486c1c71bf9ea",
+        "properties": {
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": [
+                "AmountFraction"
+            ],
+            "hasReferenceUnit": [
+                "AmountFractionUnit"
+            ],
+            "hasQuantityValue": []
+        }
+    },
+    {
+        "@id": "N06514791ab1d468bb3b37de05c994e44",
+        "properties": {
+            "hasSampledSample": [
+                "N2e57a8ed61b2405c859751123809cb2e",
+                "N6c196798ddd949e2aac616e131f15193",
+                "Nc868767aa3ee49ab978489175d8e0231"
+            ],
+            "SamplePreparationParameter": [
+                "Nd6c4779e4cd54899b3e1fdbcdba8b8d8"
+            ],
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": [
+                "ModelledQuantitativeProperty"
+            ]
+        }
+    },
+    {
+        "@id": "Nc7fa2c97892a4a039fa1701f0ec4bbbe",
+        "properties": {
+            "hasQuantityValue": [],
+            "hasReferenceUnit": [
+                "SiemensPerCentimetre"
+            ],
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": [
+                "ElectricConductivity"
+            ]
+        }
+    }
+]
