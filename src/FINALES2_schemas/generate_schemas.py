@@ -62,7 +62,7 @@ if __name__ == "__main__":
     quantity_path = BASEPATH_QUANTITIES / 'degradationEOL' / 'degradation_model.json'
     generate_quantity('degradationEOL', 'degradation_model', degradationEOL_input.DegradationModelInput, degradationEOL_output.DegradationModelOutput, quantity_path)
 
-    quantity_path = BASEPATH_QUANTITIES / 'cell_assembly' / 'cell_assembly.json'
+    quantity_path = BASEPATH_QUANTITIES / 'cell_assembly' / 'autobass_assembly.json'
     generate_quantity('cell_assembly', 'autobass_assembly', assembly_input.AssemblyInput, assembly_output.AutoBASSOutput, quantity_path)
 
     quantity_path = BASEPATH_QUANTITIES / 'electrolyte' / 'flow.json'
