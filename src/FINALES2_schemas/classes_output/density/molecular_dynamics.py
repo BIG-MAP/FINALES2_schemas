@@ -19,13 +19,16 @@ class MolecularDynamicsOutput(BaseModel):
         description=("The output generated for the density data.")
     )
     conductivity:Optional[ConductivityOutput] = Field(
+        default=None,
         description=("The ouptut of conductivity measurements, which were run in parallel "
                      "to the density measurement.")
     )
     RDF:Optional[RDFOutput] = Field(
+        default=None,
         description=("The ouptut of RDF calculations, which were generated "
                      "as a side result.")
     )
     number_molecules_per_component:Optional[dict[str, int]] = Field(
+        default=None,
         description=("The absolute number of molecules for each chemical contained in the formulation.")
     )

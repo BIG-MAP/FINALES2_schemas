@@ -15,6 +15,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A human readable name of the cell.",
             "title": "Cell Name"
           },
@@ -27,6 +28,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A unique identifier assigned to this cell in this run.",
             "title": "Uuid"
           },
@@ -39,6 +41,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The date when the cell was made.",
             "title": "Assembly Date"
           },
@@ -51,6 +54,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A batch number for the cells, if it is available.",
             "title": "Batch"
           },
@@ -63,6 +67,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The metadata related to the anode used in the cell."
           },
           "cathode_info": {
@@ -74,6 +79,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The metadata related to the cathode used in the cell."
           },
           "electrolyte_info": {
@@ -85,6 +91,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The metadata related to the electrolyte used in the cell."
           },
           "cell_location": {
@@ -96,19 +103,10 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The location, where the physical cell can be found, which corresponds to this specification."
           }
         },
-        "required": [
-          "cell_name",
-          "uuid",
-          "assembly_date",
-          "batch",
-          "anode_info",
-          "cathode_info",
-          "electrolyte_info",
-          "cell_location"
-        ],
         "title": "CellInfo",
         "type": "object"
       },
@@ -124,6 +122,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A human readable name of the formulation.",
             "title": "Name"
           },
@@ -136,6 +135,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A unique identifier assigned to this formulation in this run.",
             "title": "Uuid"
           },
@@ -148,6 +148,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The date when the formulation was prepared. For commercial formulations, the manufacturing date may be used.",
             "title": "Preparation Date"
           },
@@ -160,6 +161,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A batch number for the formulation, if it is available.",
             "title": "Batch"
           },
@@ -172,16 +174,10 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The location, where the physical formulation can be found, which corresponds to this specification."
           }
         },
-        "required": [
-          "name",
-          "uuid",
-          "preparation_date",
-          "batch",
-          "location"
-        ],
         "title": "FormulationInfo",
         "type": "object"
       },
@@ -202,6 +198,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A more detailed description of a location. This may be e.g. a specific laboratory in a building, a desk in an office or a device or a cabinet.",
             "title": "Detail 1"
           },
@@ -214,14 +211,13 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "Another level of detail for a location. This may be e.g. a bench in the laboratory, a shelf in a cabinet  or a specific port in a machine.",
             "title": "Detail 2"
           }
         },
         "required": [
-          "address",
-          "detail_1",
-          "detail_2"
+          "address"
         ],
         "title": "Location",
         "type": "object"
@@ -269,8 +265,10 @@
             "type": "null"
           }
         ],
+        "default": null,
         "description": "Maximum current value in ampere.",
-        "title": "I Max"
+        "title": "I Max",
+        "unit": "ampere"
       },
       "V_max": {
         "anyOf": [
@@ -281,8 +279,10 @@
             "type": "null"
           }
         ],
+        "default": null,
         "description": "Maximum Voltage value in Volt.",
-        "title": "V Max"
+        "title": "V Max",
+        "unit": "volt"
       },
       "V_min": {
         "anyOf": [
@@ -293,8 +293,10 @@
             "type": "null"
           }
         ],
+        "default": null,
         "description": "Minimum Voltage value in Volt.",
-        "title": "V Min"
+        "title": "V Min",
+        "unit": "volt"
       },
       "capacity": {
         "anyOf": [
@@ -305,8 +307,10 @@
             "type": "null"
           }
         ],
+        "default": null,
         "description": "theoretical/experimental capacity in Ah.",
-        "title": "Capacity"
+        "title": "Capacity",
+        "unit": "ampere_hour"
       },
       "c_rate_charge_formation": {
         "anyOf": [
@@ -317,8 +321,10 @@
             "type": "null"
           }
         ],
+        "default": null,
         "description": "C-rate of charging in formation process",
-        "title": "C Rate Charge Formation"
+        "title": "C Rate Charge Formation",
+        "unit": "1 / hour"
       },
       "c_rate_discharge_formation": {
         "anyOf": [
@@ -329,8 +335,10 @@
             "type": "null"
           }
         ],
+        "default": null,
         "description": "C-rate of discharging in formation process",
-        "title": "C Rate Discharge Formation"
+        "title": "C Rate Discharge Formation",
+        "unit": "1 / hour"
       },
       "CV_I_cutoff_formation": {
         "anyOf": [
@@ -341,8 +349,10 @@
             "type": "null"
           }
         ],
+        "default": null,
         "description": "current cutoff value in A for the constant voltage step in formation process",
-        "title": "Cv I Cutoff Formation"
+        "title": "Cv I Cutoff Formation",
+        "unit": "ampere"
       },
       "repetions_formation_cycle": {
         "anyOf": [
@@ -353,6 +363,7 @@
             "type": "null"
           }
         ],
+        "default": null,
         "description": "Number of formation cycles",
         "title": "Repetions Formation Cycle"
       },
@@ -365,8 +376,10 @@
             "type": "null"
           }
         ],
+        "default": null,
         "description": "max. Voltage of battery during cycling in V",
-        "title": "Cycling V Max"
+        "title": "Cycling V Max",
+        "unit": "volt"
       },
       "cycling_V_min": {
         "anyOf": [
@@ -377,8 +390,10 @@
             "type": "null"
           }
         ],
+        "default": null,
         "description": "min. Voltage of battery during cycling in V",
-        "title": "Cycling V Min"
+        "title": "Cycling V Min",
+        "unit": "volt"
       },
       "c_rate_charge": {
         "anyOf": [
@@ -389,8 +404,10 @@
             "type": "null"
           }
         ],
+        "default": null,
         "description": "C-rate of charging",
-        "title": "C Rate Charge"
+        "title": "C Rate Charge",
+        "unit": "1 / hour"
       },
       "c_rate_discharge": {
         "anyOf": [
@@ -401,8 +418,10 @@
             "type": "null"
           }
         ],
+        "default": null,
         "description": "C-rate of discharging",
-        "title": "C Rate Discharge"
+        "title": "C Rate Discharge",
+        "unit": "1 / hour"
       },
       "CV_I_cutoff": {
         "anyOf": [
@@ -413,8 +432,10 @@
             "type": "null"
           }
         ],
+        "default": null,
         "description": "current cutoff value in A for the constant voltage step",
-        "title": "Cv I Cutoff"
+        "title": "Cv I Cutoff",
+        "unit": "ampere"
       }
     },
     "required": [
@@ -422,20 +443,7 @@
       "number_cycles",
       "cell_info",
       "location",
-      "reservation_number",
-      "I_max",
-      "V_max",
-      "V_min",
-      "capacity",
-      "c_rate_charge_formation",
-      "c_rate_discharge_formation",
-      "CV_I_cutoff_formation",
-      "repetions_formation_cycle",
-      "cycling_V_max",
-      "cycling_V_min",
-      "c_rate_charge",
-      "c_rate_discharge",
-      "CV_I_cutoff"
+      "reservation_number"
     ],
     "title": "CapacityCyclingInput",
     "type": "object"
@@ -450,7 +458,7 @@
         },
         "title": "Capacity List",
         "type": "array",
-        "units": "Ah"
+        "units": "ampere_hour"
       },
       "channel_list": {
         "description": "A list with the channels used for cycling.",

@@ -11,10 +11,12 @@ class CyclingChannelInput(BaseModel):
                      "experiment.")
     )
     cycling_protocol:Optional[str] = Field(
+        default=None,
         description=("The designation of the protocol to use for the cycling "
                      "experiment.")
     )
     number_cycles:Optional[int] = Field(
+        default=None,
         description=("The number of cycles, which are planned for the cycling "
                      "experiment.")
     )

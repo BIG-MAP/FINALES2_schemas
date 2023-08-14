@@ -10,9 +10,11 @@ class Cell(BaseModel):
                      "cells, which includes the electrodes and electrolyte")
     )
     separator:Optional[Separator] = Field(
+        default=None,
         description=("The definition of the separator.")
     )
     electrolyte_volume:Optional[float] = Field(
+        default=None,
         unit=str(unit_registry.uL),
         description=("A designation of the volume of electrolyte.")
     )

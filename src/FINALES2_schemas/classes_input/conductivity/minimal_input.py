@@ -16,6 +16,7 @@ class ConductivityInput(BaseModel):
                     "sample and their fraction in the total mixture.")
     )
     temperature: Optional[float] = Field(
+        default=None,
         unit=str(unit_registry.kelvin),
         description=("This is the temperature of the measuring cell or used in a "
                     "simulation. It shall be given in the unit kelvin. "

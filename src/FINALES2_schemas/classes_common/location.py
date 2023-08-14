@@ -10,11 +10,13 @@ class Location(BaseModel):
                      "instute or similar. The default should be an address.")
     )
     detail_1:Optional[str] = Field(
+        default=None,
         description=("A more detailed description of a location. This may be e.g. a "
                      "specific laboratory in a building, a desk in an office or a "
                      "device or a cabinet.")
     )
     detail_2:Optional[str] = Field(
+        default=None,
         description=("Another level of detail for a location. This may be e.g. a "
                      "bench in the laboratory, a shelf in a cabinet "
                      " or a specific port in a machine.")

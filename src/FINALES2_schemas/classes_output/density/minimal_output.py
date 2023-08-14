@@ -14,6 +14,7 @@ class DensityOutput(BaseModel):
                      f"Unit: {str(unit_registry.g * unit_registry.cm ** -3)}")
     )
     temperature: Optional[float] = Field(
+        default=None,
         unit=str(unit_registry.kelvin),
         description=("This is the actual temperature of measuring cell. "
                      f"Unit: {str(unit_registry.kelvin)}")

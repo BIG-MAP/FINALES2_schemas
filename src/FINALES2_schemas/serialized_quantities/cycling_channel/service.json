@@ -18,6 +18,7 @@
             "type": "null"
           }
         ],
+        "default": null,
         "description": "The designation of the protocol to use for the cycling experiment.",
         "title": "Cycling Protocol"
       },
@@ -30,14 +31,13 @@
             "type": "null"
           }
         ],
+        "default": null,
         "description": "The number of cycles, which are planned for the cycling experiment.",
         "title": "Number Cycles"
       }
     },
     "required": [
-      "number_required_channels",
-      "cycling_protocol",
-      "number_cycles"
+      "number_required_channels"
     ],
     "title": "CyclingChannelInput",
     "type": "object"
@@ -59,13 +59,13 @@
             "type": "null"
           }
         ],
+        "default": null,
         "description": "An ID associated with the reservation to identify the request once the request for the cycling experiment is received. This ID needs to be provided by the requester in the input for the cycling experiment (associated with the quantity 'capacity').This ID is only provided, if the requested number of channels was reserved.",
         "title": "Reservation Id"
       }
     },
     "required": [
-      "success",
-      "reservation_id"
+      "success"
     ],
     "title": "CyclingChannelOutput",
     "type": "object"

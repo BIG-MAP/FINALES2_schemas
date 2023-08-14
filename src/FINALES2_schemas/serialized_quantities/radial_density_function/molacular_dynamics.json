@@ -81,6 +81,7 @@
             "type": "null"
           }
         ],
+        "default": null,
         "description": "An inital guess for the density of the formulation, if available.",
         "title": "Estimated Density",
         "unit": "gram / centimeter ** 3"
@@ -88,8 +89,7 @@
     },
     "required": [
       "formulation",
-      "temperature",
-      "estimated_density"
+      "temperature"
     ],
     "title": "RDFInput",
     "type": "object"

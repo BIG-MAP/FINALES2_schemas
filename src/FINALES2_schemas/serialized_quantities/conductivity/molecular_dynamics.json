@@ -74,14 +74,14 @@
             "type": "null"
           }
         ],
+        "default": null,
         "description": "This is the temperature of the measuring cell or used in a simulation. It shall be given in the unit kelvin. Unit: kelvin",
         "title": "Temperature",
         "unit": "kelvin"
       }
     },
     "required": [
-      "formulation",
-      "temperature"
+      "formulation"
     ],
     "title": "ConductivityInput",
     "type": "object"
@@ -121,6 +121,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A human readable name of the chemical, to which this information is referring.",
             "title": "Name"
           },
@@ -143,6 +144,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The molar mass of the chemical and the correcponding uncertainty. This may be a measured quantity or a literature value. It is needed to convert between volumetric and molar ratios and this field serves to report the used value. Unit: gram / mole",
             "title": "Molar Mass",
             "unit": "gram / mole"
@@ -166,6 +168,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The density of the chemical and the correcponding uncertainty. This may be a measured quantity or a literature value. It is needed to convert between volumetric and molar ratios and this field serves to report the used value. Unit: centimeter ** 3 * gram",
             "title": "Density",
             "unit": "centimeter ** 3 * gram"
@@ -179,6 +182,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A batch number for the chemical used, if it is available.",
             "title": "Batch"
           },
@@ -191,6 +195,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The manufacturer of the chemical, if it is available.",
             "title": "Manufacturer"
           },
@@ -203,18 +208,11 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The date when the chemical was manufactured.",
             "title": "Manufacturing Date"
           }
         },
-        "required": [
-          "name",
-          "molar_mass",
-          "density",
-          "batch",
-          "manufacturer",
-          "manufacturing_date"
-        ],
         "title": "ChemicalInfo",
         "type": "object"
       },
@@ -230,6 +228,14 @@
             "type": "array",
             "unit": "siemens / meter"
           },
+          "meta": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/MethodMeta"
+              }
+            ],
+            "description": "This field provides information regarding the reliability of the reported data. E.g. the success of the method for this quantity and the rating of the data. This is for this specific quantity, because a single method could fail individually for different quantities. It is not included in the RunInfo as one run may generate data for different quantities, for which the methods may fail individually."
+          },
           "temperature": {
             "anyOf": [
               {
@@ -239,22 +245,14 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "This is the actual temperature of the measuring cell or used in a simulation. Unit: kelvin",
             "title": "Temperature",
             "unit": "kelvin"
-          },
-          "meta": {
-            "allOf": [
-              {
-                "$ref": "#/$defs/MethodMeta"
-              }
-            ],
-            "description": "This field provides information regarding the reliability of the reported data. E.g. the success of the method for this quantity and the rating of the data. This is for this specific quantity, because a single method could fail individually for different quantities. It is not included in the RunInfo as one run may generate data for different quantities, for which the methods may fail individually."
           }
         },
         "required": [
           "values",
-          "temperature",
           "meta"
         ],
         "title": "ConductivityOutput",
@@ -281,6 +279,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "This is the actual temperature of measuring cell. Unit: kelvin",
             "title": "Temperature",
             "unit": "kelvin"
@@ -296,7 +295,6 @@
         },
         "required": [
           "values",
-          "temperature",
           "meta"
         ],
         "title": "DensityOutput",
@@ -344,6 +342,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A human readable name of the formulation.",
             "title": "Name"
           },
@@ -356,6 +355,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A unique identifier assigned to this formulation in this run.",
             "title": "Uuid"
           },
@@ -368,6 +368,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The date when the formulation was prepared. For commercial formulations, the manufacturing date may be used.",
             "title": "Preparation Date"
           },
@@ -380,6 +381,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A batch number for the formulation, if it is available.",
             "title": "Batch"
           },
@@ -392,16 +394,10 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The location, where the physical formulation can be found, which corresponds to this specification."
           }
         },
-        "required": [
-          "name",
-          "uuid",
-          "preparation_date",
-          "batch",
-          "location"
-        ],
         "title": "FormulationInfo",
         "type": "object"
       },
@@ -422,6 +418,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A more detailed description of a location. This may be e.g. a specific laboratory in a building, a desk in an office or a device or a cabinet.",
             "title": "Detail 1"
           },
@@ -434,14 +431,13 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "Another level of detail for a location. This may be e.g. a bench in the laboratory, a shelf in a cabinet  or a specific port in a machine.",
             "title": "Detail 2"
           }
         },
         "required": [
-          "address",
-          "detail_1",
-          "detail_2"
+          "address"
         ],
         "title": "Location",
         "type": "object"
@@ -545,6 +541,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "This is the metadata concerning the formulation relevant for documentation."
           },
           "chemicals_info": {
@@ -559,15 +556,14 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "This is a dictionary of metadata of the chemicals relevant for documentation. The keys are InChIKeys of the chemicals contained in the formulation and the values are ChemicalInfo objects.",
             "title": "Chemicals Info"
           }
         },
         "required": [
           "formulation",
-          "internal_reference",
-          "formulation_info",
-          "chemicals_info"
+          "internal_reference"
         ],
         "title": "RunInfo",
         "type": "object"
@@ -600,6 +596,7 @@
             "type": "null"
           }
         ],
+        "default": null,
         "description": "The ouptut of density calculations, which were generated as a side result."
       },
       "RDF": {
@@ -611,6 +608,7 @@
             "type": "null"
           }
         ],
+        "default": null,
         "description": "The ouptut of RDF calculations, which were generated as a side result."
       },
       "number_molecules_per_component": {
@@ -625,16 +623,14 @@
             "type": "null"
           }
         ],
+        "default": null,
         "description": "The absolute number of molecules for each chemical contained in the formulation.",
         "title": "Number Molecules Per Component"
       }
     },
     "required": [
       "run_info",
-      "conductivity",
-      "density",
-      "RDF",
-      "number_molecules_per_component"
+      "conductivity"
     ],
     "title": "MolecularDynamicsOutput",
     "type": "object"

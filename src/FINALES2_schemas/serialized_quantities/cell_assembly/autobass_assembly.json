@@ -58,6 +58,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The definition of the separator."
           },
           "electrolyte_volume": {
@@ -69,15 +70,14 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A designation of the volume of electrolyte.",
             "title": "Electrolyte Volume",
             "unit": "microliter"
           }
         },
         "required": [
-          "battery_chemistry",
-          "separator",
-          "electrolyte_volume"
+          "battery_chemistry"
         ],
         "title": "Cell",
         "type": "object"
@@ -94,6 +94,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A human readable name of the cell.",
             "title": "Cell Name"
           },
@@ -106,6 +107,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A unique identifier assigned to this cell in this run.",
             "title": "Uuid"
           },
@@ -118,6 +120,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The date when the cell was made.",
             "title": "Assembly Date"
           },
@@ -130,6 +133,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A batch number for the cells, if it is available.",
             "title": "Batch"
           },
@@ -142,6 +146,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The metadata related to the anode used in the cell."
           },
           "cathode_info": {
@@ -153,6 +158,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The metadata related to the cathode used in the cell."
           },
           "electrolyte_info": {
@@ -164,6 +170,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The metadata related to the electrolyte used in the cell."
           },
           "cell_location": {
@@ -175,19 +182,10 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The location, where the physical cell can be found, which corresponds to this specification."
           }
         },
-        "required": [
-          "cell_name",
-          "uuid",
-          "assembly_date",
-          "batch",
-          "anode_info",
-          "cathode_info",
-          "electrolyte_info",
-          "cell_location"
-        ],
         "title": "CellInfo",
         "type": "object"
       },
@@ -232,6 +230,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The capacity per unit area of the electrode. Unit: milliampere_hour / centimeter ** 2",
             "title": "Mass Loading",
             "unit": "milliampere_hour / centimeter ** 2"
@@ -245,15 +244,14 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The area of the electrode, which is cut to a circular shape.",
             "title": "Size",
             "unit": "centimeter ** 2"
           }
         },
         "required": [
-          "material",
-          "mass_loading",
-          "size"
+          "material"
         ],
         "title": "Electrode",
         "type": "object"
@@ -300,6 +298,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A human readable name of the formulation.",
             "title": "Name"
           },
@@ -312,6 +311,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A unique identifier assigned to this formulation in this run.",
             "title": "Uuid"
           },
@@ -324,6 +324,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The date when the formulation was prepared. For commercial formulations, the manufacturing date may be used.",
             "title": "Preparation Date"
           },
@@ -336,6 +337,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A batch number for the formulation, if it is available.",
             "title": "Batch"
           },
@@ -348,16 +350,10 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The location, where the physical formulation can be found, which corresponds to this specification."
           }
         },
-        "required": [
-          "name",
-          "uuid",
-          "preparation_date",
-          "batch",
-          "location"
-        ],
         "title": "FormulationInfo",
         "type": "object"
       },
@@ -378,6 +374,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A more detailed description of a location. This may be e.g. a specific laboratory in a building, a desk in an office or a device or a cabinet.",
             "title": "Detail 1"
           },
@@ -390,14 +387,13 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "Another level of detail for a location. This may be e.g. a bench in the laboratory, a shelf in a cabinet  or a specific port in a machine.",
             "title": "Detail 2"
           }
         },
         "required": [
-          "address",
-          "detail_1",
-          "detail_2"
+          "address"
         ],
         "title": "Location",
         "type": "object"
@@ -419,14 +415,14 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The area of the separator, of which the shape is cut in cirular.",
             "title": "Size",
             "unit": "centimeter ** 2"
           }
         },
         "required": [
-          "material",
-          "size"
+          "material"
         ],
         "title": "Separator",
         "type": "object"
@@ -442,6 +438,14 @@
         ],
         "description": "This is a Cell class defining the information needed to fabricate a single cell with the respective battery chemistry."
       },
+      "cell_info": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/CellInfo"
+          }
+        ],
+        "description": "The metadata related to the cell. This is mainly needed to know about the ID of the electrolyte used."
+      },
       "batch_volume": {
         "anyOf": [
           {
@@ -451,21 +455,13 @@
             "type": "null"
           }
         ],
+        "default": null,
         "description": "This is the numbers of the cells to be fabricated in one batch with the same chemistry, It shall be given in the unit pieces. And range from 1 (lowest) to 64 (highest). Unit: parsec",
         "title": "Batch Volume"
-      },
-      "cell_info": {
-        "allOf": [
-          {
-            "$ref": "#/$defs/CellInfo"
-          }
-        ],
-        "description": "The metadata related to the cell. This is mainly needed to know about the ID of the electrolyte used."
       }
     },
     "required": [
       "cell",
-      "batch_volume",
       "cell_info"
     ],
     "title": "AssemblyInput",
@@ -506,6 +502,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "This is the temperature of cell assembly. Unit: kelvin",
             "title": "Temperature",
             "unit": "kelvin"
@@ -520,6 +517,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The datetime when the cell was sealed.",
             "title": "Sealing Time"
           }
@@ -527,9 +525,7 @@
         "required": [
           "cell_info",
           "manufacturing_img",
-          "meta",
-          "temperature",
-          "sealing_time"
+          "meta"
         ],
         "title": "AssemblyOutput",
         "type": "object"
@@ -546,6 +542,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A human readable name of the cell.",
             "title": "Cell Name"
           },
@@ -558,6 +555,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A unique identifier assigned to this cell in this run.",
             "title": "Uuid"
           },
@@ -570,6 +568,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The date when the cell was made.",
             "title": "Assembly Date"
           },
@@ -582,6 +581,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A batch number for the cells, if it is available.",
             "title": "Batch"
           },
@@ -594,6 +594,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The metadata related to the anode used in the cell."
           },
           "cathode_info": {
@@ -605,6 +606,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The metadata related to the cathode used in the cell."
           },
           "electrolyte_info": {
@@ -616,6 +618,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The metadata related to the electrolyte used in the cell."
           },
           "cell_location": {
@@ -627,19 +630,10 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The location, where the physical cell can be found, which corresponds to this specification."
           }
         },
-        "required": [
-          "cell_name",
-          "uuid",
-          "assembly_date",
-          "batch",
-          "anode_info",
-          "cathode_info",
-          "electrolyte_info",
-          "cell_location"
-        ],
         "title": "CellInfo",
         "type": "object"
       },
@@ -655,6 +649,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A human readable name of the formulation.",
             "title": "Name"
           },
@@ -667,6 +662,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A unique identifier assigned to this formulation in this run.",
             "title": "Uuid"
           },
@@ -679,6 +675,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The date when the formulation was prepared. For commercial formulations, the manufacturing date may be used.",
             "title": "Preparation Date"
           },
@@ -691,6 +688,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A batch number for the formulation, if it is available.",
             "title": "Batch"
           },
@@ -703,16 +701,10 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The location, where the physical formulation can be found, which corresponds to this specification."
           }
         },
-        "required": [
-          "name",
-          "uuid",
-          "preparation_date",
-          "batch",
-          "location"
-        ],
         "title": "FormulationInfo",
         "type": "object"
       },
@@ -733,6 +725,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A more detailed description of a location. This may be e.g. a specific laboratory in a building, a desk in an office or a device or a cabinet.",
             "title": "Detail 1"
           },
@@ -745,14 +738,13 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "Another level of detail for a location. This may be e.g. a bench in the laboratory, a shelf in a cabinet  or a specific port in a machine.",
             "title": "Detail 2"
           }
         },
         "required": [
-          "address",
-          "detail_1",
-          "detail_2"
+          "address"
         ],
         "title": "Location",
         "type": "object"
