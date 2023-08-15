@@ -13,6 +13,7 @@ class DensityInput(BaseModel):
                     "sample and their fraction in the total mixture.")
     )
     temperature: Optional[float] = Field(
+        default=None,
         unit=str(unit_registry.kelvin),
         description=("This is the temperature of measuring cell. "
                      f"Unit: {str(unit_registry.kelvin)}")

@@ -19,6 +19,7 @@ class VibratingTubeDensimetryOutput(BaseModel):
         description=("The output generated for the density data.")
     )
     viscosity:Optional[ViscosityOutput] = Field(
+        default=None,
         description=("The ouptut of viscosity measurements, which were run in parallel "
                      "to the density measurement.")
     )

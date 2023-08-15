@@ -9,6 +9,7 @@ class Separator(BaseModel):
                      "E.g. Celgard 2325.")
     )
     size:Optional[float] = Field(
+        default=None,
         unit=str(unit_registry.cm**2),
         description=("The area of the separator, of which the shape is cut in cirular.")
     )

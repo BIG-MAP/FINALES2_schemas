@@ -132,6 +132,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A human readable name of the chemical, to which this information is referring.",
             "title": "Name"
           },
@@ -154,6 +155,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The molar mass of the chemical and the correcponding uncertainty. This may be a measured quantity or a literature value. It is needed to convert between volumetric and molar ratios and this field serves to report the used value. Unit: gram / mole",
             "title": "Molar Mass",
             "unit": "gram / mole"
@@ -177,6 +179,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The density of the chemical and the correcponding uncertainty. This may be a measured quantity or a literature value. It is needed to convert between volumetric and molar ratios and this field serves to report the used value. Unit: centimeter ** 3 * gram",
             "title": "Density",
             "unit": "centimeter ** 3 * gram"
@@ -190,6 +193,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A batch number for the chemical used, if it is available.",
             "title": "Batch"
           },
@@ -202,6 +206,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The manufacturer of the chemical, if it is available.",
             "title": "Manufacturer"
           },
@@ -214,18 +219,11 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The date when the chemical was manufactured.",
             "title": "Manufacturing Date"
           }
         },
-        "required": [
-          "name",
-          "molar_mass",
-          "density",
-          "batch",
-          "manufacturer",
-          "manufacturing_date"
-        ],
         "title": "ChemicalInfo",
         "type": "object"
       },
@@ -314,6 +312,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A human readable name of the formulation.",
             "title": "Name"
           },
@@ -326,6 +325,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A unique identifier assigned to this formulation in this run.",
             "title": "Uuid"
           },
@@ -338,6 +338,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The date when the formulation was prepared. For commercial formulations, the manufacturing date may be used.",
             "title": "Preparation Date"
           },
@@ -350,6 +351,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A batch number for the formulation, if it is available.",
             "title": "Batch"
           },
@@ -362,16 +364,10 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "The location, where the physical formulation can be found, which corresponds to this specification."
           }
         },
-        "required": [
-          "name",
-          "uuid",
-          "preparation_date",
-          "batch",
-          "location"
-        ],
         "title": "FormulationInfo",
         "type": "object"
       },
@@ -392,6 +388,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A more detailed description of a location. This may be e.g. a specific laboratory in a building, a desk in an office or a device or a cabinet.",
             "title": "Detail 1"
           },
@@ -404,14 +401,13 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "Another level of detail for a location. This may be e.g. a bench in the laboratory, a shelf in a cabinet  or a specific port in a machine.",
             "title": "Detail 2"
           }
         },
         "required": [
-          "address",
-          "detail_1",
-          "detail_2"
+          "address"
         ],
         "title": "Location",
         "type": "object"
@@ -462,6 +458,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "This is the metadata concerning the formulation relevant for documentation."
           },
           "chemicals_info": {
@@ -476,15 +473,14 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "This is a dictionary of metadata of the chemicals relevant for documentation. The keys are InChIKeys of the chemicals contained in the formulation and the values are ChemicalInfo objects.",
             "title": "Chemicals Info"
           }
         },
         "required": [
           "formulation",
-          "internal_reference",
-          "formulation_info",
-          "chemicals_info"
+          "internal_reference"
         ],
         "title": "RunInfo",
         "type": "object"

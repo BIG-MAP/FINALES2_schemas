@@ -20,6 +20,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A more detailed description of a location. This may be e.g. a specific laboratory in a building, a desk in an office or a device or a cabinet.",
             "title": "Detail 1"
           },
@@ -32,14 +33,13 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "Another level of detail for a location. This may be e.g. a bench in the laboratory, a shelf in a cabinet  or a specific port in a machine.",
             "title": "Detail 2"
           }
         },
         "required": [
-          "address",
-          "detail_1",
-          "detail_2"
+          "address"
         ],
         "title": "Location",
         "type": "object"
@@ -90,6 +90,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "A more detailed description of a location. This may be e.g. a specific laboratory in a building, a desk in an office or a device or a cabinet.",
             "title": "Detail 1"
           },
@@ -102,14 +103,13 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "description": "Another level of detail for a location. This may be e.g. a bench in the laboratory, a shelf in a cabinet  or a specific port in a machine.",
             "title": "Detail 2"
           }
         },
         "required": [
-          "address",
-          "detail_1",
-          "detail_2"
+          "address"
         ],
         "title": "Location",
         "type": "object"

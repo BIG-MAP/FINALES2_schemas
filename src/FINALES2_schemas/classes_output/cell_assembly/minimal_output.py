@@ -26,11 +26,13 @@ class AssemblyOutput(BaseModel):
                      "may fail individually.")
     )
     temperature: Optional[float] = Field(
+        default=None,
         unit=str(unit_registry.kelvin),
         description=("This is the temperature of cell assembly. "
                      f"Unit: {str(unit_registry.kelvin)}")
     )
     sealing_time:Optional[datetime] = Field(
+        default=None,
         description="The datetime when the cell was sealed."
     )
     
