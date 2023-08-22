@@ -13,3 +13,6 @@ class TransportOutput(BaseModel):
     actual_new_location:Location = Field(
         description=("The new location ot the physical object.")
     )
+    executant:str = Field(
+        description=("The person or device performing the transportation task.")
+    )
