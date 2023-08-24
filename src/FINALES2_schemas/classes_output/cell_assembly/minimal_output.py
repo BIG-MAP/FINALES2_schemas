@@ -31,7 +31,7 @@ class AssemblyOutput(BaseModel):
         description=("This is the temperature of cell assembly. "
                      f"Unit: {str(unit_registry.kelvin)}")
     )
-    sealing_time:Optional[datetime] = Field(
+    sealing_time:Optional[str] = Field(
         default=None,
         description="The datetime when the cell was sealed."
     )
