@@ -9,7 +9,7 @@ class DegradationModelInput(BaseModel):
     :param BaseModel: _description_
     :type BaseModel: _type_
     """
-    chemistry:BatteryChemistry = Field(
+    battery_chemistry:BatteryChemistry = Field(
         description=("The description of the chemicals involved in all the battery cell.")
     )
     input_cycles:Optional[list[float]] = Field(

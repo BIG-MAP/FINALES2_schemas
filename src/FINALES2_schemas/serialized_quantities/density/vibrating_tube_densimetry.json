@@ -228,6 +228,14 @@
             "type": "array",
             "unit": "gram / centimeter ** 3"
           },
+          "meta": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/MethodMeta"
+              }
+            ],
+            "description": "This field provides information regarding the reliability of the reported data. E.g. the success of the method for this quantity and the rating of the data. This is for this specific quantity, because a single method could fail individually for different quantities. It is not included in the RunInfo as one run may generate data for different quantities, for which the methods may fail individually."
+          },
           "temperature": {
             "anyOf": [
               {
@@ -241,14 +249,6 @@
             "description": "This is the actual temperature of measuring cell. Unit: kelvin",
             "title": "Temperature",
             "unit": "kelvin"
-          },
-          "meta": {
-            "allOf": [
-              {
-                "$ref": "#/$defs/MethodMeta"
-              }
-            ],
-            "description": "This field provides information regarding the reliability of the reported data. E.g. the success of the method for this quantity and the rating of the data. This is for this specific quantity, because a single method could fail individually for different quantities. It is not included in the RunInfo as one run may generate data for different quantities, for which the methods may fail individually."
           }
         },
         "required": [
