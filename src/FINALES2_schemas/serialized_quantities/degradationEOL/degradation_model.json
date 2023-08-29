@@ -15,26 +15,32 @@
             "type": "array"
           },
           "anode": {
-            "allOf": [
+            "anyOf": [
               {
                 "$ref": "#/$defs/Electrode"
+              },
+              {
+                "type": "null"
               }
             ],
+            "default": null,
             "description": "The definition of the anode."
           },
           "cathode": {
-            "allOf": [
+            "anyOf": [
               {
                 "$ref": "#/$defs/Electrode"
+              },
+              {
+                "type": "null"
               }
             ],
+            "default": null,
             "description": "The definition of the cathode."
           }
         },
         "required": [
-          "electrolyte",
-          "anode",
-          "cathode"
+          "electrolyte"
         ],
         "title": "BatteryChemistry",
         "type": "object"
@@ -139,7 +145,7 @@
     },
     "description": "The parameters used by the following method\n    'degradationEOL' - degradationModel\n\n    :param BaseModel: _description_\n    :type BaseModel: _type_\n    ",
     "properties": {
-      "chemistry": {
+      "battery_chemistry": {
         "allOf": [
           {
             "$ref": "#/$defs/BatteryChemistry"
@@ -247,7 +253,7 @@
       }
     },
     "required": [
-      "chemistry"
+      "battery_chemistry"
     ],
     "title": "DegradationModelInput",
     "type": "object"
