@@ -6,7 +6,7 @@
   "parameters": {
       "degradation_model":
     {
-  "chemistry": {
+  "battery_chemistry": {
     "electrolyte": [
       {
         "chemical": {
