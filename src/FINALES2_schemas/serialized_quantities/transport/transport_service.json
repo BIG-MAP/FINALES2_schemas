@@ -129,11 +129,17 @@
           }
         ],
         "description": "The new location ot the physical object."
+      },
+      "executant": {
+        "description": "The person or device performing the transportation task.",
+        "title": "Executant",
+        "type": "string"
       }
     },
     "required": [
       "success",
-      "actual_new_location"
+      "actual_new_location",
+      "executant"
     ],
     "title": "TransportOutput",
     "type": "object"

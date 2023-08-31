@@ -15,26 +15,32 @@
             "type": "array"
           },
           "anode": {
-            "allOf": [
+            "anyOf": [
               {
                 "$ref": "#/$defs/Electrode"
+              },
+              {
+                "type": "null"
               }
             ],
+            "default": null,
             "description": "The definition of the anode."
           },
           "cathode": {
-            "allOf": [
+            "anyOf": [
               {
                 "$ref": "#/$defs/Electrode"
+              },
+              {
+                "type": "null"
               }
             ],
+            "default": null,
             "description": "The definition of the cathode."
           }
         },
         "required": [
-          "electrolyte",
-          "anode",
-          "cathode"
+          "electrolyte"
         ],
         "title": "BatteryChemistry",
         "type": "object"

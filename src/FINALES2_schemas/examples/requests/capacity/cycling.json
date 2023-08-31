@@ -1,0 +1,44 @@
+{
+    "quantity": "capacity",
+    "methods": [
+      "cycling"
+    ],
+    "parameters": {
+        "cycling": 
+        {
+                "cycling_protocol" : "BIG-MAP-Standard",
+                "number_cycles" : 200,
+                "cell_info":
+                    {
+                        "cell_name": "CR2032",
+                        "uuid": "CELL-1",
+                        "assembly_date": "14.08.2023",
+                        "batch": "1",
+                        "anode_info": {"name": "Gr", "uuid": "LNO-1", "preparation_date": "10.08.2023", "batch": "1", "location": {"address": "HIU", "detail_1": "GloveboxEU", "detail_2": "AutoBASS WP"}},
+                        "cathode_info": {"name": "LNO", "uuid": "LNO-1", "preparation_date": "10.08.2023", "batch": "1", "location": {"address": "HIU", "detail_1": "GloveboxEU", "detail_2": "AutoBASS WP"}},
+                        "electrolyte_info": {"name": "electrolyte1", "uuid": "ELEYT-1", "preparation_date": "14.08.2023", "batch": "1", "location": {"address": "HIU", "detail_1": "GloveboxEU", "detail_2": "AutoBASS WP"}},
+                        "cell_location": {"address": "HIU", "detail_1": "GloveboxEU", "detail_2": "AutoBASS WP"} 
+                    },
+                "location": 
+                    {
+                        "address": "HIU", "detail_1": "ArbinNew", "detail_2": "LM16"
+                    },
+                "reservation_number": "1234",
+                "capacity" : 0.045,
+                "I_max" : 0.005,
+                "V_max" : 4.2,
+                "V_min" : 2.5,
+                "c_rate_charge_formation" : 1,
+                "c_rate_discharge_formation" : 1,
+                "CV_I_cutoff_formation" : 1,
+                "repetions_formation_cycle" : 3,
+                "cycling_V_max" : 4.2,
+                "cycling_V_min" : 2.5,
+                "c_rate_charge" : 1,
+                "c_rate_discharge" : 1,
+                "CV_I_cutoff": 1
+            } 
+            
+        },
+    "tenant_uuid": "e699dab7-ba5e-4ad6-8126-522ca33b99a0"
+}

@@ -1,0 +1,89 @@
+{
+    "data": {
+  "run_info": {
+              "formulation": [
+                  {"chemical": 
+                      {
+                          "SMILES": "CCOC(=O)OC",
+                          "InChIKey": "JBTWLSYIZRCDFO-UHFFFAOYSA-N"
+                      }, 
+                  "fraction": 1.0, 
+                  "fraction_type": "molPerMol"
+                  }
+                  ],
+              "internal_reference": "7f38c012-124c-47f2-9bfe-5327e2769e74_0b154912-4729-4354-abc8-7de45a28ab16",
+              "formulation_info": {
+              "name": "formulation_1",
+              "uuid": "bf3a4d28-13c6-421a-a679-f7c63c6207ae",
+              "preparation_date": "27.07.2023",
+              "batch": "07-2023-01",
+              "location": {
+                "address": "Street A, City B",
+                "detail_1": "Demo_lab_1",
+                "detail_2": "Bench_3, machine_x, slot_y" 
+              }
+            },
+            "chemicals_info": {
+              "JBTWLSYIZRCDFO-UHFFFAOYSA-N": {
+                "name": "testchem",
+                "molar_mass": [
+                  151.9,
+                  0.01
+                ],
+                "density": [
+                  2.2,
+                  0.01
+                ],
+                "batch": "Lot-2023-156415",
+                "manufacturer": "manufacturer_A",
+                "manufacturing_date": "27.07.2023"
+              }
+            }
+          },
+          "electrolyte":{
+              "formulation": [
+                  {"chemical": 
+                      {
+                          "SMILES": "CCOC(=O)OC",
+                          "InChIKey": "JBTWLSYIZRCDFO-UHFFFAOYSA-N"
+                      }, 
+                  "fraction": 1.0, 
+                  "fraction_type": "molPerMol"
+                  }
+                  ],
+              "volume": 2.6,
+              "location": {
+                  "address": "example street 1",
+                  "detail_1": "building A",
+                  "detail_2": "cluster B"
+                   },
+              "meta": {
+                  "success": true,
+                  "rating": 5
+                }
+              }
+  },
+    "quantity": "electrolyte",
+    "method": [
+      "flow"
+    ],
+    "parameters": {
+      "flow": {
+              "electrolyte": {
+                      "formulation": [
+                          {"chemical": 
+                              {
+                                  "SMILES": "CCOC(=O)OC",
+                                  "InChIKey": "JBTWLSYIZRCDFO-UHFFFAOYSA-N"
+                              }, 
+                          "fraction": 1.0, 
+                          "fraction_type": "molPerMol"
+                          }
+                          ]
+                      },
+                      "volume": 2.6
+                  }
+    },
+    "tenant_uuid": "e699dab7-ba5e-4ad6-8126-522ca33b99a0",
+    "request_uuid": "effc6e4a-67f7-4974-be9c-2a5e309bd529"  
+  }

@@ -1,0 +1,23 @@
+{
+    "quantity": "electrolyte",
+    "methods": ["flow"],
+     "parameters": {
+        "flow": {
+            "electrolyte": {
+                    "formulation": [
+                        {"chemical": 
+                            {
+                                "SMILES": "CCOC(=O)OC",
+                                "InChIKey": "JBTWLSYIZRCDFO-UHFFFAOYSA-N"
+                            }, 
+                        "fraction": 1.0, 
+                        "fraction_type": "molPerMol"
+                        }
+                        ]
+                    },
+                    "volume": 2.6
+                }
+            },
+            "tenant_uuid": "e699dab7-ba5e-4ad6-8126-522ca33b99a0"
+            
+}
