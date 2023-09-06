@@ -1,6 +1,6 @@
 {
   "quantity": "degradationEOL",
-  "method": "degradation_model",
+  "method": "degradation_workflow",
   "json_schema_specifications": {
     "$defs": {
       "BatteryChemistry": {
@@ -998,7 +998,7 @@
         "type": "object"
       }
     },
-    "description": "Results returned from the following quantities:\n    'degradationEOL' - 'degradationModel'\n    ",
+    "description": "Results returned from the following quantities:\n    'degradationEOL' - 'degradationWorkflow'\n    ",
     "properties": {
       "run_info": {
         "allOf": [
@@ -1009,19 +1009,19 @@
         "description": "The information regarding the formulation and the internal reference, which is common for all data generated in this run of the method."
       },
       "degradationEOL": {
-        "allOf": [
-          {
-            "$ref": "#/$defs/DegradationEOLOutput"
-          }
-        ],
-        "description": "The data corresponding to the end of life for the cell and the degradation trajectory, each with the respective uncertainty."
+        "description": "The data corresponding to the end of life for the cell and the degradation trajectory, each with the respective uncertainty.",
+        "items": {
+          "$ref": "#/$defs/DegradationEOLOutput"
+        },
+        "title": "Degradationeol",
+        "type": "array"
       }
     },
     "required": [
       "run_info",
       "degradationEOL"
     ],
-    "title": "DegradationModelOutput",
+    "title": "DegradationWorkflowOutput",
     "type": "object"
   },
   "is_active": true
