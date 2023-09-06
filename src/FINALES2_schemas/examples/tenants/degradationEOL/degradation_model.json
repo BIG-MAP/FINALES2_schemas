@@ -5,7 +5,7 @@
         "quantity": "degradationEOL",
         "method": "degradation_model",
         "limitations": {
-          "chemistry": {
+          "battery_chemistry": {
             "electrolyte": [
               [
                 {
