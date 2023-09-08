@@ -1,7 +1,7 @@
 {
   "quantity": "degradationEOL",
   "methods": [
-    "degradation_model"
+    "degradation_workflow"
   ],
   "parameters": {
       "degradation_model":

@@ -55,7 +55,51 @@
           "end_of_life_uncertainty": 5.9,
           "capacity_trajectory": [3.2, 2.9, 2.6, 2.4, 2.0],
           "capacity_trajectory_uncertainty": [0.04, 0.009, 0.02, 0.0005, 0.01],
-          "meta": {"success": "True", "rating": 5}
+          "meta": {"success": "True", "rating": 5},
+          "cell_info": {
+            "cell_name": "CR2032",
+            "uuid": "de309fbc-c3ec-4bc1-9431-a919b18901dc",
+            "assembly_date": "2023_08_24",
+            "batch": "1",
+            "anode_info": {
+                "name": "Gr",
+                "uuid": "LNO-1",
+                "preparation_date": "10.08.2023",
+                "batch": "1",
+                "location": {
+                    "address": "HIU",
+                    "detail_1": "GloveboxEU",
+                    "detail_2": "AutoBASS WP"
+                }
+            },
+            "cathode_info": {
+                "name": "LNO",
+                "uuid": "LNO-1",
+                "preparation_date": "10.08.2023",
+                "batch": "1",
+                "location": {
+                    "address": "HIU",
+                    "detail_1": "GloveboxEU",
+                    "detail_2": "AutoBASS WP"
+                }
+            },
+            "electrolyte_info": {
+                "name": "electrolyte1",
+                "uuid": "ELEYT-1",
+                "preparation_date": "14.08.2023",
+                "batch": "1",
+                "location": {
+                    "address": "HIU",
+                    "detail_1": "GloveboxEU",
+                    "detail_2": "AutoBASS WP"
+                }
+            },
+            "cell_location": {
+                "address": "HIU",
+                "detail_1": "GloveboxEU",
+                "detail_2": "AutoBASS WP"
+            }
+        }
       }
   },
     "quantity": "degradationEOL",
@@ -615,6 +659,6 @@
     "capacity_vector_variance": -15.11374680406646
   }
     },
-    "tenant_uuid": "a_uuid",
+    "tenant_uuid": "7337771802bd49d7ae8437d6bff2bfc2",
     "request_uuid": "1b11c715-5668-4e14-8bb8-769fc2adddcf"
 }
