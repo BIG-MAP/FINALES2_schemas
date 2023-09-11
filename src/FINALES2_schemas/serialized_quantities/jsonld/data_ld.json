@@ -1,0 +1,99 @@
+{
+    "@context": {
+        "fraction": "http://emmo.info/emmo#EMMO_0aa934ee_1ad4_4345_8a7f_bc73ec67c7e5",
+        "molar fraction": "http://emmo.info/emmo#EMMO_f76f5a24_d703_4e8c_b368_f9a7777cb73a",
+        "fraction_type": "http://emmo.info/emmo#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296",
+        "conductivity": "http://emmo.info/emmo#EMMO_5d73661e_e710_4844_ab9b_a85b7e68576a",
+        "temperature": "http://emmo.info/emmo/domain/chameo/chameo#SamplePreparationParameter",
+        "quantity": "http://emmo.info/emmo#EMMO_5d73661e_e710_4844_ab9b_a85b7e68576a",
+        "molecular_dynamics": "http://emmo.info/emmo#EMMO_d0200cf1_e4f4_45ae_873f_b9359daea3cd",
+        "ctime": "https://schema.org/productionDate",
+        "SMILES": "http://emmo.info/emmo#EMMO_cf604b30_42be_44c7_a379_795236967ec2",
+        "InChIKey": "http://emmo.info/emmo#EMMO_b292d30e_4d60_43f5_9f3e_9c4e00e17a10",
+        "chemical": "http://emmo.info/emmo#EMMO_e2b11f6a_4191_427e_9844_2e0ac88dfc8b",
+        "formulation": "http://emmo.info/emmo#EMMO_4b3e2374_52a1_4420_8e3f_3ae6b9bf7dff"
+    },
+    "uuid": "5362797a-e5d9-45ec-90a2-4f79be84d683",
+    "https://schema.org/productionDate": "2023-07-26T11:22:20",
+    "status": "original",
+    "result": {
+        "data": {
+            "run_info": {
+                "http://emmo.info/emmo#EMMO_4b3e2374_52a1_4420_8e3f_3ae6b9bf7dff": [
+                    {
+                        "http://emmo.info/emmo#EMMO_e2b11f6a_4191_427e_9844_2e0ac88dfc8b": {
+                            "http://emmo.info/emmo#EMMO_cf604b30_42be_44c7_a379_795236967ec2": "[Li+].F[P-](F)(F)(F)(F)F",
+                            "http://emmo.info/emmo#EMMO_b292d30e_4d60_43f5_9f3e_9c4e00e17a10": "AXPLOJNSKRXQPA-UHFFFAOYSA-N"
+                        },
+                        "http://emmo.info/emmo#EMMO_0aa934ee_1ad4_4345_8a7f_bc73ec67c7e5": 0.05,
+                        "http://emmo.info/emmo#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296": "http://emmo.info/emmo#EMMO_f76f5a24_d703_4e8c_b368_f9a7777cb73a"
+                    },
+                    {
+                        "http://emmo.info/emmo#EMMO_e2b11f6a_4191_427e_9844_2e0ac88dfc8b": {
+                            "http://emmo.info/emmo#EMMO_cf604b30_42be_44c7_a379_795236967ec2": "C1COC(=O)O1",
+                            "http://emmo.info/emmo#EMMO_b292d30e_4d60_43f5_9f3e_9c4e00e17a10": "KMTRUDSVKNLOMY-UHFFFAOYSA-N"
+                        },
+                        "http://emmo.info/emmo#EMMO_0aa934ee_1ad4_4345_8a7f_bc73ec67c7e5": 0.45,
+                        "http://emmo.info/emmo#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296": "http://emmo.info/emmo#EMMO_f76f5a24_d703_4e8c_b368_f9a7777cb73a"
+                    },
+                    {
+                        "http://emmo.info/emmo#EMMO_e2b11f6a_4191_427e_9844_2e0ac88dfc8b": {
+                            "http://emmo.info/emmo#EMMO_cf604b30_42be_44c7_a379_795236967ec2": "CC1COC(=O)O1",
+                            "http://emmo.info/emmo#EMMO_b292d30e_4d60_43f5_9f3e_9c4e00e17a10": "RUOJZAUFBMNUDX-UHFFFAOYSA-N"
+                        },
+                        "http://emmo.info/emmo#EMMO_0aa934ee_1ad4_4345_8a7f_bc73ec67c7e5": 0.5,
+                        "http://emmo.info/emmo#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296": "http://emmo.info/emmo#EMMO_f76f5a24_d703_4e8c_b368_f9a7777cb73a"
+                    }
+                ],
+                "internal_reference": "a11c15de-6d14-424e-8dc6-32f8398bfd51"
+            },
+            "http://emmo.info/emmo#EMMO_5d73661e_e710_4844_ab9b_a85b7e68576a": {
+                "values": [
+                    0.008328539145648056
+                ],
+                "http://emmo.info/emmo/domain/chameo/chameo#SamplePreparationParameter": 298,
+                "meta": {
+                    "success": true,
+                    "rating": 2
+                }
+            }
+        },
+        "http://emmo.info/emmo#EMMO_5d73661e_e710_4844_ab9b_a85b7e68576a": "http://emmo.info/emmo#EMMO_5d73661e_e710_4844_ab9b_a85b7e68576a",
+        "method": [
+            "molecular_dynamics"
+        ],
+        "parameters": {
+            "http://emmo.info/emmo#EMMO_d0200cf1_e4f4_45ae_873f_b9359daea3cd": {
+                "http://emmo.info/emmo#EMMO_4b3e2374_52a1_4420_8e3f_3ae6b9bf7dff": [
+                    {
+                        "http://emmo.info/emmo#EMMO_e2b11f6a_4191_427e_9844_2e0ac88dfc8b": {
+                            "http://emmo.info/emmo#EMMO_cf604b30_42be_44c7_a379_795236967ec2": "[Li+].F[P-](F)(F)(F)(F)F",
+                            "http://emmo.info/emmo#EMMO_b292d30e_4d60_43f5_9f3e_9c4e00e17a10": "AXPLOJNSKRXQPA-UHFFFAOYSA-N"
+                        },
+                        "http://emmo.info/emmo#EMMO_0aa934ee_1ad4_4345_8a7f_bc73ec67c7e5": 0.05,
+                        "http://emmo.info/emmo#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296": "http://emmo.info/emmo#EMMO_f76f5a24_d703_4e8c_b368_f9a7777cb73a"
+                    },
+                    {
+                        "http://emmo.info/emmo#EMMO_e2b11f6a_4191_427e_9844_2e0ac88dfc8b": {
+                            "http://emmo.info/emmo#EMMO_cf604b30_42be_44c7_a379_795236967ec2": "C1COC(=O)O1",
+                            "http://emmo.info/emmo#EMMO_b292d30e_4d60_43f5_9f3e_9c4e00e17a10": "KMTRUDSVKNLOMY-UHFFFAOYSA-N"
+                        },
+                        "http://emmo.info/emmo#EMMO_0aa934ee_1ad4_4345_8a7f_bc73ec67c7e5": 0.45,
+                        "http://emmo.info/emmo#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296": "http://emmo.info/emmo#EMMO_f76f5a24_d703_4e8c_b368_f9a7777cb73a"
+                    },
+                    {
+                        "http://emmo.info/emmo#EMMO_e2b11f6a_4191_427e_9844_2e0ac88dfc8b": {
+                            "http://emmo.info/emmo#EMMO_cf604b30_42be_44c7_a379_795236967ec2": "CC1COC(=O)O1",
+                            "http://emmo.info/emmo#EMMO_b292d30e_4d60_43f5_9f3e_9c4e00e17a10": "RUOJZAUFBMNUDX-UHFFFAOYSA-N"
+                        },
+                        "http://emmo.info/emmo#EMMO_0aa934ee_1ad4_4345_8a7f_bc73ec67c7e5": 0.5,
+                        "http://emmo.info/emmo#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296": "http://emmo.info/emmo#EMMO_f76f5a24_d703_4e8c_b368_f9a7777cb73a"
+                    }
+                ],
+                "http://emmo.info/emmo/domain/chameo/chameo#SamplePreparationParameter": 298
+            }
+        },
+        "tenant_uuid": "e61462cc-d297-4ece-a5ce-222e72aaf0b0",
+        "request_uuid": "f2195e96-1494-4ce7-94a0-ce52d1331cf3"
+    }
+}

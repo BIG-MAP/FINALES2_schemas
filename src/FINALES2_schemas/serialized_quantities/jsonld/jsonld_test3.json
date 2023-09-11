@@ -1,0 +1,144 @@
+{
+    "@context": {
+        "MeasurementResult": "http://emmo.info/emmo#EMMO_0f6f0120_c079_4d95_bb11_4ddee05e530e",
+        "hasQuantitativeProperty": "http://emmo.info/emmo#EMMO_0aa934ee_1ad4_4345_8a7f_bc73ec67c7e5",
+        "AmountFraction": "http://emmo.info/emmo#EMMO_04b3300c_98bd_42dc_a3b5_e6c29d69f1ac",
+        "hasQuantityValue": "http://emmo.info/emmo#EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0",
+        "hasReferenceUnit": "http://emmo.info/emmo#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296",
+        "AmountFractionUnit": "http://emmo.info/emmo#EMMO_f76f5a24_d703_4e8c_b368_f9a7777cb73a",
+        "hasQuantity": "http://emmo.info/emmo#EMMO_5d73661e_e710_4844_ab9b_a85b7e68576a",
+        "ElectricConductivity": "http://emmo.info/emmo#EMMO_cde4368c_1d4d_4c94_8548_604749523c6d",
+        "SiemensPerCentimetre": "http://emmo.info/emmo#EMMO_867a93ba_9487_4bf7_b502_5eac13e9c4ab",
+        "SamplePreparationParameter": "http://emmo.info/emmo/domain/chameo/chameo#SamplePreparationParameter",
+        "AmbientThermodynamicTemperature": "http://emmo.info/electrochemistry#electrochemistry_39a44af0_0e1a_4859_b550_bdabad64386e",
+        "Kelvin": "http://emmo.info/emmo#EMMO_2e5e45fc_f52c_4294_bdc2_5ed7a06dfce7",
+        "productionDate": "https://schema.org/productionDate",
+        "SMILES": "http://emmo.info/emmo#EMMO_cf604b30_42be_44c7_a379_795236967ec2",
+        "InChI": "http://emmo.info/emmo#EMMO_b292d30e_4d60_43f5_9f3e_9c4e00e17a10",
+        "hasConstituent": "http://emmo.info/emmo#EMMO_dba27ca1_33c9_4443_a912_1519ce4c39ec",
+        "ChemicalCompound": "http://emmo.info/emmo#EMMO_e2b11f6a_4191_427e_9844_2e0ac88dfc8b",
+        "hasSampledSample": "http://emmo.info/emmo/domain/chameo/chameo#hasSampledSample",
+        "LiquidSolution": "http://emmo.info/emmo#EMMO_4b3e2374_52a1_4420_8e3f_3ae6b9bf7dff",
+        "has_logical_input": "https://purl.vimmp.eu/semantics/osmo/osmo.ttl#has_logical_input",
+        "ModelledQuantitativeProperty": "http://emmo.info/emmo#EMMO_d0200cf1_e4f4_45ae_873f_b9359daea3cd"
+    },
+    "@id": "5362797a-e5d9-45ec-90a2-4f79be84d683",
+    "@type": "MeasurementResult",
+    "hasQuantitativeProperty": null,
+    "hasQuantity": {
+        "@type": "ElectricConductivity",
+        "hasReferenceUnit": {
+            "@id": "http://emmo.info/emmo#EMMO_867a93ba_9487_4bf7_b502_5eac13e9c4ab"
+        },
+        "hasQuantityValue": 0.008328539145648056
+    },
+    "hasReferenceUnit": null,
+    "hasSampledSample": [
+        {
+            "@type": "LiquidSolution",
+            "hasQuantitativeProperty": {
+                "@type": "AmountFraction",
+                "hasReferenceUnit": {
+                    "@id": "http://emmo.info/emmo#EMMO_f76f5a24_d703_4e8c_b368_f9a7777cb73a"
+                },
+                "hasQuantityValue": 0.05
+            },
+            "hasConstituent": {
+                "@type": "ChemicalCompound",
+                "hasQuantitativeProperty": null,
+                "InChI": "AXPLOJNSKRXQPA-UHFFFAOYSA-N",
+                "SMILES": "[Li+].F[P-](F)(F)(F)(F)F"
+            }
+        },
+        {
+            "@type": "LiquidSolution",
+            "hasQuantitativeProperty": {
+                "@type": "AmountFraction",
+                "hasReferenceUnit": {
+                    "@id": "http://emmo.info/emmo#EMMO_f76f5a24_d703_4e8c_b368_f9a7777cb73a"
+                },
+                "hasQuantityValue": 0.45
+            },
+            "hasConstituent": {
+                "@type": "ChemicalCompound",
+                "hasQuantitativeProperty": null,
+                "InChI": "KMTRUDSVKNLOMY-UHFFFAOYSA-N",
+                "SMILES": "C1COC(=O)O1"
+            }
+        },
+        {
+            "@type": "LiquidSolution",
+            "hasQuantitativeProperty": {
+                "@type": "AmountFraction",
+                "hasReferenceUnit": {
+                    "@id": "http://emmo.info/emmo#EMMO_f76f5a24_d703_4e8c_b368_f9a7777cb73a"
+                },
+                "hasQuantityValue": 0.5
+            },
+            "hasConstituent": {
+                "@type": "ChemicalCompound",
+                "hasQuantitativeProperty": null,
+                "InChI": "RUOJZAUFBMNUDX-UHFFFAOYSA-N",
+                "SMILES": "CC1COC(=O)O1"
+            }
+        }
+    ],
+    "has_logical_input": {
+        "@type": "ModelledQuantitativeProperty",
+        "SamplePreparationParameter": {
+            "@type": "AmbientThermodynamicTemperature",
+            "hasReferenceUnit": {
+                "@id": "http://emmo.info/emmo#EMMO_2e5e45fc_f52c_4294_bdc2_5ed7a06dfce7"
+            },
+            "hasQuantityValue": 298
+        },
+        "hasSampledSample": [
+            {
+                "@type": "LiquidSolution",
+                "hasQuantitativeProperty": {
+                    "@type": "AmountFraction",
+                    "hasReferenceUnit": {
+                        "@id": "http://emmo.info/emmo#EMMO_f76f5a24_d703_4e8c_b368_f9a7777cb73a"
+                    },
+                    "hasQuantityValue": 0.05
+                },
+                "hasConstituent": {
+                    "@type": "ChemicalCompound",
+                    "InChI": "AXPLOJNSKRXQPA-UHFFFAOYSA-N",
+                    "SMILES": "[Li+].F[P-](F)(F)(F)(F)F"
+                }
+            },
+            {
+                "@type": "LiquidSolution",
+                "hasQuantitativeProperty": {
+                    "@type": "AmountFraction",
+                    "hasReferenceUnit": {
+                        "@id": "http://emmo.info/emmo#EMMO_f76f5a24_d703_4e8c_b368_f9a7777cb73a"
+                    },
+                    "hasQuantityValue": 0.45
+                },
+                "hasConstituent": {
+                    "@type": "ChemicalCompound",
+                    "InChI": "KMTRUDSVKNLOMY-UHFFFAOYSA-N",
+                    "SMILES": "C1COC(=O)O1"
+                }
+            },
+            {
+                "@type": "LiquidSolution",
+                "hasQuantitativeProperty": {
+                    "@type": "AmountFraction",
+                    "hasReferenceUnit": {
+                        "@id": "http://emmo.info/emmo#EMMO_f76f5a24_d703_4e8c_b368_f9a7777cb73a"
+                    },
+                    "hasQuantityValue": 0.5
+                },
+                "hasConstituent": {
+                    "@type": "ChemicalCompound",
+                    "InChI": "RUOJZAUFBMNUDX-UHFFFAOYSA-N",
+                    "SMILES": "CC1COC(=O)O1"
+                }
+            }
+        ]
+    },
+    "productionDate": "2023-07-26T11:22:20"
+}

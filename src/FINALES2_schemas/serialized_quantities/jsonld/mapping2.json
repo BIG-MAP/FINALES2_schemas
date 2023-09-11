@@ -1,0 +1,14 @@
+{
+"fraction":"http://emmo.info/emmo#EMMO_0aa934ee_1ad4_4345_8a7f_bc73ec67c7e5",
+"molar fraction": "http://emmo.info/emmo#EMMO_f76f5a24_d703_4e8c_b368_f9a7777cb73a",
+"fraction_type": "http://emmo.info/emmo#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296",
+"conductivity": "http://emmo.info/emmo#EMMO_5d73661e_e710_4844_ab9b_a85b7e68576a",
+"temperature":"http://emmo.info/emmo/domain/chameo/chameo#SamplePreparationParameter",
+"quantity":"http://emmo.info/emmo#EMMO_5d73661e_e710_4844_ab9b_a85b7e68576a",
+"molecular_dynamics": "http://emmo.info/emmo#EMMO_d0200cf1_e4f4_45ae_873f_b9359daea3cd",
+"ctime":"https://schema.org/productionDate",
+"SMILES":"http://emmo.info/emmo#EMMO_cf604b30_42be_44c7_a379_795236967ec2",
+"InChIKey":"http://emmo.info/emmo#EMMO_b292d30e_4d60_43f5_9f3e_9c4e00e17a10",
+"chemical":"http://emmo.info/emmo#EMMO_e2b11f6a_4191_427e_9844_2e0ac88dfc8b",
+"formulation":"http://emmo.info/emmo#EMMO_4b3e2374_52a1_4420_8e3f_3ae6b9bf7dff"
+}
