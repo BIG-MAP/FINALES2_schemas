@@ -553,7 +553,8 @@
   "minimum_charging_rate": 0.7,
   "delta_coulombic_efficiency": -0.0017865170731978797,
   "voltage_gap_charge_discharge": 0.05114420658165697,
-  "capacity_vector_variance": -15.11374680406646
+  "capacity_vector_variance": -15.11374680406646,
+  "cell_info": {}
 }
   },
   "tenant_uuid": "7337771802bd49d7ae8437d6bff2bfc2"

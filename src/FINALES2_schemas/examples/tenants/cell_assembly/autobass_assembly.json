@@ -1,0 +1,117 @@
+{
+    "name": "AutoBASS - the cell_assembly tenant",
+    "limitations": [
+      {
+        "quantity": "cell_assembly",
+        "method": "autobass_assembly",
+        "limitations": {
+          "cell_info": {
+            "batteryChemistry": {
+              "electrolyte": [
+                [
+                  {
+                    "chemical": {
+                      "SMILES": "w",
+                      "InChIKey": "ww"
+                    },
+                    "fraction": [
+                      {
+                        "minimum": 0.0,
+                        "maximum": 1.0
+                      }
+                    ],
+                    "fraction_type": [
+                      "molPerMol"
+                    ]
+                  }
+                ]
+              ],
+              "anode": {
+                "material": [
+                  [
+                    {
+                      "chemical": {
+                        "SMILES": "w",
+                        "InChIKey": "ww"
+                      },
+                      "fraction": [
+                        {
+                          "minimum": 0.0,
+                          "maximum": 1.0
+                        }
+                      ],
+                      "fraction_type": [
+                        "molPerMol"
+                      ]
+                    }
+                  ]
+                ],
+                "mass_loading": [
+                  1.0,
+                  1.1,
+                  3.0,
+                  3.1
+                ],
+                "size": [
+                  1.7663
+                ]
+              },
+              "cathode": {
+                "material": [
+                  [
+                    {
+                      "chemical": {
+                        "SMILES": "w",
+                        "InChIKey": "ww"
+                      },
+                      "fraction": [
+                        {
+                          "minimum": 0.0,
+                          "maximum": 1.0
+                        }
+                      ],
+                      "fraction_type": [
+                        "molPerMol"
+                      ]
+                    }
+                  ]
+                ],
+                "mass_loading": [
+                  1.0,
+                  1.1,
+                  3.0,
+                  3.1
+                ],
+                "size": [
+                  1.5386
+                ]
+              },
+              "separator": {
+                "material": [
+                  "Glasfiber"
+                ],
+                "size": [
+                  2.0096
+                ]
+              },
+              "electrolyte_volume": [
+                {
+                  "minimum": 0.0,
+                  "maximum": 80.0,
+                  "step": 5
+                }
+              ]
+            },
+            "batch_volume": [
+              {
+                "minimum": 0.0,
+                "maximum": 64.0,
+                "step": 1
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "contact_person": "['Bojing']"
+  }

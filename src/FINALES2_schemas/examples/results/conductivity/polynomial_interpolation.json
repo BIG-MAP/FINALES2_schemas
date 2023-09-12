@@ -42,10 +42,10 @@
       },
       "quantity": "conductivity",
       "method": [
-        "molecular_dynamics"
+        "polynomial_interpolation"
       ],
       "parameters": {
-        "molecular_dynamics": {
+        "polynomial_interpolation": {
           "formulation": [
             {
               "chemical": {
@@ -76,5 +76,5 @@
         }
       },
       "tenant_uuid": "e61462cc-d297-4ece-a5ce-222e72aaf0b0",
-      "request_uuid": "d48f7f66-c175-415c-b424-09b633c8f309"
+      "request_uuid": "09f79f22-40d7-4fe8-bafc-d17924e83185"
     }

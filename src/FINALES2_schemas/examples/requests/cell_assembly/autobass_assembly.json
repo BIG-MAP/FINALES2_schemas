@@ -1,0 +1,91 @@
+{
+    "quantity": "cell_assembly",
+    "methods": [
+      "autobass_assembly"
+    ],
+    "parameters": {
+        "autobass_assembly": {
+            "cell": {
+                "battery_chemistry": {
+                    "electrolyte": [
+                        {
+                            "chemical": {
+                                "SMILES": "[Li+].F[P-](F)(F)(F)(F)F",
+                                "InChIKey": "AXPLOJNSKRXQPA-UHFFFAOYSA-N"
+                            },
+                            "fraction": 0.0128,
+                            "fraction_type": "molPerMol"},
+                        {
+                            "chemical": {
+                                "SMILES": "COC(=O)OC",
+                                "InChIKey": "IEJIGPNLZYLLBP-UHFFFAOYSA-N"
+                            },
+                            "fraction": 0.8526,
+                            "fraction_type": "molPerMol"
+                            },
+                        {
+                            "chemical": {
+                                "SMILES": "CCOC(=O)OC",
+                                "InChIKey": "JBTWLSYIZRCDFO-UHFFFAOYSA-N"
+                                },
+                            "fraction": 0.0895,
+                            "fraction_type": "molPerMol"
+                            },
+                        {"chemical": {
+                            "SMILES": "C1COC(=O)O1",
+                            "InChIKey": "KMTRUDSVKNLOMY-UHFFFAOYSA-N"
+                            },
+                            "fraction": 0.0451,
+                            "fraction_type": "molPerMol"
+                            }
+                    ],
+                    "anode": {
+                        "material": [
+                            {
+                            "chemical": {
+                                "SMILES": "w",
+                                "InChIKey": "ww"
+                            },
+                            "fraction": 1.0,
+                            "fraction_type": "molPerMol"
+                            }
+                        ],
+                        "mass_loading": 1.0,
+                        "size": 1.7663
+                    },
+                    "cathode": {
+                        "material": [
+                            {
+                            "chemical": {
+                                "SMILES": "w",
+                                "InChIKey": "ww"
+                            },
+                            "fraction": 1.0,
+                            "fraction_type": "molPerMol"
+                            }
+                        ],
+                        "mass_loading": 1.0,
+                        "size": 1.5386
+                    }
+                },
+                    "separator":{
+                        "material":"Glasfiber",
+                        "size": 2.0096
+                    },
+                "electrolyte_volume": 35.0
+            },
+            "batch_volume": 8,
+            "cell_info":{
+                "cell_name": "CR2032",
+                "uuid": "CELL-1",
+                "assembly_date": "14.08.2023",
+                "batch": "1",
+                "anode_info": {"name": "Gr", "uuid": "c78f29c7-a966-4ad0-dca0-e57cece4f025", "preparation_date": "10.08.2023", "batch": "1", "location": {"address": "LM16", "detail_1": "GloveboxEU", "detail_2": "AutoBASS WP"}},
+                "cathode_info": {"name": "LNO", "uuid": "d78d29c6-a956-4ac0-afa0-e67ckce4f029", "preparation_date": "10.08.2023", "batch": "1", "location": {"address": "LM16", "detail_1": "GloveboxEU", "detail_2": "AutoBASS WP"}},
+                "electrolyte_info": {"name": "BE", "uuid": "d78f28c6-a959-4ad0-aca8-e57ccoe4f005", "preparation_date": "14.08.2023", "batch": "1", "location": {"address": "LM16", "detail_1": "GloveboxEU", "detail_2": "AutoBASS WP"}},
+                "cell_location": {"address": "LM16", "detail_1": "GloveboxEU", "detail_2": "AutoBASS WP"} 
+            }
+        }
+    },
+    "tenant_uuid": "df70e82052a14afea46e249c23fbed46"
+}
