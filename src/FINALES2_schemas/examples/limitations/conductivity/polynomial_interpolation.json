@@ -1,7 +1,7 @@
 [
     {
       "quantity": "conductivity",
-      "method": "molecular_dynamics",
+      "method": "polynomial_interpolation",
       "limitations": {
         "anyOf": [
           [

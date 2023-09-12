@@ -1,10 +1,10 @@
 {
     "quantity": "conductivity",
     "methods": [
-      "molecular_dynamics"
+      "polynomial_interpolation"
     ],
     "parameters": {
-      "molecular_dynamics": {
+      "polynomial_interpolation": {
         "formulation": [
           {
             "chemical": {

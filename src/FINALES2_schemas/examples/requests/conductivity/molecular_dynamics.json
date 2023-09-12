@@ -1,0 +1,44 @@
+{
+    "quantity": "conductivity",
+    "methods": [
+        "molecular_dynamics"
+    ],
+    "parameters": {
+        "molecular_dynamics": {
+            "formulation": [
+                {
+                    "chemical": {
+                        "SMILES": "[Li+].F[P-](F)(F)(F)(F)F",
+                        "InChIKey": "AXPLOJNSKRXQPA-UHFFFAOYSA-N"
+                    },
+                    "fraction": 0.0128,
+                    "fraction_type": "molPerMol"},
+                {
+                    "chemical": {
+                        "SMILES": "COC(=O)OC",
+                        "InChIKey": "IEJIGPNLZYLLBP-UHFFFAOYSA-N"
+                    },
+                    "fraction": 0.8526,
+                    "fraction_type": "molPerMol"
+                    },
+                {
+                    "chemical": {
+                        "SMILES": "CCOC(=O)OC",
+                        "InChIKey": "JBTWLSYIZRCDFO-UHFFFAOYSA-N"
+                        },
+                    "fraction": 0.0895,
+                    "fraction_type": "molPerMol"
+                    },
+                {"chemical": {
+                    "SMILES": "C1COC(=O)O1",
+                    "InChIKey": "KMTRUDSVKNLOMY-UHFFFAOYSA-N"
+                    },
+                    "fraction": 0.0451,
+                    "fraction_type": "molPerMol"
+                    }
+                    ],
+                "temperature": 298.15
+                }
+                },
+    "tenant_uuid": "fd8446d0-558c-451a-8a68-e416b5166265"
+}

@@ -1,6 +1,6 @@
 {
   "quantity": "radial_density_function",
-  "method": "molacular_dynamics_RDF",
+  "method": "molacular_dynamics",
   "json_schema_specifications": {
     "$defs": {
       "Chemical": {

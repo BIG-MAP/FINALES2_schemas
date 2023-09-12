@@ -1,20 +1,18 @@
 from pydantic import BaseModel, Field
 from typing import Optional
-from FINALES2_schemas.classes_common import BatteryChemistry, unit_registry
+from FINALES2_schemas.classes_common import BatteryChemistry, unit_registry, CellInfo
 
-class DegradationModelInput(BaseModel):
+class DegradationEOLInput(BaseModel):
     """The parameters used by the following method
     'degradationEOL' - degradationModel
-
-    :param BaseModel: _description_
-    :type BaseModel: _type_
     """
     battery_chemistry:BatteryChemistry = Field(
         description=("The description of the chemicals involved in all the battery cell.")
     )
     input_cycles:Optional[list[float]] = Field(
         default=None,
-        description=("The number of cycles provided as an input to the model.")
+        description=("A list of the capacity values associated with the cycles used "
+                     "as the input for the model.")
     )
     average_charging_rate:Optional[float] = Field(
         default=None,
@@ -53,3 +51,6 @@ class DegradationModelInput(BaseModel):
         description=("The variance of the difference between the Q(V) curves between "
                      "cycle x and 10.")
     )
+    cell_info:CellInfo = Field(
+        description="Information about the cell provided by AutoBass."
+        )

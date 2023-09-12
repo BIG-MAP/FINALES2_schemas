@@ -60,7 +60,7 @@ if __name__ == "__main__":
     generate_quantity('density', 'molecular_dynamics', density_input.DensityInput, density_output.MolecularDynamicsOutput, quantity_path)
 
     quantity_path = BASEPATH_QUANTITIES / 'degradationEOL' / 'degradation_model.json'
-    generate_quantity('degradationEOL', 'degradation_model', degradationEOL_input.DegradationModelInput, degradationEOL_output.DegradationModelOutput, quantity_path)
+    generate_quantity('degradationEOL', 'degradation_model', degradationEOL_input.DegradationEOLInput, degradationEOL_output.DegradationModelOutput, quantity_path)
 
     quantity_path = BASEPATH_QUANTITIES / 'cell_assembly' / 'autobass_assembly.json'
     generate_quantity('cell_assembly', 'autobass_assembly', assembly_input.AssemblyInput, assembly_output.AutoBASSOutput, quantity_path)
@@ -78,4 +78,7 @@ if __name__ == "__main__":
     generate_quantity('transport', 'transport_service', transport_input.TransportInput, transport_output.TransportOutput, quantity_path)
 
     quantity_path = BASEPATH_QUANTITIES / 'radial_density_function' / 'molacular_dynamics.json'
-    generate_quantity('radial_density_function', 'molacular_dynamics_RDF', RDF_input.RDFInput, RDF_output.RDFOutput, quantity_path)
+    generate_quantity('radial_density_function', 'molacular_dynamics', RDF_input.RDFInput, RDF_output.RDFOutput, quantity_path)
+
+    quantity_path = BASEPATH_QUANTITIES / 'degradationEOL' / 'degradation_workflow.json'
+    generate_quantity('degradationEOL', 'degradation_workflow', degradationEOL_input.DegradationEOLInput, degradationEOL_output.DegradationWorkflowOutput, quantity_path)

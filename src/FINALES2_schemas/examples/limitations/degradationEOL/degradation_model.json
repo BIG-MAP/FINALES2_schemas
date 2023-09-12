@@ -4,7 +4,7 @@
     "limitations": {
       "anyOf": [
         {
-          "chemistry": {
+          "battery_chemistry": {
             "electrolyte": [
               [
                 {
