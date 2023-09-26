@@ -17,17 +17,18 @@
         "SiemensPerCentimetre": "emmo:#EMMO_867a93ba_9487_4bf7_b502_5eac13e9c4ab",
         "AmbientThermodynamicTemperature":"echem:electrochemistry_39a44af0_0e1a_4859_b550_bdabad64386e",
         "Kelvin": "emmo:#EMMO_2e5e45fc_f52c_4294_bdc2_5ed7a06dfce7",
-        "InChI": "emmo:#EMMO_b292d30e_4d60_43f5_9f3e_9c4e00e17a10",
+        "InChIKey": "emmo:#EMMO_b292d30e_4d60_43f5_9f3e_9c4e00e17a10",
+        "SMILES":"emmo:EMMO_cf604b30_42be_44c7_a379_795236967ec2",
         "hasConstituent": "emmo:#EMMO_dba27ca1_33c9_4443_a912_1519ce4c39ec",
         "ChemicalCompound": "emmo:#EMMO_e2b11f6a_4191_427e_9844_2e0ac88dfc8b",
         "LiquidSolution": "emmo:#EMMO_4b3e2374_52a1_4420_8e3f_3ae6b9bf7dff",
         "hasModelledProperty": "emmo:#EMMO_b8f79e53_2ad4_441d_87ff_284a5c419e46",
+        "MeasurementResult": "emmo:EMMO_0f6f0120_c079_4d95_bb11_4ddee05e530e",
+        "Conductometry": "echem:electrochemistry_b3a6d552_b38e_47ad_9d48_e8b77035d63e",  
+        "hasSubProcess":"emmo:EMMO_d43af210_f854_4432_a891_ce3022e3b558" ,
 
-        "uuid":{
-            "@id":"https://www.big-map.eu/uuid#",
-            "type@":"@id"
-        },
-        "ctime":{
+ 
+        "preparation_date":{
             "@id":"schema:productionDate",
             "@type":"xsd:dateTime"
         },
@@ -39,14 +40,7 @@
             "@id":"hasConstituent",
             "@type":"ChemicalCompound"
         },
-        "InChIKey":{
-            "@id":"InChI",
-            "@type":"xsd:string"
-        },
-        "SMILES":{
-                "@id":"emmo:EMMO_cf604b30_42be_44c7_a379_795236967ec2",
-                "@type":"xsd:string"
-            },
+   
         "fraction":{
             "@id":"hasQuantitativeProperty",
             "@type":"AmountFraction",
@@ -58,20 +52,21 @@
             "type@":"@id"
         },
         "conductivity":{
-            "@id":"hasModelledProperty",
+            "@id":"hasMeasuredProperty",
             "@type":"ElectricConductivity",
             "hasQuantityValue":"xsd:float",
             "hasReferenceUnit":"SiemensPerCentimetre"
         },
         "temperature":{
-            "@id":"hasQuantitativeProperty",
+            "@id":"chameo:hasMeasurementParameter",
             "@type":"AmbientThermodynamicTemperature",
             "hasQuantityValue":"xsd:float",
             "hasReferenceUnit":"Kelvin"
         },
         "method":{
-            "@id":"osmo:has_method_type",
-            "@type":"osmo:pe_type_atomistic_molecular_dynamics"
+            "@id":"hasSubProcess",
+            "@type":"Conductometry",
+            "schema:name":"xsd:string"
         },
         "tenant_uuid":{
             "@id":"https://www.big-map.eu/uuid/FINALES/tenant#",
