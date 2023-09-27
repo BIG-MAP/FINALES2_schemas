@@ -17,7 +17,7 @@
         "SiemensPerCentimetre": "emmo:#EMMO_867a93ba_9487_4bf7_b502_5eac13e9c4ab",
         "AmbientThermodynamicTemperature":"echem:electrochemistry_39a44af0_0e1a_4859_b550_bdabad64386e",
         "Kelvin": "emmo:#EMMO_2e5e45fc_f52c_4294_bdc2_5ed7a06dfce7",
-        "InChIKey": "emmo:#EMMO_b292d30e_4d60_43f5_9f3e_9c4e00e17a10",
+        "InChI": "emmo:#EMMO_b292d30e_4d60_43f5_9f3e_9c4e00e17a10",
         "SMILES":"emmo:EMMO_cf604b30_42be_44c7_a379_795236967ec2",
         "hasConstituent": "emmo:#EMMO_dba27ca1_33c9_4443_a912_1519ce4c39ec",
         "ChemicalCompound": "emmo:#EMMO_e2b11f6a_4191_427e_9844_2e0ac88dfc8b",
@@ -26,8 +26,21 @@
         "MeasurementResult": "emmo:EMMO_0f6f0120_c079_4d95_bb11_4ddee05e530e",
         "Conductometry": "echem:electrochemistry_b3a6d552_b38e_47ad_9d48_e8b77035d63e",  
         "hasSubProcess":"emmo:EMMO_d43af210_f854_4432_a891_ce3022e3b558" ,
-
- 
+        "Density":"emmo:EMMO_06448f64_8db6_4304_8b2c_e785dba82044",
+        "MolarMass":"emmo:EMMO_e980389d_6dfe_4156_9b40_32050c9644a5",
+        
+        "name":{
+            "@id":"schema:name",
+            "@type":"xsd:string"
+        }, 
+        "location":{
+            "@id":"schema:address",
+            "@type":"schema:PostalAddress"
+        },
+        "batch":{
+            "@id":"schema:serialNumber",
+            "@type":"xsd:string"
+        },
         "preparation_date":{
             "@id":"schema:productionDate",
             "@type":"xsd:dateTime"
@@ -39,15 +52,30 @@
         "chemical":{
             "@id":"hasConstituent",
             "@type":"ChemicalCompound"
-        },
-   
+        },   
         "fraction":{
             "@id":"hasQuantitativeProperty",
             "@type":"AmountFraction",
             "hasQuantityValue":"xsd:float",
-            "hasReferenceUnit":"AmountFractionUnit"
+            "hasReferenceUnit":"emmo:MolePerMole"
+        },
+        "density":{
+            "@id":"hasQuantitativeProperty",
+            "@type":"Density",
+            "hasQuantityValue":"xsd:float",
+            "hasReferenceUnit":"emmo:GramPerMilliLitre"
+        },
+        "molar_mass":{
+            "@id":"hasQuantitativeProperty",
+            "@type":"MolarMass",
+            "hasQuantityValue": "xsd:float",
+            "hasReferenceUnit": "emmo:GramPerMole"
         },
         "internal_reference":{
+            "@id":"https://www.big-map.eu/uuid/FINALES/internal_refernce#",
+            "type@":"@id"
+        },
+        "uuid":{
             "@id":"https://www.big-map.eu/uuid/FINALES/formulation#",
             "type@":"@id"
         },
