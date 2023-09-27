@@ -1,0 +1,38 @@
+{
+    "quantity": "conductivity",
+    "methods": [
+      "polynomial_interpolation"
+    ],
+    "parameters": {
+      "polynomial_interpolation": {
+        "formulation": [
+          {
+            "chemical": {
+              "SMILES": "[Li+].F[P-](F)(F)(F)(F)F",
+              "InChIKey": "AXPLOJNSKRXQPA-UHFFFAOYSA-N"
+            },
+            "fraction": 0.1,
+            "fraction_type": "molar fraction"
+          },
+          {
+            "chemical": {
+              "SMILES": "C1COC(=O)O1",
+              "InChIKey": "KMTRUDSVKNLOMY-UHFFFAOYSA-N"
+            },
+            "fraction": 0.25,
+            "fraction_type": "molar fraction"
+          },
+          {
+            "chemical": {
+              "SMILES": "CC1COC(=O)O1",
+              "InChIKey": "RUOJZAUFBMNUDX-UHFFFAOYSA-N"
+            },
+            "fraction": 0.65,
+            "fraction_type": "molar fraction"
+          }
+        ],
+        "temperature": 250
+      }
+    },
+    "tenant_uuid": "dabb0c83-c70a-4c45-a025-d4cf79cf3ef8"
+  }

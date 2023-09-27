@@ -1,0 +1,750 @@
+{
+  "quantity": "capacity",
+  "method": "cycling",
+  "json_schema_specifications": {
+    "$defs": {
+      "CellInfo": {
+        "description": "Additional information about a cell, which is relevant for documentation\n    purposes",
+        "properties": {
+          "cell_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "A human readable name of the cell.",
+            "title": "Cell Name"
+          },
+          "uuid": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "A unique identifier assigned to this cell in this run.",
+            "title": "Uuid"
+          },
+          "assembly_date": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The date when the cell was made.",
+            "title": "Assembly Date"
+          },
+          "batch": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "A batch number for the cells, if it is available.",
+            "title": "Batch"
+          },
+          "anode_info": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/FormulationInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The metadata related to the anode used in the cell."
+          },
+          "cathode_info": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/FormulationInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The metadata related to the cathode used in the cell."
+          },
+          "electrolyte_info": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/FormulationInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The metadata related to the electrolyte used in the cell."
+          },
+          "cell_location": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/Location"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The location, where the physical cell can be found, which corresponds to this specification."
+          }
+        },
+        "title": "CellInfo",
+        "type": "object"
+      },
+      "FormulationInfo": {
+        "description": "Additional information about a formulation, which is relevant for documentation\n    purposes",
+        "properties": {
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "A human readable name of the formulation.",
+            "title": "Name"
+          },
+          "uuid": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "A unique identifier assigned to this formulation in this run.",
+            "title": "Uuid"
+          },
+          "preparation_date": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The date when the formulation was prepared. For commercial formulations, the manufacturing date may be used.",
+            "title": "Preparation Date"
+          },
+          "batch": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "A batch number for the formulation, if it is available.",
+            "title": "Batch"
+          },
+          "location": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/Location"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The location, where the physical formulation can be found, which corresponds to this specification."
+          }
+        },
+        "title": "FormulationInfo",
+        "type": "object"
+      },
+      "Location": {
+        "description": " The location providing information on where to find physical samples or\n    equipment.",
+        "properties": {
+          "address": {
+            "description": "The physical address, where the object can be found. Depending on the usecase, this may be an official address or a name of an instute or similar. The default should be an address.",
+            "title": "Address",
+            "type": "string"
+          },
+          "detail_1": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "A more detailed description of a location. This may be e.g. a specific laboratory in a building, a desk in an office or a device or a cabinet.",
+            "title": "Detail 1"
+          },
+          "detail_2": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Another level of detail for a location. This may be e.g. a bench in the laboratory, a shelf in a cabinet  or a specific port in a machine.",
+            "title": "Detail 2"
+          }
+        },
+        "required": [
+          "address"
+        ],
+        "title": "Location",
+        "type": "object"
+      }
+    },
+    "description": "\n    Parameters to be used with the following quantities:\n    `capacity` - `cycling`\n    ",
+    "properties": {
+      "cycling_protocol": {
+        "description": "Name of a standardized test protocol (i.e. BIG-MAP-Cycling).",
+        "title": "Cycling Protocol",
+        "type": "string"
+      },
+      "number_cycles": {
+        "description": "The number of cycles the test shoudl run through after formation.",
+        "title": "Number Cycles",
+        "type": "integer"
+      },
+      "cell_info": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/CellInfo"
+          }
+        ],
+        "description": "Information about the cell provided by AutoBass."
+      },
+      "location": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/Location"
+          }
+        ],
+        "description": "Physical location where the cycler is."
+      },
+      "reservation_number": {
+        "description": "The ID assigned to the reservation when requesting free channels.",
+        "title": "Reservation Number",
+        "type": "string"
+      },
+      "I_max": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Maximum current value in ampere.",
+        "title": "I Max",
+        "unit": "ampere"
+      },
+      "V_max": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Maximum Voltage value in Volt.",
+        "title": "V Max",
+        "unit": "volt"
+      },
+      "V_min": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Minimum Voltage value in Volt.",
+        "title": "V Min",
+        "unit": "volt"
+      },
+      "capacity": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "theoretical/experimental capacity in Ah.",
+        "title": "Capacity",
+        "unit": "ampere_hour"
+      },
+      "c_rate_charge_formation": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "C-rate of charging in formation process",
+        "title": "C Rate Charge Formation",
+        "unit": "1 / hour"
+      },
+      "c_rate_discharge_formation": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "C-rate of discharging in formation process",
+        "title": "C Rate Discharge Formation",
+        "unit": "1 / hour"
+      },
+      "CV_I_cutoff_formation": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "current cutoff value in A for the constant voltage step in formation process",
+        "title": "Cv I Cutoff Formation",
+        "unit": "ampere"
+      },
+      "repetions_formation_cycle": {
+        "anyOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Number of formation cycles",
+        "title": "Repetions Formation Cycle"
+      },
+      "cycling_V_max": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "max. Voltage of battery during cycling in V",
+        "title": "Cycling V Max",
+        "unit": "volt"
+      },
+      "cycling_V_min": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "min. Voltage of battery during cycling in V",
+        "title": "Cycling V Min",
+        "unit": "volt"
+      },
+      "c_rate_charge": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "C-rate of charging",
+        "title": "C Rate Charge",
+        "unit": "1 / hour"
+      },
+      "c_rate_discharge": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "C-rate of discharging",
+        "title": "C Rate Discharge",
+        "unit": "1 / hour"
+      },
+      "CV_I_cutoff": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "current cutoff value in A for the constant voltage step",
+        "title": "Cv I Cutoff",
+        "unit": "ampere"
+      }
+    },
+    "required": [
+      "cycling_protocol",
+      "number_cycles",
+      "cell_info",
+      "location",
+      "reservation_number"
+    ],
+    "title": "CapacityCyclingInput",
+    "type": "object"
+  },
+  "json_schema_result_output": {
+    "$defs": {
+      "CellInfo": {
+        "description": "Additional information about a cell, which is relevant for documentation\n    purposes",
+        "properties": {
+          "cell_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "A human readable name of the cell.",
+            "title": "Cell Name"
+          },
+          "uuid": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "A unique identifier assigned to this cell in this run.",
+            "title": "Uuid"
+          },
+          "assembly_date": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The date when the cell was made.",
+            "title": "Assembly Date"
+          },
+          "batch": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "A batch number for the cells, if it is available.",
+            "title": "Batch"
+          },
+          "anode_info": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/FormulationInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The metadata related to the anode used in the cell."
+          },
+          "cathode_info": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/FormulationInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The metadata related to the cathode used in the cell."
+          },
+          "electrolyte_info": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/FormulationInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The metadata related to the electrolyte used in the cell."
+          },
+          "cell_location": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/Location"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The location, where the physical cell can be found, which corresponds to this specification."
+          }
+        },
+        "title": "CellInfo",
+        "type": "object"
+      },
+      "FormulationInfo": {
+        "description": "Additional information about a formulation, which is relevant for documentation\n    purposes",
+        "properties": {
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "A human readable name of the formulation.",
+            "title": "Name"
+          },
+          "uuid": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "A unique identifier assigned to this formulation in this run.",
+            "title": "Uuid"
+          },
+          "preparation_date": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The date when the formulation was prepared. For commercial formulations, the manufacturing date may be used.",
+            "title": "Preparation Date"
+          },
+          "batch": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "A batch number for the formulation, if it is available.",
+            "title": "Batch"
+          },
+          "location": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/Location"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The location, where the physical formulation can be found, which corresponds to this specification."
+          }
+        },
+        "title": "FormulationInfo",
+        "type": "object"
+      },
+      "Location": {
+        "description": " The location providing information on where to find physical samples or\n    equipment.",
+        "properties": {
+          "address": {
+            "description": "The physical address, where the object can be found. Depending on the usecase, this may be an official address or a name of an instute or similar. The default should be an address.",
+            "title": "Address",
+            "type": "string"
+          },
+          "detail_1": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "A more detailed description of a location. This may be e.g. a specific laboratory in a building, a desk in an office or a device or a cabinet.",
+            "title": "Detail 1"
+          },
+          "detail_2": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Another level of detail for a location. This may be e.g. a bench in the laboratory, a shelf in a cabinet  or a specific port in a machine.",
+            "title": "Detail 2"
+          }
+        },
+        "required": [
+          "address"
+        ],
+        "title": "Location",
+        "type": "object"
+      }
+    },
+    "description": "\n    Results returned from the following quantities:\n    `capacity` - `cycling`\n    ",
+    "properties": {
+      "capacity_list": {
+        "description": "A list with calculated capacities in Ah for charge and discharge alternately.",
+        "items": {
+          "type": "number"
+        },
+        "title": "Capacity List",
+        "type": "array",
+        "units": "ampere_hour"
+      },
+      "channel_list": {
+        "description": "A list with the channels used for cycling.",
+        "items": {
+          "type": "integer"
+        },
+        "title": "Channel List",
+        "type": "array"
+      },
+      "cell_info": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/CellInfo"
+          }
+        ],
+        "description": "Information about the cell provided by AutoBass."
+      },
+      "delta_coulombic_efficiency": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "The difference in coulombic efficiency between cycle x and 10. As in the input schema of the degradation_model method.",
+        "title": "Delta Coulombic Efficiency"
+      },
+      "voltage_gap_charge_discharge": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "The difference of the voltage gap between charge and discharge between cycle x and 10. As in the input schema of the degradation_model method.Unit: volt",
+        "title": "Voltage Gap Charge Discharge",
+        "unit": "volt"
+      },
+      "capacity_vector_variance": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "The variance of the difference between the Q(V) curves between cycle x and 10. As in the input schema of the degradation_model method.",
+        "title": "Capacity Vector Variance"
+      }
+    },
+    "required": [
+      "capacity_list",
+      "channel_list",
+      "cell_info"
+    ],
+    "title": "CapacityCyclingOutput",
+    "type": "object"
+  },
+  "is_active": true
+}

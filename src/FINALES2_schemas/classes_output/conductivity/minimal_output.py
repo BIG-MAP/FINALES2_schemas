@@ -6,18 +6,13 @@ from FINALES2_schemas.classes_common import MethodMeta, unit_registry
 class ConductivityOutput(BaseModel):
     """
     Results returned from the following quantities:
-    'conductivity' - 'twoElectrodeMeasuringCell'
-    'conductivity' - 'molecularDynamicsSimulation'
+    'conductivity' - 'two_electrode'
+    'conductivity' - 'molecular_dynamics_conductivity'
     """
     values:list[float] = Field(
         unit=str(unit_registry.siemens * unit_registry.m ** -1),
         description=("The values determined for the conductivity. "
                      f"Unit: {str(unit_registry.siemens * unit_registry.m ** -1)}")
-    )
-    temperature: Optional[float] = Field(
-        unit=str(unit_registry.kelvin),
-        description=("This is the actual temperature of the measuring cell or used in a "
-                    f"simulation. Unit: {str(unit_registry.kelvin)}")
     )
     meta:MethodMeta = Field(
         description=("This field provides information regarding the reliability of the "
@@ -27,4 +22,10 @@ class ConductivityOutput(BaseModel):
                      "quantities. It is not included in the RunInfo as one run may "
                      "generate data for different quantities, for which the methods "
                      "may fail individually.")
+    )
+    temperature: Optional[float] = Field(
+        default=None,
+        unit=str(unit_registry.kelvin),
+        description=("This is the actual temperature of the measuring cell or used in a "
+                    f"simulation. Unit: {str(unit_registry.kelvin)}")
     )

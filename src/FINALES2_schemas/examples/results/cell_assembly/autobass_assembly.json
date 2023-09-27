@@ -1,0 +1,533 @@
+{
+    "data": {
+        "batch_output": [
+            {
+                "cell_info": {
+                    "cell_name": "CR2032",
+                    "uuid": "3be84315-9ea0-44fd-8993-438a03074a6a",
+                    "assembly_date": "2023_08_24",
+                    "batch": "1",
+                    "anode_info": {
+                        "name": "Gr",
+                        "uuid": "LNO-1",
+                        "preparation_date": "10.08.2023",
+                        "batch": "1",
+                        "location": {
+                            "address": "HIU",
+                            "detail_1": "GloveboxEU",
+                            "detail_2": "AutoBASS WP"
+                        }
+                    },
+                    "cathode_info": {
+                        "name": "LNO",
+                        "uuid": "LNO-1",
+                        "preparation_date": "10.08.2023",
+                        "batch": "1",
+                        "location": {
+                            "address": "HIU",
+                            "detail_1": "GloveboxEU",
+                            "detail_2": "AutoBASS WP"
+                        }
+                    },
+                    "electrolyte_info": {
+                        "name": "electrolyte1",
+                        "uuid": "ELEYT-1",
+                        "preparation_date": "14.08.2023",
+                        "batch": "1",
+                        "location": {
+                            "address": "HIU",
+                            "detail_1": "GloveboxEU",
+                            "detail_2": "AutoBASS WP"
+                        }
+                    },
+                    "cell_location": {
+                        "address": "HIU",
+                        "detail_1": "GloveboxEU",
+                        "detail_2": "AutoBASS WP"
+                    }
+                },
+                "manufacturing_img": "[No{i}]_Cathode_Drop_{date}.jpg",
+                "meta": {
+                    "success": true,
+                    "rating": 2
+                },
+                "temperature": null,
+                "sealing_time": null
+            },
+            {
+                "cell_info": {
+                    "cell_name": "CR2032",
+                    "uuid": "bb2413ee-0a56-41f1-bfff-50e718d59559",
+                    "assembly_date": "2023_08_24",
+                    "batch": "1",
+                    "anode_info": {
+                        "name": "Gr",
+                        "uuid": "LNO-1",
+                        "preparation_date": "10.08.2023",
+                        "batch": "1",
+                        "location": {
+                            "address": "HIU",
+                            "detail_1": "GloveboxEU",
+                            "detail_2": "AutoBASS WP"
+                        }
+                    },
+                    "cathode_info": {
+                        "name": "LNO",
+                        "uuid": "LNO-1",
+                        "preparation_date": "10.08.2023",
+                        "batch": "1",
+                        "location": {
+                            "address": "HIU",
+                            "detail_1": "GloveboxEU",
+                            "detail_2": "AutoBASS WP"
+                        }
+                    },
+                    "electrolyte_info": {
+                        "name": "electrolyte1",
+                        "uuid": "ELEYT-1",
+                        "preparation_date": "14.08.2023",
+                        "batch": "1",
+                        "location": {
+                            "address": "HIU",
+                            "detail_1": "GloveboxEU",
+                            "detail_2": "AutoBASS WP"
+                        }
+                    },
+                    "cell_location": {
+                        "address": "HIU",
+                        "detail_1": "GloveboxEU",
+                        "detail_2": "AutoBASS WP"
+                    }
+                },
+                "manufacturing_img": "[No{i}]_Cathode_Drop_{date}.jpg",
+                "meta": {
+                    "success": true,
+                    "rating": 2
+                },
+                "temperature": null,
+                "sealing_time": null
+            },
+            {
+                "cell_info": {
+                    "cell_name": "CR2032",
+                    "uuid": "c3fb443c-9f9e-4f37-b180-ee06f6cec2cb",
+                    "assembly_date": "2023_08_24",
+                    "batch": "1",
+                    "anode_info": {
+                        "name": "Gr",
+                        "uuid": "LNO-1",
+                        "preparation_date": "10.08.2023",
+                        "batch": "1",
+                        "location": {
+                            "address": "HIU",
+                            "detail_1": "GloveboxEU",
+                            "detail_2": "AutoBASS WP"
+                        }
+                    },
+                    "cathode_info": {
+                        "name": "LNO",
+                        "uuid": "LNO-1",
+                        "preparation_date": "10.08.2023",
+                        "batch": "1",
+                        "location": {
+                            "address": "HIU",
+                            "detail_1": "GloveboxEU",
+                            "detail_2": "AutoBASS WP"
+                        }
+                    },
+                    "electrolyte_info": {
+                        "name": "electrolyte1",
+                        "uuid": "ELEYT-1",
+                        "preparation_date": "14.08.2023",
+                        "batch": "1",
+                        "location": {
+                            "address": "HIU",
+                            "detail_1": "GloveboxEU",
+                            "detail_2": "AutoBASS WP"
+                        }
+                    },
+                    "cell_location": {
+                        "address": "HIU",
+                        "detail_1": "GloveboxEU",
+                        "detail_2": "AutoBASS WP"
+                    }
+                },
+                "manufacturing_img": "[No{i}]_Cathode_Drop_{date}.jpg",
+                "meta": {
+                    "success": true,
+                    "rating": 2
+                },
+                "temperature": null,
+                "sealing_time": null
+            },
+            {
+                "cell_info": {
+                    "cell_name": "CR2032",
+                    "uuid": "63fa8d29-36f9-4e08-9801-ac2d0eb6d028",
+                    "assembly_date": "2023_08_24",
+                    "batch": "1",
+                    "anode_info": {
+                        "name": "Gr",
+                        "uuid": "LNO-1",
+                        "preparation_date": "10.08.2023",
+                        "batch": "1",
+                        "location": {
+                            "address": "HIU",
+                            "detail_1": "GloveboxEU",
+                            "detail_2": "AutoBASS WP"
+                        }
+                    },
+                    "cathode_info": {
+                        "name": "LNO",
+                        "uuid": "LNO-1",
+                        "preparation_date": "10.08.2023",
+                        "batch": "1",
+                        "location": {
+                            "address": "HIU",
+                            "detail_1": "GloveboxEU",
+                            "detail_2": "AutoBASS WP"
+                        }
+                    },
+                    "electrolyte_info": {
+                        "name": "electrolyte1",
+                        "uuid": "ELEYT-1",
+                        "preparation_date": "14.08.2023",
+                        "batch": "1",
+                        "location": {
+                            "address": "HIU",
+                            "detail_1": "GloveboxEU",
+                            "detail_2": "AutoBASS WP"
+                        }
+                    },
+                    "cell_location": {
+                        "address": "HIU",
+                        "detail_1": "GloveboxEU",
+                        "detail_2": "AutoBASS WP"
+                    }
+                },
+                "manufacturing_img": "[No{i}]_Cathode_Drop_{date}.jpg",
+                "meta": {
+                    "success": true,
+                    "rating": 2
+                },
+                "temperature": null,
+                "sealing_time": null
+            },
+            {
+                "cell_info": {
+                    "cell_name": "CR2032",
+                    "uuid": "ea1d3f6b-b70e-48ba-8cb7-e2416d9fbbc3",
+                    "assembly_date": "2023_08_24",
+                    "batch": "1",
+                    "anode_info": {
+                        "name": "Gr",
+                        "uuid": "LNO-1",
+                        "preparation_date": "10.08.2023",
+                        "batch": "1",
+                        "location": {
+                            "address": "HIU",
+                            "detail_1": "GloveboxEU",
+                            "detail_2": "AutoBASS WP"
+                        }
+                    },
+                    "cathode_info": {
+                        "name": "LNO",
+                        "uuid": "LNO-1",
+                        "preparation_date": "10.08.2023",
+                        "batch": "1",
+                        "location": {
+                            "address": "HIU",
+                            "detail_1": "GloveboxEU",
+                            "detail_2": "AutoBASS WP"
+                        }
+                    },
+                    "electrolyte_info": {
+                        "name": "electrolyte1",
+                        "uuid": "ELEYT-1",
+                        "preparation_date": "14.08.2023",
+                        "batch": "1",
+                        "location": {
+                            "address": "HIU",
+                            "detail_1": "GloveboxEU",
+                            "detail_2": "AutoBASS WP"
+                        }
+                    },
+                    "cell_location": {
+                        "address": "HIU",
+                        "detail_1": "GloveboxEU",
+                        "detail_2": "AutoBASS WP"
+                    }
+                },
+                "manufacturing_img": "[No{i}]_Cathode_Drop_{date}.jpg",
+                "meta": {
+                    "success": true,
+                    "rating": 2
+                },
+                "temperature": null,
+                "sealing_time": null
+            },
+            {
+                "cell_info": {
+                    "cell_name": "CR2032",
+                    "uuid": "150f08b5-7b51-44d2-be50-155d0b392c4c",
+                    "assembly_date": "2023_08_24",
+                    "batch": "1",
+                    "anode_info": {
+                        "name": "Gr",
+                        "uuid": "LNO-1",
+                        "preparation_date": "10.08.2023",
+                        "batch": "1",
+                        "location": {
+                            "address": "HIU",
+                            "detail_1": "GloveboxEU",
+                            "detail_2": "AutoBASS WP"
+                        }
+                    },
+                    "cathode_info": {
+                        "name": "LNO",
+                        "uuid": "LNO-1",
+                        "preparation_date": "10.08.2023",
+                        "batch": "1",
+                        "location": {
+                            "address": "HIU",
+                            "detail_1": "GloveboxEU",
+                            "detail_2": "AutoBASS WP"
+                        }
+                    },
+                    "electrolyte_info": {
+                        "name": "electrolyte1",
+                        "uuid": "ELEYT-1",
+                        "preparation_date": "14.08.2023",
+                        "batch": "1",
+                        "location": {
+                            "address": "HIU",
+                            "detail_1": "GloveboxEU",
+                            "detail_2": "AutoBASS WP"
+                        }
+                    },
+                    "cell_location": {
+                        "address": "HIU",
+                        "detail_1": "GloveboxEU",
+                        "detail_2": "AutoBASS WP"
+                    }
+                },
+                "manufacturing_img": "[No{i}]_Cathode_Drop_{date}.jpg",
+                "meta": {
+                    "success": true,
+                    "rating": 2
+                },
+                "temperature": null,
+                "sealing_time": null
+            },
+            {
+                "cell_info": {
+                    "cell_name": "CR2032",
+                    "uuid": "870f9e8f-5ced-4db7-91f7-59ef43f0dd0b",
+                    "assembly_date": "2023_08_24",
+                    "batch": "1",
+                    "anode_info": {
+                        "name": "Gr",
+                        "uuid": "LNO-1",
+                        "preparation_date": "10.08.2023",
+                        "batch": "1",
+                        "location": {
+                            "address": "HIU",
+                            "detail_1": "GloveboxEU",
+                            "detail_2": "AutoBASS WP"
+                        }
+                    },
+                    "cathode_info": {
+                        "name": "LNO",
+                        "uuid": "LNO-1",
+                        "preparation_date": "10.08.2023",
+                        "batch": "1",
+                        "location": {
+                            "address": "HIU",
+                            "detail_1": "GloveboxEU",
+                            "detail_2": "AutoBASS WP"
+                        }
+                    },
+                    "electrolyte_info": {
+                        "name": "electrolyte1",
+                        "uuid": "ELEYT-1",
+                        "preparation_date": "14.08.2023",
+                        "batch": "1",
+                        "location": {
+                            "address": "HIU",
+                            "detail_1": "GloveboxEU",
+                            "detail_2": "AutoBASS WP"
+                        }
+                    },
+                    "cell_location": {
+                        "address": "HIU",
+                        "detail_1": "GloveboxEU",
+                        "detail_2": "AutoBASS WP"
+                    }
+                },
+                "manufacturing_img": "[No{i}]_Cathode_Drop_{date}.jpg",
+                "meta": {
+                    "success": true,
+                    "rating": 2
+                },
+                "temperature": null,
+                "sealing_time": null
+            },
+            {
+                "cell_info": {
+                    "cell_name": "CR2032",
+                    "uuid": "de309fbc-c3ec-4bc1-9431-a919b18901dc",
+                    "assembly_date": "2023_08_24",
+                    "batch": "1",
+                    "anode_info": {
+                        "name": "Gr",
+                        "uuid": "LNO-1",
+                        "preparation_date": "10.08.2023",
+                        "batch": "1",
+                        "location": {
+                            "address": "HIU",
+                            "detail_1": "GloveboxEU",
+                            "detail_2": "AutoBASS WP"
+                        }
+                    },
+                    "cathode_info": {
+                        "name": "LNO",
+                        "uuid": "LNO-1",
+                        "preparation_date": "10.08.2023",
+                        "batch": "1",
+                        "location": {
+                            "address": "HIU",
+                            "detail_1": "GloveboxEU",
+                            "detail_2": "AutoBASS WP"
+                        }
+                    },
+                    "electrolyte_info": {
+                        "name": "electrolyte1",
+                        "uuid": "ELEYT-1",
+                        "preparation_date": "14.08.2023",
+                        "batch": "1",
+                        "location": {
+                            "address": "HIU",
+                            "detail_1": "GloveboxEU",
+                            "detail_2": "AutoBASS WP"
+                        }
+                    },
+                    "cell_location": {
+                        "address": "HIU",
+                        "detail_1": "GloveboxEU",
+                        "detail_2": "AutoBASS WP"
+                    }
+                },
+                "manufacturing_img": "[No{i}]_Cathode_Drop_{date}.jpg",
+                "meta": {
+                    "success": true,
+                    "rating": 2
+                },
+                "temperature": null,
+                "sealing_time": null
+            }
+        ],
+        "batch_id": "851dee5f-9ade-4608-9658-cc9074efdff1"
+    },
+    "quantity": "cell_assembly",
+    "method": [
+        "autobass_assembly"
+    ],
+    "parameters": {
+        "autobass_assembly": {
+            "cell": {
+                "battery_chemistry": {
+                    "electrolyte": [
+                        {
+                            "chemical": {
+                                "SMILES": "w",
+                                "InChIKey": "ww"
+                            },
+                            "fraction": 1.0,
+                            "fraction_type": "molPerMol"
+                        }
+                    ],
+                    "anode": {
+                        "material": [
+                            {
+                                "chemical": {
+                                    "SMILES": "w",
+                                    "InChIKey": "ww"
+                                },
+                                "fraction": 1.0,
+                                "fraction_type": "molPerMol"
+                            }
+                        ],
+                        "mass_loading": 1.0,
+                        "size": 1.7663
+                    },
+                    "cathode": {
+                        "material": [
+                            {
+                                "chemical": {
+                                    "SMILES": "w",
+                                    "InChIKey": "ww"
+                                },
+                                "fraction": 1.0,
+                                "fraction_type": "molPerMol"
+                            }
+                        ],
+                        "mass_loading": 1.0,
+                        "size": 1.5386
+                    }
+                },
+                "separator": {
+                    "material": "Glasfiber",
+                    "size": 2.0096
+                },
+                "electrolyte_volume": 35.0
+            },
+            "batch_volume": 8,
+            "cell_info": {
+                "cell_name": "CR2032",
+                "uuid": "CELL-1",
+                "assembly_date": "14.08.2023",
+                "batch": "1",
+                "anode_info": {
+                    "name": "Gr",
+                    "uuid": "LNO-1",
+                    "preparation_date": "10.08.2023",
+                    "batch": "1",
+                    "location": {
+                        "address": "HIU",
+                        "detail_1": "GloveboxEU",
+                        "detail_2": "AutoBASS WP"
+                    }
+                },
+                "cathode_info": {
+                    "name": "LNO",
+                    "uuid": "LNO-1",
+                    "preparation_date": "10.08.2023",
+                    "batch": "1",
+                    "location": {
+                        "address": "HIU",
+                        "detail_1": "GloveboxEU",
+                        "detail_2": "AutoBASS WP"
+                    }
+                },
+                "electrolyte_info": {
+                    "name": "electrolyte1",
+                    "uuid": "ELEYT-1",
+                    "preparation_date": "14.08.2023",
+                    "batch": "1",
+                    "location": {
+                        "address": "HIU",
+                        "detail_1": "GloveboxEU",
+                        "detail_2": "AutoBASS WP"
+                    }
+                },
+                "cell_location": {
+                    "address": "HIU",
+                    "detail_1": "GloveboxEU",
+                    "detail_2": "AutoBASS WP"
+                }
+            }
+        }
+    },
+    "tenant_uuid": "df70e82052a14afea46e249c23fbed46",
+    "request_uuid": "d07a7734-b9c6-438b-9942-498b5f179d22"
+}

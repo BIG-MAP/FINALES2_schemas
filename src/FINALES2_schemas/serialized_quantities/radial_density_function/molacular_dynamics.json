@@ -1,0 +1,151 @@
+{
+  "quantity": "radial_density_function",
+  "method": "molacular_dynamics",
+  "json_schema_specifications": {
+    "$defs": {
+      "Chemical": {
+        "description": "Subclass",
+        "properties": {
+          "SMILES": {
+            "description": "A SMILES string representing the chemical.",
+            "title": "Smiles",
+            "type": "string"
+          },
+          "InChIKey": {
+            "description": "The hashed standard International Chemical Identifier of the chemical to ensure machine-readability.",
+            "title": "Inchikey",
+            "type": "string"
+          }
+        },
+        "required": [
+          "SMILES",
+          "InChIKey"
+        ],
+        "title": "Chemical",
+        "type": "object"
+      },
+      "FormulationComponent": {
+        "description": "This class shall be used when referring to chemicals as a component in a formulation.\n    When assembling a formulation based on FormulationComponents, consider, that it\n    might be required to use the same fraction type for all the chemicals.\n    ",
+        "properties": {
+          "chemical": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/Chemical"
+              }
+            ],
+            "description": "The chemical, which shall be described as a component in a solution ."
+          },
+          "fraction": {
+            "description": "The unitless fraction of the chemical in the total of the mixture.",
+            "title": "Fraction",
+            "type": "number"
+          },
+          "fraction_type": {
+            "description": "A string defining, what kind of a fraction is given in the formulation. This can be for example molar fractions, volume fractions, mass fractions,.... At the moment only molar fractions are supported.",
+            "title": "Fraction Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "chemical",
+          "fraction",
+          "fraction_type"
+        ],
+        "title": "FormulationComponent",
+        "type": "object"
+      }
+    },
+    "description": "\n    Parameters to be used with the following quantities:\n    `radial_density_function` - `molecular_dynamics_RDF`\n    ",
+    "properties": {
+      "formulation": {
+        "description": "The formulation to be simulated. This is required to be provided in units of mol per mol.",
+        "items": {
+          "$ref": "#/$defs/FormulationComponent"
+        },
+        "title": "Formulation",
+        "type": "array",
+        "unit": "dimensionless"
+      },
+      "temperature": {
+        "description": "The temperature, at which the simulation shall be performed.",
+        "title": "Temperature",
+        "type": "number",
+        "unit": "kelvin"
+      },
+      "estimated_density": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "An inital guess for the density of the formulation, if available.",
+        "title": "Estimated Density",
+        "unit": "gram / centimeter ** 3"
+      }
+    },
+    "required": [
+      "formulation",
+      "temperature"
+    ],
+    "title": "RDFInput",
+    "type": "object"
+  },
+  "json_schema_result_output": {
+    "description": "\n    Results returned from the following quantities:\n    'radial_density_function' - 'molecular_dynamics_RDF'\n    ",
+    "properties": {
+      "radius": {
+        "description": "The radius at which atoms of the respecive species appear.",
+        "items": {
+          "type": "number"
+        },
+        "title": "Radius",
+        "type": "array",
+        "unit": "angstrom"
+      },
+      "pair_title": {
+        "description": "The names of the pairs of atoms considered.",
+        "items": {
+          "type": "string"
+        },
+        "title": "Pair Title",
+        "type": "array"
+      },
+      "RDF": {
+        "description": "Quotient between the local particle density at radius r and the average density of the system.",
+        "items": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "title": "Rdf",
+        "type": "array"
+      },
+      "cell_volume": {
+        "description": "The volume of the cell under concideration. Unit: angstrom ** 3",
+        "title": "Cell Volume",
+        "type": "number",
+        "unit": "angstrom ** 3"
+      },
+      "cell_formula": {
+        "description": "The composition of the considered cell reporting the number of atoms per type contained in the cell, e.g. Li16 O600 P16 F96 C600 H600",
+        "title": "Cell Formula",
+        "type": "string"
+      }
+    },
+    "required": [
+      "radius",
+      "pair_title",
+      "RDF",
+      "cell_volume",
+      "cell_formula"
+    ],
+    "title": "RDFOutput",
+    "type": "object"
+  },
+  "is_active": true
+}

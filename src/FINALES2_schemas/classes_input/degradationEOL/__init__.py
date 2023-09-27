@@ -1,1 +1,1 @@
-from .degradation_model import DegradationModelInput
+from .minimal_input import DegradationEOLInput

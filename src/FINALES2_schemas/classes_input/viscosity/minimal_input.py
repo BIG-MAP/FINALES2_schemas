@@ -5,13 +5,14 @@ from FINALES2_schemas.classes_common import FormulationComponent, unit_registry
 class ViscosityInput(BaseModel):
     """
     Parameters to be used with the following quantities:
-    `viscosity` - `rollingBallViscosimetry`
+    `viscosity` - `rolling_ball_viscometry`
     """
-    formulation:FormulationComponent = Field(
+    formulation:list[FormulationComponent] = Field(
         description=("This is a formulation defining the Chemicals contained in the "
                     "sample and their fraction in the total mixture.")
     )
     temperature:Optional[float] = Field(
+        default=None,
         unit=str(unit_registry.kelvin),
         description=("This is the temperature of measuring cell. "
                      f"Unit: {str(unit_registry.kelvin)}")

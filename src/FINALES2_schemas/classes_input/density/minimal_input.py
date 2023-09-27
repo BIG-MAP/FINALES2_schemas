@@ -8,11 +8,12 @@ class DensityInput(BaseModel):
     `density` - `vibratingTubeDensimetry`
     `density` - `molecularDynamicsSimulation`
     """
-    formulation:FormulationComponent = Field(
+    formulation:list[FormulationComponent] = Field(
         description=("This is a formulation defining the Chemicals contained in the "
                     "sample and their fraction in the total mixture.")
     )
     temperature: Optional[float] = Field(
+        default=None,
         unit=str(unit_registry.kelvin),
         description=("This is the temperature of measuring cell. "
                      f"Unit: {str(unit_registry.kelvin)}")

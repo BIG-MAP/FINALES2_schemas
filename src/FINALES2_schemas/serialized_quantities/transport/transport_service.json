@@ -1,0 +1,148 @@
+{
+  "quantity": "transport",
+  "method": "transport_service",
+  "json_schema_specifications": {
+    "$defs": {
+      "Location": {
+        "description": " The location providing information on where to find physical samples or\n    equipment.",
+        "properties": {
+          "address": {
+            "description": "The physical address, where the object can be found. Depending on the usecase, this may be an official address or a name of an instute or similar. The default should be an address.",
+            "title": "Address",
+            "type": "string"
+          },
+          "detail_1": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "A more detailed description of a location. This may be e.g. a specific laboratory in a building, a desk in an office or a device or a cabinet.",
+            "title": "Detail 1"
+          },
+          "detail_2": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Another level of detail for a location. This may be e.g. a bench in the laboratory, a shelf in a cabinet  or a specific port in a machine.",
+            "title": "Detail 2"
+          }
+        },
+        "required": [
+          "address"
+        ],
+        "title": "Location",
+        "type": "object"
+      }
+    },
+    "description": "\n    Parameters to be used with the following quantities:\n    `transport` - `transport_service`\n    ",
+    "properties": {
+      "origin": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/Location"
+          }
+        ],
+        "description": "The location, from where the physical object shall be picked up."
+      },
+      "destination": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/Location"
+          }
+        ],
+        "description": "The destination, where the physical object is needed."
+      }
+    },
+    "required": [
+      "origin",
+      "destination"
+    ],
+    "title": "TransportInput",
+    "type": "object"
+  },
+  "json_schema_result_output": {
+    "$defs": {
+      "Location": {
+        "description": " The location providing information on where to find physical samples or\n    equipment.",
+        "properties": {
+          "address": {
+            "description": "The physical address, where the object can be found. Depending on the usecase, this may be an official address or a name of an instute or similar. The default should be an address.",
+            "title": "Address",
+            "type": "string"
+          },
+          "detail_1": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "A more detailed description of a location. This may be e.g. a specific laboratory in a building, a desk in an office or a device or a cabinet.",
+            "title": "Detail 1"
+          },
+          "detail_2": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Another level of detail for a location. This may be e.g. a bench in the laboratory, a shelf in a cabinet  or a specific port in a machine.",
+            "title": "Detail 2"
+          }
+        },
+        "required": [
+          "address"
+        ],
+        "title": "Location",
+        "type": "object"
+      }
+    },
+    "description": "\n    Results returned from the following quantities:\n    'transport' - 'service'\n    ",
+    "properties": {
+      "success": {
+        "description": "An information, whether the transport was successful.",
+        "title": "Success",
+        "type": "boolean"
+      },
+      "actual_new_location": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/Location"
+          }
+        ],
+        "description": "The new location ot the physical object."
+      },
+      "executant": {
+        "description": "The person or device performing the transportation task.",
+        "title": "Executant",
+        "type": "string"
+      }
+    },
+    "required": [
+      "success",
+      "actual_new_location",
+      "executant"
+    ],
+    "title": "TransportOutput",
+    "type": "object"
+  },
+  "is_active": true
+}

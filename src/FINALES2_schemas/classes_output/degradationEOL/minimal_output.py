@@ -1,12 +1,9 @@
 from pydantic import BaseModel, Field
-from FINALES2_schemas.classes_common import MethodMeta, unit_registry
+from FINALES2_schemas.classes_common import MethodMeta, unit_registry, CellInfo
 
 class DegradationEOLOutput(BaseModel):
     """Results returned from the following quantities:
-    'degradationEOL' - degradationModel
-
-    :param BaseModel: _description_
-    :type BaseModel: _type_
+    'degradationEOL' - 'degradationModel'
     """
     end_of_life:int = Field(
         description=("The predicted end of life for the cell.")
@@ -34,3 +31,6 @@ class DegradationEOLOutput(BaseModel):
                      "generate data for different quantities, for which the methods "
                      "may fail individually.")
     )
+    cell_info:CellInfo = Field(
+        description="Information about the cell provided by AutoBass."
+        )

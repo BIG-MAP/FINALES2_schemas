@@ -2,270 +2,242 @@
   "quantity": "degradationEOL",
   "method": "degradation_model",
   "json_schema_specifications": {
-    "title": "DegradationModelInput",
-    "description": "The parameters used by the following method\n'degradationEOL' - degradationModel\n\n:param BaseModel: _description_\n:type BaseModel: _type_",
-    "type": "object",
-    "properties": {
-      "chemistry": {
-        "title": "Chemistry",
-        "description": "The description of the chemicals involved in all the battery cell.",
-        "allOf": [
-          {
-            "$ref": "#/definitions/BatteryChemistry"
-          }
-        ]
-      },
-      "input_cycles": {
-        "title": "Input Cycles",
-        "description": "The number of cycles provided as an input to the model.",
-        "type": "integer"
-      },
-      "average_charging_rate": {
-        "title": "Average Charging Rate",
-        "description": "The average C-rate used for charging of the cell in the cycles provided as an input. Unit: 1 / hour",
-        "unit": "1 / hour",
-        "type": "number"
-      },
-      "maximum_charging_rate": {
-        "title": "Maximum Charging Rate",
-        "description": "The maximum C-rate used for charging of the cell in the cycles provided as an input. Unit: 1 / hour",
-        "unit": "1 / hour",
-        "type": "number"
-      },
-      "minimum_charging_rate": {
-        "title": "Minimum Charging Rate",
-        "description": "The minimum C-rate used for charging of the cell in the cycles provided as an input. Unit: 1 / hour",
-        "unit": "1 / hour",
-        "type": "number"
-      },
-      "delta_coulombic_efficiency": {
-        "title": "Delta Coulombic Efficiency",
-        "description": "The difference in coulombic efficiency between cycle x and 10.",
-        "type": "number"
-      },
-      "voltage_gap_charge_discharge": {
-        "title": "Voltage Gap Charge Discharge",
-        "description": "The difference of the voltage gap between charge and discharge between cycle x and 10. Unit: volt",
-        "unit": "volt",
-        "type": "number"
-      },
-      "capacity_vector_variance": {
-        "title": "Capacity Vector Variance",
-        "description": "The variance of the difference between the Q(V) curves between cycle x and 10.",
-        "type": "number"
-      },
-      "data_path": {
-        "title": "Data Path",
-        "description": "The path, where the data wo work on can be accessed. This is relevant as the data files are large and cannot easily be sent via FINALES.",
-        "type": "string"
-      }
-    },
-    "required": [
-      "chemistry",
-      "input_cycles",
-      "average_charging_rate",
-      "maximum_charging_rate",
-      "minimum_charging_rate",
-      "delta_coulombic_efficiency",
-      "voltage_gap_charge_discharge",
-      "capacity_vector_variance",
-      "data_path"
-    ],
-    "definitions": {
-      "Chemical": {
-        "title": "Chemical",
-        "description": "Subclass",
-        "type": "object",
-        "properties": {
-          "SMILES": {
-            "title": "Smiles",
-            "description": "A SMILES string representing the chemical.",
-            "type": "string"
-          },
-          "InChIKey": {
-            "title": "Inchikey",
-            "description": "The hashed standard International Chemical Identifier of the chemical to ensure machine-readability.",
-            "type": "string"
-          }
-        },
-        "required": [
-          "SMILES",
-          "InChIKey"
-        ]
-      },
-      "FormulationComponent": {
-        "title": "FormulationComponent",
-        "description": "This class shall be used when referring to chemicals as a component in a formulation.\nWhen assembling a formulation based on FormulationComponents, consider, that it\nmight be required to use the same fraction type for all the chemicals.",
-        "type": "object",
-        "properties": {
-          "chemical": {
-            "title": "Chemical",
-            "description": "The chemical, which shall be described as a component in a solution .",
-            "allOf": [
-              {
-                "$ref": "#/definitions/Chemical"
-              }
-            ]
-          },
-          "fraction": {
-            "title": "Fraction",
-            "description": "The unitless fraction of the chemical in the total of the mixture.",
-            "type": "number"
-          },
-          "fraction_type": {
-            "title": "Fraction Type",
-            "description": "A string defining, what kind of a fraction is given in the formulation. This can be for example molar fractions, volume fractions, mass fractions,.... At the moment only molar fractions are supported.",
-            "type": "string"
-          }
-        },
-        "required": [
-          "chemical",
-          "fraction",
-          "fraction_type"
-        ]
-      },
-      "Electrode": {
-        "title": "Electrode",
-        "description": "The definition of an electrode.\n\n:param BaseModel: _description_\n:type BaseModel: _type_",
-        "type": "object",
-        "properties": {
-          "material": {
-            "title": "Material",
-            "description": "The description of the composition of the electrode.",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/FormulationComponent"
-            }
-          },
-          "mass_loading": {
-            "title": "Mass Loading",
-            "description": "The capacity per unit area of the electrode. Unit: milliampere_hour / centimeter ** 2",
-            "unit": "milliampere_hour / centimeter ** 2",
-            "type": "number"
-          },
-          "current_collector": {
-            "title": "Current Collector",
-            "description": "A designation of the current collector material. E.g. 'copper' or 'aluminium'.",
-            "type": "string"
-          }
-        },
-        "required": [
-          "material",
-          "mass_loading",
-          "current_collector"
-        ]
-      },
+    "$defs": {
       "BatteryChemistry": {
-        "title": "BatteryChemistry",
         "description": "A description of the chemistry of a cell.\n    ",
-        "type": "object",
         "properties": {
           "electrolyte": {
-            "title": "Electrolyte",
             "description": "The definition of the composition of the electrolyte used in the cells, for which the prediction shall be made",
-            "type": "array",
             "items": {
-              "$ref": "#/definitions/FormulationComponent"
-            }
+              "$ref": "#/$defs/FormulationComponent"
+            },
+            "title": "Electrolyte",
+            "type": "array"
           },
           "anode": {
-            "title": "Anode",
-            "description": "The definition of the anode.",
-            "allOf": [
+            "anyOf": [
               {
-                "$ref": "#/definitions/Electrode"
+                "$ref": "#/$defs/Electrode"
+              },
+              {
+                "type": "null"
               }
-            ]
+            ],
+            "default": null,
+            "description": "The definition of the anode."
           },
           "cathode": {
-            "title": "Cathode",
-            "description": "The definition of the cathode.",
-            "allOf": [
+            "anyOf": [
               {
-                "$ref": "#/definitions/Electrode"
+                "$ref": "#/$defs/Electrode"
+              },
+              {
+                "type": "null"
               }
-            ]
+            ],
+            "default": null,
+            "description": "The definition of the cathode."
           }
         },
         "required": [
-          "electrolyte",
-          "anode",
-          "cathode"
-        ]
-      }
-    }
-  },
-  "json_schema_result_output": {
-    "title": "DegradationModelOutput",
-    "type": "object",
-    "properties": {
-      "run_info": {
-        "title": "Run Info",
-        "description": "The information regarding the formulation and the internal reference, which is common for all data generated in this run of the method.",
-        "allOf": [
-          {
-            "$ref": "#/definitions/RunInfo"
-          }
-        ]
+          "electrolyte"
+        ],
+        "title": "BatteryChemistry",
+        "type": "object"
       },
-      "degradationEOL": {
-        "title": "Degradationeol",
-        "description": "The data corresponding to the end of life for the cell and the degradation trajectory, each with the respective uncertainty.",
-        "allOf": [
-          {
-            "$ref": "#/definitions/DegradationEOLOutput"
+      "CellInfo": {
+        "description": "Additional information about a cell, which is relevant for documentation\n    purposes",
+        "properties": {
+          "cell_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "A human readable name of the cell.",
+            "title": "Cell Name"
+          },
+          "uuid": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "A unique identifier assigned to this cell in this run.",
+            "title": "Uuid"
+          },
+          "assembly_date": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The date when the cell was made.",
+            "title": "Assembly Date"
+          },
+          "batch": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "A batch number for the cells, if it is available.",
+            "title": "Batch"
+          },
+          "anode_info": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/FormulationInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The metadata related to the anode used in the cell."
+          },
+          "cathode_info": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/FormulationInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The metadata related to the cathode used in the cell."
+          },
+          "electrolyte_info": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/FormulationInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The metadata related to the electrolyte used in the cell."
+          },
+          "cell_location": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/Location"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The location, where the physical cell can be found, which corresponds to this specification."
           }
-        ]
-      }
-    },
-    "required": [
-      "run_info",
-      "degradationEOL"
-    ],
-    "definitions": {
+        },
+        "title": "CellInfo",
+        "type": "object"
+      },
       "Chemical": {
-        "title": "Chemical",
         "description": "Subclass",
-        "type": "object",
         "properties": {
           "SMILES": {
-            "title": "Smiles",
             "description": "A SMILES string representing the chemical.",
+            "title": "Smiles",
             "type": "string"
           },
           "InChIKey": {
-            "title": "Inchikey",
             "description": "The hashed standard International Chemical Identifier of the chemical to ensure machine-readability.",
+            "title": "Inchikey",
             "type": "string"
           }
         },
         "required": [
           "SMILES",
           "InChIKey"
-        ]
+        ],
+        "title": "Chemical",
+        "type": "object"
+      },
+      "Electrode": {
+        "description": "The definition of an electrode.\n\n    :param BaseModel: _description_\n    :type BaseModel: _type_\n    ",
+        "properties": {
+          "material": {
+            "description": "The description of the composition of the electrode.",
+            "items": {
+              "$ref": "#/$defs/FormulationComponent"
+            },
+            "title": "Material",
+            "type": "array"
+          },
+          "mass_loading": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The capacity per unit area of the electrode. Unit: milliampere_hour / centimeter ** 2",
+            "title": "Mass Loading",
+            "unit": "milliampere_hour / centimeter ** 2"
+          },
+          "size": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The area of the electrode, which is cut to a circular shape.",
+            "title": "Size",
+            "unit": "centimeter ** 2"
+          }
+        },
+        "required": [
+          "material"
+        ],
+        "title": "Electrode",
+        "type": "object"
       },
       "FormulationComponent": {
-        "title": "FormulationComponent",
-        "description": "This class shall be used when referring to chemicals as a component in a formulation.\nWhen assembling a formulation based on FormulationComponents, consider, that it\nmight be required to use the same fraction type for all the chemicals.",
-        "type": "object",
+        "description": "This class shall be used when referring to chemicals as a component in a formulation.\n    When assembling a formulation based on FormulationComponents, consider, that it\n    might be required to use the same fraction type for all the chemicals.\n    ",
         "properties": {
           "chemical": {
-            "title": "Chemical",
-            "description": "The chemical, which shall be described as a component in a solution .",
             "allOf": [
               {
-                "$ref": "#/definitions/Chemical"
+                "$ref": "#/$defs/Chemical"
               }
-            ]
+            ],
+            "description": "The chemical, which shall be described as a component in a solution ."
           },
           "fraction": {
-            "title": "Fraction",
             "description": "The unitless fraction of the chemical in the total of the mixture.",
+            "title": "Fraction",
             "type": "number"
           },
           "fraction_type": {
-            "title": "Fraction Type",
             "description": "A string defining, what kind of a fraction is given in the formulation. This can be for example molar fractions, volume fractions, mass fractions,.... At the moment only molar fractions are supported.",
+            "title": "Fraction Type",
             "type": "string"
           }
         },
@@ -273,201 +245,530 @@
           "chemical",
           "fraction",
           "fraction_type"
-        ]
+        ],
+        "title": "FormulationComponent",
+        "type": "object"
       },
       "FormulationInfo": {
-        "title": "FormulationInfo",
-        "description": "Additional information about a formulation, which is relevant for documentation\npurposes",
-        "type": "object",
+        "description": "Additional information about a formulation, which is relevant for documentation\n    purposes",
         "properties": {
           "name": {
-            "title": "Name",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
             "description": "A human readable name of the formulation.",
-            "type": "string"
+            "title": "Name"
           },
           "uuid": {
-            "title": "Uuid",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
             "description": "A unique identifier assigned to this formulation in this run.",
-            "type": "string",
-            "format": "uuid"
+            "title": "Uuid"
           },
           "preparation_date": {
-            "title": "Preparation Date",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
             "description": "The date when the formulation was prepared. For commercial formulations, the manufacturing date may be used.",
-            "type": "string",
-            "format": "date"
+            "title": "Preparation Date"
           },
           "batch": {
-            "title": "Batch",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
             "description": "A batch number for the formulation, if it is available.",
+            "title": "Batch"
+          },
+          "location": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/Location"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The location, where the physical formulation can be found, which corresponds to this specification."
+          }
+        },
+        "title": "FormulationInfo",
+        "type": "object"
+      },
+      "Location": {
+        "description": " The location providing information on where to find physical samples or\n    equipment.",
+        "properties": {
+          "address": {
+            "description": "The physical address, where the object can be found. Depending on the usecase, this may be an official address or a name of an instute or similar. The default should be an address.",
+            "title": "Address",
+            "type": "string"
+          },
+          "detail_1": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "A more detailed description of a location. This may be e.g. a specific laboratory in a building, a desk in an office or a device or a cabinet.",
+            "title": "Detail 1"
+          },
+          "detail_2": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Another level of detail for a location. This may be e.g. a bench in the laboratory, a shelf in a cabinet  or a specific port in a machine.",
+            "title": "Detail 2"
+          }
+        },
+        "required": [
+          "address"
+        ],
+        "title": "Location",
+        "type": "object"
+      }
+    },
+    "description": "The parameters used by the following method\n    'degradationEOL' - degradationModel\n    ",
+    "properties": {
+      "battery_chemistry": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/BatteryChemistry"
+          }
+        ],
+        "description": "The description of the chemicals involved in all the battery cell."
+      },
+      "input_cycles": {
+        "anyOf": [
+          {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "A list of the capacity values associated with the cycles used as the input for the model.",
+        "title": "Input Cycles"
+      },
+      "average_charging_rate": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "The average C-rate used for charging of the cell in the cycles provided as an input. Unit: 1 / hour",
+        "title": "Average Charging Rate",
+        "unit": "1 / hour"
+      },
+      "maximum_charging_rate": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "The maximum C-rate used for charging of the cell in the cycles provided as an input. Unit: 1 / hour",
+        "title": "Maximum Charging Rate",
+        "unit": "1 / hour"
+      },
+      "minimum_charging_rate": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "The minimum C-rate used for charging of the cell in the cycles provided as an input. Unit: 1 / hour",
+        "title": "Minimum Charging Rate",
+        "unit": "1 / hour"
+      },
+      "delta_coulombic_efficiency": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "The difference in coulombic efficiency between cycle x and 10.",
+        "title": "Delta Coulombic Efficiency"
+      },
+      "voltage_gap_charge_discharge": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "The difference of the voltage gap between charge and discharge between cycle x and 10. Unit: volt",
+        "title": "Voltage Gap Charge Discharge",
+        "unit": "volt"
+      },
+      "capacity_vector_variance": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "The variance of the difference between the Q(V) curves between cycle x and 10.",
+        "title": "Capacity Vector Variance"
+      },
+      "cell_info": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/CellInfo"
+          }
+        ],
+        "description": "Information about the cell provided by AutoBass."
+      }
+    },
+    "required": [
+      "battery_chemistry",
+      "cell_info"
+    ],
+    "title": "DegradationEOLInput",
+    "type": "object"
+  },
+  "json_schema_result_output": {
+    "$defs": {
+      "CellInfo": {
+        "description": "Additional information about a cell, which is relevant for documentation\n    purposes",
+        "properties": {
+          "cell_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "A human readable name of the cell.",
+            "title": "Cell Name"
+          },
+          "uuid": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "A unique identifier assigned to this cell in this run.",
+            "title": "Uuid"
+          },
+          "assembly_date": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The date when the cell was made.",
+            "title": "Assembly Date"
+          },
+          "batch": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "A batch number for the cells, if it is available.",
+            "title": "Batch"
+          },
+          "anode_info": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/FormulationInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The metadata related to the anode used in the cell."
+          },
+          "cathode_info": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/FormulationInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The metadata related to the cathode used in the cell."
+          },
+          "electrolyte_info": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/FormulationInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The metadata related to the electrolyte used in the cell."
+          },
+          "cell_location": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/Location"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The location, where the physical cell can be found, which corresponds to this specification."
+          }
+        },
+        "title": "CellInfo",
+        "type": "object"
+      },
+      "Chemical": {
+        "description": "Subclass",
+        "properties": {
+          "SMILES": {
+            "description": "A SMILES string representing the chemical.",
+            "title": "Smiles",
+            "type": "string"
+          },
+          "InChIKey": {
+            "description": "The hashed standard International Chemical Identifier of the chemical to ensure machine-readability.",
+            "title": "Inchikey",
             "type": "string"
           }
-        }
+        },
+        "required": [
+          "SMILES",
+          "InChIKey"
+        ],
+        "title": "Chemical",
+        "type": "object"
       },
       "ChemicalInfo": {
-        "title": "ChemicalInfo",
-        "description": "Additional information about a chemical, which is relevant for documentation\npurposes",
-        "type": "object",
+        "description": "Additional information about a chemical, which is relevant for documentation\n    purposes",
         "properties": {
           "name": {
-            "title": "Name",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
             "description": "A human readable name of the chemical, to which this information is referring.",
-            "type": "string"
+            "title": "Name"
           },
           "molar_mass": {
-            "title": "Molar Mass",
-            "description": "The molar mass of the chemical and the correcponding uncertainty. This may be a measured quantity or a literature value. It is needed to convert between volumetric and molar ratios and this field serves to report the used value. Unit: gram / mole",
-            "unit": "gram / mole",
-            "type": "array",
-            "minItems": 2,
-            "maxItems": 2,
-            "items": [
+            "anyOf": [
               {
-                "type": "number"
+                "maxItems": 2,
+                "minItems": 2,
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "type": "array"
               },
               {
-                "type": "number"
+                "type": "null"
               }
-            ]
+            ],
+            "default": null,
+            "description": "The molar mass of the chemical and the correcponding uncertainty. This may be a measured quantity or a literature value. It is needed to convert between volumetric and molar ratios and this field serves to report the used value. Unit: gram / mole",
+            "title": "Molar Mass",
+            "unit": "gram / mole"
           },
           "density": {
-            "title": "Density",
-            "description": "The density of the chemical and the correcponding uncertainty. This may be a measured quantity or a literature value. It is needed to convert between volumetric and molar ratios and this field serves to report the used value. Unit: centimeter ** 3 * gram",
-            "unit": "centimeter ** 3 * gram",
-            "type": "array",
-            "minItems": 2,
-            "maxItems": 2,
-            "items": [
+            "anyOf": [
               {
-                "type": "number"
+                "maxItems": 2,
+                "minItems": 2,
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "type": "array"
               },
               {
-                "type": "number"
+                "type": "null"
               }
-            ]
+            ],
+            "default": null,
+            "description": "The density of the chemical and the correcponding uncertainty. This may be a measured quantity or a literature value. It is needed to convert between volumetric and molar ratios and this field serves to report the used value. Unit: centimeter ** 3 * gram",
+            "title": "Density",
+            "unit": "centimeter ** 3 * gram"
           },
           "batch": {
-            "title": "Batch",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
             "description": "A batch number for the chemical used, if it is available.",
-            "type": "string"
+            "title": "Batch"
           },
           "manufacturer": {
-            "title": "Manufacturer",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
             "description": "The manufacturer of the chemical, if it is available.",
-            "type": "string"
+            "title": "Manufacturer"
           },
           "manufacturing_date": {
-            "title": "Manufacturing Date",
-            "description": "The date when the chemical was manufactured.",
-            "type": "string",
-            "format": "date"
-          }
-        }
-      },
-      "RunInfo": {
-        "title": "RunInfo",
-        "description": "Metadata for a run of a method. This information may apply to all samples\nprocessed in the respective run.",
-        "type": "object",
-        "properties": {
-          "formulation": {
-            "title": "Formulation",
-            "description": "This is a formulation defining the Chemicals contained in thesample and their fraction in the total mixture.",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/FormulationComponent"
-            }
-          },
-          "internal_reference": {
-            "title": "Internal Reference",
-            "description": "This field is an internal ID identifying this run of the method. In experimental setups, this may reference to an ID of the sample.",
-            "type": "string",
-            "format": "uuid"
-          },
-          "formulation_info": {
-            "title": "Formulation Info",
-            "description": "This is the metadata concerning the formulation relevant for documentation.",
-            "allOf": [
+            "anyOf": [
               {
-                "$ref": "#/definitions/FormulationInfo"
+                "type": "string"
+              },
+              {
+                "type": "null"
               }
-            ]
-          },
-          "chemicals_info": {
-            "title": "Chemicals Info",
-            "description": "This is a dictionary of metadata of the chemicals relevant for documentation. The keys are InChIKeys of the chemicals contained in the formulation and the values are ChemicalInfo objects.",
-            "type": "object",
-            "additionalProperties": {
-              "$ref": "#/definitions/ChemicalInfo"
-            }
+            ],
+            "default": null,
+            "description": "The date when the chemical was manufactured.",
+            "title": "Manufacturing Date"
           }
         },
-        "required": [
-          "formulation",
-          "internal_reference"
-        ]
-      },
-      "MethodMeta": {
-        "title": "MethodMeta",
-        "description": "Additional information obtained from a method summarizing information, whether \nthe method was successfully run and what the rating for the returned data is.",
-        "type": "object",
-        "properties": {
-          "success": {
-            "title": "Success",
-            "description": "This reports, if the method finished successfully.",
-            "type": "boolean"
-          },
-          "rating": {
-            "title": "Rating",
-            "description": "This field serves to rate the quality of the result from the tenant side. It shall serve as a support for the recieving party upon evaluating the trustworthiness of the result. It shall range from 0 (lowest) to 5 (highest).",
-            "type": "integer"
-          }
-        },
-        "required": [
-          "success",
-          "rating"
-        ]
+        "title": "ChemicalInfo",
+        "type": "object"
       },
       "DegradationEOLOutput": {
-        "title": "DegradationEOLOutput",
-        "description": "Results returned from the following quantities:\n'degradationEOL' - degradationModel\n\n:param BaseModel: _description_\n:type BaseModel: _type_",
-        "type": "object",
+        "description": "Results returned from the following quantities:\n    'degradationEOL' - 'degradationModel'\n    ",
         "properties": {
           "end_of_life": {
-            "title": "End Of Life",
             "description": "The predicted end of life for the cell.",
+            "title": "End Of Life",
             "type": "integer"
           },
           "end_of_life_uncertainty": {
-            "title": "End Of Life Uncertainty",
             "description": "The uncertainty of the predicted end of life for the cell.",
+            "title": "End Of Life Uncertainty",
             "type": "number"
           },
           "capacity_trajectory": {
-            "title": "Capacity Trajectory",
             "description": "The predicted capacity evolution for future cycles. Unit: milliampere_hour",
-            "unit": "milliampere_hour",
-            "type": "array",
             "items": {
               "type": "number"
-            }
+            },
+            "title": "Capacity Trajectory",
+            "type": "array",
+            "unit": "milliampere_hour"
           },
           "capacity_trajectory_uncertainty": {
-            "title": "Capacity Trajectory Uncertainty",
             "description": "The uncertainty associated with each datapoint in the predicted capacity evolution. Unit: milliampere_hour",
-            "unit": "milliampere_hour",
-            "type": "array",
             "items": {
               "type": "number"
-            }
+            },
+            "title": "Capacity Trajectory Uncertainty",
+            "type": "array",
+            "unit": "milliampere_hour"
           },
           "meta": {
-            "title": "Meta",
-            "description": "This field provides information regarding the reliability of the reported data. E.g. the success of the method for this quantity and the rating of the data. This is for this specific quantity, because a single method could fail individually for different quantities. It is not included in the RunInfo as one run may generate data for different quantities, for which the methods may fail individually.",
             "allOf": [
               {
-                "$ref": "#/definitions/MethodMeta"
+                "$ref": "#/$defs/MethodMeta"
               }
-            ]
+            ],
+            "description": "This field provides information regarding the reliability of the reported data. E.g. the success of the method for this quantity and the rating of the data. This is for this specific quantity, because a single method could fail individually for different quantities. It is not included in the RunInfo as one run may generate data for different quantities, for which the methods may fail individually."
+          },
+          "cell_info": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/CellInfo"
+              }
+            ],
+            "description": "Information about the cell provided by AutoBass."
           }
         },
         "required": [
@@ -475,10 +776,253 @@
           "end_of_life_uncertainty",
           "capacity_trajectory",
           "capacity_trajectory_uncertainty",
-          "meta"
-        ]
+          "meta",
+          "cell_info"
+        ],
+        "title": "DegradationEOLOutput",
+        "type": "object"
+      },
+      "FormulationComponent": {
+        "description": "This class shall be used when referring to chemicals as a component in a formulation.\n    When assembling a formulation based on FormulationComponents, consider, that it\n    might be required to use the same fraction type for all the chemicals.\n    ",
+        "properties": {
+          "chemical": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/Chemical"
+              }
+            ],
+            "description": "The chemical, which shall be described as a component in a solution ."
+          },
+          "fraction": {
+            "description": "The unitless fraction of the chemical in the total of the mixture.",
+            "title": "Fraction",
+            "type": "number"
+          },
+          "fraction_type": {
+            "description": "A string defining, what kind of a fraction is given in the formulation. This can be for example molar fractions, volume fractions, mass fractions,.... At the moment only molar fractions are supported.",
+            "title": "Fraction Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "chemical",
+          "fraction",
+          "fraction_type"
+        ],
+        "title": "FormulationComponent",
+        "type": "object"
+      },
+      "FormulationInfo": {
+        "description": "Additional information about a formulation, which is relevant for documentation\n    purposes",
+        "properties": {
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "A human readable name of the formulation.",
+            "title": "Name"
+          },
+          "uuid": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "A unique identifier assigned to this formulation in this run.",
+            "title": "Uuid"
+          },
+          "preparation_date": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The date when the formulation was prepared. For commercial formulations, the manufacturing date may be used.",
+            "title": "Preparation Date"
+          },
+          "batch": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "A batch number for the formulation, if it is available.",
+            "title": "Batch"
+          },
+          "location": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/Location"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "The location, where the physical formulation can be found, which corresponds to this specification."
+          }
+        },
+        "title": "FormulationInfo",
+        "type": "object"
+      },
+      "Location": {
+        "description": " The location providing information on where to find physical samples or\n    equipment.",
+        "properties": {
+          "address": {
+            "description": "The physical address, where the object can be found. Depending on the usecase, this may be an official address or a name of an instute or similar. The default should be an address.",
+            "title": "Address",
+            "type": "string"
+          },
+          "detail_1": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "A more detailed description of a location. This may be e.g. a specific laboratory in a building, a desk in an office or a device or a cabinet.",
+            "title": "Detail 1"
+          },
+          "detail_2": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Another level of detail for a location. This may be e.g. a bench in the laboratory, a shelf in a cabinet  or a specific port in a machine.",
+            "title": "Detail 2"
+          }
+        },
+        "required": [
+          "address"
+        ],
+        "title": "Location",
+        "type": "object"
+      },
+      "MethodMeta": {
+        "description": "Additional information obtained from a method summarizing information, whether \n    the method was successfully run and what the rating for the returned data is.\n    ",
+        "properties": {
+          "success": {
+            "description": "This reports, if the method finished successfully.",
+            "title": "Success",
+            "type": "boolean"
+          },
+          "rating": {
+            "description": "This field serves to rate the quality of the result from the tenant side. It shall serve as a support for the recieving party upon evaluating the trustworthiness of the result. It shall range from 0 (lowest) to 5 (highest).",
+            "title": "Rating",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "success",
+          "rating"
+        ],
+        "title": "MethodMeta",
+        "type": "object"
+      },
+      "RunInfo": {
+        "description": "Metadata for a run of a method. This information may apply to all samples\n    processed in the respective run.\n    ",
+        "properties": {
+          "formulation": {
+            "description": "This is a formulation defining the Chemicals contained in thesample and their fraction in the total mixture.",
+            "items": {
+              "$ref": "#/$defs/FormulationComponent"
+            },
+            "title": "Formulation",
+            "type": "array"
+          },
+          "internal_reference": {
+            "description": "This field is an internal ID identifying this run of the method. In experimental setups, this may reference to an ID of the sample.",
+            "title": "Internal Reference",
+            "type": "string"
+          },
+          "formulation_info": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/FormulationInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "This is the metadata concerning the formulation relevant for documentation."
+          },
+          "chemicals_info": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "$ref": "#/$defs/ChemicalInfo"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "This is a dictionary of metadata of the chemicals relevant for documentation. The keys are InChIKeys of the chemicals contained in the formulation and the values are ChemicalInfo objects.",
+            "title": "Chemicals Info"
+          }
+        },
+        "required": [
+          "formulation",
+          "internal_reference"
+        ],
+        "title": "RunInfo",
+        "type": "object"
       }
-    }
+    },
+    "description": "Results returned from the following quantities:\n    'degradationEOL' - 'degradationModel'\n    ",
+    "properties": {
+      "run_info": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/RunInfo"
+          }
+        ],
+        "description": "The information regarding the formulation and the internal reference, which is common for all data generated in this run of the method."
+      },
+      "degradationEOL": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/DegradationEOLOutput"
+          }
+        ],
+        "description": "The data corresponding to the end of life for the cell and the degradation trajectory, each with the respective uncertainty."
+      }
+    },
+    "required": [
+      "run_info",
+      "degradationEOL"
+    ],
+    "title": "DegradationModelOutput",
+    "type": "object"
   },
   "is_active": true
 }
