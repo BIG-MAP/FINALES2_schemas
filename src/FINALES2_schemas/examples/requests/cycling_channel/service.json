@@ -1,0 +1,14 @@
+{
+    "quantity": "cycling_channel",
+    "methods": [
+      "service"
+    ],
+    "parameters": {
+      "service": {
+        "number_required_channels": 8,
+        "cycling_protocol": "BIG-MAP-Standard",
+        "number_cycles": 200
+      }
+    },
+    "tenant_uuid": "e699dab7-ba5e-4ad6-8126-522ca33b99a0"
+  }

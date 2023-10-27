@@ -1,0 +1,57 @@
+[
+    {
+        "quantity": "electrolyte",
+        "method": "flow",
+        "limitations": {
+          "formulation": [
+            [
+              {
+                "chemical": {
+                  "SMILES": "C1COC(=O)O1",
+                  "InChIKey": "KMTRUDSVKNLOMY-UHFFFAOYSA-N"
+                },
+                "fraction": [
+                  {
+                    "min": 0.0,
+                    "max": 0.542
+                  }
+                ],
+                "fraction_type": [
+                  "molPerMol"
+                ]
+              },
+              {
+                "chemical": {
+                  "SMILES": "[Li+].F[P-](F)(F)(F)(F)F",
+                  "InChIKey": "AXPLOJNSKRXQPA-UHFFFAOYSA-N"
+                },
+                "fraction": [
+                  {
+                    "min": 0.0,
+                    "max": 0.153
+                  }
+                ],
+                "fraction_type": [
+                  "molPerMol"
+                ]
+              },
+              {
+                "chemical": {
+                  "SMILES": "CCOC(=O)OC",
+                  "InChIKey": "JBTWLSYIZRCDFO-UHFFFAOYSA-N"
+                },
+                "fraction": [
+                  {
+                    "min": 0.4,
+                    "max": 1.0
+                  }
+                ],
+                "fraction_type": [
+                  "molPerMol"
+                ]
+              }
+            ]
+          ]
+        }
+      }
+]

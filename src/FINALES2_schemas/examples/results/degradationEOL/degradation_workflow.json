@@ -57,7 +57,7 @@
             "end_of_life_uncertainty": 5.9,
             "capacity_trajectory": [3.2, 2.9, 2.6, 2.4, 2.0],
             "capacity_trajectory_uncertainty": [0.04, 0.009, 0.02, 0.0005, 0.01],
-            "meta": {"success": "True", "rating": 5},
+            "meta": {"success": true, "rating": 5},
             "cell_info": {
               "cell_name": "CR2032",
               "uuid": "de309fbc-c3ec-4bc1-9431-a919b18901dc",

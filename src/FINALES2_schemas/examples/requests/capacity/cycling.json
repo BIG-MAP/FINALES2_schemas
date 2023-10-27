@@ -24,8 +24,8 @@
                         "address": "HIU", "detail_1": "ArbinNew", "detail_2": "LM16"
                     },
                 "reservation_number": "1234",
-                "capacity" : 0.045,
-                "I_max" : 0.005,
+                "capacity" : 0.0015,
+                "I_max" : 0.002,
                 "V_max" : 4.2,
                 "V_min" : 2.5,
                 "c_rate_charge_formation" : 1,

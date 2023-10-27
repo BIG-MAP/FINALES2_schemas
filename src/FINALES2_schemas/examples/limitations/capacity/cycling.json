@@ -1,0 +1,26 @@
+{
+    "quantity": "capacity",
+    "method": "cycling",
+    "limitations": [
+      {
+        "cycling_protocol" : ["BIG-MAP-Standard"],
+        "number_cycles" : [{"min":40, "max":200, "step":1}],
+        "cell_info" : [],
+        "location": [{"address": "HIU", "detail_1": "ArbinNew", "detail_2": "LM16"}],
+        "reservation_number" : [],
+        "capacity" : [{"min":0.0001, "max":0.002}],
+        "I_max"  : [{"min":0.0001, "max":0.002}],
+        "V_max": [{"min": 4.2, "max": 4.2}],
+        "V_min": [{"min": 2.5, "max": 2.5}],
+        "c_rate_charge_formation" : [{"min":0.1, "max":0.1}],
+        "c_rate_discharge_formation": [{"min":0.1, "max":0.1}],
+        "CV_I_cutoff_formation"  : [{"min":0.00001, "max":0.002}],
+        "repetions_formation_cycle" : [{"min":3, "max":3}],
+        "cycling_V_max" : [{"min": 4.2, "max": 4.2}],
+        "cycling_V_min" : [{"min": 2.5, "max": 2.5}],
+        "c_rate_charge" : [{"min": 1.0, "max": 1.0}],
+        "c_rate_discharge" : [{"min": 1.0, "max": 1.0}],
+        "CV_I_cutoff" : [{"min": 0.00001, "max": 0.002}]
+      }
+    ]
+  }

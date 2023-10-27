@@ -1,0 +1,21 @@
+{
+    "quantity": "transport",
+    "methods": [
+        "transport_service"
+    ],
+    "parameters":{
+        "transport_service":{
+            "origin": {
+                "address": "KIT HIU Ulm",
+                "detail_1": "ASAB",
+                "detail_2": "vial_5"
+              },
+              "destination": {
+                "address": "KIT HIU Ulm",
+                "detail_1": "AutoBASS",
+                "detail_2": "Tray: 7"
+              }
+        }
+    },
+    "tenant_uuid": "373f228c72f04542a6bcd68e7aa3fea7"
+}

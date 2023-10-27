@@ -1,0 +1,22 @@
+{
+    "data": {
+        "success": true,
+
+    "reservation_id": "eeeeeeee-ba5e-4ad6-8126-522ca33b99a0"
+
+  },
+    "quantity": "cycling_channel",
+    "method": [
+      "service"
+    ],
+    "parameters": {
+        "service":{
+            "number_required_channels": 8,
+            "cycling_protocol": "BIG-MAP-Standard",
+            "number_cycles": 200
+        }
+      
+    },
+    "tenant_uuid": "e699dab7-ba5e-4ad6-8126-522ca33b99a0",
+    "request_uuid": "c6c5b90b-e1f1-4a07-a784-6b9f287a4679"  
+  }

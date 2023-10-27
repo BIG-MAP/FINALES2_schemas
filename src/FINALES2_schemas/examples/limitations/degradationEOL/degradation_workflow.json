@@ -1,6 +1,6 @@
 {
     "quantity": "degradationEOL",
-    "method": "degradation_model",
+    "method": "degradation_workflow",
     "limitations": {
       "anyOf": [
         {
@@ -15,7 +15,7 @@
                   "fraction": [
                     {
                       "min": 0.0,
-                      "max": 1.0
+                      "max": 0.542
                     }
                   ],
                   "fraction_type": [
@@ -30,7 +30,7 @@
                   "fraction": [
                     {
                       "min": 0.0,
-                      "max": 1.0
+                      "max": 0.153
                     }
                   ],
                   "fraction_type": [
@@ -44,7 +44,7 @@
                   },
                   "fraction": [
                     {
-                      "min": 0.0,
+                      "min": 0.4,
                       "max": 1.0
                     }
                   ],
@@ -55,12 +55,66 @@
               ]
             ],
             "anode": {
-              "material": [],
-              "mass_loading": []
+              "material": [
+                [
+                  {
+                    "chemical": {
+                      "SMILES": [
+                        "[C]"
+                      ],
+                      "InChIKey": [
+                        "OKTJSMMVPCPJKN-UHFFFAOYSA-N"
+                      ]
+                    },
+                    "fraction": [
+                      {
+                        "min": 1.0,
+                        "max": 1.0
+                      }
+                    ],
+                    "fraction_type": [
+                      "molPerMol"
+                    ]
+                  }
+                ]
+              ],
+              "mass_loading": [
+                {
+                  "min": 1.0,
+                  "max": 1.1
+                }
+              ]
             },
             "cathode": {
-              "material": [],
-              "mass_loading": []
+              "material": [
+                [
+                  {
+                    "chemical": {
+                      "SMILES": [
+                        "[Li+].[O-][Ni]=O"
+                      ],
+                      "InChIKey": [
+                        "VROAXDSNYPAOBJ-UHFFFAOYSA-N"
+                      ]
+                    },
+                    "fraction": [
+                      {
+                        "min": 1.0,
+                        "max": 1.0
+                      }
+                    ],
+                    "fraction_type": [
+                      "molPerMol"
+                    ]
+                  }
+                ]
+              ],
+              "mass_loading": [
+                {
+                  "min": 1.0,
+                  "max": 1.1
+                }
+              ]
             }
           },
           "input_cycles": [],
