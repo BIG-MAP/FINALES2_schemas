@@ -51,7 +51,7 @@
           }
       },
       "degradationEOL": {
-          "end_of_life": 400,
+          "end_of_life": 200,
           "end_of_life_uncertainty": 5.9,
           "capacity_trajectory": [3.2, 2.9, 2.6, 2.4, 2.0],
           "capacity_trajectory_uncertainty": [0.04, 0.009, 0.02, 0.0005, 0.01],
@@ -613,7 +613,16 @@
     "delta_coulombic_efficiency": -0.0017865170731978797,
     "voltage_gap_charge_discharge": 0.05114420658165697,
     "capacity_vector_variance": -15.11374680406646,
-    "cell_info": {}
+    "cell_info": {
+        "cell_name": "CR2032",
+        "uuid": "CELL-1",
+        "assembly_date": "14.08.2023",
+        "batch": "1",
+        "anode_info": {"name": "Gr", "uuid": "LNO-1", "preparation_date": "10.08.2023", "batch": "1", "location": {"address": "HIU", "detail_1": "GloveboxEU", "detail_2": "AutoBASS WP"}},
+        "cathode_info": {"name": "LNO", "uuid": "LNO-1", "preparation_date": "10.08.2023", "batch": "1", "location": {"address": "HIU", "detail_1": "GloveboxEU", "detail_2": "AutoBASS WP"}},
+        "electrolyte_info": {"name": "electrolyte1", "uuid": "ELEYT-1", "preparation_date": "14.08.2023", "batch": "1", "location": {"address": "HIU", "detail_1": "GloveboxEU", "detail_2": "AutoBASS WP"}},
+        "cell_location": {"address": "HIU", "detail_1": "GloveboxEU", "detail_2": "AutoBASS WP"} 
+    }
   }
     },
     "tenant_uuid": "7337771802bd49d7ae8437d6bff2bfc2",
