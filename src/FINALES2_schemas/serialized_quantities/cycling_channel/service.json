@@ -2,7 +2,7 @@
   "quantity": "cycling_channel",
   "method": "service",
   "json_schema_specifications": {
-    "description": "\n    Parameters to be used with the following quantities:\n    `cycling_channel` - `service`\n    ",
+    "description": "Parameters to be used with the following quantities:\n`cycling_channel` - `service`",
     "properties": {
       "number_required_channels": {
         "description": "The number of cycling channels required for the cycling experiment.",
@@ -43,7 +43,7 @@
     "type": "object"
   },
   "json_schema_result_output": {
-    "description": "\n    Results returned from the following quantities:\n    'capacity' - 'cycling'\n    ",
+    "description": "Results returned from the following quantities:\n'capacity' - 'cycling'",
     "properties": {
       "success": {
         "description": "Indicator for the success of the reservation. This is False, if the number of available channels is not sufficient to satisfy the request.",

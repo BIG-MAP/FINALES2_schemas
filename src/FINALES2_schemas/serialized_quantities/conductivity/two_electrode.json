@@ -25,7 +25,7 @@
         "type": "object"
       },
       "FormulationComponent": {
-        "description": "This class shall be used when referring to chemicals as a component in a formulation.\n    When assembling a formulation based on FormulationComponents, consider, that it\n    might be required to use the same fraction type for all the chemicals.\n    ",
+        "description": "This class shall be used when referring to chemicals as a component in a formulation.\nWhen assembling a formulation based on FormulationComponents, consider, that it\nmight be required to use the same fraction type for all the chemicals.",
         "properties": {
           "chemical": {
             "allOf": [
@@ -55,7 +55,7 @@
         "type": "object"
       }
     },
-    "description": "Parameters used by the quantities\n    'conductivity' - 'twoElectrodeMeasuringCell'\n    'conductivity' - 'molecularDynamicsSimulation'\n\n    :param BaseModel: used to ensure, that the class can be checked for the types\n    :type BaseModel: pydantic.BaseModel\n    ",
+    "description": "Parameters used by the quantities\n'conductivity' - 'twoElectrodeMeasuringCell'\n'conductivity' - 'molecularDynamicsSimulation'\n\n:param BaseModel: used to ensure, that the class can be checked for the types\n:type BaseModel: pydantic.BaseModel",
     "properties": {
       "formulation": {
         "description": "This is a formulation defining the Chemicals contained in the sample and their fraction in the total mixture.",
@@ -110,7 +110,7 @@
         "type": "object"
       },
       "ChemicalInfo": {
-        "description": "Additional information about a chemical, which is relevant for documentation\n    purposes",
+        "description": "Additional information about a chemical, which is relevant for documentation\npurposes",
         "properties": {
           "name": {
             "anyOf": [
@@ -217,7 +217,7 @@
         "type": "object"
       },
       "ConductivityOutput": {
-        "description": "\n    Results returned from the following quantities:\n    'conductivity' - 'two_electrode'\n    'conductivity' - 'molecular_dynamics_conductivity'\n    ",
+        "description": "Results returned from the following quantities:\n'conductivity' - 'two_electrode'\n'conductivity' - 'molecular_dynamics_conductivity'",
         "properties": {
           "values": {
             "description": "The values determined for the conductivity. Unit: siemens / meter",
@@ -259,7 +259,7 @@
         "type": "object"
       },
       "FormulationComponent": {
-        "description": "This class shall be used when referring to chemicals as a component in a formulation.\n    When assembling a formulation based on FormulationComponents, consider, that it\n    might be required to use the same fraction type for all the chemicals.\n    ",
+        "description": "This class shall be used when referring to chemicals as a component in a formulation.\nWhen assembling a formulation based on FormulationComponents, consider, that it\nmight be required to use the same fraction type for all the chemicals.",
         "properties": {
           "chemical": {
             "allOf": [
@@ -289,7 +289,7 @@
         "type": "object"
       },
       "FormulationInfo": {
-        "description": "Additional information about a formulation, which is relevant for documentation\n    purposes",
+        "description": "Additional information about a formulation, which is relevant for documentation\npurposes",
         "properties": {
           "name": {
             "anyOf": [
@@ -360,7 +360,7 @@
         "type": "object"
       },
       "Location": {
-        "description": " The location providing information on where to find physical samples or\n    equipment.",
+        "description": "The location providing information on where to find physical samples or\nequipment.",
         "properties": {
           "address": {
             "description": "The physical address, where the object can be found. Depending on the usecase, this may be an official address or a name of an instute or similar. The default should be an address.",
@@ -401,7 +401,7 @@
         "type": "object"
       },
       "MethodMeta": {
-        "description": "Additional information obtained from a method summarizing information, whether \n    the method was successfully run and what the rating for the returned data is.\n    ",
+        "description": "Additional information obtained from a method summarizing information, whether \nthe method was successfully run and what the rating for the returned data is.",
         "properties": {
           "success": {
             "description": "This reports, if the method finished successfully.",
@@ -422,7 +422,7 @@
         "type": "object"
       },
       "RunInfo": {
-        "description": "Metadata for a run of a method. This information may apply to all samples\n    processed in the respective run.\n    ",
+        "description": "Metadata for a run of a method. This information may apply to all samples\nprocessed in the respective run.",
         "properties": {
           "formulation": {
             "description": "This is a formulation defining the Chemicals contained in thesample and their fraction in the total mixture.",
@@ -474,7 +474,7 @@
         "type": "object"
       }
     },
-    "description": "\n    Results returned from the following quantities:\n    'conductivity' - 'two_electrode'\n    ",
+    "description": "Results returned from the following quantities:\n'conductivity' - 'two_electrode'",
     "properties": {
       "run_info": {
         "allOf": [

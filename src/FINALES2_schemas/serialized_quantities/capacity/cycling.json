@@ -4,7 +4,7 @@
   "json_schema_specifications": {
     "$defs": {
       "CellInfo": {
-        "description": "Additional information about a cell, which is relevant for documentation\n    purposes",
+        "description": "Additional information about a cell, which is relevant for documentation\npurposes",
         "properties": {
           "cell_name": {
             "anyOf": [
@@ -111,7 +111,7 @@
         "type": "object"
       },
       "FormulationInfo": {
-        "description": "Additional information about a formulation, which is relevant for documentation\n    purposes",
+        "description": "Additional information about a formulation, which is relevant for documentation\npurposes",
         "properties": {
           "name": {
             "anyOf": [
@@ -182,7 +182,7 @@
         "type": "object"
       },
       "Location": {
-        "description": " The location providing information on where to find physical samples or\n    equipment.",
+        "description": "The location providing information on where to find physical samples or\nequipment.",
         "properties": {
           "address": {
             "description": "The physical address, where the object can be found. Depending on the usecase, this may be an official address or a name of an instute or similar. The default should be an address.",
@@ -223,7 +223,7 @@
         "type": "object"
       }
     },
-    "description": "\n    Parameters to be used with the following quantities:\n    `capacity` - `cycling`\n    ",
+    "description": "Parameters to be used with the following quantities:\n`capacity` - `cycling`",
     "properties": {
       "cycling_protocol": {
         "description": "Name of a standardized test protocol (i.e. BIG-MAP-Cycling).",
@@ -451,7 +451,7 @@
   "json_schema_result_output": {
     "$defs": {
       "CellInfo": {
-        "description": "Additional information about a cell, which is relevant for documentation\n    purposes",
+        "description": "Additional information about a cell, which is relevant for documentation\npurposes",
         "properties": {
           "cell_name": {
             "anyOf": [
@@ -558,7 +558,7 @@
         "type": "object"
       },
       "FormulationInfo": {
-        "description": "Additional information about a formulation, which is relevant for documentation\n    purposes",
+        "description": "Additional information about a formulation, which is relevant for documentation\npurposes",
         "properties": {
           "name": {
             "anyOf": [
@@ -629,7 +629,7 @@
         "type": "object"
       },
       "Location": {
-        "description": " The location providing information on where to find physical samples or\n    equipment.",
+        "description": "The location providing information on where to find physical samples or\nequipment.",
         "properties": {
           "address": {
             "description": "The physical address, where the object can be found. Depending on the usecase, this may be an official address or a name of an instute or similar. The default should be an address.",
@@ -670,7 +670,7 @@
         "type": "object"
       }
     },
-    "description": "\n    Results returned from the following quantities:\n    `capacity` - `cycling`\n    ",
+    "description": "Results returned from the following quantities:\n`capacity` - `cycling`",
     "properties": {
       "capacity_list": {
         "description": "A list with calculated capacities in Ah for charge and discharge alternately.",
