@@ -25,7 +25,7 @@
         "type": "object"
       },
       "FormulationComponent": {
-        "description": "This class shall be used when referring to chemicals as a component in a formulation.\n    When assembling a formulation based on FormulationComponents, consider, that it\n    might be required to use the same fraction type for all the chemicals.\n    ",
+        "description": "This class shall be used when referring to chemicals as a component in a formulation.\nWhen assembling a formulation based on FormulationComponents, consider, that it\nmight be required to use the same fraction type for all the chemicals.",
         "properties": {
           "chemical": {
             "allOf": [
@@ -55,7 +55,7 @@
         "type": "object"
       }
     },
-    "description": "\n    Parameters to be used with the following quantities:\n    `radial_density_function` - `molecular_dynamics_RDF`\n    ",
+    "description": "Parameters to be used with the following quantities:\n`radial_density_function` - `molecular_dynamics_RDF`",
     "properties": {
       "formulation": {
         "description": "The formulation to be simulated. This is required to be provided in units of mol per mol.",
@@ -95,7 +95,7 @@
     "type": "object"
   },
   "json_schema_result_output": {
-    "description": "\n    Results returned from the following quantities:\n    'radial_density_function' - 'molecular_dynamics_RDF'\n    ",
+    "description": "Results returned from the following quantities:\n'radial_density_function' - 'molecular_dynamics_RDF'",
     "properties": {
       "radius": {
         "description": "The radius at which atoms of the respecive species appear.",
