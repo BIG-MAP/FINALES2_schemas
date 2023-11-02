@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import Optional
 from pydantic import BaseModel, Field
-from FINALES2_schemas.classes_common import MethodMeta, unit_registry, CellInfo
+from FINALES2_schemas.classes_common import MethodMeta, unit_registry, CellInfo, Cell
 
 class AssemblyOutput(BaseModel):
     """
@@ -10,6 +10,9 @@ class AssemblyOutput(BaseModel):
     """
     cell_info:CellInfo = Field(
         description=("The metadata associated with the assembled cell.")
+    )
+    cell:Cell = Field(
+        description=("The definition of the cell, which was assembled.")
     )
     manufacturing_img:str= Field(
         description=("The path, where the cells' manufacturing images can be accessed. This is "
