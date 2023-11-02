@@ -4,7 +4,7 @@
   "json_schema_specifications": {
     "$defs": {
       "Location": {
-        "description": "The location providing information on where to find physical samples or\nequipment.",
+        "description": " The location providing information on where to find physical samples or\n    equipment.",
         "properties": {
           "address": {
             "description": "The physical address, where the object can be found. Depending on the usecase, this may be an official address or a name of an instute or similar. The default should be an address.",
@@ -45,7 +45,7 @@
         "type": "object"
       }
     },
-    "description": "Parameters to be used with the following quantities:\n`transport` - `transport_service`",
+    "description": "\n    Parameters to be used with the following quantities:\n    `transport` - `transport_service`\n    ",
     "properties": {
       "origin": {
         "allOf": [
@@ -74,7 +74,7 @@
   "json_schema_result_output": {
     "$defs": {
       "Location": {
-        "description": "The location providing information on where to find physical samples or\nequipment.",
+        "description": " The location providing information on where to find physical samples or\n    equipment.",
         "properties": {
           "address": {
             "description": "The physical address, where the object can be found. Depending on the usecase, this may be an official address or a name of an instute or similar. The default should be an address.",
@@ -115,7 +115,7 @@
         "type": "object"
       }
     },
-    "description": "Results returned from the following quantities:\n'transport' - 'service'",
+    "description": "\n    Results returned from the following quantities:\n    'transport' - 'service'\n    ",
     "properties": {
       "success": {
         "description": "An information, whether the transport was successful.",
