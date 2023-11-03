@@ -1,0 +1,30 @@
+{
+    "@id":"/request_uuid",
+    "@type":"MeasurementResult",
+    "chameo:hasSampledSample":{
+        "@type":["LiquidSolution", "schema:Product"],
+        "@id":"/data/run_info/formulation/internal_reference",
+        "schema:name":"/data/run_info/formulation_info/name",
+        "schema:productionDate":"/data/run_info/formulation_info/preparation_date",
+        "schema:serialNumber":"/data/run_info/formulation_info/batch",
+        "hasConstituent":{
+                "@type":"ChemicalCompound",
+                "InChIKey":"/data/run_info/formulation/*/InChIKey",
+                "SMILES":"/data/run_info/formulation/*/SMILES"
+            }
+    },
+    "hasMeasuredProperty":{
+        "@type":"ElectricConductivity",
+        "hasQuantityValue":"/data/conductivity/values/*",
+        "hasReferenceUnit":"SiemensPerCentimetre"
+    },
+    "chameo:hasMeasurementParameter":{
+        "@type":"AmbientThermodynamicTemperature",
+        "hasQuantityValue":"/data/conductivity/temperature",
+        "hasReferenceUnit":"Kelvin"
+    },
+    "hasSubProcess":{
+        "@type":"Conductometry",
+        "schema:name":"/method/0"
+    }
+}

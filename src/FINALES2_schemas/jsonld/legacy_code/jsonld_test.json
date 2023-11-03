@@ -1,0 +1,376 @@
+[
+    {
+        "@id": "5362797a-e5d9-45ec-90a2-4f79be84d683",
+        "@type": [
+            "MeasurementResult"
+        ],
+        "hasQuantity": [
+            {
+                "@id": "_:Nf9c34023360c49dda5777a1830678c7c"
+            }
+        ],
+        "hasSampledSample": [
+            {
+                "@id": "_:N7036b96e99bd4d4492d02b5b3d408074"
+            },
+            {
+                "@id": "_:Ncd115e96434940e7bce27bf4a3623deb"
+            },
+            {
+                "@id": "_:Neabec0614afe4703894a8ae9028d0c55"
+            }
+        ],
+        "has_logical_input": [
+            {
+                "@id": "_:N64bf260018154b37b05692a67f133fce"
+            }
+        ],
+        "productionDate": [
+            {
+                "@value": "2023-07-26T11:22:20"
+            }
+        ]
+    },
+    {
+        "@id": "_:N7036b96e99bd4d4492d02b5b3d408074",
+        "@type": [
+            "LiquidSolution"
+        ],
+        "hasQuantitativeProperty": [
+            {
+                "@id": "_:Ncaea9b894d8744dcb54dd733f2dc4930"
+            }
+        ],
+        "hasConstituent": [
+            {
+                "@id": "_:Nffe61637392d4b3eb2ad0c68600b455a"
+            }
+        ]
+    },
+    {
+        "@id": "_:Nffe61637392d4b3eb2ad0c68600b455a",
+        "@type": [
+            "ChemicalCompound"
+        ],
+        "InChI": [
+            {
+                "@value": "AXPLOJNSKRXQPA-UHFFFAOYSA-N"
+            }
+        ],
+        "SMILES": [
+            {
+                "@value": "[Li+].F[P-](F)(F)(F)(F)F"
+            }
+        ]
+    },
+    {
+        "@id": "_:Ncaea9b894d8744dcb54dd733f2dc4930",
+        "@type": [
+            "AmountFraction"
+        ],
+        "hasReferenceUnit": [
+            {
+                "@id": "AmountFractionUnit"
+            }
+        ],
+        "hasQuantityValue": [
+            {
+                "@value": 0.05
+            }
+        ]
+    },
+    {
+        "@id": "_:Ncd115e96434940e7bce27bf4a3623deb",
+        "@type": [
+            "LiquidSolution"
+        ],
+        "hasQuantitativeProperty": [
+            {
+                "@id": "_:N52323f4ab0654495a415dd2a8e42306e"
+            }
+        ],
+        "hasConstituent": [
+            {
+                "@id": "_:N31e9c4451c1a4e1a8f5d322487dfa725"
+            }
+        ]
+    },
+    {
+        "@id": "_:N31e9c4451c1a4e1a8f5d322487dfa725",
+        "@type": [
+            "ChemicalCompound"
+        ],
+        "InChI": [
+            {
+                "@value": "KMTRUDSVKNLOMY-UHFFFAOYSA-N"
+            }
+        ],
+        "SMILES": [
+            {
+                "@value": "C1COC(=O)O1"
+            }
+        ]
+    },
+    {
+        "@id": "_:N52323f4ab0654495a415dd2a8e42306e",
+        "@type": [
+            "AmountFraction"
+        ],
+        "hasReferenceUnit": [
+            {
+                "@id": "AmountFractionUnit"
+            }
+        ],
+        "hasQuantityValue": [
+            {
+                "@value": 0.45
+            }
+        ]
+    },
+    {
+        "@id": "_:Neabec0614afe4703894a8ae9028d0c55",
+        "@type": [
+            "LiquidSolution"
+        ],
+        "hasQuantitativeProperty": [
+            {
+                "@id": "_:N8bd3e804edbd4cc29f866d7d275be7e1"
+            }
+        ],
+        "hasConstituent": [
+            {
+                "@id": "_:Nb44bd86f27964a44bfefb67ecaedef5e"
+            }
+        ]
+    },
+    {
+        "@id": "_:Nb44bd86f27964a44bfefb67ecaedef5e",
+        "@type": [
+            "ChemicalCompound"
+        ],
+        "InChI": [
+            {
+                "@value": "RUOJZAUFBMNUDX-UHFFFAOYSA-N"
+            }
+        ],
+        "SMILES": [
+            {
+                "@value": "CC1COC(=O)O1"
+            }
+        ]
+    },
+    {
+        "@id": "_:N8bd3e804edbd4cc29f866d7d275be7e1",
+        "@type": [
+            "AmountFraction"
+        ],
+        "hasReferenceUnit": [
+            {
+                "@id": "AmountFractionUnit"
+            }
+        ],
+        "hasQuantityValue": [
+            {
+                "@value": 0.5
+            }
+        ]
+    },
+    {
+        "@id": "_:Nf9c34023360c49dda5777a1830678c7c",
+        "@type": [
+            "ElectricConductivity"
+        ],
+        "hasReferenceUnit": [
+            {
+                "@id": "SiemensPerCentimetre"
+            }
+        ],
+        "hasQuantityValue": [
+            {
+                "@value": 0.008328539145648056
+            }
+        ]
+    },
+    {
+        "@id": "_:N64bf260018154b37b05692a67f133fce",
+        "@type": [
+            "ModelledQuantitativeProperty"
+        ],
+        "SamplePreparationParameter": [
+            {
+                "@id": "_:N0eb48472dcf24fef9a1162eb1d26ac0b"
+            }
+        ],
+        "hasSampledSample": [
+            {
+                "@id": "_:N81e271915e9844dbbbf06c0bb38540de"
+            },
+            {
+                "@id": "_:Nba1d6c4fd77348e38b8316cffae2496c"
+            },
+            {
+                "@id": "_:N3d86277aa66247a5824dfa3ffce01706"
+            }
+        ]
+    },
+    {
+        "@id": "_:N81e271915e9844dbbbf06c0bb38540de",
+        "@type": [
+            "LiquidSolution"
+        ],
+        "hasQuantitativeProperty": [
+            {
+                "@id": "_:Ncd0baf8280004e22a0b1cd49e53964ac"
+            }
+        ],
+        "hasConstituent": [
+            {
+                "@id": "_:N5e357b4f6752499f804b090523da87bf"
+            }
+        ]
+    },
+    {
+        "@id": "_:N5e357b4f6752499f804b090523da87bf",
+        "@type": [
+            "ChemicalCompound"
+        ],
+        "InChI": [
+            {
+                "@value": "AXPLOJNSKRXQPA-UHFFFAOYSA-N"
+            }
+        ],
+        "SMILES": [
+            {
+                "@value": "[Li+].F[P-](F)(F)(F)(F)F"
+            }
+        ]
+    },
+    {
+        "@id": "_:Ncd0baf8280004e22a0b1cd49e53964ac",
+        "@type": [
+            "AmountFraction"
+        ],
+        "hasReferenceUnit": [
+            {
+                "@id": "AmountFractionUnit"
+            }
+        ],
+        "hasQuantityValue": [
+            {
+                "@value": 0.05
+            }
+        ]
+    },
+    {
+        "@id": "_:Nba1d6c4fd77348e38b8316cffae2496c",
+        "@type": [
+            "LiquidSolution"
+        ],
+        "hasQuantitativeProperty": [
+            {
+                "@id": "_:Nc4df84d1a2b84302a5d458a3b0186c11"
+            }
+        ],
+        "hasConstituent": [
+            {
+                "@id": "_:N2626201080464fc997a0a321f6fdc03b"
+            }
+        ]
+    },
+    {
+        "@id": "_:N2626201080464fc997a0a321f6fdc03b",
+        "@type": [
+            "ChemicalCompound"
+        ],
+        "InChI": [
+            {
+                "@value": "KMTRUDSVKNLOMY-UHFFFAOYSA-N"
+            }
+        ],
+        "SMILES": [
+            {
+                "@value": "C1COC(=O)O1"
+            }
+        ]
+    },
+    {
+        "@id": "_:Nc4df84d1a2b84302a5d458a3b0186c11",
+        "@type": [
+            "AmountFraction"
+        ],
+        "hasReferenceUnit": [
+            {
+                "@id": "AmountFractionUnit"
+            }
+        ],
+        "hasQuantityValue": [
+            {
+                "@value": 0.45
+            }
+        ]
+    },
+    {
+        "@id": "_:N3d86277aa66247a5824dfa3ffce01706",
+        "@type": [
+            "LiquidSolution"
+        ],
+        "hasQuantitativeProperty": [
+            {
+                "@id": "_:Nf160d27818eb4795879fde5c294f48f1"
+            }
+        ],
+        "hasConstituent": [
+            {
+                "@id": "_:N6e5ec22f24cd46209c37b67f224df468"
+            }
+        ]
+    },
+    {
+        "@id": "_:N6e5ec22f24cd46209c37b67f224df468",
+        "@type": [
+            "ChemicalCompound"
+        ],
+        "InChI": [
+            {
+                "@value": "RUOJZAUFBMNUDX-UHFFFAOYSA-N"
+            }
+        ],
+        "SMILES": [
+            {
+                "@value": "CC1COC(=O)O1"
+            }
+        ]
+    },
+    {
+        "@id": "_:Nf160d27818eb4795879fde5c294f48f1",
+        "@type": [
+            "AmountFraction"
+        ],
+        "hasReferenceUnit": [
+            {
+                "@id": "AmountFractionUnit"
+            }
+        ],
+        "hasQuantityValue": [
+            {
+                "@value": 0.5
+            }
+        ]
+    },
+    {
+        "@id": "_:N0eb48472dcf24fef9a1162eb1d26ac0b",
+        "@type": [
+            "AmbientThermodynamicTemperature"
+        ],
+        "hasReferenceUnit": [
+            {
+                "@id": "Kelvin"
+            }
+        ],
+        "hasQuantityValue": [
+            {
+                "@value": 298
+            }
+        ]
+    }
+]

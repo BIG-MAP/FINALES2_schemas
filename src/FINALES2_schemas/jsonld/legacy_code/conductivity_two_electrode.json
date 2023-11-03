@@ -1,0 +1,151 @@
+{
+    "@context": {
+        "batt": "http://emmo.info/battery#",
+        "echm": "http://emmo.info/electrochemistry#",
+        "schema": "https://schema.org/",
+        "placeholder":"https://example.org/",
+        "MeasurementResult":"http://emmo.info/emmo#EMMO_0f6f0120_c079_4d95_bb11_4ddee05e530e",
+        "Density": "http://emmo.info/emmo#EMMO_06448f64_8db6_4304_8b2c_e785dba82044",
+        "ElectricConductivity": "http://emmo.info/emmo#EMMO_cde4368c_1d4d_4c94_8548_604749523c6d",
+        "LiquidSolution":"http://emmo.info/emmo#EMMO_4b3e2374_52a1_4420_8e3f_3ae6b9bf7dff",
+        "ChemicalCompound": "http://emmo.info/emmo#EMMO_e2b11f6a_4191_427e_9844_2e0ac88dfc8b",
+        "AmountConcentration":"http://emmo.info/emmo#EMMO_d5be1faf_0c56_4f5a_9b78_581e6dee949f",
+        "AmountFraction":"http://emmo.info/emmo#EMMO_04b3300c_98bd_42dc_a3b5_e6c29d69f1ac",
+        "SMILES": "http://emmo.info/emmo#EMMO_cf604b30_42be_44c7_a379_795236967ec2",
+        "InChI": "http://emmo.info/emmo#EMMO_b292d30e_4d60_43f5_9f3e_9c4e00e17a10",
+        "PubChem":"http://emmo.info/emmo#EMMO_371f5265_fa29_4081_b722_2c530b1fdddb",
+        "CAS": "http://emmo.info/emmo#EMMO_8d841526_ba33_4436_9344_51b5d6928d82",
+        "AmbientThermodynamicTemperature":"http://emmo.info/electrochemistry#electrochemistry_39a44af0_0e1a_4859_b550_bdabad64386e",
+
+
+        "hasConstituent": {
+            "@id": "http://emmo.info/emmo#EMMO_dba27ca1_33c9_4443_a912_1519ce4c39ec",
+            "@type": "@id"
+        },
+        "hasQuantity": {
+            "@id": "http://emmo.info/emmo#EMMO_5d73661e_e710_4844_ab9b_a85b7e68576a",
+            "@type": "@id"
+        },
+   
+        "hasMeasurementUncertainty": {
+            "@id": "http://emmo.info/emmo#EMMO_662c64e7_fc72_49b3_a161_f50fd42deafa",
+            "@type": "@id"
+        },
+        "hasQuantityValue": {
+            "@id": "http://emmo.info/emmo#EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0"
+        },
+        "hasQuantitativeProperty": {
+            "@id": "http://emmo.info/emmo#EMMO_0aa934ee_1ad4_4345_8a7f_bc73ec67c7e5",
+            "@type": "@id"
+        }
+    },
+
+
+    "@type": "MeasurementResult",
+    "schema:description": "Experimental conductivity measurement using a two electrode cell.",
+    "schema:name": "Electrolyte conductivity",
+    "schema:productionDate":  "2023-05-02",
+    "schema:manufacturer": {"@id": "https://ror.org/04t3en479"},
+    "schema:creator": {"@id":"https://orcid.org/0000-0001-8514-5601"},
+
+    "hasQuantity": [
+            {
+            "@type": "ElectricConductivity",
+            "hasReferenceUnit": "http://emmo.info/emmo#EMMO_86ffe1bb_d457_4948_9e39_35f363b9a9fe",
+            "hasQuantityValue": {
+                "@type": "Real",
+                "hasNumericalData": 0.00165
+                },
+            "hasMeasurementUncertainty": {
+                "@type": "Real",
+                "hasNumericalData": 0.00005
+                }           
+            }
+    ],
+
+
+    "placeholder:hasSample":{
+        "@type":"LiquidSolution",
+        "@id": "uuid_cool_formulation_4c993m_22d4r5",
+        "schema:name":  "LP30",
+        "schema:productionDate":  "2023-02-02",
+        "schema:manufacturer": {"@id": "https://ror.org/04t3en479"},
+        "schema:creator": {"@id":"https://orcid.org/0000-0001-8514-5601"},
+        "hasConstituent": [
+            {
+                "@type": "ChemicalCompound",
+                "schema:name":"Lithium Hexafluorophosphate",
+                "ChemicalFormula": "LiPF6",
+                "CAS":"21324-40-3",
+                "InChI":"InChI=1S/F6P.Li/c1-7(2,3,4,5)6;/q-1;+1",
+                "PubChemCID":{"@type":"PubChem",
+                                "@id":23688915},
+                "hasQuantitativeProperty": [
+                    {
+                        "@type":"AmountConcentration",
+                        "hasReferenceUnit":"http://emmo.info/emmo#EMMO_64cd6291_3bb8_4fa8_82ed_9d73eba29add",
+                        "hasQuantityValue": {
+                            "@type": "Real",
+                            "hasNumericalData": 1.12
+                            }
+                    }
+                ]
+            },
+
+            {
+                "@type": "ChemicalCompound",
+                "schema:name":"Dimethyl Carbonate",
+                "ChemicalFormula": "C3H6O3",
+                "CAS":"616-38-6",
+                "InChI":"InChI=1S/C3H6O3/c1-5-3(4)6-2/h1-2H3",
+                "PubChemCID":{"@type":"PubChem",
+                                "@id":12021},
+                "hasQuantitativeProperty": [
+                    {
+                        "@type":"AmountFraction",
+                        "hasReferenceUnit":"http://emmo.info/emmo#EMMO_f76f5a24_d703_4e8c_b368_f9a7777cb73a",
+                        "hasQuantityValue": {
+                            "@type": "Real",
+                            "hasNumericalData": 0.7
+                            }
+                    }
+                ]
+            },
+
+            {
+                "@type": "ChemicalCompound",
+                "schema:name":"Ethylene Carbonate",
+                "ChemicalFormula": "C3H4O3",
+                "CAS":"96-49-1",
+                "InChI":"InChI=1S/C3H4O3/c4-3-5-1-2-6-3/h1-2H2",
+                "PubChemCID":{"@type":"PubChem",
+                                "@id":7303},
+                "hasQuantitativeProperty": [
+                    {
+                        "@type":"AmountFraction",
+                        "hasReferenceUnit":"http://emmo.info/emmo#EMMO_f76f5a24_d703_4e8c_b368_f9a7777cb73a",
+                        "hasQuantityValue": {
+                            "@type": "Real",
+                            "hasNumericalData": 0.3
+                            }
+                    }
+                ]
+            }
+        ]
+    },
+
+    "placeholder:hasMeasurementConditions":[
+        {
+            "@type":"AmbientThermodynamicTemperature",
+            "schema:name":"Temperature of the measuring cell",
+            "hasReferenceUnit":"http://emmo.info/emmo#EMMO_2e5e45fc_f52c_4294_bdc2_5ed7a06dfce7",
+                        "hasQuantityValue": {
+                            "@type": "Real",
+                            "hasNumericalData": 301.9
+                            }
+        }
+    ]
+
+    
+
+}

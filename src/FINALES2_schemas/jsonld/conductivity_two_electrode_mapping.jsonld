@@ -1,0 +1,108 @@
+{
+    "@context":{
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "schema":"https://schema.org/",
+        "chameo":"http://emmo.info/emmo/domain/chameo/chameo#",
+        "osmo":"https://purl.vimmp.eu/semantics/osmo/osmo.ttl#",
+        "emmo":"http://emmo.info/emmo#",
+        "echem":"http://emmo.info/electrochemistry#",
+
+        "hasMeasuredProperty":"emmo:EMMO_fd689787_31b0_41cf_bf03_0d69af76469d",
+        "hasQuantitativeProperty": "emmo:#EMMO_0aa934ee_1ad4_4345_8a7f_bc73ec67c7e5",
+        "AmountFraction": "emmo:#EMMO_04b3300c_98bd_42dc_a3b5_e6c29d69f1ac",
+        "hasQuantityValue": "emmo:#EMMO_8ef3cd6d_ae58_4a8d_9fc0_ad8f49015cd0",
+        "hasReferenceUnit": "emmo:#EMMO_67fc0a36_8dcb_4ffa_9a43_31074efa3296",
+        "AmountFractionUnit":"emmo:#EMMO_f76f5a24_d703_4e8c_b368_f9a7777cb73a",
+        "ElectricConductivity": "emmo:#EMMO_cde4368c_1d4d_4c94_8548_604749523c6d",
+        "SiemensPerCentimetre": "emmo:#EMMO_867a93ba_9487_4bf7_b502_5eac13e9c4ab",
+        "AmbientThermodynamicTemperature":"echem:electrochemistry_39a44af0_0e1a_4859_b550_bdabad64386e",
+        "Kelvin": "emmo:#EMMO_2e5e45fc_f52c_4294_bdc2_5ed7a06dfce7",
+        "InChI": "emmo:#EMMO_b292d30e_4d60_43f5_9f3e_9c4e00e17a10",
+        "SMILES":"emmo:EMMO_cf604b30_42be_44c7_a379_795236967ec2",
+        "hasConstituent": "emmo:#EMMO_dba27ca1_33c9_4443_a912_1519ce4c39ec",
+        "ChemicalCompound": "emmo:#EMMO_e2b11f6a_4191_427e_9844_2e0ac88dfc8b",
+        "LiquidSolution": "emmo:#EMMO_4b3e2374_52a1_4420_8e3f_3ae6b9bf7dff",
+        "hasModelledProperty": "emmo:#EMMO_b8f79e53_2ad4_441d_87ff_284a5c419e46",
+        "MeasurementResult": "emmo:EMMO_0f6f0120_c079_4d95_bb11_4ddee05e530e",
+        "Conductometry": "echem:electrochemistry_b3a6d552_b38e_47ad_9d48_e8b77035d63e",  
+        "hasSubProcess":"emmo:EMMO_d43af210_f854_4432_a891_ce3022e3b558" ,
+        "Density":"emmo:EMMO_06448f64_8db6_4304_8b2c_e785dba82044",
+        "MolarMass":"emmo:EMMO_e980389d_6dfe_4156_9b40_32050c9644a5",
+        
+        "name":{
+            "@id":"schema:name",
+            "@type":"xsd:string"
+        }, 
+        "location":{
+            "@id":"schema:address",
+            "@type":"schema:PostalAddress"
+        },
+        "batch":{
+            "@id":"schema:serialNumber",
+            "@type":"xsd:string"
+        },
+        "preparation_date":{
+            "@id":"schema:productionDate",
+            "@type":"xsd:dateTime"
+        },
+        "formulation":{
+            "@id":"chameo:hasSampledSample",
+            "@type":"LiquidSolution"
+        },
+        "chemical":{
+            "@id":"hasConstituent",
+            "@type":"ChemicalCompound"
+        },   
+        "fraction":{
+            "@id":"hasQuantitativeProperty",
+            "@type":"AmountFraction",
+            "hasQuantityValue":"xsd:float",
+            "hasReferenceUnit":"emmo:MolePerMole"
+        },
+        "density":{
+            "@id":"hasQuantitativeProperty",
+            "@type":"Density",
+            "hasQuantityValue":"xsd:float",
+            "hasReferenceUnit":"emmo:GramPerMilliLitre"
+        },
+        "molar_mass":{
+            "@id":"hasQuantitativeProperty",
+            "@type":"MolarMass",
+            "hasQuantityValue": "xsd:float",
+            "hasReferenceUnit": "emmo:GramPerMole"
+        },
+        "internal_reference":{
+            "@id":"https://www.big-map.eu/uuid/FINALES/internal_refernce#",
+            "type@":"@id"
+        },
+        "uuid":{
+            "@id":"https://www.big-map.eu/uuid/FINALES/formulation#",
+            "type@":"@id"
+        },
+        "conductivity":{
+            "@id":"hasMeasuredProperty",
+            "@type":"ElectricConductivity",
+            "hasQuantityValue":"xsd:float",
+            "hasReferenceUnit":"SiemensPerCentimetre"
+        },
+        "temperature":{
+            "@id":"chameo:hasMeasurementParameter",
+            "@type":"AmbientThermodynamicTemperature",
+            "hasQuantityValue":"xsd:float",
+            "hasReferenceUnit":"Kelvin"
+        },
+        "method":{
+            "@id":"hasSubProcess",
+            "@type":"Conductometry",
+            "schema:name":"xsd:string"
+        },
+        "tenant_uuid":{
+            "@id":"https://www.big-map.eu/uuid/FINALES/tenant#",
+            "type@":"@id"
+        },
+        "request_uuid":{
+            "@id":"https://www.big-map.eu/uuid/FINALES/request#",
+            "type@":"@id"
+        }
+    }
+}
