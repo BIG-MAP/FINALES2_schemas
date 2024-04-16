@@ -39,3 +39,7 @@ To understand the data structures as a human, you can request a capability from 
 
 ## How to add new schemas for my quantity and method
 The procedure of how to add new schema classes is given in the [Wiki](https://github.com/BIG-MAP/FINALES2_schemas/wiki/Adding-new-schemas).
+
+## Acknowledgements
+
+This project has received funding from the European Union’s [Horizon 2020 research and innovation programme](https://ec.europa.eu/programmes/horizon2020/en) under grant agreement [No 957189](https://cordis.europa.eu/project/id/957189).
