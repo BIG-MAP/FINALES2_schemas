@@ -42,4 +42,10 @@ The procedure of how to add new schema classes is given in the [Wiki](https://gi
 
 # Acknowledgements
 
-This project received funding from the European Union’s [Horizon 2020 research and innovation programme](https://ec.europa.eu/programmes/horizon2020/en) under grant agreement [No 957189](https://cordis.europa.eu/project/id/957189) (BIG-MAP). The authors acknowledge BATTERY2030PLUS, funded by the European Union’s Horizon 2020 research and innovation program under grant agreement no. 957213. This work contributes to the research performed at CELEST (Center for Electrochemical Energy Storage Ulm-Karlsruhe) and was co-funded by the German Research Foundation (DFG) under Project ID 390874152 (POLiS Cluster of Excellence).
+This project received funding from the European Union’s [Horizon 2020 research and innovation programme](https://ec.europa.eu/programmes/horizon2020/en) under grant agreement [No 957189](https://cordis.europa.eu/project/id/957189) (BIG-MAP). This work contributes to the research performed at CELEST (Center for Electrochemical Energy Storage Ulm-Karlsruhe) and was co-funded by the German Research Foundation (DFG) under Project ID 390874152 (POLiS Cluster of Excellence).
+HSS acknowledges funding from DFG EXC 2089/1-390776260 (e-conversion).
+TV acknowledges funding from the Pioneer Center for Accelerating Materials Discovery (CAPeX), DNRF Grant P3.
+FFR, FL and GP acknowledge funding by the NCCR MARVEL, a National Centre of Competence in Research, funded by the Swiss National Science Foundation (grant number 205602).
+GP acknowledges funding by the Open Research Data Program of the ETH Board (project ``PREMISE'': Open and Reproducible Materials Science Research).
+FL and GP acknowledge useful discussions and support by Valeria Granata in the setup of the Archiving tenant.
+MV acknowledges fruitful discussions with Jackson K. Flowers regarding the transformation of formulations in the ASAB tenant. LM and MV acknowledge effective discussions with Christian Wölke concerning the cycling data obtained from the pretests.
